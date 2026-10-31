@@ -1,354 +1,181 @@
-
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
-    <!-- INFORMATIONS GÉNÉRALES -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta
-        name="description"
-        content="Parlons de votre prochain film, de votre événement ou de votre projet audiovisuel."
-    >
-
+    <meta name="description" content="Contactez Digital Art Production pour vos projets de films, drone et FPV.">
     <title>Contact | Digital Art Production</title>
-
-    <!-- FEUILLE DE STYLE -->
     <link rel="stylesheet" href="style.css">
+    <style>
+/* Style limité au formulaire, sans modifier les autres pages */
+.contact-form-section{width:100%;max-width:900px;margin:0 auto;padding:10px 0 70px}
+.contact-form-heading{margin-bottom:35px;text-align:left}
+.contact-form-heading .contact-eyebrow{color:#aaa;font-size:11px;letter-spacing:2.5px;font-weight:600;margin-bottom:15px}
+.contact-form-heading h2{font-size:clamp(28px,3.5vw,40px);letter-spacing:-.5px;line-height:1.2;color:#fff;margin:0 0 18px}
+.contact-form-heading>p:last-child{max-width:650px;color:#aaa;font-size:15px;line-height:1.8;margin:0}
+.contact-form{display:flex;flex-direction:column;gap:24px;padding:42px;background:linear-gradient(145deg,#292b2d,#202224);border:1px solid rgba(255,255,255,.12);border-radius:18px;box-shadow:0 12px 30px rgba(0,0,0,.25),0 25px 60px rgba(0,0,0,.18),inset 0 1px 0 rgba(255,255,255,.05)}
+.contact-form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+.contact-field{display:flex;flex-direction:column;gap:10px;min-width:0}
+.contact-field label{font-size:13px;font-weight:600;letter-spacing:.3px;color:#e8e8e8}
+.contact-field input,.contact-field select,.contact-field textarea{display:block;width:100%;min-width:0;padding:15px 17px;background:rgba(15,16,17,.65);border:1px solid rgba(255,255,255,.14);border-radius:9px;color:#fff;font-family:Arial,sans-serif;font-size:14px;line-height:1.5;outline:none;transition:border-color .25s ease,background .25s ease,box-shadow .25s ease}
+.contact-field input::placeholder,.contact-field textarea::placeholder{color:#858585;opacity:1}
+.contact-field input:focus,.contact-field select:focus,.contact-field textarea:focus{border-color:rgba(255,255,255,.65);background:rgba(18,19,21,.9);box-shadow:0 0 0 3px rgba(255,255,255,.06)}
+.contact-field select{cursor:pointer}.contact-field select option{background:#202224;color:#fff}
+.contact-field textarea{min-height:160px;resize:vertical}
+.contact-submit{align-self:flex-start;min-height:48px;padding:15px 28px;margin-top:5px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.65);border-radius:8px;color:#fff;font-family:Arial,sans-serif;font-size:12px;font-weight:700;letter-spacing:1.4px;cursor:pointer;transition:background .25s,color .25s,transform .3s,box-shadow .3s}
+@media(hover:hover){.contact-submit:hover{background:#fff;color:#1a1a1a;transform:translateY(-3px);box-shadow:0 10px 25px rgba(0,0,0,.25)}}
+.contact-submit:active{transform:translateY(0)}.contact-submit:focus-visible{outline:2px solid #fff;outline-offset:4px}
+.contact-privacy{margin:0;color:#999;font-size:12px;line-height:1.8}.contact-privacy a{color:#ccc;font-size:inherit;text-underline-offset:4px}.contact-privacy a:hover{color:#fff}
+.contact-form .contact-honeypot{display:none}
+@media(max-width:900px){.contact-form{padding:32px}}
+@media(max-width:650px){.contact-form-section{padding:5px 0 50px}.contact-form-heading{margin-bottom:30px}.contact-form{padding:26px 20px;gap:22px;border-radius:14px}.contact-form-grid{grid-template-columns:1fr;gap:22px}.contact-field input,.contact-field select,.contact-field textarea{padding:14px 15px;font-size:16px}.contact-submit{width:100%;align-self:stretch}}
+@media(prefers-reduced-motion:reduce){.contact-field input,.contact-field select,.contact-field textarea,.contact-submit{transition:none}}
+</style>
 </head>
-
 <body>
-
-    <!-- =========================================
-         1. MENU DE NAVIGATION
-    ========================================= -->
-
+    <!-- NAVIGATION -->
     <nav class="navbar" aria-label="Navigation principale">
-
-        <!-- LOGO COULEUR -->
-        <a
-            href="index.html"
-            class="nav-logo"
-            aria-label="Accueil Digital Art Production"
-        >
-            <img
-                src="images/logo-couleur.png"
-                alt="Digital Art Production"
-            >
+        <a href="index.html" class="nav-logo" aria-label="Accueil Digital Art Production">
+            <img src="images/logo-couleur.png" alt="Digital Art Production">
         </a>
-
-        <!-- MENU HAMBURGER -->
-        <button
-            class="menu-toggle"
-            type="button"
-            aria-label="Ouvrir le menu"
-            aria-expanded="false"
-            aria-controls="nav-links"
-        >
-            <span></span>
-            <span></span>
-            <span></span>
+        <button class="menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-links">
+            <span></span><span></span><span></span>
         </button>
-
-        <!-- LIENS DE NAVIGATION -->
         <div class="nav-links" id="nav-links">
-
             <a href="index.html">HOME</a>
             <a href="projets.html">PROJETS</a>
             <a href="materiel.html">MATÉRIEL</a>
             <a href="apropos.html">À PROPOS</a>
             <a href="contact.html" aria-current="page">CONTACT</a>
-
         </div>
-
     </nav>
 
 
-    <!-- =========================================
-         2. CONTENU PRINCIPAL
-    ========================================= -->
-
     <main class="page-main">
-
-        <!-- EN-TÊTE -->
         <header class="page-hero">
-
-            <p class="page-eyebrow">
-                DIGITAL ART PRODUCTION
-            </p>
-
+            <p class="page-eyebrow">DIGITAL ART PRODUCTION</p>
             <h1>CONTACT</h1>
-
-            <p class="page-lead">
-                Parlons de votre prochain film,
-                de votre événement ou de votre projet audiovisuel.
-            </p>
-
+            <p class="page-lead">Parlons de votre prochain projet vidéo.</p>
         </header>
-
-
-        <!-- =====================================
-             2.1 SECTION CONTACT
-        ===================================== -->
-
         <div class="page-content">
 
-            <section class="content-section">
-
-                <div class="contact-panel">
-
-                    <!-- COLONNE : PRISE DE CONTACT -->
-                    <div>
-
-                        <h2>CONSTRUISONS VOTRE PROJET</h2>
-
-                        <p>
-                            Pour une demande de devis,
-                            une collaboration ou une question,
-                            présentez-nous votre projet,
-                            votre calendrier et le type
-                            de contenu souhaité.
-                        </p>
-
-                        <!-- ADRESSE E-MAIL -->
-                        <div class="page-callout">
-
-                            <p>
-                                Adresse e-mail professionnelle :
-                            </p>
-
-                            <p>
-                                <strong data-placeholder>
-                                    [À RENSEIGNER : TON ADRESSE E-MAIL PROFESSIONNELLE]
-                                </strong>
-                            </p>
-
-                            <p>
-                                Cette adresse est à compléter
-                                avant publication pour permettre
-                                un contact direct.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- COLONNE : RÉSEAUX SOCIAUX -->
-                    <div class="editorial-card">
-
-                        <h3>RETROUVEZ-NOUS AUSSI</h3>
-
-                        <!-- INSTAGRAM -->
-                        <a
-                            class="contact-link"
-                            href="https://www.instagram.com/victor_rochemenu/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            Instagram — @victor_rochemenu
-                        </a>
-
-                        <!-- LINKEDIN -->
-                        <a
-                            class="contact-link"
-                            href="https://www.linkedin.com/in/victor-roche-menu-60917814a/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            LinkedIn — Digital Art Production
-                        </a>
-
-                        <!-- YOUTUBE -->
-                        <a
-                            class="contact-link"
-                            href="https://www.youtube.com/@DigitalArt_Prod"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            YouTube — Digital Art Production
-                        </a>
-
-                        <p>
-                            Basés en France, nous intervenons
-                            selon les projets à l'international.
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </section>
+        <section class="contact-form-section" aria-labelledby="contact-form-heading">
+          <div class="contact-form-heading">
+            <p class="contact-eyebrow">PARLONS DE VOTRE PROJET</p>
+            <h2 id="contact-form-heading">Donnons vie à vos idées.</h2>
+            <p>Une idée, un tournage ou une collaboration ? Décrivez-nous votre projet.</p>
+          </div>
+          <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+            <!-- Remplacer par la clé associée à contact@digitalart-production.fr -->
+            <input type="hidden" name="access_key"  value="85424f0c-dc7e-49e0-a0ca-f10167624bda">
+            <input type="hidden" name="subject" value="Nouvelle demande - Digital Art Production">
+            <input type="hidden" name="from_name" value="Site Digital Art Production">
+            <input type="checkbox" name="botcheck" class="contact-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <div class="contact-form-grid">
+              <div class="contact-field">
+                <label for="contact-name">Nom et prénom *</label>
+                <input id="contact-name" type="text" name="name" placeholder="Votre nom et prénom" autocomplete="name" required>
+              </div>
+              <div class="contact-field">
+                <label for="contact-email">Adresse e-mail *</label>
+                <input id="contact-email" type="email" name="email" placeholder="Votre adresse e-mail" autocomplete="email" required>
+              </div>
+            </div>
+            <div class="contact-form-grid">
+              <div class="contact-field">
+                <label for="contact-company">Nom de l'entreprise</label>
+                <input id="contact-company" type="text" name="entreprise" placeholder="Nom de votre entreprise" autocomplete="organization">
+              </div>
+              <div class="contact-field">
+                <label for="contact-phone">Téléphone</label>
+                <input id="contact-phone" type="tel" name="telephone" placeholder="Votre numéro de téléphone" autocomplete="tel">
+              </div>
+            </div>
+            <div class="contact-field">
+              <label for="contact-project">Type de projet *</label>
+              <select id="contact-project" name="type_de_projet" required>
+                <option value="" disabled selected>Sélectionnez votre projet</option>
+                <option value="Sport">Sport</option>
+                <option value="Événementiel">Événementiel</option>
+                <option value="Immobilier">Immobilier</option>
+                <option value="Entreprise">Entreprise</option>
+                <option value="Drone / FPV">Drone / FPV</option>
+                <option value="Autre">Autre</option>
+              </select>
+            </div>
+            <div class="contact-field">
+              <label for="contact-message">Votre message *</label>
+              <textarea id="contact-message" name="message" rows="6" placeholder="Présentez-nous votre projet, vos idées, le lieu et les dates éventuelles..." required></textarea>
+            </div>
+            <button class="contact-submit" type="submit">ENVOYER MA DEMANDE</button>
+            <p class="contact-privacy">Les informations transmises sont utilisées pour répondre à votre demande. Consultez notre <a href="confidentialite.html">politique de confidentialité</a>.</p>
+          </form>
+        </section>
 
         </div>
-
     </main>
 
-
-    <!-- =========================================
-         3. FOOTER
-    ========================================= -->
-
+    <!-- PIED DE PAGE -->
     <footer class="site-footer">
-
         <div class="footer-container">
-
-            <!-- 3.1 ENTREPRISE — GAUCHE -->
             <div class="footer-column footer-brand">
-
                 <h3>DIGITAL ART PRODUCTION</h3>
-
-                <p>
-                    Production audiovisuelle en France
-                    et à l'international.
-                </p>
-
-                <p class="footer-specialties">
-                    Filmmaking • Drone • FPV
-                </p>
-
+                <p>Production audiovisuelle en France et à l’international.</p>
+                <p class="footer-specialties">Filmmaking • Drone • FPV</p>
             </div>
 
-
-            <!-- 3.2 NAVIGATION — CENTRE -->
             <div class="footer-column">
-
                 <h4>NAVIGATION</h4>
-
-                <nav
-                    class="footer-links"
-                    aria-label="Navigation de pied de page"
-                >
+                <nav class="footer-links" aria-label="Navigation de pied de page">
                     <a href="index.html">Home</a>
                     <a href="projets.html">Projets</a>
                     <a href="materiel.html">Matériel</a>
                     <a href="apropos.html">À propos</a>
                     <a href="contact.html">Contact</a>
                 </nav>
-
             </div>
 
-
-            <!-- 3.3 RÉSEAUX SOCIAUX — DROITE -->
             <div class="footer-column">
-
                 <h4>RESTONS CONNECTÉS</h4>
-
                 <p>Un projet vidéo ? Parlons-en.</p>
-
-                <a
-                    class="footer-contact"
-                    href="contact.html"
-                >
-                    Nous contacter
-                </a>
-
+                <a class="footer-contact" href="contact.html">Nous contacter</a>
 
                 <div class="footer-socials">
-
-                    <!-- INSTAGRAM -->
-                    <a
-                        href="https://www.instagram.com/victor_rochemenu/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="Instagram"
-                        title="Instagram"
-                    >
-                        <svg
-                            viewBox="0 0 24 24"
-                            fill="currentColor"
-                            aria-hidden="true"
-                        >
-                            <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9z"/>
-
+                    <!-- Instagram -->
+                    <a href="https://www.instagram.com/victor_rochemenu/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram">
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9z"/>
                             <path d="M12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/>
-
                             <circle cx="17.5" cy="6.5" r="1.25"/>
                         </svg>
                     </a>
-
-
-                    <!-- LINKEDIN -->
-                    <a
-                        href="https://www.linkedin.com/in/victor-roche-menu-60917814a/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="LinkedIn"
-                        title="LinkedIn"
-                    >
-                        <svg
-                            viewBox="0 0 24 24"
-                            fill="currentColor"
-                            aria-hidden="true"
-                        >
-                            <path d="M20.45 2H3.55C2.69 2 2 2.68 2 3.52v16.96C2 21.32 2.69 22 3.55 22h16.9c.86 0 1.55-.68 1.55-1.52V3.52C22 2.68 21.31 2 20.45 2zM7.93 18.75H4.98V9.2h2.95v9.55zM6.45 7.9a1.71 1.71 0 1 1 0-3.42 1.71 1.71 0 0 1 0 3.42zm12.3 10.85H15.8V14.1c0-1.11-.02-2.54-1.55-2.54-1.55 0-1.79 1.21-1.79 2.46v4.73H9.51V9.2h2.83v1.3h.04c.39-.75 1.36-1.55 2.8-1.55 2.99 0 3.57 1.97 3.57 4.52v5.28z"/>
+                    <!-- LinkedIn -->
+                    <a href="https://www.linkedin.com/in/victor-roche-menu-60917814a/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M20.45 2H3.55C2.69 2 2 2.68 2 3.52v16.96C2 21.32 2.69 22 3.55 22h16.9c.86 0 1.55-.68 1.55-1.52V3.52C22 2.68 21.31 2 20.45 2z"/>
+                            <path d="M7.93 18.75H4.98V9.2h2.95v9.55zM6.45 7.9a1.71 1.71 0 1 1 0-3.42 1.71 1.71 0 0 1 0 3.42zm12.3 10.85H15.8V14.1c0-1.11-.02-2.54-1.55-2.54-1.55 0-1.79 1.21-1.79 2.46v4.73H9.51V9.2h2.83v1.3h.04c.39-.75 1.36-1.55 2.8-1.55 2.99 0 3.57 1.97 3.57 4.52v5.28z"/>
                         </svg>
                     </a>
-
-
-                    <!-- YOUTUBE -->
-                    <a
-                        href="https://www.youtube.com/@DigitalArt_Prod"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="YouTube Digital Art Production"
-                        title="YouTube"
-                    >
-                        <svg
-                            viewBox="0 0 24 24"
-                            fill="currentColor"
-                            aria-hidden="true"
-                        >
+                    <!-- YouTube : lien actif -->
+                    <a href="https://www.youtube.com/@DigitalArt_Prod" target="_blank" rel="noopener noreferrer" aria-label="YouTube Digital Art Production" title="YouTube">
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                             <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.55 3.6 12 3.6 12 3.6s-7.55 0-9.4.5A3 3 0 0 0 .5 6.2 31.1 31.1 0 0 0 0 12a31.1 31.1 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.85.5 9.4.5 9.4.5s7.55 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.1 31.1 0 0 0 24 12a31.1 31.1 0 0 0-.5-5.8zM9.6 15.6V8.4l6.25 3.6-6.25 3.6z"/>
                         </svg>
                     </a>
-
                 </div>
-
             </div>
-
         </div>
 
-
-        <!-- 3.4 LIENS LÉGAUX -->
         <div class="footer-bottom">
-
-            <p>
-                © 2026 Digital Art Production.
-                Tous droits réservés.
-            </p>
-
+            <p>© 2026 Digital Art Production. Tous droits réservés.</p>
             <div class="footer-legal">
-
-                <a href="mentions-legales.html">
-                    Mentions légales
-                </a>
-
-                <a href="cgv.html">
-                    CGV
-                </a>
-
-                <a href="confidentialite.html">
-                    Confidentialité
-                </a>
-
-                <a href="cookies.html">
-                    Cookies
-                </a>
-
+                <a href="mentions-legales.html">Mentions légales</a>
+                <a href="cgv.html">CGV</a>
+                <a href="confidentialite.html">Confidentialité</a>
+                <a href="cookies.html">Cookies</a>
             </div>
-
         </div>
-
     </footer>
-
-
-    <!-- =========================================
-         4. JAVASCRIPT
-    ========================================= -->
-
     <script src="script.js"></script>
-
 </body>
 </html>
