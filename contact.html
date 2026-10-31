@@ -129,6 +129,73 @@ body.contact-page .contact-form {
     body.contact-page .contact-content-overlay { background: rgba(26,26,26,.87); }
 }
 
+
+/* CONTACT — ET APRÈS ? (après le formulaire) */
+body.contact-page .contact-process {
+    padding: 82px 8% 110px;
+    min-height: 0;
+    background: transparent;
+    color: #fff;
+    text-align: left;
+}
+body.contact-page .contact-process-inner {
+    max-width: 950px;
+    margin: 0 auto;
+}
+body.contact-page .contact-process .process-eyebrow {
+    margin: 0 0 18px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    color: #aaa;
+}
+body.contact-page .contact-process h2 {
+    margin: 0 0 20px;
+    font-size: clamp(36px,5vw,56px);
+    line-height: 1.15;
+    letter-spacing: -0.5px;
+    color: #fff;
+}
+body.contact-page .contact-process .process-intro {
+    max-width: 720px;
+    margin: 0 0 55px;
+    color: #bbb;
+    font-size: 16px;
+    line-height: 1.7;
+}
+body.contact-page .contact-process .process-step {
+    display: grid;
+    grid-template-columns: 80px minmax(0,1fr);
+    gap: 25px;
+    padding: 32px 0;
+    border-top: 1px solid rgba(255,255,255,.15);
+}
+body.contact-page .contact-process .process-number {
+    font-size: 30px;
+    font-weight: 300;
+    color: #999;
+}
+body.contact-page .contact-process .process-step h3 {
+    margin: 0 0 12px;
+    font-size: 21px;
+    font-weight: 600;
+    color: #fff;
+}
+body.contact-page .contact-process .process-step p {
+    max-width: 760px;
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.8;
+    color: #bbb;
+}
+@media (max-width:650px) {
+    body.contact-page .contact-process {padding:65px 7% 85px;}
+    body.contact-page .contact-process .process-step {grid-template-columns:45px minmax(0,1fr);gap:14px;padding:26px 0;}
+    body.contact-page .contact-process .process-number {font-size:23px;}
+    body.contact-page .contact-process .process-step h3 {font-size:19px;}
+    body.contact-page .contact-process .process-step p {font-size:15px;}
+}
+
 </style>
 
 </head>
@@ -291,6 +358,31 @@ body.contact-page .contact-form {
         </section>
 
         </div>
+
+        <!-- NOTRE PROCESSUS : APRÈS LE FORMULAIRE -->
+        <section class="contact-process" aria-labelledby="contact-process-title">
+          <div class="contact-process-inner">
+            <p class="process-eyebrow">NOTRE PROCESSUS</p>
+            <h2 id="contact-process-title">Et après ?</h2>
+            <p class="process-intro">De votre première idée à la livraison finale, voici comment nous donnons vie à votre projet.</p>
+            <div class="process-step">
+              <span class="process-number" aria-hidden="true">01</span>
+              <div><h3>Premier échange</h3><p>Nous échangeons sur votre projet, vos besoins et vos objectifs pour imaginer une réalisation qui vous correspond.</p></div>
+            </div>
+            <div class="process-step">
+              <span class="process-number" aria-hidden="true">02</span>
+              <div><h3>Préparation du projet</h3><p>Nous préparons la direction créative, les moyens techniques et l’organisation du tournage, en tenant compte de vos contraintes.</p></div>
+            </div>
+            <div class="process-step">
+              <span class="process-number" aria-hidden="true">03</span>
+              <div><h3>Production</h3><p>Nous réalisons les images sur le terrain : caméra, drone et FPV selon les besoins de votre projet.</p></div>
+            </div>
+            <div class="process-step">
+              <span class="process-number" aria-hidden="true">04</span>
+              <div><h3>Postproduction &amp; livraison</h3><p>Nous assurons le montage, l’étalonnage et le travail du son avant de vous livrer les contenus prêts à être diffusés.</p></div>
+            </div>
+          </div>
+        </section>
         </div>
 
     </main>
