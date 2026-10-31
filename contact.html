@@ -62,40 +62,156 @@
 
 @media(prefers-reduced-motion:reduce){.contact-field input,.contact-field select,.contact-field textarea,.contact-submit{transition:none}}
 
-
 /* =========================================
+
    CONTACT — PHOTO DE FOND FIXE
+
    Même logique visuelle que l'accueil.
-   ========================================= */
+
+   \========================================= */
+
 body.contact-page::before {
+
     background: url("images/contact.jpg") center center / cover no-repeat;
+
 }
 
 /* Le fond opaque des pages intérieures masquait la photographie. */
+
 body.contact-page .page-main {
+
     position: relative;
+
     z-index: 1;
+
     background: rgba(26, 26, 26, 0.80);
+
 }
 
 body.contact-page .page-hero {
+
     background: rgba(15, 15, 15, 0.45);
+
     -webkit-backdrop-filter: blur(3px);
+
     backdrop-filter: blur(3px);
+
 }
 
 /* Le formulaire garde son contraste et son relief. */
+
 body.contact-page .contact-form {
+
     background: linear-gradient(145deg,
+
         rgba(41, 43, 45, 0.97),
+
         rgba(32, 34, 36, 0.97));
+
 }
 
 @media (max-width: 650px) {
+
     body.contact-page .page-main {
+
         background: rgba(26, 26, 26, 0.87);
+
     }
+
 }
+
+/* =========================================
+
+   CONTACT — PHOTO SANS VOILE SUR LE HEADER
+
+   \========================================= */
+
+/* En-tête avec photo sans filtre */
+
+.page-main .page-hero {
+
+    position: relative;
+
+    isolation: isolate;
+
+    background: url("images/contact.jpg")
+
+                center center / cover no-repeat;
+
+    min-height: 65vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-bottom: none;
+
+    backdrop-filter: none;
+
+    -webkit-backdrop-filter: none;
+
+}
+
+/* Texte directement sur la photo */
+
+.page-main .page-hero h1,
+
+.page-main .page-hero .page-eyebrow,
+
+.page-main .page-hero .page-lead {
+
+    position: relative;
+
+    z-index: 2;
+
+    color: #fff;
+
+    text-shadow: 0 2px 12px rgba(0,0,0,.55);
+
+}
+
+/* Supprimer tout éventuel voile du header */
+
+.page-main .page-hero::before,
+
+.page-main .page-hero::after {
+
+    content: none;
+
+}
+
+/* Mobile */
+
+@media (max-width: 650px) {
+
+    .page-main .page-hero {
+
+        min-height: 50vh;
+
+        background-position: center;
+
+    }
+
+}
+
+/* CONTACT — EN-TÊTE PHOTO NON FILTRÉE (prioritaire sur les anciens styles) */
+body.contact-page .page-main > .page-hero {
+    background: url("images/contact.jpg") center center / cover no-repeat;
+    background-color: transparent;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    border-bottom: none;
+}
+body.contact-page .page-main > .page-hero::before,
+body.contact-page .page-main > .page-hero::after {
+    content: none;
+    display: none;
+}
+
 </style>
 
 </head>
