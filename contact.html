@@ -80,7 +80,9 @@ body.contact-page .page-main {
 
 /* En-tête transparent : aucun voile, aucun second arrière-plan. */
 body.contact-page .page-main > .page-hero {
-    min-height: 70vh;
+    min-height: 35vh;
+    padding: 65px 6% 25px;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -102,6 +104,18 @@ body.contact-page .page-hero .page-lead {
     text-shadow: 0 2px 12px rgba(0,0,0,.55);
 }
 
+/* Titre et phrase regroupés, sans espacements automatiques. */
+body.contact-page .page-hero .page-eyebrow {
+    margin: 0 0 10px;
+}
+body.contact-page .page-hero h1 {
+    margin: 0 0 8px;
+}
+body.contact-page .page-hero .page-lead {
+    margin: 0;
+    max-width: none;
+}
+
 /* Voile anthracite sur toute la largeur derrière le formulaire uniquement. */
 body.contact-page .contact-content-overlay {
     background: rgba(26,26,26,.80);
@@ -111,7 +125,7 @@ body.contact-page .contact-form {
 }
 
 @media (max-width:650px) {
-    body.contact-page .page-main > .page-hero { min-height: 55vh; }
+    body.contact-page .page-main > .page-hero { min-height: 28vh; padding: 85px 6% 25px; }
     body.contact-page .contact-content-overlay { background: rgba(26,26,26,.87); }
 }
 
