@@ -62,11 +62,45 @@
 
 @media(prefers-reduced-motion:reduce){.contact-field input,.contact-field select,.contact-field textarea,.contact-submit{transition:none}}
 
+
+/* =========================================
+   CONTACT — PHOTO DE FOND FIXE
+   Même logique visuelle que l'accueil.
+   ========================================= */
+body.contact-page::before {
+    background: url("images/contact.jpg") center center / cover no-repeat;
+}
+
+/* Le fond opaque des pages intérieures masquait la photographie. */
+body.contact-page .page-main {
+    position: relative;
+    z-index: 1;
+    background: rgba(26, 26, 26, 0.80);
+}
+
+body.contact-page .page-hero {
+    background: rgba(15, 15, 15, 0.45);
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
+}
+
+/* Le formulaire garde son contraste et son relief. */
+body.contact-page .contact-form {
+    background: linear-gradient(145deg,
+        rgba(41, 43, 45, 0.97),
+        rgba(32, 34, 36, 0.97));
+}
+
+@media (max-width: 650px) {
+    body.contact-page .page-main {
+        background: rgba(26, 26, 26, 0.87);
+    }
+}
 </style>
 
 </head>
 
-<body>
+<body class="contact-page">
 
     <!-- NAVIGATION -->
 
@@ -128,11 +162,12 @@
 
           <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
 
-            <!-- Remplacer par la clé associée à contact@digitalart-production.fr -->
+            <!-- Clé Web3Forms configurée -->
 
             <input type="hidden" name="access_key"  value="85424f0c-dc7e-49e0-a0ca-f10167624bda">
 
           <!-- Confirmation en français après un envoi réussi -->
+
           <input type="hidden" name="redirect" value="https://digitalart-production.fr/merci.html">
 
             <input type="hidden" name="subject" value="Nouvelle demande - Digital Art Production">
