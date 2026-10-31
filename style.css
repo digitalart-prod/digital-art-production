@@ -4284,3 +4284,126 @@ background 0.25s ease,
 
 }
 
+
+/* =====================================================
+   HOME — APPEL À PROJET, TEXTE À GAUCHE / BOUTON À DROITE
+   ===================================================== */
+.home-contact-cta {
+    position: relative;
+    min-height: 0;
+    padding: clamp(75px, 9vw, 125px) 8%;
+    text-align: left;
+    background: transparent;
+}
+
+.home-contact-cta-inner {
+    width: min(1200px, 100%);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: clamp(30px, 6vw, 100px);
+}
+
+.home-contact-cta-text { min-width: 0; }
+
+.home-contact-cta-line {
+    display: block;
+    width: 46px;
+    height: 1px;
+    background: rgba(255,255,255,.55);
+    margin: 0 0 24px;
+}
+
+.home-contact-cta .home-contact-cta-kicker {
+    margin: 0 0 22px;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1.5;
+    letter-spacing: 2.5px;
+    color: #a7a7a7;
+    text-align: left;
+}
+
+.home-contact-cta #home-contact-title {
+    margin: 0 0 9px;
+    font-size: clamp(36px, 4.8vw, 68px);
+    font-weight: 700;
+    line-height: 1.12;
+    letter-spacing: -.035em;
+    text-align: left;
+    color: #fff;
+}
+
+.home-contact-cta .home-contact-cta-subtitle {
+    margin: 0;
+    font-size: clamp(28px, 3.3vw, 46px);
+    font-weight: 400;
+    line-height: 1.25;
+    letter-spacing: -.02em;
+    text-align: left;
+    color: #bcbcbc;
+}
+
+.home-contact-cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 54px;
+    padding: 17px 30px;
+    border: 1px solid rgba(255,255,255,.7);
+    border-radius: 7px;
+    background: rgba(255,255,255,.035);
+    color: #fff;
+    text-decoration: none;
+    white-space: nowrap;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+    transition: background .3s ease, color .3s ease, transform .3s ease, border-color .3s ease;
+}
+
+.home-contact-cta-button:hover,
+.home-contact-cta-button:focus-visible {
+    background: #fff;
+    color: #1a1a1a;
+    border-color: #fff;
+    transform: translateY(-3px);
+}
+
+.home-contact-cta-button:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 4px;
+}
+
+/* Fondu et remontée discrète à l'entrée dans le viewport. */
+.home-contact-cta-inner.will-reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity .85s cubic-bezier(.22,1,.36,1), transform .85s cubic-bezier(.22,1,.36,1);
+}
+.home-contact-cta-inner.will-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (max-width: 800px) {
+    .home-contact-cta { padding: 75px 7% 85px; }
+    .home-contact-cta-inner {
+        grid-template-columns: 1fr;
+        gap: 34px;
+        justify-items: start;
+    }
+    .home-contact-cta #home-contact-title { font-size: clamp(31px, 7vw, 50px); }
+    .home-contact-cta .home-contact-cta-subtitle { font-size: clamp(26px, 6vw, 38px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .home-contact-cta-inner.will-reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+    .home-contact-cta-button { transition: none; }
+}
