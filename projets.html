@@ -285,49 +285,6 @@ body.projets-page::before {
   }
 }
 
-/* Film YouTube : carte horizontale identique aux MP4 (380 px), miniature complète. */
-.projets-page .portfolio-grid .portfolio-youtube-preview {
-  width:100%;height:380px;aspect-ratio:auto;position:relative;
-  display:block;overflow:hidden;border-radius:10px;background:#101112;
-}
-.projets-page .portfolio-youtube-poster {
-  width:100%;height:100%;object-fit:contain;object-position:center;
-  display:block;transform:none!important;filter:none!important;transition:none!important;
-}
-.projets-page .portfolio-youtube-screen {position:absolute;inset:0;z-index:2;pointer-events:none;}
-.projets-page .portfolio-youtube-screen iframe {display:block;width:100%;height:100%;border:0;pointer-events:none;}
-.projets-page .portfolio-youtube-trigger {
-  position:absolute;inset:0;z-index:3;width:100%;height:100%;
-  border:0;padding:0;background:transparent;cursor:pointer;color:#fff;
-  display:grid;place-items:center;
-}
-.projets-page .portfolio-youtube-play {
-  display:grid;place-items:center;width:60px;height:60px;border-radius:50%;
-  background:rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.7);
-  font-size:24px;padding-left:4px;transition:opacity .2s;
-}
-.projets-page .portfolio-youtube-preview.is-playing .portfolio-youtube-play {opacity:0;}
-.projets-page .portfolio-youtube-preview:focus-within .portfolio-youtube-play,
-.projets-page .portfolio-youtube-preview:not(.is-playing):hover .portfolio-youtube-play {opacity:1;}
-.projets-page .portfolio-youtube-trigger:focus-visible {outline:2px solid #fff;outline-offset:-4px;}
-.projets-page .portfolio-youtube-preview .portfolio-format {z-index:4;pointer-events:none;}
-@media(max-width:790px){.projets-page .portfolio-grid .portfolio-youtube-preview{height:auto;aspect-ratio:16/9;}}
-
-
-/* Le vrai lecteur et ses commandes sont cliquables après le premier clic. */
-.projets-page .portfolio-youtube-preview.is-playing .portfolio-youtube-screen {
-  pointer-events:auto;
-  z-index:5;
-}
-.projets-page .portfolio-youtube-preview.is-playing .portfolio-youtube-screen iframe {
-  pointer-events:auto;
-}
-.projets-page .portfolio-youtube-preview.is-playing .portfolio-youtube-poster,
-.projets-page .portfolio-youtube-preview.is-playing .portfolio-youtube-trigger {
-  display:none;
-}
-.projets-page .portfolio-youtube-fallback {font-size:12px;margin-top:5px;}
-.projets-page .portfolio-youtube-fallback a {color:inherit;text-decoration:underline;text-underline-offset:2px;}
 </style>
 </head>
 <body class="projets-page">
@@ -399,18 +356,6 @@ body.projets-page::before {
        FPV
       </button></div>
 <div class="portfolio-grid">
-<!-- Film hébergé sur YouTube : aucun fichier vidéo ajouté à GitHub. -->
-<article class="portfolio-card portfolio-youtube-card" data-category="sport">
-  <div class="portfolio-preview portfolio-inline-player is-horizontal portfolio-youtube-preview" data-youtube-id="yP8ToLffD_U" aria-label="Aperçu du film sportif YouTube">
-    <img class="portfolio-youtube-poster" src="https://i.ytimg.com/vi/yP8ToLffD_U/hqdefault.jpg" alt="Miniature du film sportif hébergé sur YouTube" loading="lazy" decoding="async"/>
-    <div class="portfolio-youtube-screen" aria-hidden="true"></div>
-    <button type="button" class="portfolio-youtube-trigger" aria-label="Lancer le film YouTube" title="Lire la vidéo YouTube">
-      <span class="portfolio-youtube-play" aria-hidden="true">▶</span>
-    </button>
-    <span class="portfolio-format">16:9</span>
-  </div>
-  <div class="portfolio-card-copy"><p class="portfolio-category">SPORT</p><h3>FILM SPORT — YOUTUBE</h3><p>Film hébergé sur YouTube • 16:9</p><p class="portfolio-youtube-fallback"><a href="https://www.youtube.com/watch?v=yP8ToLffD_U" target="_blank" rel="noopener noreferrer">Voir sur YouTube si la lecture intégrée est bloquée</a></p></div>
-</article>
 <article class="portfolio-card" data-category="sport">
 <button aria-label="Activer le son de SPORT 01" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
 <video aria-label="Vidéo SPORT 01 au format vertical" class="portfolio-preview-video" loop="" muted="" playsinline="" preload="metadata"><source src="videos/sport/sport01.mp4" type="video/mp4"/></video>
@@ -622,17 +567,18 @@ body.projets-page::before {
 
 
 
-<article class="portfolio-card" data-category="corporate">
-<button aria-label="Activer le son de CORPORATE 16" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
-<video aria-label="Vidéo CORPORATE 16 au format vertical" class="portfolio-preview-video" loop muted playsinline preload="metadata"><source src="videos/corporate/corporate16.mp4" type="video/mp4"></video>
-<span class="portfolio-format">9:16</span></button>
-<div class="portfolio-card-copy"><p class="portfolio-category">CORPORATE</p><h3>CORPORATE 16</h3><p>Film d’entreprise • MP4</p></div>
-</article>
+
 <article class="portfolio-card" data-category="immobilier">
 <button aria-label="Activer le son de IMMOBILIER 01" class="portfolio-preview is-horizontal portfolio-inline-player" data-format="horizontal" type="button">
 <video aria-label="Vidéo IMMOBILIER 01 au format horizontal" class="portfolio-preview-video" loop muted playsinline preload="metadata"><source src="videos/immobilier/immobilier01.mp4" type="video/mp4"></video>
 <span class="portfolio-format">16:9</span></button>
 <div class="portfolio-card-copy"><p class="portfolio-category">IMMOBILIER</p><h3>IMMOBILIER 01</h3><p>Vidéo immobilière • MP4</p></div>
+</article>
+<article class="portfolio-card" data-category="immobilier">
+<button aria-label="Activer le son de IMMOBILIER 02" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
+<video aria-label="Vidéo IMMOBILIER 02 au format vertical" class="portfolio-preview-video" loop muted playsinline preload="metadata"><source src="videos/immobilier/immobilier02.mp4" type="video/mp4"></video>
+<span class="portfolio-format">9:16</span></button>
+<div class="portfolio-card-copy"><p class="portfolio-category">IMMOBILIER</p><h3>IMMOBILIER 02</h3><p>Vidéo immobilière • MP4</p></div>
 </article>
 <article class="portfolio-card" data-category="fpv">
 <button aria-label="Activer le son de FPV 01" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
@@ -873,39 +819,6 @@ body.projets-page::before {
     return { button, stop };
   });
 
-
-  // YouTube : aperçu identique aux MP4, lecture fiable avec lecteur natif.
-  // Un clic insère l'iframe officielle (pas d'API asynchrone ni de surcouche
-  // qui intercepte les commandes YouTube). La lecture automatique peut être
-  // empêchée par le navigateur ; le bouton Lecture YouTube reste accessible.
-  const youtubeTiles = [...document.querySelectorAll('.portfolio-youtube-preview[data-youtube-id]')];
-  const youtubePlayers = youtubeTiles.map(tile => {
-    const trigger = tile.querySelector('.portfolio-youtube-trigger');
-    const screen = tile.querySelector('.portfolio-youtube-screen');
-    const id = tile.dataset.youtubeId;
-    function stop() {
-      screen.replaceChildren();
-      tile.classList.remove('is-playing');
-    }
-    trigger.addEventListener('click', () => {
-      players.forEach(mp4 => mp4.stop());
-      youtubePlayers.forEach(other => { if (other.tile !== tile) other.stop(); });
-      if (tile.classList.contains('is-playing')) return;
-      // Ne charger le lecteur qu'au clic : il peut recevoir l'interaction
-      // utilisateur et ses propres contrôles restent fonctionnels.
-      const iframe = document.createElement('iframe');
-      iframe.title = 'Film sportif YouTube';
-      iframe.src = 'https://www.youtube.com/embed/' + encodeURIComponent(id) + '?autoplay=1&playsinline=1&controls=1&rel=0';
-      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
-      iframe.allowFullscreen = true;
-      iframe.referrerPolicy = 'strict-origin-when-cross-origin';
-      iframe.setAttribute('loading', 'eager');
-      screen.replaceChildren(iframe);
-      tile.classList.add('is-playing');
-    });
-    return {tile, stop};
-  });
-
   function selectedFromHash() {
     const hash = decodeURIComponent(location.hash.slice(1)).toLowerCase();
     return categories.includes(hash) ? hash : (hash === 'entreprise' ? 'corporate' : 'tous');
@@ -944,9 +857,6 @@ body.projets-page::before {
     grid.parentElement.style.setProperty('--portfolio-line-width', alignedWidth + 'px');
     players.forEach(player => {
       if (player.button.closest('.portfolio-card')?.hidden) player.stop();
-    });
-    youtubePlayers.forEach(player => {
-      if (player.tile.closest('.portfolio-card')?.hidden) player.stop();
     });
     tabs.forEach(tab => {
       const active = tab.dataset.filter === currentCategory;
@@ -989,7 +899,7 @@ body.projets-page::before {
   }
   filter(selectedFromHash(), false);
   document.addEventListener('visibilitychange', () => {
-    if (document.hidden) { players.forEach(player => player.stop()); youtubePlayers.forEach(player => player.stop()); }
+    if (document.hidden) { players.forEach(player => player.stop()); }
   });
 })();
 </script>
