@@ -1,357 +1,439 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-
-<head>
-    <!-- INFORMATIONS GÉNÉRALES -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta
-        name="description"
-        content="Cadre contractuel des prestations de production audiovisuelle."
-    >
-
-    <title>Conditions générales de vente | Digital Art Production</title>
-
-    <!-- FEUILLE DE STYLE -->
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="Conditions générales de vente de Digital Art Production.">
+    <title>CGV | Digital Art Production</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Footer : coordonnées et réseaux alignés sur le bord droit. */
-        .site-footer .footer-contact-column { text-align: right; }
-        .site-footer .footer-contact-column .contact-details {
-            display: flex; flex-direction: column; align-items: flex-end;
-            gap: 10px; margin: 16px 0; padding: 0;
-        }
-        .site-footer .footer-contact-column .contact-details a {
-            color: #ccc; font-size: 13px; text-decoration: none;
-            overflow-wrap: anywhere; text-align: right;
-        }
-        .site-footer .footer-contact-column .contact-details a:hover { color: #fff; }
-        .site-footer .footer-contact-column .footer-socials { justify-content: flex-end; }
-        .site-footer .footer-contact-column .footer-socials a[aria-label="LinkedIn"] svg {
-            width: 20px; height: 20px;
-        }
-    </style>
-    <style>
-
-        /* HAUTEUR UNIFORME DES BANNIÈRES INTERNES — HOME EXCLUE
-           Une même hauteur mesurée depuis le haut de la fenêtre,
-           quelles que soient les photos et les particularités de chaque page. */
-        .page-main { padding-top: 0 !important; }
-        .page-main > .page-hero {
-            height: 490px !important;
-            min-height: 490px !important;
-            max-height: 490px !important;
-            box-sizing: border-box !important;
-        }
-        @media (max-width: 900px) {
-            .page-main > .page-hero {
-                height: 420px !important;
-                min-height: 420px !important;
-                max-height: 420px !important;
-            }
-        }
-        @media (max-width: 650px) {
-            .page-main > .page-hero {
-                height: 360px !important;
-                min-height: 360px !important;
-                max-height: 360px !important;
-            }
-        }
-    </style>
-</head>
-
-<body>
-
-    <!-- =========================================
-         1. MENU DE NAVIGATION
-    ========================================= -->
-
+/* CGV — page légale adaptée à l'univers anthracite du site */
+body.cgv-page {
+  background:#202224;
+  color:#f5f5f5;
+}
+body.cgv-page .page-main {
+  background:#202224;
+  padding-top:0;
+}
+body.cgv-page .cgv-hero {
+  min-height:365px;
+  box-sizing:border-box;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:155px 6% 60px;
+  background:linear-gradient(145deg,#252729 0%,#141617 100%);
+  border:0;
+}
+.cgv-hero .cgv-overline {
+  font:700 11px Arial,sans-serif;
+  letter-spacing:.23em;
+  color:#b5b7b9;
+  margin:0 0 18px
+}
+.cgv-hero h1 {
+  font:700 clamp(54px,9vw,112px)/.98 Arial,sans-serif;
+  letter-spacing:-.045em;
+  color:#fff;
+  margin:0 0 23px;
+  text-transform:uppercase
+}
+.cgv-hero .cgv-subtitle {
+  font:400 clamp(14px,1.5vw,18px)/1.55 Arial,sans-serif;
+  color:#e0e0e0;
+  margin:0;
+  max-width:760px
+}
+.cgv-hero .cgv-version {
+  font:500 12px/1.5 Arial,sans-serif;
+  color:#a5a8ab;
+  margin:15px 0 0
+}
+.cgv-content {
+  padding:70px 6% 110px;
+  background:#202224
+}
+.cgv-wrap {
+  max-width:1220px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:235px minmax(0,1fr);
+  gap:clamp(35px,5vw,85px);
+  align-items:start
+}
+.cgv-index {
+  position:sticky;
+  top:100px;
+  border-top:1px solid #505254;
+  padding-top:23px;
+  max-height:calc(100vh - 125px);
+  overflow:auto;
+  scrollbar-width:thin
+}
+.cgv-index .cgv-index-label {
+  font-size:10px;
+  letter-spacing:.19em;
+  font-weight:700;
+  color:#b6b8ba;
+  margin:0 0 16px
+}
+.cgv-index a {
+  display:block;
+  padding:7px 4px 7px 0;
+  color:#afb2b4;
+  text-decoration:none;
+  font:400 12px/1.55 Arial,sans-serif;
+  transition:color .2s ease
+}
+.cgv-index a:hover,.cgv-index a:focus-visible {
+  color:#fff
+}
+.cgv-legal {
+  min-width:0
+}
+.cgv-legal .cgv-intro {
+  font-size:12px;
+  line-height:1.6;
+  letter-spacing:.15em;
+  color:#acafb2;
+  text-transform:uppercase;
+  border-bottom:1px solid #414346;
+  padding-bottom:18px;
+  margin:0 0 34px
+}
+.cgv-article {
+  padding:0 0 34px;
+  margin:0 0 37px;
+  border-bottom:1px solid #414346;
+  scroll-margin-top:110px
+}
+.cgv-article:last-child {
+  border:0;
+  margin-bottom:0
+}
+.cgv-article h2 {
+  font:700 clamp(21px,2.15vw,28px)/1.26 Arial,sans-serif;
+  letter-spacing:-.025em;
+  color:#fff;
+  margin:0 0 22px
+}
+.cgv-article p,.cgv-article li {
+  font:400 15px/1.85 Arial,sans-serif;
+  color:#c8cacc;
+  margin:0 0 12px;
+  white-space:pre-wrap;
+  overflow-wrap:anywhere
+}
+.cgv-article ul {
+  margin:0 0 14px;
+  padding-left:25px
+}
+.cgv-article li {
+  padding-left:4px
+}
+.cgv-article a {
+  color:#fff;
+  text-underline-offset:3px
+}
+@media(max-width:900px) {
+  .cgv-wrap {
+    grid-template-columns:1fr;
+    gap:28px
+  }
+  .cgv-index {
+    position:static;
+    max-height:none;
+    display:flex;
+    gap:8px 19px;
+    flex-wrap:wrap;
+    padding:12px 0 20px;
+    border-bottom:1px solid #505254
+  }
+  .cgv-index .cgv-index-label {
+    flex-basis:100%;
+    margin-bottom:4px
+  }
+  .cgv-index a {
+    font-size:11px;
+    padding:3px 0
+  }
+  .cgv-content {
+    padding-top:45px
+  }
+}
+@media(max-width:650px) {
+  body.cgv-page .cgv-hero {
+    min-height:290px;
+    padding:125px 6% 38px
+  }
+  .cgv-content {
+    padding:35px 6% 70px
+  }
+  .cgv-article {
+    margin-bottom:29px;
+    padding-bottom:25px
+  }
+  .cgv-article h2 {
+    font-size:21px;
+    margin-bottom:17px
+  }
+  .cgv-article p,.cgv-article li {
+    font-size:14px;
+    line-height:1.8
+  }
+  .cgv-index {
+    max-height:145px;
+    overflow:auto
+  }
+}
+@media print {
+  .navbar,.site-footer,.cgv-index {
+    display:none!important
+  }
+  .cgv-hero {
+    min-height:0!important;
+    padding:0 0 15px!important;
+    background:white!important
+  }
+  .cgv-hero * {
+    color:#222!important
+  }
+  .cgv-content {
+    padding:0!important;
+    background:white!important
+  }
+  .cgv-wrap {
+    display:block!important
+  }
+  .cgv-article {
+    break-inside:avoid-page
+  }
+  .cgv-article h2,.cgv-article p,.cgv-article li {
+    color:#222!important
+  }
+  body.cgv-page {
+    background:white!important
+  }
+}
+</style>
+  </head>
+  <body class="cgv-page">
     <nav class="navbar" aria-label="Navigation principale">
-
-        <!-- LOGO COULEUR -->
-        <a
-            href="index.html"
-            class="nav-logo"
-            aria-label="Accueil Digital Art Production"
-        >
-            <img
-                src="images/logo-couleur.png"
-                alt="Digital Art Production"
-            >
-        </a>
-
-        <!-- BOUTON MENU HAMBURGER -->
-        <button
-            class="menu-toggle"
-            type="button"
-            aria-label="Ouvrir le menu"
-            aria-expanded="false"
-            aria-controls="nav-links"
-        >
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-
-        <!-- LIENS DE NAVIGATION -->
-        <div class="nav-links" id="nav-links">
-
-            <a href="index.html">HOME</a>
-
-            <a href="projets.html">PROJETS</a>
-
-            <a href="prestations.html">PRESTATIONS</a>
-
-            <a href="apropos.html">À PROPOS</a>
-
-            <a href="contact.html">CONTACT</a>
-
-        </div>
-
-    </nav>
-
-
-    <!-- =========================================
-         2. CONTENU PRINCIPAL — CGV
-    ========================================= -->
-
+  <a href="index.html" class="nav-logo" aria-label="Accueil Digital Art Production">
+        <img src="images/logo-couleur.png" alt="Digital Art Production">
+      </a>
+  <button class="menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-links">
+        <span>
+        </span>
+        <span>
+        </span>
+        <span>
+        </span>
+      </button>
+  <div class="nav-links" id="nav-links">
+        <a href="index.html">HOME</a>
+        <a href="projets.html">PROJETS</a>
+        <a href="prestations.html">PRESTATIONS</a>
+        <a href="apropos.html">À PROPOS</a>
+        <a href="contact.html">CONTACT</a>
+      </div>
+</nav>
     <main class="page-main">
-
-        <!-- EN-TÊTE -->
-        <header class="page-hero">
-
-            <p class="page-eyebrow">
-                DIGITAL ART PRODUCTION
-            </p>
-
-            <h1>CONDITIONS GÉNÉRALES DE VENTE</h1>
-
-            <p class="page-lead">
-                Cadre contractuel des prestations
-                de production audiovisuelle.
-            </p>
-
-        </header>
-
-
-        <!-- =====================================
-             TEXTE JURIDIQUE
-        ===================================== -->
-
-        <div class="page-content legal-copy">
-
-            <!-- AVERTISSEMENT -->
-            <p class="legal-note">
-
-                <strong>
-                    DOCUMENT DE TRAVAIL — À COMPLÉTER AVANT PUBLICATION.
-                </strong>
-
-                Certaines informations et clauses nécessitent
-                votre validation. Ne publiez pas cette page
-                comme un document légal définitif.
-
-            </p>
-
-
-            <!-- =================================
-                 ARTICLE 1 — OBJET
-            ================================= -->
-
-            <section>
-
-                <h2>1. Objet et champ d'application</h2>
-
-                <p>
-                    Ces conditions sont destinées à encadrer
-                    les prestations de captation vidéo,
-                    tournage drone/FPV, montage et production
-                    audiovisuelle proposées par
-                    Digital Art Production.
-                </p>
-
-                <p>
-                    <strong data-placeholder>
-                        [PRÉCISER LES CLIENTÈLES VISÉES :
-                        PROFESSIONNELS / PARTICULIERS]
-                    </strong>
-                </p>
-
+      <header class="cgv-hero">
+        <p class="cgv-overline">DIGITAL ART PRODUCTION</p>
+        <h1>CGV</h1>
+        <p class="cgv-subtitle">Conditions générales de vente — Clients professionnels et consommateurs</p>
+        <p class="cgv-version">Version du 8 novembre 2026.</p>
+      </header>
+      <div class="cgv-content">
+        <div class="cgv-wrap">
+          <aside class="cgv-index" aria-label="Sommaire des conditions générales de vente">
+            <p class="cgv-index-label">SOMMAIRE</p>
+            <a href="#article-1">1. Objet et champ d&#x27;application</a>
+            <a href="#article-2">2. Identification du Prestataire</a>
+            <a href="#article-3">3. Nature et description des prestations</a>
+            <a href="#article-4">4. Devis, commande et validation</a>
+            <a href="#article-5">5. Prix et modalités de paiement</a>
+            <a href="#article-6">6. Organisation et réalisation des prestations</a>
+            <a href="#article-7">7. Conditions particulières des prises de vues par drone et FPV</a>
+            <a href="#article-8">8. Livraison, corrections et conservation des fichiers</a>
+            <a href="#article-9">9. Propriété intellectuelle et droits d&#x27;exploitation</a>
+            <a href="#article-10">10. Droit à l&#x27;image et autorisations</a>
+            <a href="#article-11">11. Annulation, report et résiliation</a>
+            <a href="#article-12">12. Responsabilité, assurances et sous-traitance</a>
+            <a href="#article-13">13. Confidentialité et données personnelles</a>
+            <a href="#article-14">14. Réclamations et litiges</a>
+            <a href="#article-15">15. Force majeure</a>
+            <a href="#article-16">16. Acceptation et version applicable</a>
+            <a href="#article-17">17. Droit de rétractation des consommateurs</a>
+            <a href="#article-18">18. Dispositions spécifiques aux consommateurs</a>
+            <a href="#article-19">19. Formulaire type de rétractation (consommateurs)</a>
+          </aside>
+          <div class="cgv-legal">
+            <p class="cgv-intro">Digital Art Production — CGV</p>
+            <section class="cgv-article" id="article-1" aria-labelledby="title-article-1">
+              <h2 id="title-article-1">1. Objet et champ d&#x27;application</h2>
+              <p>Les présentes conditions générales de vente (CGV) définissent les conditions dans lesquelles Digital Art Production propose et réalise ses prestations de création et de production audiovisuelle auprès de Clients professionnels et de consommateurs (particuliers agissant à des fins privées).</p>
+              <p>Elles s&#x27;appliquent notamment aux prestations de tournage, de prises de vues au sol et par drone/FPV, de montage, de postproduction, ainsi qu&#x27;à la réalisation de films d&#x27;entreprise, de contenus publicitaires, immobiliers, touristiques et événementiels.</p>
+              <p>Chaque prestation fait l&#x27;objet d&#x27;un devis précisant les caractéristiques du projet et les conditions particulières de sa réalisation.</p>
+              <p>Le devis accepté et ses éventuelles annexes complètent les présentes CGV. En cas de contradiction, les dispositions particulières expressément acceptées prévalent pour les points concernés, sous réserve des dispositions légales impératives applicables.</p>
+              <p>Les dispositions expressément réservées aux professionnels ne s&#x27;appliquent pas aux consommateurs. Les droits impératifs des consommateurs prévalent sur toute clause contraire.</p>
+              <p>Dans les présentes CGV, le terme « Client » désigne toute personne physique ou morale, professionnelle ou consommatrice, qui commande une prestation auprès de Digital Art Production.</p>
             </section>
-
-
-            <!-- =================================
-                 ARTICLE 2 — DEVIS ET COMMANDE
-            ================================= -->
-
-            <section>
-
-                <h2>2. Devis et commande</h2>
-
-                <p>
-                    La nature des livrables, le périmètre,
-                    le calendrier, les éventuels déplacements
-                    et le prix sont définis dans un devis
-                    personnalisé.
-                </p>
-
-                <p>
-                    <strong data-placeholder>
-                        [DÉFINIR LA VALIDITÉ DU DEVIS,
-                        L'ACCEPTATION ET LES CONDITIONS
-                        DE MODIFICATION]
-                    </strong>
-                </p>
-
+            <section class="cgv-article" id="article-2" aria-labelledby="title-article-2">
+              <h2 id="title-article-2">2. Identification du Prestataire</h2>
+              <p>Digital Art Production est le nom commercial de Victor Roche-Menu, entrepreneur individuel (EI), exerçant sous le régime de la micro-entreprise.</p>
+              <p>Adresse professionnelle : 17 bis avenue des Allinges, 74200 Thonon-les-Bains, France.</p>
+              <p>SIREN : 979 294 311 </p>
+              <p>SIRET : 979 294 311 00019.</p>
+              <p>Activité principale déclarée : production de films institutionnels et publicitaires (code APE 5911B). Formalité de création validée par le Guichet unique de l’INPI le 17 octobre 2023.</p>
+              <p>Site internet : https://digitalart-production.fr/</p>
+              <p>Email : contact@digitalart-production.fr</p>
+              <p>Téléphone : +33 6 35 46 20 92.</p>
             </section>
-
-
-            <!-- =================================
-                 ARTICLE 3 — PRIX ET PAIEMENT
-            ================================= -->
-
-            <section>
-
-                <h2>3. Prix et paiement</h2>
-
-                <p>
-                    <strong data-placeholder>
-                        [PRÉCISER :
-                        PRIX HT OU TTC SELON VOTRE RÉGIME,
-                        ACOMPTE,
-                        ÉCHÉANCES,
-                        MOYENS DE PAIEMENT,
-                        INDEMNITÉS DE RETARD B2B
-                        ET INDEMNITÉ FORFAITAIRE APPLICABLE]
-                    </strong>
-                </p>
-
+            <section class="cgv-article" id="article-3" aria-labelledby="title-article-3">
+              <h2 id="title-article-3">3. Nature et description des prestations</h2>
+              <p>Digital Art Production propose des prestations de création et de production audiovisuelle, comprenant notamment la réalisation de vidéos promotionnelles et publicitaires, de films d&#x27;entreprise, de contenus pour les réseaux sociaux, de reportages événementiels, de prises de vues immobilières et touristiques, ainsi que de prises de vues aériennes par drone.</p>
+              <p>Selon les besoins du Client, les prestations peuvent comprendre la préparation du projet, le tournage, la prise de son, le montage vidéo, l&#x27;étalonnage et la livraison des contenus finalisés.</p>
+              <p>La nature exacte des prestations, les livrables attendus, les formats et les éventuelles options sont précisés dans le devis accepté par le Client.</p>
+              <p>Toute prestation supplémentaire non prévue au devis initial pourra faire l&#x27;objet d&#x27;une facturation complémentaire, après accord préalable du Client.</p>
             </section>
-
-
-            <!-- =================================
-                 ARTICLE 4 — RÉALISATION
-            ================================= -->
-
-            <section>
-
-                <h2>4. Réalisation et livraison</h2>
-
-                <p>
-                    Les dates de tournage, modalités de livraison,
-                    formats, nombre d'allers-retours de correction
-                    et éventuelles conditions météo ou autorisations
-                    d'exploitation du drone sont à formaliser
-                    au devis.
-                </p>
-
-                <p>
-                    <strong data-placeholder>
-                        [PRÉCISER LES RESPONSABILITÉS
-                        ET CONDITIONS DE REPORT]
-                    </strong>
-                </p>
-
+            <section class="cgv-article" id="article-4" aria-labelledby="title-article-4">
+              <h2 id="title-article-4">4. Devis, commande et validation</h2>
+              <p>Les devis sont valables 30 jours calendaires à compter de leur date d’émission, sauf durée différente expressément indiquée. Passé ce délai, Digital Art Production peut réviser son offre. La commande devient ferme après acceptation écrite du devis et, lorsque celui-ci le prévoit, versement de l’acompte demandé. L’acceptation peut être donnée par signature ou par validation électronique explicite.</p>
+              <p>Le calendrier peut être adapté si les éléments nécessaires au projet, les autorisations ou les validations attendues du Client sont transmis tardivement. Toute modification substantielle de commande doit être acceptée par écrit par les deux parties.</p>
+              <p>Pour les consommateurs, les informations essentielles relatives à la prestation, au prix total, aux frais éventuels, aux délais d&#x27;exécution et aux droits applicables sont communiquées avant la conclusion de la commande. Pour les commandes conclues à distance ou hors établissement, les informations et confirmations requises sont remises sur support durable.</p>
             </section>
-
-
-            <!-- =================================
-                 ARTICLE 5 — PROPRIÉTÉ INTELLECTUELLE
-            ================================= -->
-
-            <section>
-
-                <h2>5. Droits sur les créations</h2>
-
-                <p>
-                    Les conditions de diffusion, la durée,
-                    le territoire, les supports et les droits
-                    éventuellement cédés doivent être définis
-                    explicitement dans le devis ou un accord écrit.
-                </p>
-
-                <p>
-                    <strong data-placeholder>
-                        [PRÉCISER LES DROITS MUSICAUX,
-                        DROITS À L'IMAGE ET UTILISATION
-                        EN PORTFOLIO]
-                    </strong>
-                </p>
-
+            <section class="cgv-article" id="article-5" aria-labelledby="title-article-5">
+              <h2 id="title-article-5">5. Prix et modalités de paiement</h2>
+              <p>Les prix des prestations sont indiqués en euros dans le devis transmis au Client. Digital Art Production bénéficie du régime de la franchise en base de TVA. La TVA n&#x27;est donc pas facturée tant que ce régime s&#x27;applique.</p>
+              <p>Les tarifs sont établis en fonction des caractéristiques de chaque projet et détaillés dans un devis personnalisé. Les éventuelles remises commerciales sont indiquées sur le devis. Aucun escompte n&#x27;est accordé pour paiement anticipé, sauf accord écrit contraire.</p>
+              <p>Sauf accord particulier mentionné dans le devis, le paiement s&#x27;effectue en deux étapes :</p>
+              <ul>
+                <li>Un acompte de 20 % du montant total est exigible à la validation du devis, sous réserve des règles impératives applicables aux consommateurs, notamment en cas de contrat conclu hors établissement</li>
+                <li>Le solde de 80 % est facturé à la livraison des fichiers finaux et payable sous 7 jours calendaires à compter de la date d&#x27;émission de la facture, sauf accord différent au devis et sous réserve des délais légaux applicables.</li>
+              </ul>
+              <p>Digital Art Production peut décider de ne pas demander d&#x27;acompte, notamment pour les Clients réguliers ou les personnes avec lesquelles une collaboration a déjà été établie. Cette exception est alors précisée dans le devis.</p>
+              <p>Les paiements sont acceptés par virement bancaire ou en espèces, dans les limites prévues par la loi.</p>
+              <p>Pour les seuls Clients professionnels : tout retard de paiement entraîne, dès le lendemain de l&#x27;échéance et sans rappel, des pénalités au taux annuel égal à trois fois le taux d&#x27;intérêt légal en vigueur, calculées sur les sommes impayées et la durée du retard. Une indemnité forfaitaire de 40 € pour frais de recouvrement est également due dans les conditions prévues par les articles L. 441-10 et D. 441-5 du Code de commerce.</p>
+              <p>Pour les consommateurs : les pénalités commerciales et l&#x27;indemnité forfaitaire de 40 € mentionnées ci-dessus ne s&#x27;appliquent pas. Tout retard ou défaut de paiement est traité conformément au droit commun applicable.</p>
             </section>
-
-
-            <!-- =================================
-                 ARTICLE 6 — ANNULATION ET LITIGES
-            ================================= -->
-
-            <section>
-
-                <h2>6. Annulation, rétractation et litiges</h2>
-
-                <p>
-                    <strong data-placeholder>
-                        [DÉFINIR LES FRAIS D'ANNULATION
-                        ET LES CONDITIONS DE RÉSILIATION ;
-                        ADAPTER LE DROIT DE RÉTRACTATION
-                        SI DES PARTICULIERS PEUVENT CONTRACTER
-                        À DISTANCE ;
-                        IDENTIFIER LE MÉDIATEUR
-                        DE LA CONSOMMATION SI APPLICABLE ;
-                        PRÉCISER LE DROIT APPLICABLE
-                        ET LE RÈGLEMENT DES LITIGES]
-                    </strong>
-                </p>
-
+            <section class="cgv-article" id="article-6" aria-labelledby="title-article-6">
+              <h2 id="title-article-6">6. Organisation et réalisation des prestations</h2>
+              <p>Le Client fournit les informations, accès, contacts, éléments graphiques et validations nécessaires à la prestation. Il signale les contraintes particulières, les restrictions de captation et les obligations de confidentialité connues.</p>
+              <p>Le Prestataire met en œuvre les moyens adaptés à la réalisation de la commande, dans le respect des règles professionnelles et des obligations légales qui lui incombent. Les délais peuvent être ajustés lorsque surviennent des circonstances extérieures ou des retards imputables aux informations ou validations attendues du Client.</p>
             </section>
-
+            <section class="cgv-article" id="article-7" aria-labelledby="title-article-7">
+              <h2 id="title-article-7">7. Conditions particulières des prises de vues par drone et FPV</h2>
+              <p>Les opérations aériennes sont subordonnées aux conditions météorologiques, aux règles de sécurité, aux restrictions de l’espace aérien et aux autorisations requises. Le Prestataire ou le télépilote peut refuser, interrompre ou reporter un vol lorsqu’il ne peut pas être effectué légalement ou en sécurité.</p>
+              <p>Les parties recherchent alors une solution de report ou d’adaptation du tournage. Les frais supplémentaires éventuels sont examinés au regard du devis et ne sont engagés qu’après accord écrit lorsqu’ils ne sont pas déjà prévus. Les obligations réglementaires propres à l’exploitant et au télépilote restent à leur charge.</p>
+            </section>
+            <section class="cgv-article" id="article-8" aria-labelledby="title-article-8">
+              <h2 id="title-article-8">8. Livraison, corrections et conservation des fichiers</h2>
+              <p>Les livrables sont remis dans les formats et par le moyen convenu au devis, généralement par lien de téléchargement. Les dates de livraison tiennent compte du calendrier de validation du Client.</p>
+              <p>Deux séries de corrections sont comprises dans le prix, sauf disposition différente au devis. Une série correspond à un retour unique et consolidé : un courriel ou document contenant plusieurs demandes constitue une seule série, et non une correction par remarque. Les séries supplémentaires sont facturées uniquement après information du Client et acceptation du prix. Une modification majeure du projet initial peut faire l’objet d’un devis complémentaire, même si les deux séries ne sont pas épuisées.</p>
+              <p>Les fichiers finaux livrés sont conservés pendant deux ans à compter de la livraison, sous réserve des exigences applicables à la protection des données personnelles. Passé ce délai, ils peuvent être supprimés. Le Client doit télécharger et sauvegarder ses fichiers. Les rushes, fichiers sources, projets de montage et autres fichiers de travail ne sont pas remis par défaut ; leur transmission exige un accord écrit spécifique.</p>
+            </section>
+            <section class="cgv-article" id="article-9" aria-labelledby="title-article-9">
+              <h2 id="title-article-9">9. Propriété intellectuelle et droits d&#x27;exploitation</h2>
+              <p>Les créations réalisées par Digital Art Production dans le cadre de ses prestations restent protégées par le droit de la propriété intellectuelle.</p>
+              <p>La réalisation et le paiement d&#x27;une prestation n&#x27;entraînent pas automatiquement la cession de l&#x27;ensemble des droits d&#x27;auteur.</p>
+              <p>Les droits d&#x27;exploitation accordés au Client sont définis dans le devis ou dans un accord écrit. Ils précisent notamment les utilisations autorisées (site internet, réseaux sociaux, publicité, diffusion interne, etc.), les supports de diffusion, le territoire, la durée d&#x27;exploitation, les éventuelles conditions d&#x27;exclusivité, ainsi que la rémunération correspondante.</p>
+              <p>Sauf accord contraire, l&#x27;utilisation des créations par le Client est autorisée après le paiement intégral de la prestation, dans les limites des droits d&#x27;exploitation convenus.</p>
+              <p>Les musiques, photographies, typographies et autres éléments provenant de tiers peuvent être soumis à des licences particulières limitant leur utilisation. Le Client garantit disposer des droits nécessaires sur les éléments qu&#x27;il fournit à Digital Art Production.</p>
+              <p>Digital Art Production ne peut utiliser les créations réalisées pour un Client, notamment sur son site internet, ses réseaux sociaux ou dans son portfolio, qu&#x27;après avoir obtenu son autorisation écrite préalable.</p>
+            </section>
+            <section class="cgv-article" id="article-10" aria-labelledby="title-article-10">
+              <h2 id="title-article-10">10. Droit à l&#x27;image et autorisations</h2>
+              <p>Les parties définissent avant le tournage qui recueille les autorisations d’accès aux lieux, de captation et de diffusion de l’image des personnes concernées, notamment des mineurs. Lorsque le Client organise l’événement ou fait intervenir des participants, il fournit les autorisations relevant de son organisation, sauf mission expressément confiée au Prestataire.</p>
+              <p>Le Prestataire reste tenu de respecter les règles applicables à sa propre activité. Le Client doit signaler les personnes, lieux ou informations dont la captation ou la diffusion est interdite ou limitée.</p>
+            </section>
+            <section class="cgv-article" id="article-11" aria-labelledby="title-article-11">
+              <h2 id="title-article-11">11. Annulation, report et résiliation</h2>
+              <p>Toute demande d&#x27;annulation ou de report est communiquée par écrit au Prestataire.</p>
+              <p>Pour les Clients professionnels : en cas d&#x27;annulation à leur initiative après acceptation du devis, l&#x27;acompte de 20 % effectivement versé pourra être conservé par Digital Art Production à titre d&#x27;indemnité forfaitaire d&#x27;annulation, sans indemnité forfaitaire supplémentaire. En cas de dispense d&#x27;acompte, aucune indemnité forfaitaire n&#x27;est due au titre de cette clause, sans préjudice des recours légalement ouverts en cas d&#x27;inexécution.</p>
+              <p>Pour les consommateurs : les droits de rétractation éventuellement applicables (article 17) sont prioritaires. Hors exercice d&#x27;un droit légal de rétractation, une annulation est examinée selon l&#x27;avancement réel de la prestation et les frais justifiés, dans le respect du droit de la consommation ; aucune conservation automatique de l&#x27;acompte n&#x27;est prévue par la présente clause.</p>
+              <p>Digital Art Production peut, à titre commercial, restituer tout ou partie de l’acompte selon les circonstances et l’accord trouvé avec le Client, sans préjudice des remboursements légalement dus.</p>
+              <p>En cas de conditions météorologiques défavorables, de restrictions réglementaires ou de contraintes de sécurité empêchant la prestation, les parties privilégient un report sans frais d’annulation automatiques. Les autres demandes de report sont étudiées au cas par cas ; la nouvelle date et les éventuels frais spécifiques font l’objet d’un accord écrit préalable.</p>
+              <p>Si la prestation ne peut être exécutée pour une cause imputable au Prestataire, les droits légaux du Client demeurent intégralement applicables, notamment quant au remboursement des prestations non exécutées.</p>
+            </section>
+            <section class="cgv-article" id="article-12" aria-labelledby="title-article-12">
+              <h2 id="title-article-12">12. Responsabilité, assurances et sous-traitance</h2>
+              <p>Chaque partie répond de ses manquements conformément au droit applicable. Le Prestataire ne garantit pas un niveau de ventes, d’audience ou de retombées commerciales du contenu livré, sauf engagement écrit spécifique.</p>
+              <p>Le Prestataire peut recourir à des collaborateurs ou sous-traitants, tout en restant l’interlocuteur contractuel du Client et en veillant à disposer des droits nécessaires sur leurs contributions. Chaque partie demeure responsable dans les conditions prévues par la loi. Les obligations réglementaires et d’assurance applicables aux opérations de drone doivent être respectées avant leur réalisation.</p>
+            </section>
+            <section class="cgv-article" id="article-13" aria-labelledby="title-article-13">
+              <h2 id="title-article-13">13. Confidentialité et données personnelles</h2>
+              <p>Les parties préservent la confidentialité des informations non publiques échangées dans le cadre de la commande, sauf accord, nécessité d’exécution ou obligation légale.</p>
+              <p>Les données personnelles sont traitées pour la gestion des demandes, devis, prestations et factures selon la réglementation applicable. Les modalités détaillées sont indiquées dans la politique de confidentialité du site. Les images identifiables sont conservées et utilisées dans le respect des finalités, droits et autorisations applicables ; la politique commerciale de conservation de deux ans ne dispense pas de ces obligations.</p>
+            </section>
+            <section class="cgv-article" id="article-14" aria-labelledby="title-article-14">
+              <h2 id="title-article-14">14. Réclamations et litiges</h2>
+              <p>Toute réclamation est adressée en priorité à contact@digitalart-production.fr afin de rechercher une solution amiable.</p>
+              <p>Pour les consommateurs, après réclamation écrite préalable restée sans solution, le recours gratuit à un médiateur de la consommation est possible selon les conditions légales. </p>
+              <p>Nom du Médiateur : </p>
+              <p>Adresse :</p>
+              <p>Site internet :</p>
+              <p>Les CGV sont régies par le droit français, sans priver le consommateur des protections impératives éventuellement applicables. À défaut d&#x27;accord amiable, les tribunaux compétents sont déterminés conformément aux règles légales, notamment celles protectrices du consommateur.</p>
+            </section>
+            <section class="cgv-article" id="article-15" aria-labelledby="title-article-15">
+              <h2 id="title-article-15">15. Force majeure</h2>
+              <p>Lorsqu’un événement constitue un cas de force majeure au sens de l’article 1218 du Code civil, la partie concernée en informe l’autre dans les meilleurs délais. Les conséquences sur la suspension, le report ou la résolution de la prestation sont déterminées conformément au droit applicable.</p>
+            </section>
+            <section class="cgv-article" id="article-16" aria-labelledby="title-article-16">
+              <h2 id="title-article-16">16. Acceptation et version applicable</h2>
+              <p>Le Client reçoit les présentes CGV ou y a accès avant de s’engager et les accepte lors de la validation de la commande. La version applicable est celle communiquée et acceptée à la date de la commande. Les mises à jour ultérieures ne modifient pas les contrats déjà conclus sans accord des parties.</p>
+            </section>
+            <section class="cgv-article" id="article-17" aria-labelledby="title-article-17">
+              <h2 id="title-article-17">17. Droit de rétractation des consommateurs</h2>
+              <p>Pour un contrat conclu à distance ou hors établissement, le consommateur dispose en principe de 14 jours à compter de la conclusion du contrat de prestation de services pour se rétracter, sans avoir à motiver sa décision, sous réserve des exceptions légales. Il peut exercer ce droit par une déclaration dénuée d&#x27;ambiguïté adressée à contact@digitalart-production.fr ou au moyen du formulaire type figurant en annexe.</p>
+              <p>Si le consommateur demande expressément que la prestation commence avant la fin du délai de rétractation, cette demande doit être recueillie dans les formes requises. S&#x27;il se rétracte après un commencement d&#x27;exécution régulièrement demandé, il peut être redevable du montant proportionnel au service déjà fourni, dans les conditions prévues par la loi.</p>
+              <p>Le droit de rétractation peut notamment être perdu pour une prestation de services pleinement exécutée avant la fin du délai, uniquement lorsque les conditions légales sont réunies, notamment l&#x27;accord préalable exprès du consommateur et sa reconnaissance de la perte de ce droit lorsque cela est requis. Une date de tournage fixée ou un contenu personnalisé ne supprime pas, à elle seule, le droit de rétractation.</p>
+              <p>Lorsque la rétractation est valable, les remboursements sont effectués dans les délais et selon les modalités légales. Les exceptions légales et les éventuels coûts proportionnels sont expliqués au consommateur avant la commande.</p>
+            </section>
+            <section class="cgv-article" id="article-18" aria-labelledby="title-article-18">
+              <h2 id="title-article-18">18. Dispositions spécifiques aux consommateurs</h2>
+              <p>Les informations précontractuelles obligatoires, notamment sur les caractéristiques essentielles, le prix total, les délais, les modalités de paiement et d&#x27;exécution, les coordonnées du Prestataire et les voies de recours, sont fournies au consommateur avant qu&#x27;il soit lié par le contrat.</p>
+              <p>Le consommateur bénéficie des garanties et recours légaux applicables à la prestation et, le cas échéant, aux éléments numériques ou biens fournis. Aucune clause des présentes CGV ne limite les droits impératifs du consommateur en cas de défaut d&#x27;exécution, de non-conformité ou de retard.</p>
+              <p>Pour les contrats conclus hors établissement, le Prestataire respecte les restrictions légales relatives à la réception de paiements avant l&#x27;expiration du délai prévu par le Code de la consommation, sauf exception applicable.</p>
+            </section>
+            <section class="cgv-article" id="article-19" aria-labelledby="title-article-19">
+              <h2 id="title-article-19">19. Formulaire type de rétractation (consommateurs)</h2>
+              <p>À l&#x27;attention de Digital Art Production — Victor Roche-Menu, 17 bis avenue des Allinges, 74200 Thonon-les-Bains — contact@digitalart-production.fr.</p>
+              <p>Je/nous (*) vous notifie/notifions (*) par la présente ma/notre (*) rétractation du contrat portant sur la prestation de services ci-dessous : ______________________________</p>
+              <p>Commandée le : __________</p>
+              <p>Nom du/des consommateur(s) : ____________________</p>
+              <p>Adresse du/des consommateur(s) : __________________________________________</p>
+              <p>Date : __________ </p>
+              <p>Signature (uniquement si notification sur papier) : __________</p>
+              <p>(*) Rayez la mention inutile.</p>
+            </section>
+          </div>
         </div>
-
+      </div>
     </main>
-
-
-    <!-- =========================================
-         3. FOOTER — PIED DE PAGE
-    ========================================= -->
-
     <footer class="site-footer">
 
         <div class="footer-container">
-
-            <!-- =================================
-                 3.1 GAUCHE — ENTREPRISE
-            ================================= -->
 
             <div class="footer-column footer-brand">
 
                 <h3>DIGITAL ART PRODUCTION</h3>
 
-                <p>
-                    Production audiovisuelle en France
-                    et à l'international.
-                </p>
+                <p>Production audiovisuelle en France et à l’international.</p>
 
-                <p class="footer-specialties">
-                    Filmmaking • Drone • FPV
-                </p>
+                <p class="footer-specialties">Filmmaking • Drone • FPV</p>
 
             </div>
-
-
-            <!-- =================================
-                 3.2 CENTRE — NAVIGATION
-            ================================= -->
 
             <div class="footer-column">
 
                 <h4>NAVIGATION</h4>
 
-                <nav
-                    class="footer-links"
-                    aria-label="Navigation de pied de page"
-                >
+                <nav class="footer-links" aria-label="Navigation de pied de page">
 
                     <a href="index.html">Home</a>
 
@@ -367,80 +449,60 @@
 
             </div>
 
-
-            <!-- =================================
-                 3.3 DROITE — CONTACT ET RÉSEAUX
-            ================================= -->
-
             <div class="footer-column footer-contact-column">
 
                 <h4>RESTONS CONNECTÉS</h4>
 
                 <div class="contact-details">
+
                     <a href="mailto:contact@digitalart-production.fr">contact@digitalart-production.fr</a>
+
                     <a href="tel:+33635462092">+33 6 35 46 20 92</a>
+
                 </div>
 
                 <a class="footer-contact" href="contact.html">Formulaire de contact</a>
 
-                <!-- RÉSEAUX SOCIAUX -->
                 <div class="footer-socials">
 
-                    <!-- INSTAGRAM -->
-                    <a
-                        href="https://www.instagram.com/victor_rochemenu/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="Instagram"
-                        title="Instagram"
-                    >
-                        <svg
-                            viewBox="0 0 24 24"
-                            fill="currentColor"
-                            aria-hidden="true"
-                        >
+                    <!-- Instagram -->
+
+                    <a href="https://www.instagram.com/victor_rochemenu/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram">
+
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+
                             <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9z"/>
 
                             <path d="M12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/>
 
-                            <circle
-                                cx="17.5"
-                                cy="6.5"
-                                r="1.25"
-                            />
+                            <circle cx="17.5" cy="6.5" r="1.25"/>
+
                         </svg>
+
                     </a>
 
+                    <!-- LinkedIn : tracé unique correct, même dimensions que les autres logos -->
 
-                    <!-- LINKEDIN -->
-                    <a
-                        href="https://www.linkedin.com/in/victor-roche-menu-60917814a/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="LinkedIn"
-                        title="LinkedIn"
-                    >
-                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" width="20" height="20">
-                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.137 1.445-2.137 2.939v5.667H9.35V9h3.414v1.561h.049c.476-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    <a href="https://www.linkedin.com/in/victor-roche-menu-60917814a/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
+
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.35V9h3.414v1.561h.049c.476-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zm1.782 13.019H3.555V9H7.12v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+
                         </svg>
+
                     </a>
 
+                    <!-- YouTube -->
 
-                    <!-- YOUTUBE -->
-                    <a
-                        href="https://www.youtube.com/@DigitalArt_Prod"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="YouTube Digital Art Production"
-                        title="YouTube"
-                    >
-                        <svg
-                            viewBox="0 0 24 24"
-                            fill="currentColor"
-                            aria-hidden="true"
-                        >
+                    <a href="https://www.youtube.com/@DigitalArt_Prod" target="_blank" rel="noopener noreferrer" aria-label="YouTube Digital Art Production" title="YouTube">
+
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+
                             <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.55 3.6 12 3.6 12 3.6s-7.55 0-9.4.5A3 3 0 0 0 .5 6.2 31.1 31.1 0 0 0 0 12a31.1 31.1 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.85.5 9.4.5 9.4.5s7.55 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.1 31.1 0 0 0 24 12a31.1 31.1 0 0 0-.5-5.8zM9.6 15.6V8.4l6.25 3.6-6.25 3.6z"/>
+
                         </svg>
+
                     </a>
 
                 </div>
@@ -449,48 +511,26 @@
 
         </div>
 
-
-        <!-- =====================================
-             3.4 BAS DU FOOTER — LIENS LÉGAUX
-        ===================================== -->
-
         <div class="footer-bottom">
 
-            <p>
-                © 2026 Digital Art Production.
-                Tous droits réservés.
-            </p>
+            <p>© 2026 Digital Art Production. Tous droits réservés.</p>
 
             <div class="footer-legal">
 
-                <a href="mentions-legales.html">
-                    Mentions légales
-                </a>
+                <a href="mentions-legales.html">Mentions légales</a>
 
-                <a href="cgv.html" aria-current="page">
-                    CGV
-                </a>
+                <a href="cgv.html">CGV</a>
 
-                <a href="confidentialite.html">
-                    Confidentialité
-                </a>
+                <a href="confidentialite.html">Confidentialité</a>
 
-                <a href="cookies.html">
-                    Cookies
-                </a>
+                <a href="cookies.html">Cookies</a>
 
             </div>
 
         </div>
 
     </footer>
-
-
-    <!-- =========================================
-         4. JAVASCRIPT
-    ========================================= -->
-
-    <script src="script.js"></script>
-
-</body>
+    <script src="script.js">
+    </script>
+  </body>
 </html>
