@@ -1,131 +1,184 @@
 <!DOCTYPE html>
+
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Informations relatives à l’éditeur et à l’hébergement du site.">
-    <title>Mentions légales | Digital Art Production</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Informations relatives à l’éditeur et à l’hébergement du site." name="description"/>
+<title>Mentions légales | Digital Art Production</title>
+<link href="style.css" rel="stylesheet"/>
+<style>
+        /* Coordonnées et alignement de la colonne contact du footer */
+        .site-footer .footer-contact-column { text-align: right; align-items: flex-end; }
+        .site-footer .footer-contact-column .contact-details {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 10px;
+            margin: 18px 0;
+            padding: 0;
+            text-align: right;
+        }
+        .site-footer .footer-contact-column .contact-details a {
+            color: #ccc;
+            font-size: 13px;
+            line-height: 1.5;
+            text-align: right;
+            text-decoration: none;
+            overflow-wrap: anywhere;
+        }
+        .site-footer .footer-contact-column .contact-details a:hover { color: #fff; }
+        .site-footer .footer-contact-column .footer-socials { justify-content: flex-end; }
+        .site-footer .footer-contact-column .footer-socials svg {
+            width: 22px;
+            height: 22px;
+            display: block;
+        }
+    </style>
+    <style>
+
+        /* HAUTEUR UNIFORME DES BANNIÈRES INTERNES — HOME EXCLUE
+           Une même hauteur mesurée depuis le haut de la fenêtre,
+           quelles que soient les photos et les particularités de chaque page. */
+        .page-main { padding-top: 0 !important; }
+        .page-main > .page-hero {
+            height: 490px !important;
+            min-height: 490px !important;
+            max-height: 490px !important;
+            box-sizing: border-box !important;
+        }
+        @media (max-width: 900px) {
+            .page-main > .page-hero {
+                height: 420px !important;
+                min-height: 420px !important;
+                max-height: 420px !important;
+            }
+        }
+        @media (max-width: 650px) {
+            .page-main > .page-hero {
+                height: 360px !important;
+                min-height: 360px !important;
+                max-height: 360px !important;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Navigation principale -->
-    <nav class="navbar" aria-label="Navigation principale">
-        <a href="index.html" class="nav-logo" aria-label="Accueil Digital Art Production">
-            <img src="images/logo-couleur.png" alt="Digital Art Production">
-        </a>
-        <button class="menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-links">
-            <span></span><span></span><span></span>
-        </button>
-        <div class="nav-links" id="nav-links">
-            <a href="index.html">HOME</a>
-            <a href="projets.html">PROJETS</a>
-            <a href="materiel.html">MATÉRIEL</a>
-            <a href="apropos.html">À PROPOS</a>
-            <a href="contact.html">CONTACT</a>
-        </div>
-    </nav>
-
-    <!-- Contenu principal -->
-    <main class="page-main">
-        <header class="page-hero">
-            <p class="page-eyebrow">DIGITAL ART PRODUCTION</p>
-            <h1>MENTIONS LÉGALES</h1>
-            <p class="page-lead">Informations relatives à l’éditeur et à l’hébergement du site.</p>
-        </header>
-
-        <div class="page-content legal-copy">
-            <p class="legal-note">
-                <strong>DOCUMENT DE TRAVAIL — À COMPLÉTER AVANT PUBLICATION.</strong>
-                Certaines informations et clauses nécessitent votre validation.
-                Ne publiez pas cette page comme un document légal définitif.
-            </p>
-
-            <section>
-                <h2>1. Éditeur du site</h2>
-                <p><strong>Nom commercial :</strong> Digital Art Production</p>
-                <p><strong>Éditeur :</strong> Victor Roche-Menu, entrepreneur individuel (EI) — <strong data-placeholder>[VÉRIFIER L’IDENTITÉ CIVILE EXACTE]</strong></p>
-                <p><strong>Adresse de domiciliation :</strong> <strong data-placeholder>[ADRESSE COMPLÈTE]</strong></p>
-                <p><strong>SIREN/SIRET et immatriculation :</strong> <strong data-placeholder>[NUMÉROS À COMPLÉTER]</strong></p>
-                <p><strong>E-mail :</strong> <strong data-placeholder>[EMAIL PRO]</strong></p>
-                <p><strong>Téléphone :</strong> <strong data-placeholder>[TÉLÉPHONE]</strong></p>
-                <p><strong>TVA intracommunautaire :</strong> <strong data-placeholder>[NUMÉRO SI APPLICABLE / MENTION ADAPTÉE]</strong></p>
-                <p><strong>Directeur de la publication :</strong> <strong data-placeholder>[NOM À CONFIRMER]</strong></p>
-            </section>
-
-            <section>
-                <h2>2. Hébergement</h2>
-                <p>Le site est destiné à être publié via GitHub Pages. Les mentions de l’hébergeur doivent être vérifiées pour la configuration réellement utilisée.</p>
-                <p><strong>Nom, adresse et numéro de téléphone de l’hébergeur :</strong> <strong data-placeholder>[À VÉRIFIER ET COMPLÉTER]</strong></p>
-            </section>
-
-            <section>
-                <h2>3. Propriété intellectuelle</h2>
-                <p>Sauf mention contraire, les textes, photos, films, illustrations, éléments graphiques et logos présents sur ce site sont protégés par les droits de propriété intellectuelle de leurs titulaires. Toute réutilisation nécessite les autorisations applicables.</p>
-            </section>
-
-            <section>
-                <h2>4. Données personnelles</h2>
-                <p>Pour connaître les traitements de données liés au site, consultez notre <a href="confidentialite.html">politique de confidentialité</a>.</p>
-            </section>
-        </div>
-    </main>
-
-    <!-- Pied de page -->
-    <footer class="site-footer">
-        <div class="footer-container">
-            <div class="footer-column footer-brand">
-                <h3>DIGITAL ART PRODUCTION</h3>
-                <p>Production audiovisuelle en France et à l’international.</p>
-                <p class="footer-specialties">Filmmaking • Drone • FPV</p>
-            </div>
-
-            <div class="footer-column">
-                <h4>NAVIGATION</h4>
-                <nav class="footer-links" aria-label="Navigation de pied de page">
-                    <a href="index.html">Home</a>
-                    <a href="projets.html">Projets</a>
-                    <a href="materiel.html">Matériel</a>
-                    <a href="apropos.html">À propos</a>
-                    <a href="contact.html">Contact</a>
-                </nav>
-            </div>
-
-            <div class="footer-column">
-                <h4>RESTONS CONNECTÉS</h4>
-                <p>Un projet vidéo ? Parlons-en.</p>
-                <a class="footer-contact" href="contact.html">Nous contacter</a>
-                <div class="footer-socials">
-                    <a href="https://www.instagram.com/victor_rochemenu/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram">
-                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                            <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9z"/>
-                            <path d="M12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/>
-                            <circle cx="17.5" cy="6.5" r="1.25"/>
-                        </svg>
-                    </a>
-                    <a href="https://www.linkedin.com/in/victor-roche-menu-60917814a/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
-                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                            <path d="M20.45 2H3.55C2.69 2 2 2.68 2 3.52v16.96C2 21.32 2.69 22 3.55 22h16.9c.86 0 1.55-.68 1.55-1.52V3.52C22 2.68 21.31 2 20.45 2zM7.93 18.75H4.98V9.2h2.95v9.55zM6.45 7.9a1.71 1.71 0 1 1 0-3.42 1.71 1.71 0 0 1 0 3.42zm12.3 10.85H15.8V14.1c0-1.11-.02-2.54-1.55-2.54-1.55 0-1.79 1.21-1.79 2.46v4.73H9.51V9.2h2.83v1.3h.04c.39-.75 1.36-1.55 2.8-1.55 2.99 0 3.57 1.97 3.57 4.52v5.28z"/>
-                        </svg>
-                    </a>
-                    <a href="https://www.youtube.com/@DigitalArt_Prod" target="_blank" rel="noopener noreferrer" aria-label="YouTube Digital Art Production" title="YouTube">
-                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                            <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.55 3.6 12 3.6 12 3.6s-7.55 0-9.4.5A3 3 0 0 0 .5 6.2 31.1 31.1 0 0 0 0 12a31.1 31.1 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.85.5 9.4.5 9.4.5s7.55 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.1 31.1 0 0 0 24 12a31.1 31.1 0 0 0-.5-5.8zM9.6 15.6V8.4l6.25 3.6-6.25 3.6z"/>
-                        </svg>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="footer-bottom">
-            <p>© 2026 Digital Art Production. Tous droits réservés.</p>
-            <div class="footer-legal">
-                <a href="mentions-legales.html">Mentions légales</a>
-                <a href="cgv.html">CGV</a>
-                <a href="confidentialite.html">Confidentialité</a>
-                <a href="cookies.html">Cookies</a>
-            </div>
-        </div>
-    </footer>
-    <script src="script.js"></script>
+<!-- Navigation principale -->
+<nav aria-label="Navigation principale" class="navbar">
+<a aria-label="Accueil Digital Art Production" class="nav-logo" href="index.html">
+<img alt="Digital Art Production" src="images/logo-couleur.png"/>
+</a>
+<button aria-controls="nav-links" aria-expanded="false" aria-label="Ouvrir le menu" class="menu-toggle" type="button">
+<span></span><span></span><span></span>
+</button>
+<div class="nav-links" id="nav-links">
+<a href="index.html">HOME</a>
+<a href="projets.html">PROJETS</a>
+<a href="prestations.html">PRESTATIONS</a>
+<a href="apropos.html">À PROPOS</a>
+<a href="contact.html">CONTACT</a>
+</div>
+</nav>
+<!-- Contenu principal -->
+<main class="page-main">
+<header class="page-hero">
+<p class="page-eyebrow">DIGITAL ART PRODUCTION</p>
+<h1>MENTIONS LÉGALES</h1>
+<p class="page-lead">Informations relatives à l’éditeur et à l’hébergement du site.</p>
+</header>
+<div class="page-content legal-copy">
+<p class="legal-note"><strong>Informations administratives :</strong> l’immatriculation au registre national des entreprises et les coordonnées téléphoniques actuelles de l’hébergeur restent à vérifier avant publication définitive.</p>
+<section>
+<h2>1. Éditeur du site</h2>
+<p><strong>Site :</strong> <a href="https://digitalart-production.fr/">digitalart-production.fr</a></p>
+<p><strong>Nom commercial :</strong> Digital Art Production</p>
+<p><strong>Entrepreneur :</strong> Victor Roche-Menu, entrepreneur individuel (EI)</p>
+<p><strong>Adresse professionnelle (domiciliation) :</strong> 17 bis avenue des Allinges, 74200 Thonon-les-Bains, France</p>
+<p><strong>Numéro SIREN :</strong> 979 294 311</p>
+<p><strong>Numéro SIRET :</strong> 979 294 311 00019</p>
+<p><strong>Immatriculation :</strong> Entrepreneur individuel identifié sous le SIREN 979 294 311. <strong>[Vérifier l’inscription RNE et l’éventuelle mention RCS selon l’activité déclarée.]</strong></p>
+<p><strong>Adresse électronique :</strong> <a href="mailto:contact@digitalart-production.fr">contact@digitalart-production.fr</a></p>
+<p><strong>Téléphone :</strong> <a href="tel:+33635462092">+33 6 35 46 20 92</a></p>
+<p><strong>TVA :</strong> franchise en base de TVA, selon les informations communiquées par l’éditeur — TVA non applicable, art. L. 223 et s. du Code des impositions sur les biens et services (CIBS).</p>
+<p><strong>Directeur de la publication :</strong> Victor Roche-Menu</p>
+</section>
+<section><h2>2. Hébergement et nom de domaine</h2><p><strong>Site conçu et développé par :</strong> Digital Art Production.</p><p><strong>Hébergement :</strong> GitHub Pages, service proposé par GitHub, Inc.</p><p><strong>Adresse de l’hébergeur :</strong> GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis.</p><p><strong>Téléphone (à confirmer auprès de GitHub) :</strong> +1 415 448 6673 (numéro figurant sur un ancien dépôt officiel américain, sans confirmation de son actualité).</p><p><strong>Site de l’hébergeur :</strong> <a href="https://github.com/" rel="noopener noreferrer" target="_blank">github.com</a></p><p><strong>Fournisseur du nom de domaine :</strong> Infomaniak Network SA, rue Eugène-Marziano 25, 1227 Les Acacias (Genève), Suisse — <a href="https://www.infomaniak.com/" rel="noopener noreferrer" target="_blank">infomaniak.com</a>.</p><p>Infomaniak gère le nom de domaine ; GitHub Pages assure l’hébergement du site.</p></section>
+<section>
+<h2>3. Propriété intellectuelle</h2>
+<p>Les textes, vidéos, photographies, illustrations, éléments graphiques, marques et logos présentés sur ce site sont, selon les cas, la propriété de Digital Art Production ou de leurs auteurs et titulaires de droits respectifs.</p>
+<p>Toute reproduction, représentation, modification ou réutilisation de ces contenus doit respecter les droits applicables et, lorsque cela est nécessaire, faire l'objet de l'autorisation préalable des titulaires concernés.</p>
+</section>
+<section><h2>4. Crédits photographiques et audiovisuels</h2><p>Certaines photographies publiées sur ce site ont été réalisées par les auteurs suivants, crédités via leurs comptes Instagram :</p><ul><li><a href="https://www.instagram.com/josuefphoto/" rel="noopener noreferrer" target="_blank">@josuefphoto</a></li><li><a href="https://www.instagram.com/clo_wd/" rel="noopener noreferrer" target="_blank">@clo_wd</a></li><li><a href="https://www.instagram.com/canalaventure/" rel="noopener noreferrer" target="_blank">@canalaventure</a></li></ul><p>Ces crédits ne constituent pas une attribution photo par photo. Les droits sur chaque image restent ceux de leurs auteurs ou ayants droit et son utilisation doit être autorisée.</p></section>
+<section>
+<h2>5. Données personnelles</h2>
+<p>Le site propose notamment un formulaire de contact. Les informations transmises via ce formulaire sont traitées pour répondre aux demandes reçues. Pour connaître les données concernées, les prestataires intervenant dans leur traitement et les modalités d'exercice de vos droits, consultez la <a href="confidentialite.html">politique de confidentialité</a>.</p>
+</section>
+<section>
+<h2>6. Cookies et mesure d'audience</h2>
+<p>Pour obtenir des informations sur les cookies, les services tiers et les futurs outils de mesure d'audience éventuellement mis en place, consultez la <a href="cookies.html">politique de cookies</a>.</p>
+</section>
+</div>
+</main>
+<!-- Pied de page -->
+<footer class="site-footer">
+<div class="footer-container">
+<div class="footer-column footer-brand">
+<h3>DIGITAL ART PRODUCTION</h3>
+<p>Production audiovisuelle en France et à l’international.</p>
+<p class="footer-specialties">Filmmaking • Drone • FPV</p>
+</div>
+<div class="footer-column">
+<h4>NAVIGATION</h4>
+<nav aria-label="Navigation de pied de page" class="footer-links">
+<a href="index.html">Home</a>
+<a href="projets.html">Projets</a>
+<a href="prestations.html">Prestations</a>
+<a href="apropos.html">À propos</a>
+<a href="contact.html">Contact</a>
+</nav>
+</div>
+<div class="footer-column footer-contact-column">
+<h4>RESTONS CONNECTÉS</h4>
+<div class="contact-details">
+<a href="mailto:contact@digitalart-production.fr">contact@digitalart-production.fr</a>
+<a href="tel:+33635462092">+33 6 35 46 20 92</a>
+</div>
+<a class="footer-contact" href="contact.html">Formulaire de contact</a>
+<div class="footer-socials">
+<!-- Instagram -->
+<a aria-label="Instagram" href="https://www.instagram.com/victor_rochemenu/" rel="noopener noreferrer" target="_blank" title="Instagram">
+<svg aria-hidden="true" fill="currentColor" viewbox="0 0 24 24">
+<path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9z"></path>
+<path d="M12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"></path>
+<circle cx="17.5" cy="6.5" r="1.25"></circle>
+</svg>
+</a>
+<!-- LinkedIn : tracé unique correct, même dimensions que les autres logos -->
+<a aria-label="LinkedIn" href="https://www.linkedin.com/in/victor-roche-menu-60917814a/" rel="noopener noreferrer" target="_blank" title="LinkedIn">
+<svg aria-hidden="true" fill="currentColor" viewbox="0 0 24 24">
+<path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.35V9h3.414v1.561h.049c.476-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zm1.782 13.019H3.555V9H7.12v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path>
+</svg>
+</a>
+<!-- YouTube -->
+<a aria-label="YouTube Digital Art Production" href="https://www.youtube.com/@DigitalArt_Prod" rel="noopener noreferrer" target="_blank" title="YouTube">
+<svg aria-hidden="true" fill="currentColor" viewbox="0 0 24 24">
+<path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.55 3.6 12 3.6 12 3.6s-7.55 0-9.4.5A3 3 0 0 0 .5 6.2 31.1 31.1 0 0 0 0 12a31.1 31.1 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.85.5 9.4.5 9.4.5s7.55 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.1 31.1 0 0 0 24 12a31.1 31.1 0 0 0-.5-5.8zM9.6 15.6V8.4l6.25 3.6-6.25 3.6z"></path>
+</svg>
+</a>
+</div>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2026 Digital Art Production. Tous droits réservés.</p>
+<div class="footer-legal">
+<a href="mentions-legales.html">Mentions légales</a>
+<a href="cgv.html">CGV</a>
+<a href="confidentialite.html">Confidentialité</a>
+<a href="cookies.html">Cookies</a>
+</div>
+</div>
+</footer>
+<script src="script.js"></script>
 </body>
 </html>

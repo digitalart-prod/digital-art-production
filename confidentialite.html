@@ -16,6 +16,56 @@
 
     <!-- FEUILLE DE STYLE -->
     <link rel="stylesheet" href="style.css">
+    <style>
+        .site-footer .footer-contact-column { text-align: right; }
+        .site-footer .footer-contact-column .contact-details {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 10px;
+            margin: 18px 0;
+            text-align: right;
+        }
+        .site-footer .footer-contact-column .contact-details a {
+            color: #ccc;
+            font-size: 13px;
+            text-decoration: none;
+            overflow-wrap: anywhere;
+        }
+        .site-footer .footer-contact-column .contact-details a:hover { color: #fff; }
+        .site-footer .footer-contact-column .footer-socials { justify-content: flex-end; }
+        .site-footer .footer-contact-column .footer-socials a[aria-label="LinkedIn"] svg {
+            width: 22px;
+            height: 22px;
+        }
+    </style>
+    <style>
+
+        /* HAUTEUR UNIFORME DES BANNIÈRES INTERNES — HOME EXCLUE
+           Une même hauteur mesurée depuis le haut de la fenêtre,
+           quelles que soient les photos et les particularités de chaque page. */
+        .page-main { padding-top: 0 !important; }
+        .page-main > .page-hero {
+            height: 490px !important;
+            min-height: 490px !important;
+            max-height: 490px !important;
+            box-sizing: border-box !important;
+        }
+        @media (max-width: 900px) {
+            .page-main > .page-hero {
+                height: 420px !important;
+                min-height: 420px !important;
+                max-height: 420px !important;
+            }
+        }
+        @media (max-width: 650px) {
+            .page-main > .page-hero {
+                height: 360px !important;
+                min-height: 360px !important;
+                max-height: 360px !important;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -58,7 +108,7 @@
 
             <a href="projets.html">PROJETS</a>
 
-            <a href="materiel.html">MATÉRIEL</a>
+            <a href="prestations.html">PRESTATIONS</a>
 
             <a href="apropos.html">À PROPOS</a>
 
@@ -128,9 +178,7 @@
                 <p>
                     Contact pour toute demande relative
                     aux données personnelles :
-                    <strong data-placeholder>
-                        [EMAIL À RENSEIGNER]
-                    </strong>
+                    <a href="mailto:contact@digitalart-production.fr">contact@digitalart-production.fr</a>
                 </p>
 
             </section>
@@ -315,7 +363,7 @@
 
                     <a href="projets.html">Projets</a>
 
-                    <a href="materiel.html">Matériel</a>
+                    <a href="prestations.html">Prestations</a>
 
                     <a href="apropos.html">À propos</a>
 
@@ -330,21 +378,13 @@
                  3.3 DROITE — CONTACT ET RÉSEAUX
             ================================= -->
 
-            <div class="footer-column">
-
+            <div class="footer-column footer-contact-column">
                 <h4>RESTONS CONNECTÉS</h4>
-
-                <p>
-                    Un projet vidéo ? Parlons-en.
-                </p>
-
-                <a
-                    class="footer-contact"
-                    href="contact.html"
-                >
-                    Nous contacter
-                </a>
-
+                <div class="contact-details">
+                    <a href="mailto:contact@digitalart-production.fr">contact@digitalart-production.fr</a>
+                    <a href="tel:+33635462092">+33 6 35 46 20 92</a>
+                </div>
+                <a class="footer-contact" href="contact.html">Formulaire de contact</a>
 
                 <!-- RÉSEAUX SOCIAUX -->
                 <div class="footer-socials">
@@ -383,12 +423,8 @@
                         aria-label="LinkedIn"
                         title="LinkedIn"
                     >
-                        <svg
-                            viewBox="0 0 24 24"
-                            fill="currentColor"
-                            aria-hidden="true"
-                        >
-                            <path d="M20.45 2H3.55C2.69 2 2 2.68 2 3.52v16.96C2 21.32 2.69 22 3.55 22h16.9c.86 0 1.55-.68 1.55-1.52V3.52C22 2.68 21.31 2 20.45 2zM7.93 18.75H4.98V9.2h2.95v9.55zM6.45 7.9a1.71 1.71 0 1 1 0-3.42 1.71 1.71 0 0 1 0 3.42zm12.3 10.85H15.8V14.1c0-1.11-.02-2.54-1.55-2.54-1.55 0-1.79 1.21-1.79 2.46v4.73H9.51V9.2h2.83v1.3h.04c.39-.75 1.36-1.55 2.8-1.55 2.99 0 3.57 1.97 3.57 4.52v5.28z"/>
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
+                            <path d="M20.447 2H3.553C2.695 2 2 2.68 2 3.52v16.96C2 21.32 2.695 22 3.553 22h16.894c.858 0 1.553-.68 1.553-1.52V3.52C22 2.68 21.305 2 20.447 2zm-12.5 16.75H4.98V9.2h2.967v9.55zM6.46 7.897a1.718 1.718 0 1 1 0-3.436 1.718 1.718 0 0 1 0 3.436zm12.29 10.853h-2.96v-4.645c0-1.107-.02-2.53-1.543-2.53-1.544 0-1.78 1.206-1.78 2.45v4.725h-2.96V9.2h2.842v1.305h.04c.395-.75 1.36-1.54 2.798-1.54 2.993 0 3.563 1.97 3.563 4.53v5.255z"/>
                         </svg>
                     </a>
 

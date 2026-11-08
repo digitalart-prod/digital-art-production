@@ -4301,19 +4301,11 @@ background 0.25s ease,
     margin: 0 auto;
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
-    align-items: center;
+    align-items: end;
     gap: clamp(30px, 6vw, 100px);
 }
 
 .home-contact-cta-text { min-width: 0; }
-
-.home-contact-cta-line {
-    display: block;
-    width: 46px;
-    height: 1px;
-    background: rgba(255,255,255,.55);
-    margin: 0 0 24px;
-}
 
 .home-contact-cta .home-contact-cta-kicker {
     margin: 0 0 22px;
@@ -4349,6 +4341,7 @@ background 0.25s ease,
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    align-self: end;
     min-height: 54px;
     padding: 17px 30px;
     border: 1px solid rgba(255,255,255,.7);
@@ -4406,4 +4399,149 @@ background 0.25s ease,
         transition: none;
     }
     .home-contact-cta-button { transition: none; }
+}
+
+.international-note {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 0 25px 55px;
+    color: #999;
+    font-size: 13px;
+    line-height: 1.8;
+    text-align: center;
+}
+
+/* Coordonnées du footer */
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    margin: 18px 0;
+}
+
+.contact-details a {
+    color: #ccc;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    line-height: 1.5;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+    transition: color 0.25s ease;
+}
+
+.contact-details a:hover {
+    color: #fff;
+}
+
+/* Colonne contact du footer */
+.site-footer .footer-contact-column {
+    text-align: right;
+    align-items: flex-end;
+}
+
+.site-footer .footer-contact-column .contact-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+    margin: 18px 0;
+    padding: 0;
+    text-align: right;
+}
+
+.site-footer .footer-contact-column .contact-details a {
+    color: #ccc;
+    font-size: 13px;
+    text-align: right;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+}
+
+.site-footer .footer-contact-column .footer-socials {
+    justify-content: flex-end;
+}
+
+
+/* RÉSEAUX SOCIAUX FLOTTANTS — STYLE FOOTER */
+
+.floating-socials {
+    position: fixed;
+    right: 30px;
+    bottom: 35px;
+    z-index: 1000;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease,
+        visibility 0.3s ease;
+}
+
+.floating-socials a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 26px;
+    height: 26px;
+    padding: 0;
+
+    color: #fff;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+
+    text-decoration: none;
+    transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.floating-socials svg {
+    display: block;
+    width: 22px;
+    height: 22px;
+    fill: currentColor;
+}
+
+.floating-socials a:hover {
+    color: #bbb;
+    background: transparent;
+    transform: translateY(-3px);
+}
+
+/* Disparition lorsque le footer apparaît */
+.floating-socials.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(12px);
+    pointer-events: none;
+}
+
+@media (max-width: 768px) {
+    .floating-socials {
+        right: 15px;
+        bottom: 25px;
+        gap: 15px;
+    }
+
+    .floating-socials svg {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .floating-socials,
+    .floating-socials a {
+        transition: none;
+    }
 }

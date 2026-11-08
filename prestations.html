@@ -1,0 +1,2195 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+
+<meta charset="utf-8"/>
+
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+<meta content="Prestations audiovisuelles : films et documentaires, aftermovies, vidéos publicitaires, présentations, formats courts et accompagnements mensuels." name="description"/>
+
+<title>Prestations | Digital Art Production</title>
+
+<link href="style.css" rel="stylesheet"/>
+
+<style>
+
+/* Styles limités à la page Prestations */
+
+/* Un seul fond fixe sur toute la page, y compris sur téléphone : la photo
+
+   est portée par un calque position:fixed (plus fiable sur iOS que
+
+   background-attachment:fixed). */
+
+body.prestations-page::before {
+
+    background: url("images/chevaux.jpg") center 55% / cover no-repeat;
+
+}
+
+.prestations-main {
+
+    background: transparent;
+
+    padding-top: 0; /* La photo remonte derrière la navigation fixe. */
+
+}
+
+/* Bannière PRESTATIONS : le même fond fixe, avec un filtre discret. */
+
+.prestations-main .prestations-hero {
+
+    position: relative;
+
+    isolation: isolate;
+
+    overflow: hidden;
+
+    border: 0; /* Retire le liseré inférieur présent dans le style commun. */
+
+    padding-top: clamp(150px, calc(10vw + 75px), 205px);
+
+    padding-bottom: 85px;
+
+    background: transparent;
+
+}
+
+/* Filtre uniforme sur toute la bannière, sans fondu en bas. */
+
+.prestations-main .prestations-hero::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: -1;
+
+    pointer-events: none;
+
+    background: rgba(8, 10, 12, .30);
+
+}
+
+.prestations-main .prestations-hero h1,
+
+.prestations-main .prestations-hero .page-eyebrow {
+
+    color: #fff;
+
+    text-shadow: 0 2px 12px rgba(0,0,0,.9), 0 5px 28px rgba(0,0,0,.68);
+
+}
+
+.prestations-main .prestations-hero .page-lead {
+
+    color: #f5f5f5;
+
+    max-width: 760px;
+
+    text-shadow: 0 2px 8px rgba(0,0,0,.95), 0 4px 20px rgba(0,0,0,.72);
+
+}
+
+/* Voile anthracite presque opaque : la photo reste perceptible derrière
+
+   toutes les sections, sans nuire à la lecture. Également sur mobile. */
+
+.prestations-content {
+
+    max-width: 1220px;
+
+    margin: 0 auto;
+
+    position: relative;
+
+    isolation: isolate;
+
+}
+
+.prestations-content::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0 auto 0 50%;
+
+    transform: translateX(-50%);
+
+    width: 100vw;
+
+    background: rgba(29, 31, 33, .91);
+
+    z-index: -1;
+
+    pointer-events: none;
+
+}
+
+.prestations-section { padding: 82px 0; border-bottom: 1px solid rgba(255,255,255,.11); }
+
+.prestations-kicker { display: block; margin-bottom: 20px; color: #acafb2; font-size: 11px; font-weight: 700; letter-spacing: 2.2px; }
+
+.prestations-intro { max-width: 780px; margin-bottom: 52px; }
+
+.prestations-intro h2,.prestations-bespoke h2,.prestations-cta h2 { margin: 0 0 20px; color: #fff; font-size: clamp(27px,3.3vw,46px); line-height: 1.16; letter-spacing: -.6px; }
+
+.prestations-intro > p,.prestations-bespoke > p,.prestations-cta p { color: #b8babd; font-size: 15px; line-height: 1.85; }
+
+/* CARTES ÉDITORIALES — photo en tête, détails affichés uniquement au clic */
+
+.prestations-grid {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 18px;
+
+    align-items: stretch;
+
+}
+
+.prestations-grid > .prestation-card {
+
+    flex: 0 1 calc((100% - 36px) / 3);
+
+}
+
+.prestation-card {
+
+    position: relative;
+
+    min-width: 0;
+
+    height: 435px;
+
+    overflow: hidden;
+
+    isolation: isolate;
+
+    background: #222426;
+
+    border: 1px solid rgba(255,255,255,.12);
+
+    border-radius: 13px;
+
+    box-shadow: 0 13px 32px rgba(0,0,0,.19);
+
+    transition: transform .48s cubic-bezier(.2,.7,.2,1), box-shadow .48s ease, border-color .48s ease;
+
+}
+
+.prestation-card-inner { position: relative; width:100%; height:100%; }
+
+.prestation-face {
+
+    position: absolute;
+
+    inset: 0;
+
+    min-height: 0;
+
+    overflow: hidden;
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+/* Recto : image photographique sur 41% de la carte, descriptif en dessous */
+
+.prestation-face-front { z-index: 1; background: #242628; }
+
+.prestation-card-image {
+
+    position: relative;
+
+    flex: 0 0 36%;
+
+    min-height: 0;
+
+    overflow: hidden;
+
+    background: #292c2e;
+
+}
+
+.prestation-card-image::before {
+
+    content: '';
+
+    position: absolute;
+
+    inset: 0;
+
+    background: url('images/documentaire.jpg') center / cover no-repeat;
+
+    transform: scale(1);
+
+    transition: transform .9s cubic-bezier(.2,.7,.2,1);
+
+}
+
+/* Visuels des cinq prestations */
+
+.prestations-grid > .prestation-card:nth-child(2) .prestation-card-image::before { background-image: url('images/aftermovie.jpg'); }
+
+.prestations-grid > .prestation-card:nth-child(3) .prestation-card-image::before { background-image: url('images/publicitaire.jpg'); }
+
+.prestations-grid > .prestation-card:nth-child(4) .prestation-card-image::before { background-image: url('images/presentation.jpg'); }
+
+.prestations-grid > .prestation-card:nth-child(5) .prestation-card-image::before { background-image: url('images/vertical.jpg'); }
+
+.prestation-card-image::after {
+
+    content: '';
+
+    position: absolute;
+
+    inset: 0;
+
+    background: linear-gradient(180deg,rgba(0,0,0,.04),rgba(0,0,0,.16));
+
+}
+
+.prestation-front-copy {
+
+    flex: 1;
+
+    min-height: 0;
+
+    padding: 15px 14px 14px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+}
+
+.prestation-index {
+
+    color: #aeb0b2;
+
+    font-size: 9px;
+
+    letter-spacing: 1px;
+
+    font-weight: 700;
+
+    margin: 0 0 6px;
+
+    line-height: 1.5;
+
+}
+
+.prestation-face h3 {
+
+    margin: 0 0 8px;
+
+    font-size: clamp(18px,1.6vw,22px);
+
+    font-weight: 650;
+
+    line-height: 1.18;
+
+    letter-spacing: -.35px;
+
+    color: #fff;
+
+}
+
+.prestation-front-copy .prestation-hook {
+
+    color: #f2f2f2;
+
+    margin: 0 0 6px;
+
+    font-size: 13.5px;
+
+    line-height: 1.4;
+
+    font-weight: 600;
+
+}
+
+.prestation-front-copy > p:not(.prestation-hook) {
+
+    color: #b9bdc0;
+
+    margin: 0;
+
+    font-size: 12.5px;
+
+    line-height: 1.5;
+
+}
+
+/* Bouton rectangulaire épuré, sans flèche ni ouverture au survol. */
+
+.prestation-flip-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    align-self: flex-start;
+
+    width: auto;
+
+    max-width: 100%;
+
+    margin-top: auto;
+
+    padding: 10px 14px;
+
+    border: 1px solid rgba(255,255,255,.36);
+
+    border-radius: 7px;
+
+    background: rgba(255,255,255,.035);
+
+    color: #f0f0f0;
+
+    font: inherit;
+
+    font-size: 10px;
+
+    font-weight: 650;
+
+    letter-spacing: .75px;
+
+    line-height: 1.3;
+
+    cursor: pointer;
+
+    text-align: center;
+
+    text-transform: uppercase;
+
+    transition: background .25s ease, border-color .25s ease, color .25s ease;
+
+}
+
+.prestation-flip-button:hover {
+
+    background: rgba(255,255,255,.12);
+
+    border-color: rgba(255,255,255,.75);
+
+    color: #fff;
+
+}
+
+.prestation-flip-button:focus-visible { outline: 2px solid #fff; outline-offset: 4px; }
+
+/* Verso : une composition calme, sans encadrés superposés */
+
+.prestation-face-back {
+
+    z-index: 2;
+
+    padding: 16px 14px 15px;
+
+    background: #1d1f21;
+
+    /* Le panneau gris arrive depuis le bas et recouvre progressivement la photo. */
+
+    transform: translateY(101%);
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    will-change: transform;
+
+    transition: transform .68s cubic-bezier(.22, 1, .36, 1), visibility 0s linear .68s;
+
+}
+
+.prestation-back-top { border-bottom: 1px solid rgba(255,255,255,.15); padding-bottom: 10px; margin-bottom: 5px; }
+
+.prestation-face-back .prestation-index { display:block; margin-bottom: 12px; }
+
+.prestation-face-back h3 { margin:0; max-width:380px; font-size: clamp(18px,1.6vw,22px); }
+
+.prestation-face-back .prestation-list {
+
+    list-style: none;
+
+    margin: 0;
+
+    padding: 0;
+
+    display: flex;
+
+    flex: 1;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+}
+
+.prestation-face-back .prestation-list li {
+
+    display: flex;
+
+    align-items: center;
+
+    min-height: 34px;
+
+    padding: 5px 0;
+
+    border-bottom: 1px solid rgba(255,255,255,.085);
+
+    color: #d7d9da;
+
+    font-size: 12.5px;
+
+    line-height: 1.4;
+
+}
+
+.prestation-face-back .prestation-list li:last-child { border-bottom: 0; }
+
+/* Les descriptions plus longues restent accessibles même dans les cartes étroites. */
+
+.prestation-face-back { overflow-y: auto; scrollbar-width: thin; scrollbar-color: #555 #1d1f21; }
+
+.prestation-face-back .prestation-list { flex: 0 0 auto; justify-content: flex-start; }
+
+.prestation-face-back .prestation-flip-button { margin-top: 11px; flex-shrink: 0; }
+
+.prestation-card.is-flipped .prestation-face-back {
+
+    transform: translateY(0);
+
+    visibility: visible;
+
+    pointer-events: auto;
+
+    transition: transform .68s cubic-bezier(.22, 1, .36, 1), visibility 0s;
+
+}
+
+@media (hover: hover) and (pointer: fine) {
+
+    .prestation-card:hover {
+
+        transform: translateY(-4px);
+
+        border-color: rgba(255,255,255,.24);
+
+        box-shadow: 0 23px 47px rgba(0,0,0,.29);
+
+    }
+
+    /* Le survol ne modifie jamais la face visible. */
+
+    .prestation-card:hover .prestation-card-image::before { transform: scale(1.04); }
+
+}
+
+/* Cartes assez larges pour garder des titres et listes lisibles. */
+
+@media (max-width: 870px) {
+
+    .prestations-grid > .prestation-card { flex-basis: calc((100% - 18px) / 2); }
+
+}
+
+@media (max-width: 580px) {
+
+    .prestations-grid { gap: 18px; }
+
+    .prestations-grid > .prestation-card { flex-basis: 100%; }
+
+    .prestation-card { height: 420px; max-width: 440px; width: 100%; margin-inline: auto; }
+
+    .prestation-card-image { flex-basis: 37%; }
+
+    .prestation-front-copy { padding: 16px 19px 15px; }
+
+    .prestation-face-back { padding: 17px 19px 15px; }
+
+    .prestation-face h3, .prestation-face-back h3 { font-size: 23px; }
+
+    .prestation-front-copy .prestation-hook { font-size: 14px; }
+
+    .prestation-front-copy > p:not(.prestation-hook) { font-size: 13px; }
+
+    .prestation-face-back .prestation-list li { font-size: 13px; padding: 6px 0; }
+
+}
+
+/* Cartes services : contenu centré, titres en majuscules, sans rubrique numérotée */
+
+.prestation-face h3 { text-transform: uppercase; }
+
+.prestation-front-copy {
+
+    align-items: center;
+
+    text-align: center;
+
+}
+
+.prestation-front-copy h3,
+
+.prestation-front-copy p {
+
+    width: 100%;
+
+    text-align: center;
+
+}
+
+.prestation-back-top {
+
+    width: 100%;
+
+    text-align: center;
+
+}
+
+.prestation-face-back h3 {
+
+    max-width: none;
+
+    text-align: center;
+
+}
+
+.prestation-face-back .prestation-list {
+
+    width: 100%;
+
+    text-align: center;
+
+}
+
+.prestation-face-back .prestation-list li {
+
+    justify-content: center;
+
+    text-align: center;
+
+}
+
+/* Bouton centré et élargi, sur les deux faces et toutes les tailles d'écran */
+
+.prestation-face .prestation-flip-button {
+
+    width: 86%;
+
+    max-width: 270px;
+
+    min-height: 40px;
+
+    align-self: center;
+
+    margin-left: auto;
+
+    margin-right: auto;
+
+    padding: 10px 12px;
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .prestation-card, .prestation-face-back, .prestation-card-image::before,
+
+    .prestation-flip-button { transition: none !important; }
+
+    .prestation-face-back { will-change: auto; }
+
+}
+
+.prestations-section:has(.prestations-grid) { padding-bottom: 66px; }
+
+.prestations-monthly { padding-top: 72px; }
+
+.prestations-technique {border:1px solid rgba(255,255,255,.12);border-radius:10px; padding:21px 26px; margin-top:48px; background:rgba(23,25,27,.82);}
+
+.prestations-technique strong {display:block; font-size:13px; letter-spacing:1.2px; color:#fff; margin-bottom:8px;}
+
+.prestations-technique p {color:#b9bbbd; font-size:13px; line-height:1.8; margin:0;}
+
+.prestation-tags { margin-top:auto; color:#989b9e; font-size:10px; font-weight:700; letter-spacing:1.1px; }
+
+.prestations-plans {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;}
+
+/* Forfaits : contraste croissant du graphite au noir et à l'or. */
+.prestations-plans {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  align-items: stretch;
+}
+.prestations-plan {
+  --plan-accent: #aeb0b2;
+  --plan-border: rgba(255,255,255,.17);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 625px;
+  overflow: hidden;
+  padding: 0;
+  border: 1px solid var(--plan-border);
+  border-radius: 13px;
+  background: #292b2d;
+  box-shadow: 0 13px 33px rgba(0,0,0,.2);
+  transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;
+}
+/* Trois étages de finition : Essentiel discret, Développement gold, Premium affirmé. */
+.prestations-plan:nth-child(2) {
+  --plan-accent: #d4b779;
+  --plan-border: rgba(212,183,121,.43);
+  background: #262522;
+  box-shadow: 0 17px 39px rgba(0,0,0,.25);
+}
+.prestations-plan:nth-child(3) {
+  --plan-accent: #f0d59b;
+  --plan-border: rgba(240,213,155,.58);
+  background: #1d1d1d;
+  box-shadow: 0 20px 44px rgba(0,0,0,.3);
+}
+.prestations-plan::before {
+  content: "";
+  position: absolute;
+  top: 0; right: 0; left: 0;
+  height: 3px;
+  background: var(--plan-accent);
+  z-index: 1;
+}
+.prestations-plan-head {
+  position: relative;
+  min-height: 222px;
+  padding: 32px 27px 27px;
+  background: linear-gradient(145deg,#36383a,#2b2d2f);
+  border-bottom: 1px solid rgba(255,255,255,.12);
+}
+.prestations-plan:nth-child(2) .prestations-plan-head {
+  background: linear-gradient(145deg,#443c2e 0%,#302c27 72%,#282725 100%);
+  border-bottom-color: rgba(212,183,121,.28);
+}
+.prestations-plan:nth-child(3) .prestations-plan-head {
+  background: radial-gradient(ellipse at 90% 0%,rgba(240,213,155,.19),transparent 60%),linear-gradient(140deg,#2a2721,#121416);
+  border-bottom-color: rgba(240,213,155,.37);
+}
+.prestations-plan .plan-label {
+  display: inline-block;
+  color: var(--plan-accent);
+  font-size: 10px;
+  line-height: 1.4;
+  font-weight: 750;
+  letter-spacing: 2.1px;
+}
+.prestations-plan h3 {
+  margin: 23px 0 11px;
+  color: #fff;
+  font-size: clamp(27px,2.4vw,33px);
+  line-height: 1.13;
+  letter-spacing: -.5px;
+  font-weight: 700;
+}
+.prestations-plan:nth-child(3) h3 { color: #f4deb4; }
+.prestations-plan .plan-summary {
+  margin: 0;
+  color: #d5d6d6;
+  font-size: 13.5px;
+  line-height: 1.65;
+}
+.prestations-plan:nth-child(2) .plan-summary,
+.prestations-plan:nth-child(3) .plan-summary { color: #e5e0d5; }
+.prestations-plan-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 28px 27px 27px;
+}
+.prestations-plan ul {
+  margin: 0 0 25px;
+  padding: 0;
+  list-style: none;
+  color: #d3d4d4;
+  font-size: 13px;
+  line-height: 1.55;
+}
+.prestations-plan li {
+  position: relative;
+  padding: 0 0 0 20px;
+  margin: 0 0 15px;
+}
+.prestations-plan li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 16px;
+  height: auto;
+  border-radius: 0;
+  background: none;
+  color: #bcbfc1;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.55;
+}
+/* Prestations supplémentaires propres aux formules supérieures. */
+.prestations-plan li.plan-extra {
+  color: var(--plan-accent);
+  font-weight: 600;
+}
+.prestations-plan li.plan-extra::before {
+  content: "+";
+  color: var(--plan-accent);
+  font-size: 17px;
+  line-height: 1.15;
+  font-weight: 600;
+}
+.prestations-plan:nth-child(2) li.plan-extra { color: #e8ce95; }
+.prestations-plan:nth-child(3) li.plan-extra { color: #f4daa6; }
+.prestations-plan .plan-detail {
+  margin: auto 0 21px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(255,255,255,.12);
+  color: #aaaeb0;
+  font-size: 12px;
+  line-height: 1.65;
+}
+.prestations-plan:nth-child(2) .plan-detail,
+.prestations-plan:nth-child(3) .plan-detail {
+  border-top-color: rgba(212,183,121,.22);
+  color: #c2b9aa;
+}
+/* Boutons identiques en dimensions et silhouette aux cinq cartes du haut. */
+.prestations-plan .prestations-link {
+  box-sizing: border-box;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  width: 86%;
+  max-width: 270px;
+  min-height: 40px;
+  padding: 10px 12px;
+  border: 1px solid rgba(255,255,255,.4);
+  border-radius: 7px;
+  background: rgba(255,255,255,.035);
+  color: #f2f2f2;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 10px;
+  font-weight: 650;
+  letter-spacing: .75px;
+  line-height: 1.3;
+  transition: background .25s ease, border-color .25s ease, color .25s ease;
+}
+.prestations-plan:nth-child(2) .prestations-link {
+  border-color: rgba(212,183,121,.7);
+  color: #f0dfbd;
+}
+.prestations-plan:nth-child(3) .prestations-link {
+  border-color: #e4c78e;
+  background: #e4c78e;
+  color: #1b1b1b;
+}
+.prestations-plan .prestations-link:hover {
+  border-color: #fff;
+  background: #fff;
+  color: #202020;
+}
+.prestations-plan:nth-child(2) .prestations-link:hover,
+.prestations-plan:nth-child(3) .prestations-link:hover {
+  border-color: #f6e4ba;
+  background: #f6e4ba;
+  color: #181818;
+}
+.prestations-plan .prestations-link:focus-visible { outline: 2px solid #fff; outline-offset: 4px; }
+@media (hover:hover) and (pointer:fine) {
+  .prestations-plan:hover {
+    transform: translateY(-5px);
+    border-color: var(--plan-accent);
+    box-shadow: 0 24px 52px rgba(0,0,0,.34);
+  }
+}
+@media (max-width: 900px) {
+  .prestations-plan { min-height: auto; }
+  .prestations-plan-head { min-height: 0; }
+}
+@media (max-width: 650px) {
+  .prestations-plan-head { padding: 30px 24px 27px; }
+  .prestations-plan-body { padding: 27px 24px 26px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .prestations-plan, .prestations-plan .prestations-link { transition: none; }
+}
+
+.prestations-text-link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 11px;
+  letter-spacing: .7px;
+  font-weight: 700;
+  border-bottom: 1px solid rgba(255,255,255,.45);
+  padding-bottom: 8px;
+  align-self: flex-start;
+}
+.prestations-text-link:hover { border-color: #fff; }
+@media (hover:hover) and (pointer:fine) {
+  .prestations-plan:hover {
+    transform: translateY(-4px);
+    border-color: var(--plan-accent);
+    box-shadow: 0 18px 40px rgba(0,0,0,.23);
+  }
+}
+@media (prefers-reduced-motion:reduce) {
+  .prestations-plan, .prestations-plan .prestations-link { transition: none; }
+}
+
+.prestations-custom-note { margin: 22px 0 0; padding-left: 17px; border-left: 2px solid #d4b779; color: #d1d0cc; font-size: 14px; line-height: 1.7; }
+.prestations-custom-note strong { color: #eddbb8; font-weight: 700; }
+.prestations-fineprint {font-size:12px;color:#a0a2a5;line-height:1.7;margin-top:32px;}
+
+.prestations-bespoke {max-width:840px;}
+
+.prestations-bespoke > p {margin-bottom:36px;}
+
+.prestations-cta {display:flex;justify-content:space-between;align-items:center;gap:40px;padding:104px 0;}
+
+.prestations-cta h2 {font-size:clamp(28px,3vw,40px);}
+
+.prestations-cta p {max-width:560px;}
+
+.prestations-button {border:1px solid rgba(255,255,255,.65);border-radius:6px;padding:16px 21px;color:#fff;text-decoration:none;white-space:nowrap;font-size:11px;font-weight:700;letter-spacing:1px;transition:*background* .2s ease,color .2s ease;}
+
+.prestations-button:hover {background:#fff;color:#222;}
+
+@media(max-width:900px){.prestations-plans{grid-template-columns:1fr;}.prestations-cta{align-items:flex-start;flex-direction:column;gap:20px;}}
+
+@media(max-width:650px){.prestations-section{padding:58px 0;}.prestations-section:has(.prestations-grid){padding-bottom:52px;}.prestations-monthly{padding-top:56px;}.prestations-intro{margin-bottom:36px;}.prestations-technique{padding:22px;margin-top:34px;}.prestations-plans{gap:18px;}.prestations-main .prestations-hero{padding-top:145px;padding-bottom:55px;}.prestations-cta{padding:76px 0;}}
+
+/* DÉFILEMENT SOLIDAIRE : une unique bande grise avec son texte attaché.
+
+   Au clic, on déplace UNIQUEMENT cette bande, sans animer son contenu. */
+
+.prestation-face-front { position:absolute; inset:0; overflow:hidden; background:#242628; }
+
+.prestation-card-image { position:absolute; top:0; left:0; right:0; height:36%; }
+
+.prestation-front-copy {
+
+    position:absolute; z-index:2; left:0; right:0;
+
+    top:36%; bottom:auto;
+
+    height:calc(var(--summary-slide, 278.4px) + var(--card-height, 435px));
+
+    padding:0; display:block; overflow:visible;
+
+    background:#242628;
+
+    transform:translate3d(0,0,0);
+
+    transition:transform .85s cubic-bezier(.45,0,.2,1);
+
+    will-change:transform;
+
+}
+
+/* Présentation plus généreuse : meilleure occupation du panneau gris.
+
+   Les éléments sont statiques et continuent de se déplacer AVEC le panneau. */
+
+.prestation-summary-content h3 {
+
+    font-size: clamp(21px, 1.75vw, 24px);
+
+    line-height: 1.2;
+
+    margin: 0;
+
+    font-weight: 700;
+
+    letter-spacing: -.25px;
+
+}
+
+.prestation-summary-content .prestation-hook {
+
+    margin: 0;
+
+    color: #f1f1f1;
+
+    font-size: 15px;
+
+    line-height: 1.4;
+
+    font-weight: 600;
+
+}
+
+.prestation-summary-content > p:not(.prestation-hook) {
+
+    margin: 0;
+
+    color: #c6c9cb;
+
+    font-size: 15.5px;
+
+    line-height: 1.48;
+
+}
+
+/* Aucun transform, transition ou fondu sur les textes : ils sont fixes
+
+   relativement à la bande grise qui se déplace. */
+
+.prestation-scroll-track {
+
+    position:relative; top:0; left:0; width:100%;
+
+    display:flex; flex-direction:column;
+
+    transform:none !important;
+
+    transition:none !important;
+
+}
+
+.prestation-summary-content,
+
+.prestation-details-content {
+
+    box-sizing:border-box;
+
+    position:relative; left:auto; right:auto; top:auto; bottom:auto;
+
+    width:100%; flex-shrink:0;
+
+    display:flex; flex-direction:column; align-items:center;
+
+    text-align:center;
+
+    opacity:1 !important; visibility:visible !important;
+
+    transform:none !important; transition:none !important;
+
+}
+
+.prestation-summary-content {
+
+    height:var(--summary-slide,278.4px);
+
+    padding:15px 14px 66px;
+
+    justify-content:space-evenly;
+
+}
+
+.prestation-summary-content h3 {margin-top:0;}
+
+.prestation-details-content {
+
+    height:var(--card-height,435px);
+
+    padding:25px 14px 72px;
+
+    justify-content:center;
+
+    overflow-y:auto;
+
+    pointer-events:none;
+
+    scrollbar-width:thin; scrollbar-color:#555 #242628;
+
+}
+
+.prestation-details-content .prestation-list {
+
+    display:flex; flex-direction:column; width:100%; flex:1;
+
+    justify-content:center; margin:0; padding:0; list-style:none;
+
+}
+
+.prestation-details-content .prestation-list li {
+
+    flex-shrink:0; justify-content:center; text-align:center;
+
+    padding:10px 0; border-bottom:1px solid rgba(255,255,255,.085);
+
+    color:#d7d9da; font-size:13.5px; line-height:1.4;
+
+}
+
+.prestation-details-content .prestation-list li:last-child {border-bottom:0;}
+
+/* La bande part de sous la photo et remonte exactement d'une hauteur de carte.
+
+   Le résumé sort par le haut ; les détails arrivent par le bas. */
+
+.prestation-card.is-flipped .prestation-front-copy {
+
+    transform:translate3d(0,calc(-1 * var(--card-height,435px)),0);
+
+}
+
+.prestation-card.is-flipped .prestation-details-content {pointer-events:auto;}
+
+/* Bouton validé : fixe par-dessus la bande, sans participer au mouvement. */
+
+.prestation-card .prestation-toggle {
+
+    position:absolute; z-index:5; bottom:15px; left:50%;
+
+    transform:translateX(-50%); margin:0;
+
+    width:86%; max-width:270px; min-height:40px; background:#303235;
+
+}
+
+.prestation-card .prestation-toggle:hover {background:#424548;}
+
+@media (max-width:580px) {
+
+    .prestation-card-image {height:37%;}
+
+    .prestation-front-copy {top:37%;}
+
+    .prestation-summary-content {padding:16px 19px 65px;}
+
+    .prestation-details-content {padding:23px 19px 70px;}
+
+}
+
+@media (max-width:580px) {
+
+    .prestation-summary-content h3 {font-size:22px;}
+
+    .prestation-summary-content .prestation-hook {font-size:15px;}
+
+    .prestation-summary-content > p:not(.prestation-hook) {font-size:15px;}
+
+}
+
+@media (prefers-reduced-motion:reduce) {
+
+    .prestation-front-copy {transition:none !important;}
+
+}
+
+/* RYTHME DE LA PAGE HOME : sections généreusement espacées,
+
+   fins séparateurs discrets, sans petits numéros ni CTA final. */
+
+.prestations-content > .prestations-section {
+
+  border-bottom: 1px solid rgba(255,255,255,.065);
+
+}
+
+.prestations-content > .prestations-section:first-child {
+
+  padding-top: 53px;
+
+  padding-bottom: 109px;
+
+}
+
+.prestations-content > .prestations-monthly {
+
+  padding-top: 123px;
+
+  padding-bottom: 123px;
+
+}
+
+.prestations-content > .prestations-bespoke {
+
+  padding-top: 124px;
+
+  padding-bottom: 129px;
+
+}
+
+.prestations-content > .prestations-section:last-child {
+
+  border-bottom: 0;
+
+}
+
+@media (max-width: 650px) {
+
+  .prestations-content > .prestations-section:first-child {
+
+    padding-top: 38px;
+
+    padding-bottom: 75px;
+
+  }
+
+  .prestations-content > .prestations-monthly {
+
+    padding-top: 80px;
+
+    padding-bottom: 83px;
+
+  }
+
+  .prestations-content > .prestations-bespoke {
+
+    padding-top: 84px;
+
+    padding-bottom: 90px;
+
+  }
+
+}
+
+
+/* FORFAITS : CARROUSEL TACTILE SUR MOBILE UNIQUEMENT */
+.prestations-plans-pagination { display: none; }
+@media (max-width: 650px) {
+  .prestations-plans {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 12px;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 0;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    touch-action: pan-x pan-y;
+  }
+  .prestations-plans::-webkit-scrollbar { display: none; }
+  /* Espace de fin : la carte Premium peut s'aligner complètement au swipe. */
+  .prestations-plans::after {
+    content: "";
+    flex: 0 0 calc(12% - 12px);
+    min-width: 0;
+  }
+  .prestations-plans > .prestations-plan {
+    flex: 0 0 88%;
+    width: 88%;
+    max-width: 88%;
+    min-height: 625px;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    transform: none;
+  }
+  .prestations-plans-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 22px;
+  }
+  .prestations-plans-pagination .plan-dot {
+    width: 9px;
+    height: 9px;
+    min-width: 9px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(255,255,255,.35);
+    cursor: pointer;
+    transition: background .2s ease, width .2s ease;
+  }
+  .prestations-plans-pagination .plan-dot[aria-current="true"] {
+    width: 25px;
+    background: #d4b779;
+    border-radius: 10px;
+  }
+  .prestations-plans-counter {
+    color: #d4b779;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .8px;
+    margin-left: 10px;
+    font-variant-numeric: tabular-nums;
+  }
+  .prestations-plans-pagination button:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 4px;
+  }
+  .prestations-plans-pagination .plan-arrow {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    border: 1px solid rgba(212,183,121,.65);
+    border-radius: 8px;
+    background: #252525;
+    color: #d4b779;
+    cursor: pointer;
+    transition: background .2s ease, border-color .2s ease;
+  }
+  .prestations-plans-pagination .plan-arrow svg { width: 20px; height: 20px; }
+  .prestations-plans-pagination .plan-arrow:active { background: #40372a; }
+  .prestations-plans-pagination .plan-arrow:disabled {
+    opacity: .35;
+    cursor: default;
+  }
+  .prestations-plans-pagination .plan-arrow:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 4px;
+  }
+}
+
+
+/* Phrases distinctes sur ordinateur, texte fluide sur mobile. */
+@media (min-width: 651px) {
+  .prestations-intro > p .desktop-sentence,
+  .prestations-bespoke > p .desktop-sentence {
+    display: block;
+  }
+}
+
+/* Carrousel des 5 prestations ponctuelles — mobile uniquement. */
+.prestations-services-pagination { display: none; }
+@media (max-width: 650px) {
+  .prestations-grid {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    width: 100%;
+    gap: 12px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .prestations-grid::-webkit-scrollbar { display: none; }
+  .prestations-grid::after {
+    content: "";
+    flex: 0 0 calc(12% - 12px);
+  }
+  .prestations-grid > .prestation-card {
+    flex: 0 0 88%;
+    width: 88%;
+    max-width: 88%;
+    margin: 0;
+    height: 420px;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    transform: none;
+  }
+  .prestations-services-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 22px 0 0;
+  }
+  .prestations-services-pagination .service-dot {
+    width: 9px;
+    height: 9px;
+    min-width: 9px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(255,255,255,.35);
+    cursor: pointer;
+  }
+  .prestations-services-pagination .service-dot[aria-current="true"] {
+    width: 25px;
+    border-radius: 10px;
+    background: #d4b779;
+  }
+  .prestations-services-pagination .service-arrow {
+    width: 42px;
+    height: 42px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(212,183,121,.65);
+    border-radius: 8px;
+    background: #252525;
+    color: #d4b779;
+    cursor: pointer;
+  }
+  .prestations-services-pagination .service-arrow svg { width: 20px; height: 20px; }
+  .prestations-services-pagination .service-arrow:disabled {
+    opacity: .35;
+    cursor: default;
+  }
+  .prestations-services-pagination button:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 3px;
+  }
+  .prestations-services-counter {
+    color: #d4b779;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .8px;
+    margin-left: 4px;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+
+/* CTA de fin de page : mêmes classes et structure que sur la Home.
+   Styles de repli localisés pour conserver la disposition même si
+   certaines règles Home ne sont pas chargées sur Prestations. */
+.prestations-main .prestations-contact-cta {
+  position: relative;
+  background: rgba(29, 31, 33, .95);
+  color: #fff;
+  padding: 85px max(6%, calc((100% - 1220px) / 2)) 95px;
+}
+.prestations-main .prestations-contact-cta .home-contact-cta-inner {
+  max-width: 1220px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 42px;
+}
+.prestations-main .prestations-contact-cta .home-contact-cta-kicker {
+  margin: 0 0 18px;
+  color: #aeb1b3;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2.4px;
+}
+.prestations-main .prestations-contact-cta h2 {
+  margin: 0 0 7px;
+  color: #fff;
+  font-size: clamp(28px, 3.4vw, 46px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -.5px;
+}
+.prestations-main .prestations-contact-cta .home-contact-cta-subtitle {
+  margin: 0;
+  color: #d4d5d6;
+  font-size: clamp(19px, 2.1vw, 27px);
+  font-weight: 500;
+  letter-spacing: .5px;
+}
+.prestations-main .prestations-contact-cta .home-contact-cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  min-height: 48px;
+  padding: 14px 26px;
+  border: 1px solid rgba(255,255,255,.7);
+  border-radius: 6px;
+  background: transparent;
+  color: white;
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.1px;
+  transition: background .25s ease, color .25s ease;
+}
+.prestations-main .prestations-contact-cta .home-contact-cta-button:hover {
+  background: #fff;
+  color: #202224;
+}
+.prestations-main .prestations-contact-cta .home-contact-cta-button:focus-visible {
+  outline: 2px solid white;
+  outline-offset: 4px;
+}
+@media (max-width: 650px) {
+  .prestations-main .prestations-contact-cta { padding: 68px 6% 75px; }
+  .prestations-main .prestations-contact-cta .home-contact-cta-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 28px;
+  }
+}
+
+
+/* Espacements harmonisés de part et d'autre des séparateurs. */
+@media (min-width: 651px) {
+  .prestations-content > .prestations-section:first-child {
+    padding-bottom: 100px;
+  }
+  .prestations-content > .prestations-monthly {
+    padding-top: 100px;
+    padding-bottom: 62px;
+  }
+  .prestations-main .prestations-contact-cta {
+    padding-top: 62px;
+  }
+}
+@media (max-width: 650px) {
+  .prestations-content > .prestations-section:first-child {
+    padding-bottom: 78px;
+  }
+  .prestations-content > .prestations-monthly {
+    padding-top: 78px;
+    padding-bottom: 42px;
+  }
+  .prestations-main .prestations-contact-cta {
+    padding-top: 42px;
+  }
+}
+/* Un seul séparateur entre les forfaits et le bloc contact. */
+.prestations-content > .prestations-monthly:last-child {
+  border-bottom: 0;
+}
+.prestations-main > .prestations-contact-cta {
+  border-top: 1px solid rgba(255,255,255,.065);
+}
+.prestations-fineprint {
+  margin-bottom: 0;
+}
+
+
+/* Taille d’origine des titres restaurée. */
+.prestations-custom-note-nextline { display: block; }
+/* Sur PC : davantage de largeur pour terminer naturellement les phrases.
+   Les retours à la ligne entre phrases complètes sont conservés. */
+@media (min-width: 901px) {
+  .prestations-main .prestations-intro {
+    max-width: 1120px;
+  }
+  .prestations-main .prestations-intro > p {
+    max-width: 1120px;
+  }
+}
+@media (max-width: 580px) {
+}
+
+</style>
+
+<style>
+
+        /* HAUTEUR UNIFORME DES BANNIÈRES INTERNES — HOME EXCLUE
+
+           Une même hauteur mesurée depuis le haut de la fenêtre,
+
+           quelles que soient les photos et les particularités de chaque page. */
+
+        .page-main { padding-top: 0 !important; }
+
+        .page-main > .page-hero {
+
+            height: 490px !important;
+
+            min-height: 490px !important;
+
+            max-height: 490px !important;
+
+            box-sizing: border-box !important;
+
+        }
+
+        @media (max-width: 900px) {
+
+            .page-main > .page-hero {
+
+                height: 420px !important;
+
+                min-height: 420px !important;
+
+                max-height: 420px !important;
+
+            }
+
+        }
+
+        @media (max-width: 650px) {
+
+            .page-main > .page-hero {
+
+                height: 360px !important;
+
+                min-height: 360px !important;
+
+                max-height: 360px !important;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body class="prestations-page">
+
+<nav aria-label="Navigation principale" class="navbar">
+
+<a aria-label="Accueil Digital Art Production" class="nav-logo" href="index.html">
+
+<img alt="Digital Art Production" src="images/logo-couleur.png"/>
+
+</a>
+
+<button aria-controls="nav-links" aria-expanded="false" aria-label="Ouvrir le menu" class="menu-toggle" type="button">
+
+<span></span><span></span><span></span>
+
+</button>
+
+<div class="nav-links" id="nav-links">
+
+<a href="index.html">HOME</a>
+
+<a href="projets.html">PROJETS</a>
+
+<a aria-current="page" href="prestations.html">PRESTATIONS</a>
+
+<a href="apropos.html">À PROPOS</a>
+
+<a href="contact.html">CONTACT</a>
+
+</div>
+
+</nav>
+
+<main class="page-main prestations-main">
+
+<header class="page-hero prestations-hero">
+
+<p class="page-eyebrow">DIGITAL ART PRODUCTION</p>
+
+<h1>PRESTATIONS</h1>
+
+<p class="page-lead">Des images qui racontent votre histoire. Une production ponctuelle ou un accompagnement sur la durée, selon vos objectifs.</p>
+
+</header>
+
+<div class="page-content prestations-content">
+
+<section aria-labelledby="services-title" class="prestations-section">
+
+<div class="prestations-intro">
+
+<h2 id="services-title">POUR UNE MISSION PONCTUELLE</h2>
+
+<p><span class="desktop-sentence">Une histoire à raconter, un événement à immortaliser ou une activité à mettre en valeur ?</span> <span class="desktop-sentence">Découvrez les formats que nous pouvons créer pour vos projets personnels ou professionnels.</span> <span class="desktop-sentence">Nous pouvons intervenir pour une mission unique, en France comme à l’international, avec une organisation adaptée aux contraintes du terrain.</span></p>
+
+</div>
+
+<div class="prestations-grid">
+
+<article aria-label="Films & documentaires" class="prestation-card" data-prestation-card="">
+
+<div class="prestation-card-inner">
+
+<div class="prestation-face prestation-face-front"><div aria-hidden="true" class="prestation-card-image"></div>
+
+<div class="prestation-front-copy"><div class="prestation-scroll-track"><div class="prestation-summary-content">
+
+<h3>Films & documentaires</h3>
+
+<p class="prestation-hook">Chaque histoire mérite d'être racontée.</p>
+
+<p>Nous réalisons des films immersifs et authentiques pour donner vie à vos histoires, vos aventures et vos projets.</p>
+
+</div><div aria-hidden="true" class="prestation-details-content"><ul class="prestation-list">
+
+<li>Films documentaires et courts-métrages</li>
+
+<li>Reportages et portraits</li>
+
+<li>Films sportifs et suivi d’athlètes</li>
+
+<li>Expéditions et aventures personnelles</li>
+
+<li>Projets associatifs et récits humains</li>
+
+</ul>
+
+</div></div></div>
+
+<button class="prestation-flip-button prestation-toggle" data-flip-card type="button">EN SAVOIR PLUS</button>
+
+</div>
+
+</div>
+
+</article>
+
+<article aria-label="Aftermovies" class="prestation-card" data-prestation-card="">
+
+<div class="prestation-card-inner">
+
+<div class="prestation-face prestation-face-front"><div aria-hidden="true" class="prestation-card-image"></div>
+
+<div class="prestation-front-copy"><div class="prestation-scroll-track"><div class="prestation-summary-content">
+
+<h3>Aftermovies</h3>
+
+<p class="prestation-hook">Faites revivre les moments forts de votre événement.</p>
+
+<p>Capturer les émotions et l’ambiance de vos événements pour créer des souvenirs ou des contenus de communication.</p>
+
+</div><div aria-hidden="true" class="prestation-details-content"><ul class="prestation-list">
+
+<li>Compétitions et événements sportifs</li>
+
+<li>Festivals, concerts et spectacles</li>
+
+<li>Mariages et événements privés</li>
+
+<li>Séminaires et événements d’entreprise</li>
+
+<li>Aftermovies et films récapitulatifs</li>
+
+</ul>
+
+</div></div></div>
+
+<button class="prestation-flip-button prestation-toggle" data-flip-card type="button">EN SAVOIR PLUS</button>
+
+</div>
+
+</div>
+
+</article>
+
+<article aria-label="Vidéos publicitaires" class="prestation-card" data-prestation-card="">
+
+<div class="prestation-card-inner">
+
+<div class="prestation-face prestation-face-front"><div aria-hidden="true" class="prestation-card-image"></div>
+
+<div class="prestation-front-copy"><div class="prestation-scroll-track"><div class="prestation-summary-content">
+
+<h3>Vidéos publicitaires</h3>
+
+<p class="prestation-hook">Des images qui donnent envie.</p>
+
+<p>Création de vidéos percutantes pour valoriser votre marque, vos produits et vos services.</p>
+
+</div><div aria-hidden="true" class="prestation-details-content"><ul class="prestation-list">
+
+<li>Campagnes de marque</li>
+
+<li>Vidéos promotionnelles</li>
+
+<li>Présentations et lancements de produits</li>
+
+<li>Contenus pour sites web</li>
+
+<li>Vidéos commerciales</li>
+
+</ul>
+
+</div></div></div>
+
+<button class="prestation-flip-button prestation-toggle" data-flip-card type="button">EN SAVOIR PLUS</button>
+
+</div>
+
+</div>
+
+</article>
+
+<article aria-label="Vidéos de présentation" class="prestation-card" data-prestation-card="">
+
+<div class="prestation-card-inner">
+
+<div class="prestation-face prestation-face-front"><div aria-hidden="true" class="prestation-card-image"></div>
+
+<div class="prestation-front-copy"><div class="prestation-scroll-track"><div class="prestation-summary-content">
+
+<h3>Vidéos de présentation</h3>
+
+<p class="prestation-hook">Montrez ce qui rend votre projet unique.</p>
+
+<p>Mise en valeur de vos biens, vos espaces et vos activités à travers des vidéos soignées et immersives.</p>
+
+</div><div aria-hidden="true" class="prestation-details-content"><ul class="prestation-list">
+
+<li>Biens immobiliers</li>
+
+<li>Hôtels et hébergements locatifs</li>
+
+<li>Restaurants, commerces et établissements</li>
+
+<li>Entreprises, métiers et savoir-faire</li>
+
+<li>Sites touristiques</li>
+
+</ul>
+
+</div></div></div>
+
+<button class="prestation-flip-button prestation-toggle" data-flip-card type="button">EN SAVOIR PLUS</button>
+
+</div>
+
+</div>
+
+</article>
+
+<article aria-label="Réseaux sociaux" class="prestation-card" data-prestation-card="">
+
+<div class="prestation-card-inner">
+
+<div class="prestation-face prestation-face-front"><div aria-hidden="true" class="prestation-card-image"></div>
+
+<div class="prestation-front-copy"><div class="prestation-scroll-track"><div class="prestation-summary-content">
+
+<h3>RÉSEAUX SOCIAUX</h3>
+
+<p class="prestation-hook">Captez l’attention dès les premières secondes.</p>
+
+<p>Production de contenus courts et dynamiques pour développer votre visibilité sur les réseaux sociaux.</p>
+
+</div><div aria-hidden="true" class="prestation-details-content"><ul class="prestation-list">
+
+<li>Reels Instagram, TikTok et YouTube Shorts</li>
+
+<li>Teasers et vidéos verticales</li>
+
+<li>Présentations de produits ou d’activités</li>
+
+<li>Coulisses, voyages et événements</li>
+
+<li>Création ponctuelle ou forfaits mensuels</li>
+
+</ul>
+
+</div></div></div>
+
+<button class="prestation-flip-button prestation-toggle" data-flip-card type="button">EN SAVOIR PLUS</button>
+
+</div>
+
+</div>
+
+</article>
+
+</div>
+
+<div class="prestations-services-pagination" role="group" aria-label="Navigation entre les prestations">
+  <button class="service-arrow service-arrow-prev" type="button" aria-label="Prestation précédente" disabled>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+  </button>
+  <button class="service-dot" type="button" aria-label="Afficher Films et documentaires" aria-current="true"></button>
+  <button class="service-dot" type="button" aria-label="Afficher Aftermovies" aria-current="false"></button>
+  <button class="service-dot" type="button" aria-label="Afficher Vidéos publicitaires" aria-current="false"></button>
+  <button class="service-dot" type="button" aria-label="Afficher Vidéos de présentation" aria-current="false"></button>
+  <button class="service-dot" type="button" aria-label="Afficher Réseaux sociaux" aria-current="false"></button>
+  <span class="prestations-services-counter" aria-live="polite">1 / 5</span>
+  <button class="service-arrow service-arrow-next" type="button" aria-label="Prestation suivante">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+  </button>
+</div>
+
+<div class="prestations-technique">
+
+<strong>DES MOYENS ADAPTÉS À CHAQUE PROJET.</strong>
+
+<p>Caméras au sol, prises de vue aériennes par drone ou mouvements immersifs en FPV : nous adaptons nos moyens de réalisation à chaque projet, dans le respect des réglementations applicables, pour créer des images au service de votre histoire.</p>
+
+</div>
+
+</section>
+
+<section aria-labelledby="monthly-title" class="prestations-section prestations-monthly">
+
+<div class="prestations-intro">
+
+<h2 id="monthly-title">VOTRE COMMUNICATION, MOIS APRÈS MOIS.</h2>
+
+<p><span class="desktop-sentence">Nous proposons un accompagnement mensuel pour développer votre présence sur les réseaux sociaux.</span> <span class="desktop-sentence">Grâce à une création régulière de contenus photo et vidéo, nous vous aidons à harmoniser votre communication, renforcer votre identité visuelle et accroître votre visibilité.</span> <span class="desktop-sentence">Une solution adaptée à vos objectifs pour communiquer de manière cohérente et professionnelle, tout au long de l’année.</span></p>
+
+<p class="prestations-custom-note"><strong>Trois formules, une approche personnalisée.</strong> Chaque pack est modulable : <span class="prestations-custom-note-nextline">contenus, fréquence des tournages et options sont ajustés à vos objectifs, vos envies et votre budget.</span></p>
+
+</div>
+
+<div class="prestations-plans">
+
+<article class="prestations-plan">
+<div class="prestations-plan-head">
+<span class="plan-label">FORMULE 01</span>
+<h3>Essentiel</h3>
+<p class="plan-summary">Quelques vidéos chaque mois pour alimenter vos réseaux sociaux, tout en gardant la main sur vos publications.</p>
+</div>
+<div class="prestations-plan-body">
+<ul><li>Planification des contenus</li><li>Tournages mensuels adaptés</li><li>Création et montage de vidéos courtes</li><li>Livraison des contenus prêts à publier</li></ul>
+<p class="plan-detail">Vous gérez vos publications. Le volume de vidéos et le rythme des tournages sont ajustés à votre activité.</p>
+<a class="prestations-link" href="contact.html?type=pack-mensuel">CONSTRUIRE MON ACCOMPAGNEMENT</a>
+</div>
+</article>
+
+<article class="prestations-plan prestations-plan-featured">
+<div class="prestations-plan-head">
+<span class="plan-label">FORMULE 02</span>
+<h3>Développement</h3>
+<p class="plan-summary">Davantage de vidéos chaque mois et une identité Instagram plus cohérente.</p>
+</div>
+<div class="prestations-plan-body">
+<ul><li>Planification des contenus</li><li>Tournages mensuels adaptés</li><li>Création et montage de vidéos courtes</li><li>Livraison des contenus prêts à publier</li><li class="plan-extra">Davantage de vidéos chaque mois</li><li class="plan-extra">Création de visuels et harmonisation du feed Instagram</li></ul>
+<p class="plan-detail">Vous gérez vos publications. Le volume de vidéos et les contenus graphiques s’adaptent à vos objectifs.</p>
+<a class="prestations-link" href="contact.html?type=pack-mensuel">CONSTRUIRE MON ACCOMPAGNEMENT</a>
+</div>
+</article>
+
+<article class="prestations-plan">
+<div class="prestations-plan-head">
+<span class="plan-label">FORMULE 03</span>
+<h3>Premium</h3>
+<p class="plan-summary">Un accompagnement complet, de la création des contenus jusqu’à leur publication.</p>
+</div>
+<div class="prestations-plan-body">
+<ul><li>Planification des contenus</li><li>Tournages mensuels adaptés</li><li>Création et montage de vidéos courtes</li><li>Livraison des contenus prêts à publier</li><li class="plan-extra">Davantage de vidéos chaque mois</li><li class="plan-extra">Création de visuels et harmonisation du feed Instagram</li><li class="plan-extra">Rédaction des légendes et calendrier de publication</li><li class="plan-extra">Gestion et publication des contenus sur vos réseaux sociaux</li></ul>
+<p class="plan-detail">Nous prenons en charge vos publications selon un calendrier défini ensemble. Les prestations restent personnalisables.</p>
+<a class="prestations-link" href="contact.html?type=pack-mensuel">CONSTRUIRE MON ACCOMPAGNEMENT</a>
+</div>
+</article>
+
+</div>
+
+<div class="prestations-plans-pagination" role="group" aria-label="Navigation entre les forfaits">
+  <button class="plan-arrow plan-arrow-prev" type="button" aria-label="Forfait précédent" disabled>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+  </button>
+  <button class="plan-dot" type="button" aria-label="Afficher Essentiel" aria-current="true"></button>
+  <button class="plan-dot" type="button" aria-label="Afficher Développement" aria-current="false"></button>
+  <button class="plan-dot" type="button" aria-label="Afficher Premium" aria-current="false"></button>
+  <span class="prestations-plans-counter" aria-live="polite">1 / 3</span>
+  <button class="plan-arrow plan-arrow-next" type="button" aria-label="Forfait suivant">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+  </button>
+</div>
+
+<p class="prestations-fineprint">Chaque accompagnement est construit en fonction de vos objectifs, de votre activité et de votre budget. Les volumes, options, déplacements et modalités sont définis ensemble dans un devis personnalisé.</p>
+
+</section>
+
+
+</div>
+
+<!-- Appel à contact — disposition reprise de la page Home -->
+<section class="home-contact-cta prestations-contact-cta" aria-labelledby="prestations-contact-title">
+  <div class="home-contact-cta-inner">
+    <div class="home-contact-cta-text">
+      <p class="home-contact-cta-kicker">DONNONS VIE À VOTRE IDÉE</p>
+      <h2 id="prestations-contact-title">VOUS AVEZ UN PROJET ?</h2>
+      <p class="home-contact-cta-subtitle">PARLONS-EN.</p>
+    </div>
+    <a class="home-contact-cta-button" href="contact.html">NOUS CONTACTER</a>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+
+<div class="footer-container">
+
+<div class="footer-column footer-brand">
+
+<h3>DIGITAL ART PRODUCTION</h3>
+
+<p>Production audiovisuelle en France et à l’international.</p>
+
+<p class="footer-specialties">Filmmaking • Drone • FPV</p>
+
+</div>
+
+<div class="footer-column">
+
+<h4>NAVIGATION</h4>
+
+<nav aria-label="Navigation de pied de page" class="footer-links">
+
+<a href="index.html">Home</a>
+
+<a href="projets.html">Projets</a>
+
+<a href="prestations.html">Prestations</a>
+
+<a href="apropos.html">À propos</a>
+
+<a href="contact.html">Contact</a>
+
+</nav>
+
+</div>
+
+<div class="footer-column footer-contact-column">
+
+<h4>RESTONS CONNECTÉS</h4>
+
+<div class="contact-details">
+
+<a href="mailto:contact@digitalart-production.fr">contact@digitalart-production.fr</a>
+
+<a href="tel:+33635462092">+33 6 35 46 20 92</a>
+
+</div>
+
+<a class="footer-contact" href="contact.html">Formulaire de contact</a>
+
+<div class="footer-socials">
+
+<!-- Instagram -->
+
+<a aria-label="Instagram" href="https://www.instagram.com/victor_rochemenu/" rel="noopener noreferrer" target="_blank" title="Instagram">
+
+<svg aria-hidden="true" fill="currentColor" viewbox="0 0 24 24">
+
+<path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9z"></path>
+
+<path d="M12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"></path>
+
+<circle cx="17.5" cy="6.5" r="1.25"></circle>
+
+</svg>
+
+</a>
+
+<!-- LinkedIn : tracé unique correct, même dimensions que les autres logos -->
+
+<a aria-label="LinkedIn" href="https://www.linkedin.com/in/victor-roche-menu-60917814a/" rel="noopener noreferrer" target="_blank" title="LinkedIn">
+
+<svg aria-hidden="true" fill="currentColor" viewbox="0 0 24 24">
+
+<path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.35V9h3.414v1.561h.049c.476-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zm1.782 13.019H3.555V9H7.12v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path>
+
+</svg>
+
+</a>
+
+<!-- YouTube -->
+
+<a aria-label="YouTube Digital Art Production" href="https://www.youtube.com/@DigitalArt_Prod" rel="noopener noreferrer" target="_blank" title="YouTube">
+
+<svg aria-hidden="true" fill="currentColor" viewbox="0 0 24 24">
+
+<path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.55 3.6 12 3.6 12 3.6s-7.55 0-9.4.5A3 3 0 0 0 .5 6.2 31.1 31.1 0 0 0 0 12a31.1 31.1 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.85.5 9.4.5 9.4.5s7.55 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.1 31.1 0 0 0 24 12a31.1 31.1 0 0 0-.5-5.8zM9.6 15.6V8.4l6.25 3.6-6.25 3.6z"></path>
+
+</svg>
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="footer-bottom">
+
+<p>© 2026 Digital Art Production. Tous droits réservés.</p>
+
+<div class="footer-legal">
+
+<a href="mentions-legales.html">Mentions légales</a>
+
+<a href="cgv.html">CGV</a>
+
+<a href="confidentialite.html">Confidentialité</a>
+
+<a href="cookies.html">Cookies</a>
+
+</div>
+
+</div>
+
+</footer>
+
+<script>
+
+/* La bande grise et son contenu remontent ensemble ; aucun fondu ni glissement interne. */
+
+(function () {
+
+  document.querySelectorAll('[data-prestation-card]').forEach(function (card, index) {
+
+    var summary = card.querySelector('.prestation-summary-content');
+
+    var details = card.querySelector('.prestation-details-content');
+
+    var toggleButton = card.querySelector('.prestation-toggle');
+
+    var detailsId = 'prestation-details-' + (index + 1);
+
+    details.id = detailsId;
+
+    toggleButton.setAttribute('aria-controls', detailsId);
+
+    toggleButton.setAttribute('aria-expanded', 'false');
+
+    // Mesurer les deux segments rigides empilés sur la surface grise. Aucun fondu.
+
+    function measureSlide() {
+
+      var cardHeight = card.getBoundingClientRect().height;
+
+      var ratio = window.matchMedia('(max-width: 580px)').matches ? .63 : .64;
+
+      card.style.setProperty('--card-height', cardHeight + 'px');
+
+      card.style.setProperty('--summary-slide', (cardHeight * ratio) + 'px');
+
+    }
+
+    measureSlide();
+
+    window.addEventListener('resize', measureSlide, { passive: true });
+
+    function setDetailsVisible(show) {
+
+      card.classList.toggle('is-flipped', show);
+
+      toggleButton.textContent = show ? 'RETOUR' : 'EN SAVOIR PLUS';
+
+      toggleButton.setAttribute('aria-expanded', String(show));
+
+      summary.setAttribute('aria-hidden', String(show));
+
+      details.setAttribute('aria-hidden', String(!show));
+
+    }
+
+    summary.setAttribute('aria-hidden', 'false');
+
+    details.setAttribute('aria-hidden', 'true');
+
+    toggleButton.addEventListener('click', function () {
+
+      setDetailsVisible(!card.classList.contains('is-flipped'));
+
+    });
+
+  });
+
+})();
+
+</script>
+
+
+<script>
+/* Navigation des packs sur mobile : swipe natif + repères cliquables. */
+(function () {
+  var slider = document.querySelector('.prestations-plans');
+  var buttons = Array.from(document.querySelectorAll('.prestations-plans-pagination .plan-dot'));
+  if (!slider || buttons.length !== 3) return;
+  var cards = Array.from(slider.querySelectorAll(':scope > .prestations-plan'));
+  var counter = document.querySelector('.prestations-plans-counter');
+  var prev = document.querySelector('.plan-arrow-prev');
+  var next = document.querySelector('.plan-arrow-next');
+  var current = 0;
+  function goTo(index) {
+    index = Math.max(0, Math.min(cards.length - 1, index));
+    slider.scrollTo({
+      left: slider.scrollLeft + cards[index].getBoundingClientRect().left - slider.getBoundingClientRect().left,
+      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+    });
+    current = index;
+    syncControls();
+  }
+  function syncControls() {
+    buttons.forEach(function (button, index) {
+      button.setAttribute('aria-current', String(index === current));
+    });
+    if (counter) counter.textContent = (current + 1) + ' / ' + cards.length;
+    if (prev) prev.disabled = current === 0;
+    if (next) next.disabled = current === cards.length - 1;
+  }
+  function updatePagination() {
+    var nearest = 0;
+    var distance = Infinity;
+    cards.forEach(function (card, index) {
+      var difference = Math.abs(card.getBoundingClientRect().left - slider.getBoundingClientRect().left);
+      if (difference < distance) { distance = difference; nearest = index; }
+    });
+    current = nearest;
+    syncControls();
+  }
+  buttons.forEach(function (button, index) {
+    button.addEventListener('click', function () { goTo(index); });
+  });
+  if (prev) prev.addEventListener('click', function () { goTo(current - 1); });
+  if (next) next.addEventListener('click', function () { goTo(current + 1); });
+  slider.addEventListener('scroll', updatePagination, { passive: true });
+  window.addEventListener('resize', updatePagination, { passive: true });
+  updatePagination();
+})();
+</script>
+
+<script>
+
+/* Navigation des 5 cartes de prestations sur mobile. */
+(function () {
+  var slider = document.querySelector('.prestations-grid');
+  var pagination = document.querySelector('.prestations-services-pagination');
+  if (!slider || !pagination) return;
+  var cards = Array.from(slider.querySelectorAll(':scope > .prestation-card'));
+  var dots = Array.from(pagination.querySelectorAll('.service-dot'));
+  var previous = pagination.querySelector('.service-arrow-prev');
+  var next = pagination.querySelector('.service-arrow-next');
+  var counter = pagination.querySelector('.prestations-services-counter');
+  var current = 0;
+  function updateControls() {
+    dots.forEach(function (dot, index) {
+      dot.setAttribute('aria-current', String(index === current));
+    });
+    counter.textContent = (current + 1) + ' / ' + cards.length;
+    previous.disabled = current === 0;
+    next.disabled = current === cards.length - 1;
+  }
+  function goTo(index) {
+    current = Math.max(0, Math.min(cards.length - 1, index));
+    var position = cards[current].getBoundingClientRect().left - slider.getBoundingClientRect().left;
+    slider.scrollTo({
+      left: slider.scrollLeft + position,
+      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+    });
+    updateControls();
+  }
+  function updateFromScroll() {
+    var distance = Infinity;
+    cards.forEach(function (card, index) {
+      var d = Math.abs(card.getBoundingClientRect().left - slider.getBoundingClientRect().left);
+      if (d < distance) {
+        current = index;
+        distance = d;
+      }
+    });
+    updateControls();
+  }
+  dots.forEach(function (dot, index) {
+    dot.addEventListener('click', function () { goTo(index); });
+  });
+  previous.addEventListener('click', function () { goTo(current - 1); });
+  next.addEventListener('click', function () { goTo(current + 1); });
+  slider.addEventListener('scroll', updateFromScroll, { passive: true });
+  window.addEventListener('resize', updateFromScroll, { passive: true });
+  updateFromScroll();
+})();
+</script>
+<script src="script.js"></script>
+
+</body>
+
+</html>

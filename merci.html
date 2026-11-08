@@ -1,53 +1,95 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
     <title>Message envoyé | Digital Art Production</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .thankyou-page {
+            min-height: 100vh;
+            min-height: 100dvh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 110px 20px 60px;
+            background: #1a1a1a;
+        }
+        .thankyou-card {
+            width: min(560px, 100%);
+            padding: clamp(30px, 6vw, 60px);
+            border: 1px solid rgba(255,255,255,.14);
+            border-radius: 18px;
+            background: linear-gradient(145deg, #292b2d, #202224);
+            box-shadow: 0 20px 55px rgba(0,0,0,.3);
+            text-align: center;
+        }
+        .thankyou-mark {
+            display: inline-grid;
+            place-items: center;
+            width: 56px;
+            height: 56px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(255,255,255,.4);
+            border-radius: 50%;
+            color: #fff;
+            font-size: 28px;
+        }
+        .thankyou-card h1 {
+            margin: 0 0 18px;
+            font-size: clamp(26px, 4vw, 38px);
+            line-height: 1.2;
+            color: #fff;
+        }
+        .thankyou-card p {
+            max-width: 410px;
+            margin: 0 auto 32px;
+            color: #bbb;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+        .thankyou-back {
+            display: inline-block;
+            padding: 14px 22px;
+            border: 1px solid rgba(255,255,255,.6);
+            border-radius: 8px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            transition: background .2s ease, color .2s ease;
+        }
+        .thankyou-back:hover { background: #fff; color: #1a1a1a; }
+        .thankyou-back:focus-visible { outline: 2px solid #fff; outline-offset: 4px; }
+    </style>
 </head>
-
 <body>
-    <main style="
-        min-height:100vh;
-        display:flex;
-        justify-content:center;
-        align-items:center;
-        padding:30px;
-        text-align:center;
-        background:#1a1a1a;
-    ">
-        <div style="max-width:550px;">
-            <h1 style="font-size:36px;margin-bottom:20px;">
-                Merci pour votre message !
-            </h1>
-
-            <p style="
-                color:#bbb;
-                font-size:17px;
-                line-height:1.8;
-                margin-bottom:35px;
-            ">
-                Votre demande a bien été envoyée.
-                Nous reviendrons vers vous dans les
-                meilleurs délais.
-            </p>
-
-            <a href="index.html" style="
-                display:inline-block;
-                padding:14px 25px;
-                border:1px solid #aaa;
-                border-radius:8px;
-                color:white;
-                text-decoration:none;
-                font-size:13px;
-                letter-spacing:1px;
-            ">
-                RETOUR À L'ACCUEIL
-            </a>
+    <nav class="navbar" aria-label="Navigation principale">
+        <a href="index.html" class="nav-logo" aria-label="Accueil Digital Art Production">
+            <img src="images/logo-couleur.png" alt="Digital Art Production">
+        </a>
+        <button class="menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-links">
+            <span></span><span></span><span></span>
+        </button>
+        <div class="nav-links" id="nav-links">
+            <a href="index.html">HOME</a>
+            <a href="projets.html">PROJETS</a>
+            <a href="prestations.html">PRESTATIONS</a>
+            <a href="apropos.html">À PROPOS</a>
+            <a href="contact.html">CONTACT</a>
         </div>
+    </nav>
+
+    <main class="thankyou-page">
+        <section class="thankyou-card" aria-labelledby="thankyou-title">
+            <div class="thankyou-mark" aria-hidden="true">✓</div>
+            <h1 id="thankyou-title">Merci pour votre message !</h1>
+            <p>Votre demande a bien été envoyée. Nous reviendrons vers vous dans les meilleurs délais.</p>
+            <a class="thankyou-back" href="index.html">RETOUR À L’ACCUEIL</a>
+        </section>
     </main>
+    <script src="script.js"></script>
 </body>
 </html>

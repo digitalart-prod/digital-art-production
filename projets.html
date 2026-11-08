@@ -1,138 +1,930 @@
 <!DOCTYPE html>
+
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Des histoires humaines, des lieux et des aventures racontés avec une approche cinématographique.">
-    <title>Projets | Digital Art Production</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Découvrez nos réalisations vidéo : sport, événementiel, corporate, immobilier et FPV." name="description"/>
+<title>
+   Projets | Digital Art Production
+  </title>
+<link href="style.css" rel="stylesheet"/>
+<style>
+   /* PORTFOLIO — styles autonomes sans modifier style.css */
+.page-main { padding-top:0 !important; }
+.page-main > .page-hero { height:490px!important;min-height:490px!important;max-height:490px!important;box-sizing:border-box!important; }
+@media(max-width:900px){.page-main>.page-hero{height:420px!important;min-height:420px!important;max-height:420px!important}}
+@media(max-width:650px){.page-main>.page-hero{height:360px!important;min-height:360px!important;max-height:360px!important}}
+.projets-page .portfolio-area{width:100%;padding:78px 6% 112px;background:#202224;color:#fff;box-sizing:border-box;}
+.projets-page .portfolio-inner{max-width:1330px;margin:0 auto;}
+.projets-page .portfolio-intro h2{margin:0 0 16px;letter-spacing:.07em;font-size:clamp(25px,3vw,35px);font-weight:650;color:#fff;}
+.projets-page .portfolio-intro p{margin:0;color:#b8b9ba;font-size:15px;line-height:1.75;}
+.projets-page .portfolio-tabs{display:flex;gap:9px;flex-wrap:wrap;margin:38px 0 40px;}
+.projets-page .portfolio-tab{appearance:none;background:transparent;border:1px solid #56585b;color:#d0d0d0;cursor:pointer;padding:13px 18px;border-radius:6px;font:600 11px/1.3 Arial,sans-serif;letter-spacing:1.3px;transition:background .2s,border-color .2s,color .2s;}
+.projets-page .portfolio-tab:hover,.projets-page .portfolio-tab:focus-visible{border-color:#eee;color:#fff;}
+.projets-page .portfolio-tab.is-active{background:#f4f4f4;color:#191a1b;border-color:#f4f4f4;}
+.projets-page .portfolio-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:38px 24px;align-items:start;}
+.projets-page .portfolio-card{min-width:0;}
+.projets-page .portfolio-card[hidden]{display:none!important;}
+.projets-page .portfolio-preview{width:100%;position:relative;aspect-ratio:16/9;background:#151719;border:1px solid rgba(255,255,255,.08);padding:0;display:flex;align-items:center;justify-content:center;border-radius:10px;overflow:hidden;cursor:pointer;color:#fff;text-align:center;}
+.projets-page .portfolio-preview.is-vertical{aspect-ratio:16/9;background:#121416;}
+.projets-page .portfolio-preview img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .55s ease,filter .4s ease;}
+.projets-page .portfolio-preview.is-vertical img{width:auto;max-width:100%;height:100%;aspect-ratio:9/16;object-fit:cover;}
+.projets-page .portfolio-preview::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(0,0,0,.38));pointer-events:none;}
+.projets-page .portfolio-preview:hover img{transform:scale(1.04);filter:brightness(.78);}
+.projets-page .portfolio-play{position:absolute;z-index:1;display:grid;place-items:center;width:62px;height:62px;border:1px solid rgba(255,255,255,.75);border-radius:50%;background:rgba(15,15,15,.46);backdrop-filter:blur(5px);transition:transform .2s,background .2s;}
+.projets-page .portfolio-preview:hover .portfolio-play{transform:scale(1.1);background:rgba(15,15,15,.7);}
+.projets-page .portfolio-play svg{height:18px;width:18px;margin-left:3px;fill:currentColor;}
+.projets-page .portfolio-format{position:absolute;right:14px;top:14px;z-index:1;background:rgba(0,0,0,.55);padding:7px 9px;font:700 10px Arial,sans-serif;letter-spacing:.08em;border-radius:4px;}
+.projets-page .portfolio-card-copy{padding:16px 2px 0;}
+.projets-page .portfolio-category{margin:0 0 9px;font:700 10px Arial,sans-serif;color:#aaa;letter-spacing:1.7px;}
+.projets-page .portfolio-card h3{margin:0;color:#f6f6f6;font-size:clamp(17px,1.7vw,21px);font-weight:650;line-height:1.4;}
+.projets-page .portfolio-card-copy>p:last-child{margin:8px 0 0;color:#acadaf;font-size:13px;line-height:1.5;}
+.projets-page .portfolio-empty{color:#aaa;font-size:15px;padding:25px 0;}
+.projets-page .portfolio-dialog{padding:0;border:0;background:#101112;color:#fff;width:min(1100px,94vw);max-width:94vw;max-height:94vh;overflow:visible;border-radius:12px;box-shadow:0 25px 90px #0009;}
+.projets-page .portfolio-dialog::backdrop{background:rgba(0,0,0,.88);}
+.projets-page .portfolio-dialog-inner{padding:16px;}
+.projets-page .portfolio-player-wrap{width:100%;aspect-ratio:16/9;background:#000;display:flex;align-items:center;justify-content:center;overflow:hidden;border-radius:7px;}
+.projets-page .portfolio-player-wrap.is-vertical{aspect-ratio:auto;height:min(75vh,750px);}
+.projets-page .portfolio-player-wrap video,.projets-page .portfolio-player-wrap iframe{width:100%;height:100%;object-fit:contain;border:0;display:block;}
+.projets-page .portfolio-player-wrap.is-vertical video,.projets-page .portfolio-player-wrap.is-vertical iframe{width:min(100%,420px);}
+.projets-page .portfolio-player-wrap .portfolio-unavailable{padding:24px;text-align:center;font-size:14px;line-height:1.7;color:#bdbdbd;}
+.projets-page .portfolio-dialog-title{font-size:14px;font-weight:650;margin:16px 4px 3px;}
+.projets-page .portfolio-close{position:absolute;right:-5px;top:-45px;width:40px;height:40px;border:1px solid #888;border-radius:50%;background:#222;color:#fff;font-size:25px;cursor:pointer;}
+.projets-page .portfolio-close:hover{background:#444;}
+.projets-page .portfolio-preview:focus-visible,.projets-page .portfolio-tab:focus-visible,.projets-page .portfolio-close:focus-visible{outline:2px solid #fff;outline-offset:4px;}
+.site-footer .footer-contact-column{text-align:right;}
+.site-footer .footer-contact-column .contact-details{display:flex;flex-direction:column;align-items:flex-end;gap:10px;margin:18px 0;text-align:right;}
+.site-footer .footer-contact-column .contact-details a{font-size:13px;line-height:1.5;color:#ccc;text-decoration:none;overflow-wrap:anywhere;text-align:right;}
+.site-footer .footer-contact-column .footer-socials{justify-content:flex-end;}
+@media(max-width:768px){.site-footer .footer-contact-column{text-align:left}.site-footer .footer-contact-column .contact-details{align-items:flex-start;text-align:left}.site-footer .footer-contact-column .contact-details a{text-align:left}.site-footer .footer-contact-column .footer-socials{justify-content:flex-start}}
+@media(max-width:650px){.projets-page .portfolio-area{padding:55px 6% 75px}.projets-page .portfolio-tabs{gap:8px;margin:27px 0 29px}.projets-page .portfolio-tab{font-size:10px;padding:11px 13px}.projets-page .portfolio-grid{grid-template-columns:1fr;gap:31px}.projets-page .portfolio-dialog-inner{padding:8px}.projets-page .portfolio-player-wrap.is-vertical{height:75vh}}
+@media(prefers-reduced-motion:reduce){.projets-page .portfolio-preview img,.projets-page .portfolio-play,.projets-page .portfolio-tab{transition:none}}
+  
+
+/* SPORT 01 : première image de la vidéo, puis aperçu animé sans son au survol. */
+.projets-page .portfolio-preview-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;pointer-events:none;transition:opacity .25s ease,transform .55s ease,filter .4s ease;z-index:0}
+.projets-page .portfolio-preview-video.is-ready{opacity:1}
+.projets-page .portfolio-preview:hover .portfolio-preview-video.is-ready{transform:scale(1.04);filter:brightness(.78)}
+.projets-page .portfolio-preview-video:not(.is-ready){visibility:hidden}
+.projets-page .portfolio-preview-video.is-ready + .portfolio-format{z-index:1}
+.projets-page .portfolio-preview .portfolio-error{position:absolute;inset:auto 8px 8px;z-index:2;background:rgba(0,0,0,.85);padding:8px;color:#fff;font-size:11px;border-radius:5px}
+
+/* Ne jamais afficher le message vide lorsqu'une vidéo existe. */
+.projets-page .portfolio-empty[hidden]{display:none!important}
+/* SPORT01 : vignette vidéo sans image de remplacement. */
+.projets-page .portfolio-preview-video{visibility:visible!important;opacity:1;object-fit:cover;background:#151719}
+
+
+/* SPORT 01 — aperçu vertical réel, lecteur intégré : aucun pop-up. */
+.projets-page .portfolio-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+.projets-page .portfolio-card[data-category="sport"]{width:100%;max-width:330px;}
+.projets-page .portfolio-preview.sport-inline-player{width:100%;height:auto;aspect-ratio:9/16;border-radius:10px;display:block;position:relative;background:#111;overflow:hidden;cursor:pointer;}
+.projets-page .sport-inline-player .portfolio-preview-video,
+.projets-page .sport-inline-player .portfolio-preview-video.is-ready{inset:0;width:100%;height:100%;display:block;object-fit:contain;object-position:center center;visibility:visible!important;opacity:1!important;filter:none!important;transform:none!important;transition:none;}
+.projets-page .sport-inline-player:hover .portfolio-preview-video.is-ready{object-fit:contain;filter:none!important;transform:none!important;}
+.projets-page .sport-inline-player:hover{transform:none!important;}
+.projets-page .sport-inline-player .portfolio-format{z-index:2;}
+.projets-page .sport-inline-player .sport-sound-indicator{position:absolute;z-index:2;left:12px;bottom:13px;right:12px;display:block;text-align:center;font:700 10px/1.5 Arial,sans-serif;letter-spacing:1px;padding:11px 7px;border-radius:5px;color:#fff;background:rgba(0,0,0,.6);transition:opacity .2s ease;pointer-events:none;}
+.projets-page .sport-inline-player.is-sound-on .sport-sound-indicator{background:rgba(15,15,15,.55);}
+.projets-page .sport-inline-player:focus-visible{outline:2px solid #fff;outline-offset:4px;}
+@media(max-width:650px){.projets-page .portfolio-grid{grid-template-columns:1fr;}.projets-page .portfolio-card[data-category="sport"]{max-width:min(330px,100%);margin:0 auto;}}
+
+
+/* Galerie fluide : les cartes se placent côte à côte puis reviennent à la ligne. */
+.projets-page .portfolio-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(min(100%,205px),1fr));
+  column-gap:14px;
+  row-gap:28px;
+  align-items:start;
+}
+.projets-page .portfolio-card,
+.projets-page .portfolio-card[data-category="sport"] {
+  width:100%;max-width:none;min-width:0;margin:0;
+}
+/* Reprise des mêmes interactions en lecture intégrée pour les quatre univers. */
+.projets-page .portfolio-preview.portfolio-inline-player {
+  width:100%;display:block;position:relative;overflow:hidden;border-radius:10px;
+  background:#111;cursor:pointer;
+}
+.projets-page .portfolio-preview.portfolio-inline-player.is-vertical{aspect-ratio:9/16;}
+.projets-page .portfolio-preview.portfolio-inline-player.is-horizontal{aspect-ratio:16/9;}
+.projets-page .portfolio-inline-player .portfolio-preview-video,
+.projets-page .portfolio-inline-player .portfolio-preview-video.is-ready,
+.projets-page .portfolio-inline-player:hover .portfolio-preview-video.is-ready {
+  position:absolute;inset:0;width:100%;height:100%;display:block;
+  object-fit:contain;object-position:center;opacity:1!important;
+  visibility:visible!important;filter:none!important;transform:none!important;transition:none!important;
+}
+.projets-page .portfolio-inline-player:hover{transform:none!important;}
+.projets-page .portfolio-inline-player .portfolio-format{z-index:2;}
+.projets-page .portfolio-inline-player .sport-sound-indicator{
+  position:absolute;z-index:2;left:8px;right:8px;bottom:9px;display:block;
+  padding:9px 5px;border-radius:5px;color:#fff;background:rgba(0,0,0,.62);
+  font:700 9px/1.4 Arial,sans-serif;letter-spacing:.55px;text-align:center;pointer-events:none;
+}
+.projets-page .portfolio-inline-player.is-sound-on .sport-sound-indicator{background:rgba(0,0,0,.75);}
+.projets-page .portfolio-inline-player:focus-visible{outline:2px solid #fff;outline-offset:4px;}
+@media(max-width:650px){
+ .projets-page .portfolio-grid {grid-template-columns:repeat(auto-fill,minmax(min(100%,170px),1fr));column-gap:12px;row-gap:23px;}
+ .projets-page .portfolio-card[data-category="sport"] {max-width:none;margin:0;}
+}
+@media(max-width:380px){.projets-page .portfolio-grid{grid-template-columns:repeat(auto-fill,minmax(min(100%,145px),1fr));}}
+
+/* Notice son et navigation : 5 lignes dans TOUS, 5 vidéos par catégorie. */
+.projets-page .portfolio-sound-note{margin:18px 0 0;color:#c8c8c8;font-size:13px;line-height:1.6;}
+.projets-page .portfolio-sound-note span{margin-right:6px;color:#d2ad76;}
+.projets-page .portfolio-pagination{display:flex;align-items:center;justify-content:center;gap:18px;margin:38px 0 0;}
+.projets-page .portfolio-pagination[hidden]{display:none!important;}
+.projets-page .portfolio-page-arrow{width:42px;height:42px;border:1px solid #626467;border-radius:7px;background:transparent;color:#fff;font-size:20px;cursor:pointer;transition:background .2s,border-color .2s;}
+.projets-page .portfolio-page-arrow:hover:not(:disabled){background:#393b3d;border-color:#eee;}
+.projets-page .portfolio-page-arrow:disabled{opacity:.3;cursor:default;}
+.projets-page .portfolio-page-arrow:focus-visible{outline:2px solid white;outline-offset:3px;}
+.projets-page .portfolio-page-count{color:#d4d4d4;font:600 13px Arial,sans-serif;letter-spacing:1px;min-width:65px;text-align:center;}
+
+/* Galerie alignée sur la largeur de la page Prestations (1220 px).
+   Agrandissement léger des aperçus, mêmes hauteurs et aucun recadrage.
+   Dimensions desktop : vertical 214 × 380 px / horizontal 676 × 380 px. */
+.projets-page .portfolio-area {
+  padding:78px 6% 112px;
+}
+.projets-page .portfolio-inner {
+  width:100%;
+  max-width:1220px;
+  margin:0 auto;
+}
+.projets-page .portfolio-grid {
+  display:flex;
+  flex-wrap:wrap;
+  align-items:flex-start;
+  justify-content:flex-start;
+  width:100%;
+  margin-left:auto;
+  margin-right:auto;
+  column-gap:14px;
+  row-gap:28px;
+}
+.projets-page .portfolio-grid > .portfolio-card,
+.projets-page .portfolio-grid > .portfolio-card[data-category="sport"] {
+  box-sizing:border-box;
+  flex:0 0 auto;
+  width:min(100%,214px);
+  max-width:none;
+  min-width:0;
+  margin:0;
+}
+.projets-page .portfolio-grid > .portfolio-card:has(.is-horizontal) {
+  width:min(100%,676px);
+}
+.projets-page .portfolio-grid .portfolio-preview.portfolio-inline-player,
+.projets-page .portfolio-grid .portfolio-preview.portfolio-inline-player.is-vertical,
+.projets-page .portfolio-grid .portfolio-preview.portfolio-inline-player.is-horizontal {
+  height:380px;
+  width:100%;
+  aspect-ratio:auto;
+  overflow:hidden;
+}
+.projets-page .portfolio-grid .portfolio-preview-video {
+  object-fit:contain!important;
+  transform:none!important;
+  filter:none!important;
+}
+@media(max-width:650px) {
+  .projets-page .portfolio-area {padding:55px 6% 75px;}
+  .projets-page .portfolio-grid {column-gap:12px;row-gap:23px;}
+  .projets-page .portfolio-grid > .portfolio-card,
+  .projets-page .portfolio-grid > .portfolio-card[data-category="sport"] {width:min(100%,214px);}
+  .projets-page .portfolio-grid > .portfolio-card:has(.is-horizontal) {width:min(100%,676px);}
+  .projets-page .portfolio-grid > .portfolio-card:has(.is-horizontal) .portfolio-preview {height:auto;aspect-ratio:16/9;}
+}
+.projets-page .portfolio-grid .portfolio-card-copy {text-align:left;}
+@media (min-width:651px) and (max-width:790px) {
+  .projets-page .portfolio-grid > .portfolio-card:has(.is-horizontal) .portfolio-preview {height:auto;aspect-ratio:16/9;}
+}
+
+/* Aligner toutes les lignes au début de la première ligne tout en
+   centrant l'ensemble de la galerie dans les marges Prestations. */
+.projets-page .portfolio-intro,
+.projets-page .portfolio-sound-note,
+.projets-page .portfolio-tabs {
+  box-sizing:border-box;
+  width:calc(100% - (100% - var(--portfolio-line-width, 100%)) / 2);
+  max-width:100%;
+  margin-left:calc((100% - var(--portfolio-line-width, 100%)) / 2);
+  margin-right:0;
+  text-align:left;
+}
+.projets-page .portfolio-grid {max-width:100%;}
+
+/* Fond photographique commun à la bannière et à la galerie,
+   sur le principe de la page Prestations (chevaux.jpg). */
+body.projets-page {
+  background:#1d1f21;
+}
+body.projets-page::before {
+  content:"";
+  display:block;
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  background:url("images/projets.jpg") center top / cover no-repeat;
+  pointer-events:none;
+}
+.projets-page .page-main {
+  position:relative;
+  background:transparent;
+}
+.projets-page .page-main > .page-hero {
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  background:transparent;
+  border-bottom:0;
+}
+.projets-page .page-main > .page-hero::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  background:rgba(8,10,12,.30);
+  pointer-events:none;
+}
+.projets-page .page-main > .page-hero::after {
+  content:none;
+  display:none;
+}
+.projets-page .page-hero h1,
+.projets-page .page-hero .page-eyebrow {
+  color:#fff;
+  text-shadow:0 2px 12px rgba(0,0,0,.9),0 5px 28px rgba(0,0,0,.68);
+}
+.projets-page .page-hero .page-lead {
+  color:#f5f5f5;
+  text-shadow:0 2px 8px rgba(0,0,0,.95),0 4px 20px rgba(0,0,0,.72);
+}
+/* Voile anthracite sur toute la zone de la galerie, sans effet
+   sur les cadres vidéo ni leurs interactions. */
+.projets-page .portfolio-area {
+  position:relative;
+  isolation:isolate;
+  background:rgba(29,31,33,.91);
+}
+
+/* Alignement du contenu de la bannière sur celui de PRESTATIONS.
+   Dimensions communes des bannières préservées. */
+.projets-page .page-main > .page-hero {
+  padding-top:clamp(150px, calc(10vw + 75px), 205px);
+  padding-bottom:85px;
+}
+.projets-page .page-main > .page-hero .page-lead { max-width:760px; }
+@media(max-width:650px) {
+  .projets-page .page-main > .page-hero {
+    padding-top:145px;
+    padding-bottom:55px;
+  }
+}
+</style>
 </head>
-<body>
-    <!-- NAVIGATION -->
-    <nav class="navbar" aria-label="Navigation principale">
-        <a href="index.html" class="nav-logo" aria-label="Accueil Digital Art Production">
-            <img src="images/logo-couleur.png" alt="Digital Art Production">
-        </a>
-        <button class="menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-links">
-            <span></span><span></span><span></span>
-        </button>
-        <div class="nav-links" id="nav-links">
-            <a href="index.html">HOME</a>
-            <a href="projets.html" aria-current="page">PROJETS</a>
-            <a href="materiel.html">MATÉRIEL</a>
-            <a href="apropos.html">À PROPOS</a>
-            <a href="contact.html">CONTACT</a>
-        </div>
-    </nav>
+<body class="projets-page">
+<nav aria-label="Navigation principale" class="navbar">
+<a aria-label="Accueil Digital Art Production" class="nav-logo" href="index.html">
+<img alt="Digital Art Production" src="images/logo-couleur.png"/>
+</a>
+<button aria-controls="nav-links" aria-expanded="false" aria-label="Ouvrir le menu" class="menu-toggle" type="button">
+<span>
+</span>
+<span>
+</span>
+<span>
+</span>
+</button>
+<div class="nav-links" id="nav-links">
+<a href="index.html">
+     HOME
+    </a>
+<a aria-current="page" href="projets.html">
+     PROJETS
+    </a>
+<a href="prestations.html">
+     PRESTATIONS
+    </a>
+<a href="apropos.html">
+     À PROPOS
+    </a>
+<a href="contact.html">
+     CONTACT
+    </a>
+</div>
+</nav>
+<main class="page-main">
+<header class="page-hero">
+<p class="page-eyebrow">
+     DIGITAL ART PRODUCTION
+    </p>
+<h1>
+     PROJETS
+    </h1>
+<p class="page-lead">
+     Des histoires humaines, des lieux et des aventures racontés avec une approche cinématographique.
+    </p>
+</header>
+<section aria-labelledby="portfolio-title" class="portfolio-area" id="realisations">
+<div class="portfolio-inner">
+<div class="portfolio-intro">
+<h2 id="portfolio-title">
+       NOS RÉALISATIONS
+      </h2>
+<p>
+       Une sélection de films, de rencontres et de projets réalisés sur le terrain.
+      </p>
+</div>
+<p class="portfolio-sound-note"><span aria-hidden="true">◉</span> Survolez une vidéo pour la lancer sans son. Cliquez directement sur la vidéo pour activer ou couper le son.</p>
+<div aria-label="Filtrer les réalisations" class="portfolio-tabs" role="group">
+<button aria-pressed="true" class="portfolio-tab is-active" data-filter="tous" type="button">
+       TOUS
+      </button><button aria-pressed="false" class="portfolio-tab" data-filter="sport" type="button">
+       SPORT
+      </button><button aria-pressed="false" class="portfolio-tab" data-filter="evenementiel" type="button">
+       ÉVÉNEMENTIEL
+      </button><button aria-pressed="false" class="portfolio-tab" data-filter="corporate" type="button">
+       CORPORATE
+      </button><button aria-pressed="false" class="portfolio-tab" data-filter="immobilier" type="button">
+       IMMOBILIER
+      </button><button aria-pressed="false" class="portfolio-tab" data-filter="fpv" type="button">
+       FPV
+      </button></div>
+<div class="portfolio-grid">
+<article class="portfolio-card" data-category="sport">
+<button aria-label="Activer le son de SPORT 01" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
+<video aria-label="Vidéo SPORT 01 au format vertical" class="portfolio-preview-video" loop="" muted="" playsinline="" preload="metadata"><source src="videos/sport/sport01.mp4" type="video/mp4"/></video>
+<span class="portfolio-format">9:16</span></button>
+<div class="portfolio-card-copy">
+<p class="portfolio-category">
+         SPORT
+        </p>
+<h3>SPORT 01</h3>
+<p>Vidéo sportive • MP4</p>
+</div>
+</article><article class="portfolio-card" data-category="sport">
+<button aria-label="Activer le son de SPORT 02" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
+<video aria-label="Vidéo SPORT 02 au format vertical" class="portfolio-preview-video" loop="" muted="" playsinline="" preload="metadata"><source src="videos/sport/sport02.mp4" type="video/mp4"/></video>
+<span class="portfolio-format">9:16</span></button>
+<div class="portfolio-card-copy">
+<p class="portfolio-category">
+         SPORT
+        </p>
+<h3>SPORT 02</h3>
+<p>Vidéo sportive • MP4</p>
+</div>
+</article><article class="portfolio-card" data-category="sport">
+<button aria-label="Activer le son de SPORT 03" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
+<video aria-label="Vidéo SPORT 03 au format vertical" class="portfolio-preview-video" loop="" muted="" playsinline="" preload="metadata"><source src="videos/sport/sport03.mp4" type="video/mp4"/></video>
+<span class="portfolio-format">9:16</span></button>
+<div class="portfolio-card-copy">
+<p class="portfolio-category">
+         SPORT
+        </p>
+<h3>SPORT 03</h3>
+<p>Vidéo sportive • MP4</p>
+</div>
+</article><article class="portfolio-card" data-category="sport">
+<button aria-label="Activer le son de SPORT 04" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
+<video aria-label="Vidéo SPORT 04 au format vertical" class="portfolio-preview-video" loop="" muted="" playsinline="" preload="metadata"><source src="videos/sport/sport04.mp4" type="video/mp4"/></video>
+<span class="portfolio-format">9:16</span></button>
+<div class="portfolio-card-copy">
+<p class="portfolio-category">
+         SPORT
+        </p>
+<h3>SPORT 04</h3>
+<p>Vidéo sportive • MP4</p>
+</div>
+</article><article class="portfolio-card" data-category="sport">
+<button aria-label="Activer le son de SPORT 05" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
+<video aria-label="Vidéo SPORT 05 au format vertical" class="portfolio-preview-video" loop="" muted="" playsinline="" preload="metadata"><source src="videos/sport/sport05.mp4" type="video/mp4"/></video>
+<span class="portfolio-format">9:16</span></button>
+<div class="portfolio-card-copy">
+<p class="portfolio-category">
+         SPORT
+        </p>
+<h3>SPORT 05</h3>
+<p>Vidéo sportive • MP4</p>
+</div>
+</article>
+<article class="portfolio-card" data-category="sport">
+<button aria-label="Activer le son de SPORT 06" class="portfolio-preview is-horizontal portfolio-inline-player" data-format="horizontal" type="button">
+<video aria-label="Vidéo SPORT 06 au format horizontal" class="portfolio-preview-video" loop="" muted="" playsinline="" preload="metadata"><source src="videos/sport/sport06.mp4" type="video/mp4"/></video>
+<span class="portfolio-format">16:9</span></button>
+<div class="portfolio-card-copy">
+<p class="portfolio-category">SPORT</p>
+<h3>SPORT 06</h3>
+<p>Vidéo sportive • MP4</p>
+</div>
+</article>
+<article class="portfolio-card" data-category="sport">
+<button aria-label="Activer le son de SPORT 07" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
+<video aria-label="Vidéo SPORT 07 au format vertical" class="portfolio-preview-video" loop muted playsinline preload="metadata"><source src="videos/sport/sport07.mp4" type="video/mp4"></video>
+<span class="portfolio-format">9:16</span></button>
+<div class="portfolio-card-copy"><p class="portfolio-category">SPORT</p><h3>SPORT 07</h3><p>Vidéo sportive • MP4</p></div>
+</article>
+<article class="portfolio-card" data-category="sport">
+<button aria-label="Activer le son de SPORT 08" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
+<video aria-label="Vidéo SPORT 08 au format vertical" class="portfolio-preview-video" loop muted playsinline preload="metadata"><source src="videos/sport/sport08.mp4" type="video/mp4"></video>
+<span class="portfolio-format">9:16</span></button>
+<div class="portfolio-card-copy"><p class="portfolio-category">SPORT</p><h3>SPORT 08</h3><p>Vidéo sportive • MP4</p></div>
+</article>
+<article class="portfolio-card" data-category="sport">
+<button aria-label="Activer le son de SPORT 09" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
+<video aria-label="Vidéo SPORT 09 au format vertical" class="portfolio-preview-video" loop muted playsinline preload="metadata"><source src="videos/sport/sport09.mp4" type="video/mp4"></video>
+<span class="portfolio-format">9:16</span></button>
+<div class="portfolio-card-copy"><p class="portfolio-category">SPORT</p><h3>SPORT 09</h3><p>Vidéo sportive • MP4</p></div>
+</article>
+<article class="portfolio-card" data-category="sport">
+<button aria-label="Activer le son de SPORT 10" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
+<video aria-label="Vidéo SPORT 10 au format vertical" class="portfolio-preview-video" loop muted playsinline preload="metadata"><source src="videos/sport/sport10.mp4" type="video/mp4"></video>
+<span class="portfolio-format">9:16</span></button>
+<div class="portfolio-card-copy"><p class="portfolio-category">SPORT</p><h3>SPORT 10</h3><p>Vidéo sportive • MP4</p></div>
+</article>
+<article class="portfolio-card" data-category="sport">
+<button aria-label="Activer le son de SPORT 11" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
+<video aria-label="Vidéo SPORT 11 au format vertical" class="portfolio-preview-video" loop muted playsinline preload="metadata"><source src="videos/sport/sport11.mp4" type="video/mp4"></video>
+<span class="portfolio-format">9:16</span></button>
+<div class="portfolio-card-copy"><p class="portfolio-category">SPORT</p><h3>SPORT 11</h3><p>Vidéo sportive • MP4</p></div>
+</article>
+<article class="portfolio-card" data-category="sport">
+<button aria-label="Activer le son de SPORT 12" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
+<video aria-label="Vidéo SPORT 12 au format vertical" class="portfolio-preview-video" loop muted playsinline preload="metadata"><source src="videos/sport/sport12.mp4" type="video/mp4"></video>
+<span class="portfolio-format">9:16</span></button>
+<div class="portfolio-card-copy"><p class="portfolio-category">SPORT</p><h3>SPORT 12</h3><p>Vidéo sportive • MP4</p></div>
+</article>
+<article class="portfolio-card" data-category="sport">
+<button aria-label="Activer le son de SPORT 13" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
+<video aria-label="Vidéo SPORT 13 au format vertical" class="portfolio-preview-video" loop muted playsinline preload="metadata"><source src="videos/sport/sport13.mp4" type="video/mp4"></video>
+<span class="portfolio-format">9:16</span></button>
+<div class="portfolio-card-copy"><p class="portfolio-category">SPORT</p><h3>SPORT 13</h3><p>Vidéo sportive • MP4</p></div>
+</article>
+<article class="portfolio-card" data-category="evenementiel">
+<button aria-label="Activer le son de ÉVÉNEMENTIEL 01" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
+<video aria-label="Vidéo ÉVÉNEMENTIEL 01" class="portfolio-preview-video" loop="" muted="" playsinline="" preload="metadata"><source src="videos/evenementiel/evenementiel01.mp4" type="video/mp4"/></video>
+<span class="portfolio-format">9:16</span>
+</button>
+<div class="portfolio-card-copy"><p class="portfolio-category">ÉVÉNEMENTIEL</p><h3>ÉVÉNEMENTIEL 01</h3><p>Vidéo événementielle • MP4</p></div>
+</article><article class="portfolio-card" data-category="evenementiel"><button aria-label="Activer le son de ÉVÉNEMENTIEL 02" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button"><video aria-label="Vidéo ÉVÉNEMENTIEL 02 au format vertical" class="portfolio-preview-video" loop="" muted="" playsinline="" preload="metadata"><source src="videos/evenementiel/evenementiel02.mp4" type="video/mp4"/></video><span class="portfolio-format">9:16</span></button><div class="portfolio-card-copy"><p class="portfolio-category">ÉVÉNEMENTIEL</p><h3>ÉVÉNEMENTIEL 02</h3><p>Vidéo événementielle • MP4</p></div></article><article class="portfolio-card" data-category="evenementiel">
+<button aria-label="Activer le son de ÉVÉNEMENTIEL 03" class="portfolio-preview is-horizontal portfolio-inline-player" data-format="horizontal" type="button">
+<video aria-label="Vidéo ÉVÉNEMENTIEL 03 au format horizontal" class="portfolio-preview-video" loop muted playsinline preload="metadata"><source src="videos/evenementiel/evenementiel03.mp4" type="video/mp4"></video>
+<span class="portfolio-format">16:9</span></button>
+<div class="portfolio-card-copy"><p class="portfolio-category">ÉVÉNEMENTIEL</p><h3>ÉVÉNEMENTIEL 03</h3><p>Vidéo événementielle • MP4</p></div>
+</article>
+<article class="portfolio-card" data-category="evenementiel">
+<button aria-label="Activer le son de ÉVÉNEMENTIEL 04" class="portfolio-preview is-horizontal portfolio-inline-player" data-format="horizontal" type="button">
+<video aria-label="Vidéo ÉVÉNEMENTIEL 04 au format horizontal" class="portfolio-preview-video" loop muted playsinline preload="metadata"><source src="videos/evenementiel/evenementiel04.mp4" type="video/mp4"></video>
+<span class="portfolio-format">16:9</span></button>
+<div class="portfolio-card-copy"><p class="portfolio-category">ÉVÉNEMENTIEL</p><h3>ÉVÉNEMENTIEL 04</h3><p>Vidéo événementielle • MP4</p></div>
+</article>
+<article class="portfolio-card" data-category="evenementiel">
+<button aria-label="Activer le son de ÉVÉNEMENTIEL 05" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
+<video aria-label="Vidéo ÉVÉNEMENTIEL 05 au format vertical" class="portfolio-preview-video" loop muted playsinline preload="metadata"><source src="videos/evenementiel/evenementiel05.mp4" type="video/mp4"></video>
+<span class="portfolio-format">9:16</span></button>
+<div class="portfolio-card-copy"><p class="portfolio-category">ÉVÉNEMENTIEL</p><h3>ÉVÉNEMENTIEL 05</h3><p>Vidéo événementielle • MP4</p></div>
+</article>
+<article class="portfolio-card" data-category="evenementiel">
+<button aria-label="Activer le son de ÉVÉNEMENTIEL 06" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
+<video aria-label="Vidéo ÉVÉNEMENTIEL 06 au format vertical" class="portfolio-preview-video" loop muted playsinline preload="metadata"><source src="videos/evenementiel/evenementiel06.mp4" type="video/mp4"></video>
+<span class="portfolio-format">9:16</span></button>
+<div class="portfolio-card-copy"><p class="portfolio-category">ÉVÉNEMENTIEL</p><h3>ÉVÉNEMENTIEL 06</h3><p>Vidéo événementielle • MP4</p></div>
+</article>
+<article class="portfolio-card" data-category="evenementiel">
+<button aria-label="Activer le son de ÉVÉNEMENTIEL 07" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
+<video aria-label="Vidéo ÉVÉNEMENTIEL 07 au format vertical" class="portfolio-preview-video" loop muted playsinline preload="metadata"><source src="videos/evenementiel/evenementiel07.mp4" type="video/mp4"></video>
+<span class="portfolio-format">9:16</span></button>
+<div class="portfolio-card-copy"><p class="portfolio-category">ÉVÉNEMENTIEL</p><h3>ÉVÉNEMENTIEL 07</h3><p>Vidéo événementielle • MP4</p></div>
+</article>
+<article class="portfolio-card" data-category="corporate">
+<button aria-label="Activer le son de CORPORATE 01" class="portfolio-preview is-horizontal portfolio-inline-player" data-format="horizontal" type="button">
+<video aria-label="Vidéo CORPORATE 01 au format horizontal" class="portfolio-preview-video" loop="" muted="" playsinline="" preload="metadata"><source src="videos/corporate/corporate01.mp4" type="video/mp4"/></video>
+<span class="portfolio-format">16:9</span></button>
+<div class="portfolio-card-copy"><p class="portfolio-category">CORPORATE</p><h3>CORPORATE 01</h3><p>Film d’entreprise • MP4</p></div>
+</article><article class="portfolio-card" data-category="corporate">
+<button aria-label="Activer le son de CORPORATE 02" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
+<video aria-label="Vidéo CORPORATE 02 au format vertical" class="portfolio-preview-video" loop="" muted="" playsinline="" preload="metadata"><source src="videos/corporate/corporate02.mp4" type="video/mp4"/></video>
+<span class="portfolio-format">9:16</span></button>
+<div class="portfolio-card-copy"><p class="portfolio-category">CORPORATE</p><h3>CORPORATE 02</h3><p>Film d’entreprise • MP4</p></div>
+</article><article class="portfolio-card" data-category="corporate">
+<button aria-label="Activer le son de CORPORATE 03" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
+<video aria-label="Vidéo CORPORATE 03 au format vertical" class="portfolio-preview-video" loop="" muted="" playsinline="" preload="metadata"><source src="videos/corporate/corporate03.mp4" type="video/mp4"/></video>
+<span class="portfolio-format">9:16</span></button>
+<div class="portfolio-card-copy"><p class="portfolio-category">CORPORATE</p><h3>CORPORATE 03</h3><p>Film d’entreprise • MP4</p></div>
+</article><article class="portfolio-card" data-category="corporate">
+<button aria-label="Activer le son de CORPORATE 04" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
+<video aria-label="Vidéo CORPORATE 04 au format vertical" class="portfolio-preview-video" loop muted playsinline preload="metadata"><source src="videos/corporate/corporate04.mp4" type="video/mp4"></video>
+<span class="portfolio-format">9:16</span></button>
+<div class="portfolio-card-copy"><p class="portfolio-category">CORPORATE</p><h3>CORPORATE 04</h3><p>Film d’entreprise • MP4</p></div>
+</article>
+<article class="portfolio-card" data-category="corporate">
+<button aria-label="Activer le son de CORPORATE 05" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
+<video aria-label="Vidéo CORPORATE 05 au format vertical" class="portfolio-preview-video" loop muted playsinline preload="metadata"><source src="videos/corporate/corporate05.mp4" type="video/mp4"></video>
+<span class="portfolio-format">9:16</span></button>
+<div class="portfolio-card-copy"><p class="portfolio-category">CORPORATE</p><h3>CORPORATE 05</h3><p>Film d’entreprise • MP4</p></div>
+</article>
+<article class="portfolio-card" data-category="corporate">
+<button aria-label="Activer le son de CORPORATE 06" class="portfolio-preview is-horizontal portfolio-inline-player" data-format="horizontal" type="button">
+<video aria-label="Vidéo CORPORATE 06 au format horizontal" class="portfolio-preview-video" loop muted playsinline preload="metadata"><source src="videos/corporate/corporate06.mp4" type="video/mp4"></video>
+<span class="portfolio-format">16:9</span></button>
+<div class="portfolio-card-copy"><p class="portfolio-category">CORPORATE</p><h3>CORPORATE 06</h3><p>Film d’entreprise • MP4</p></div>
+</article>
+<article class="portfolio-card" data-category="corporate">
+<button aria-label="Activer le son de CORPORATE 07" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
+<video aria-label="Vidéo CORPORATE 07 au format vertical" class="portfolio-preview-video" loop muted playsinline preload="metadata"><source src="videos/corporate/corporate07.mp4" type="video/mp4"></video>
+<span class="portfolio-format">9:16</span></button>
+<div class="portfolio-card-copy"><p class="portfolio-category">CORPORATE</p><h3>CORPORATE 07</h3><p>Film d’entreprise • MP4</p></div>
+</article>
+<article class="portfolio-card" data-category="corporate">
+<button aria-label="Activer le son de CORPORATE 08" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
+<video aria-label="Vidéo CORPORATE 08 au format vertical" class="portfolio-preview-video" loop muted playsinline preload="metadata"><source src="videos/corporate/corporate08.mp4" type="video/mp4"></video>
+<span class="portfolio-format">9:16</span></button>
+<div class="portfolio-card-copy"><p class="portfolio-category">CORPORATE</p><h3>CORPORATE 08</h3><p>Film d’entreprise • MP4</p></div>
+</article>
+<article class="portfolio-card" data-category="corporate">
+<button aria-label="Activer le son de CORPORATE 09" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
+<video aria-label="Vidéo CORPORATE 09 au format vertical" class="portfolio-preview-video" loop muted playsinline preload="metadata"><source src="videos/corporate/corporate09.mp4" type="video/mp4"></video>
+<span class="portfolio-format">9:16</span></button>
+<div class="portfolio-card-copy"><p class="portfolio-category">CORPORATE</p><h3>CORPORATE 09</h3><p>Film d’entreprise • MP4</p></div>
+</article>
+<article class="portfolio-card" data-category="corporate">
+<button aria-label="Activer le son de CORPORATE 10" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
+<video aria-label="Vidéo CORPORATE 10 au format vertical" class="portfolio-preview-video" loop muted playsinline preload="metadata"><source src="videos/corporate/corporate10.mp4" type="video/mp4"></video>
+<span class="portfolio-format">9:16</span></button>
+<div class="portfolio-card-copy"><p class="portfolio-category">CORPORATE</p><h3>CORPORATE 10</h3><p>Film d’entreprise • MP4</p></div>
+</article>
+<article class="portfolio-card" data-category="corporate">
+<button aria-label="Activer le son de CORPORATE 11" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
+<video aria-label="Vidéo CORPORATE 11 au format vertical" class="portfolio-preview-video" loop muted playsinline preload="metadata"><source src="videos/corporate/corporate11.mp4" type="video/mp4"></video>
+<span class="portfolio-format">9:16</span></button>
+<div class="portfolio-card-copy"><p class="portfolio-category">CORPORATE</p><h3>CORPORATE 11</h3><p>Film d’entreprise • MP4</p></div>
+</article>
+<article class="portfolio-card" data-category="corporate">
+<button aria-label="Activer le son de CORPORATE 12" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
+<video aria-label="Vidéo CORPORATE 12 au format vertical" class="portfolio-preview-video" loop muted playsinline preload="metadata"><source src="videos/corporate/corporate12.mp4" type="video/mp4"></video>
+<span class="portfolio-format">9:16</span></button>
+<div class="portfolio-card-copy"><p class="portfolio-category">CORPORATE</p><h3>CORPORATE 12</h3><p>Film d’entreprise • MP4</p></div>
+</article>
+<article class="portfolio-card" data-category="corporate">
+<button aria-label="Activer le son de CORPORATE 13" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
+<video aria-label="Vidéo CORPORATE 13 au format vertical" class="portfolio-preview-video" loop muted playsinline preload="metadata"><source src="videos/corporate/corporate13.mp4" type="video/mp4"></video>
+<span class="portfolio-format">9:16</span></button>
+<div class="portfolio-card-copy"><p class="portfolio-category">CORPORATE</p><h3>CORPORATE 13</h3><p>Film d’entreprise • MP4</p></div>
+</article>
+<article class="portfolio-card" data-category="corporate">
+<button aria-label="Activer le son de CORPORATE 14" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
+<video aria-label="Vidéo CORPORATE 14 au format vertical" class="portfolio-preview-video" loop muted playsinline preload="metadata"><source src="videos/corporate/corporate14.mp4" type="video/mp4"></video>
+<span class="portfolio-format">9:16</span></button>
+<div class="portfolio-card-copy"><p class="portfolio-category">CORPORATE</p><h3>CORPORATE 14</h3><p>Film d’entreprise • MP4</p></div>
+</article>
+<article class="portfolio-card" data-category="corporate">
+<button aria-label="Activer le son de CORPORATE 15" class="portfolio-preview is-horizontal portfolio-inline-player" data-format="horizontal" type="button">
+<video aria-label="Vidéo CORPORATE 15 au format horizontal" class="portfolio-preview-video" loop muted playsinline preload="metadata"><source src="videos/corporate/corporate15.mp4" type="video/mp4"></video>
+<span class="portfolio-format">16:9</span></button>
+<div class="portfolio-card-copy"><p class="portfolio-category">CORPORATE</p><h3>CORPORATE 15</h3><p>Film d’entreprise • MP4</p></div>
+</article>
+<article class="portfolio-card" data-category="corporate">
+<button aria-label="Activer le son de CORPORATE 16" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
+<video aria-label="Vidéo CORPORATE 16 au format vertical" class="portfolio-preview-video" loop muted playsinline preload="metadata"><source src="videos/corporate/corporate16.mp4" type="video/mp4"></video>
+<span class="portfolio-format">9:16</span></button>
+<div class="portfolio-card-copy"><p class="portfolio-category">CORPORATE</p><h3>CORPORATE 16</h3><p>Film d’entreprise • MP4</p></div>
+</article>
+<article class="portfolio-card" data-category="immobilier">
+<button aria-label="Activer le son de IMMOBILIER 01" class="portfolio-preview is-horizontal portfolio-inline-player" data-format="horizontal" type="button">
+<video aria-label="Vidéo IMMOBILIER 01 au format horizontal" class="portfolio-preview-video" loop muted playsinline preload="metadata"><source src="videos/immobilier/immobilier01.mp4" type="video/mp4"></video>
+<span class="portfolio-format">16:9</span></button>
+<div class="portfolio-card-copy"><p class="portfolio-category">IMMOBILIER</p><h3>IMMOBILIER 01</h3><p>Vidéo immobilière • MP4</p></div>
+</article>
+<article class="portfolio-card" data-category="fpv">
+<button aria-label="Activer le son de FPV 01" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
+<video aria-label="Vidéo FPV 01 au format vertical" class="portfolio-preview-video" loop muted playsinline preload="metadata"><source src="videos/fpv/fpv01.mp4" type="video/mp4"></video>
+<span class="portfolio-format">9:16</span></button>
+<div class="portfolio-card-copy"><p class="portfolio-category">FPV</p><h3>FPV 01</h3><p>Vidéo FPV • MP4</p></div>
+</article>
+<article class="portfolio-card" data-category="fpv">
+<button aria-label="Activer le son de FPV 02" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
+<video aria-label="Vidéo FPV 02 au format vertical" class="portfolio-preview-video" loop muted playsinline preload="metadata"><source src="videos/fpv/fpv02.mp4" type="video/mp4"></video>
+<span class="portfolio-format">9:16</span></button>
+<div class="portfolio-card-copy"><p class="portfolio-category">FPV</p><h3>FPV 02</h3><p>Vidéo FPV • MP4</p></div>
+</article>
+<article class="portfolio-card" data-category="fpv">
+<button aria-label="Activer le son de FPV 03" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
+<video aria-label="Vidéo FPV 03 au format vertical" class="portfolio-preview-video" loop muted playsinline preload="metadata"><source src="videos/fpv/fpv03.mp4" type="video/mp4"></video>
+<span class="portfolio-format">9:16</span></button>
+<div class="portfolio-card-copy"><p class="portfolio-category">FPV</p><h3>FPV 03</h3><p>Vidéo FPV • MP4</p></div>
+</article>
+<article class="portfolio-card" data-category="fpv">
+<button aria-label="Activer le son de FPV 04" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
+<video aria-label="Vidéo FPV 04 au format vertical" class="portfolio-preview-video" loop muted playsinline preload="metadata"><source src="videos/fpv/fpv04.mp4" type="video/mp4"></video>
+<span class="portfolio-format">9:16</span></button>
+<div class="portfolio-card-copy"><p class="portfolio-category">FPV</p><h3>FPV 04</h3><p>Vidéo FPV • MP4</p></div>
+</article>
+<article class="portfolio-card" data-category="fpv">
+<button aria-label="Activer le son de FPV 05" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
+<video aria-label="Vidéo FPV 05 au format vertical" class="portfolio-preview-video" loop muted playsinline preload="metadata"><source src="videos/fpv/fpv05.mp4" type="video/mp4"></video>
+<span class="portfolio-format">9:16</span></button>
+<div class="portfolio-card-copy"><p class="portfolio-category">FPV</p><h3>FPV 05</h3><p>Vidéo FPV • MP4</p></div>
+</article>
+<article class="portfolio-card" data-category="fpv">
+<button aria-label="Activer le son de FPV 06" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
+<video aria-label="Vidéo FPV 06 au format vertical" class="portfolio-preview-video" loop muted playsinline preload="metadata"><source src="videos/fpv/fpv06.mp4" type="video/mp4"></video>
+<span class="portfolio-format">9:16</span></button>
+<div class="portfolio-card-copy"><p class="portfolio-category">FPV</p><h3>FPV 06</h3><p>Vidéo FPV • MP4</p></div>
+</article>
+<article class="portfolio-card" data-category="fpv">
+<button aria-label="Activer le son de FPV 07" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
+<video aria-label="Vidéo FPV 07 au format vertical" class="portfolio-preview-video" loop muted playsinline preload="metadata"><source src="videos/fpv/fpv07.mp4" type="video/mp4"></video>
+<span class="portfolio-format">9:16</span></button>
+<div class="portfolio-card-copy"><p class="portfolio-category">FPV</p><h3>FPV 07</h3><p>Vidéo FPV • MP4</p></div>
+</article>
+</div><p class="portfolio-empty" hidden="" id="portfolio-empty">Aucune vidéo dans cette catégorie pour le moment.</p>
+<nav aria-label="Pages des réalisations" class="portfolio-pagination" hidden="">
+<button aria-label="Page précédente" class="portfolio-page-arrow" id="portfolio-prev" type="button">←</button>
+<span aria-live="polite" class="portfolio-page-count" id="portfolio-page-count">1 / 1</span>
+<button aria-label="Page suivante" class="portfolio-page-arrow" id="portfolio-next" type="button">→</button>
+</nav>
+</div>
+</section>
+</main>
+<footer class="site-footer">
+<div class="footer-container">
+<div class="footer-column footer-brand">
+<h3>
+      DIGITAL ART PRODUCTION
+     </h3>
+<p>
+      Production audiovisuelle en France et à l’international.
+     </p>
+<p class="footer-specialties">
+      Filmmaking • Drone • FPV
+     </p>
+</div>
+<div class="footer-column">
+<h4>
+      NAVIGATION
+     </h4>
+<nav aria-label="Navigation de pied de page" class="footer-links">
+<a href="index.html">
+       Home
+      </a>
+<a href="projets.html">
+       Projets
+      </a>
+<a href="prestations.html">
+       Prestations
+      </a>
+<a href="apropos.html">
+       À propos
+      </a>
+<a href="contact.html">
+       Contact
+      </a>
+</nav>
+</div>
+<div class="footer-column footer-contact-column">
+<h4>
+      RESTONS CONNECTÉS
+     </h4>
+<div class="contact-details">
+<a href="mailto:contact@digitalart-production.fr">
+       contact@digitalart-production.fr
+      </a>
+<a href="tel:+33635462092">
+       +33 6 35 46 20 92
+      </a>
+</div>
+<a class="footer-contact" href="contact.html">
+      Formulaire de contact
+     </a>
+<div class="footer-socials">
+<!-- Instagram -->
+<a aria-label="Instagram" href="https://www.instagram.com/victor_rochemenu/" rel="noopener noreferrer" target="_blank" title="Instagram">
+<svg aria-hidden="true" fill="currentColor" viewbox="0 0 24 24">
+<path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9z">
+</path>
+<path d="M12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z">
+</path>
+<circle cx="17.5" cy="6.5" r="1.25">
+</circle>
+</svg>
+</a>
+<!-- LinkedIn : tracé unique correct, même dimensions que les autres logos -->
+<a aria-label="LinkedIn" href="https://www.linkedin.com/in/victor-roche-menu-60917814a/" rel="noopener noreferrer" target="_blank" title="LinkedIn">
+<svg aria-hidden="true" fill="currentColor" viewbox="0 0 24 24">
+<path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.35V9h3.414v1.561h.049c.476-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zm1.782 13.019H3.555V9H7.12v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z">
+</path>
+</svg>
+</a>
+<!-- YouTube -->
+<a aria-label="YouTube Digital Art Production" href="https://www.youtube.com/@DigitalArt_Prod" rel="noopener noreferrer" target="_blank" title="YouTube">
+<svg aria-hidden="true" fill="currentColor" viewbox="0 0 24 24">
+<path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.55 3.6 12 3.6 12 3.6s-7.55 0-9.4.5A3 3 0 0 0 .5 6.2 31.1 31.1 0 0 0 0 12a31.1 31.1 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.85.5 9.4.5 9.4.5s7.55 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.1 31.1 0 0 0 24 12a31.1 31.1 0 0 0-.5-5.8zM9.6 15.6V8.4l6.25 3.6-6.25 3.6z">
+</path>
+</svg>
+</a>
+</div>
+</div>
+</div>
+<div class="footer-bottom">
+<p>
+     © 2026 Digital Art Production. Tous droits réservés.
+    </p>
+<div class="footer-legal">
+<a href="mentions-legales.html">
+      Mentions légales
+     </a>
+<a href="cgv.html">
+      CGV
+     </a>
+<a href="confidentialite.html">
+      Confidentialité
+     </a>
+<a href="cookies.html">
+      Cookies
+     </a>
+</div>
+</div>
+</footer>
+<script src="script.js">
+</script>
+<script>
+(() => {
+  'use strict';
+  const tabs = [...document.querySelectorAll('.portfolio-tab[data-filter]')];
+  const cards = [...document.querySelectorAll('.portfolio-card[data-category]')];
+  const categories = ['sport', 'evenementiel', 'corporate', 'immobilier', 'fpv'];
+  const empty = document.getElementById('portfolio-empty');
+  const pagination = document.querySelector('.portfolio-pagination');
+  const prev = document.getElementById('portfolio-prev');
+  const next = document.getElementById('portfolio-next');
+  const count = document.getElementById('portfolio-page-count');
+  const grid = document.querySelector('.portfolio-grid');
+  // Cinq rangées maximum pour TOUS et pour chaque catégorie.
+  // La pagination tient compte des largeurs réelles des cartes 9:16 et 16:9.
+  function getPages(matching) {
+    if (!grid || !matching.length) return [[]];
+    const availableWidth = grid.parentElement.clientWidth;
+    const gap = parseFloat(getComputedStyle(grid).columnGap) || 14;
+    const pages = [];
+    let page = [];
+    let rows = 1;
+    let rowWidth = 0;
+    for (const card of matching) {
+      const horizontal = !!card.querySelector('.portfolio-inline-player.is-horizontal');
+      const cardWidth = Math.min(availableWidth, horizontal ? 676 : 214);
+      const wraps = rowWidth > 0 && rowWidth + gap + cardWidth > availableWidth + 0.5;
+      if (wraps) {
+        if (rows >= 5) {
+          pages.push(page);
+          page = [];
+          rows = 1;
+        } else {
+          rows++;
+        }
+        rowWidth = 0;
+      }
+      page.push(card);
+      rowWidth = rowWidth ? rowWidth + gap + cardWidth : cardWidth;
+    }
+    if (page.length) pages.push(page);
+    return pages;
+  }
+  let currentPage = 1;
+  let currentCategory = 'tous';
 
-    <main class="page-main">
-        <header class="page-hero">
-            <p class="page-eyebrow">DIGITAL ART PRODUCTION</p>
-            <h1>PROJETS</h1>
-            <p class="page-lead">Des histoires humaines, des lieux et des aventures racontés avec une approche cinématographique.</p>
-        </header>
+  const players = [...document.querySelectorAll('.portfolio-inline-player')].map(button => {
+    const video = button.querySelector('video');
+    const source = video?.querySelector('source');
+    const label = button.closest('.portfolio-card')?.querySelector('h3')?.textContent?.trim() || 'Vidéo';
+    let soundEnabled = false;
 
-        <div class="page-content">
-            <section class="content-section">
-                <h2>NOS UNIVERS DE PRODUCTION</h2>
-                <p>Nous concevons des images au sol, au drone et en FPV, en adaptant la narration à chaque projet.</p>
+    function setSound(enabled) {
+      if (!video) return;
+      soundEnabled = enabled;
+      video.muted = !enabled;
+      button.classList.toggle('is-sound-on', enabled);
+      button.setAttribute('aria-label', (enabled ? 'Couper' : 'Activer') + ' le son de ' + label);
+    }
+    function stop() {
+      if (!video) return;
+      video.pause();
+      setSound(false);
+      try { video.currentTime = 0; } catch (_) {}
+    }
+    if (video) {
+      video.addEventListener('error', () => {
+        if (button.querySelector('.portfolio-error')) return;
+        const error = document.createElement('span');
+        error.className = 'portfolio-error';
+        error.textContent = 'Vidéo introuvable ou illisible : ' + (source?.getAttribute('src') || label);
+        button.append(error);
+      });
+      button.addEventListener('pointerenter', event => {
+        if (event.pointerType === 'mouse' || event.pointerType === 'pen') {
+          if (!soundEnabled) {
+            video.muted = true;
+            video.play().catch(() => {});
+          }
+        }
+      });
+      button.addEventListener('pointerleave', event => {
+        if (event.pointerType === 'mouse' || event.pointerType === 'pen') stop();
+      });
+      button.addEventListener('click', () => {
+        players.forEach(player => { if (player.button !== button) player.stop(); });
+        setSound(!soundEnabled);
+        video.play().catch(() => {});
+      });
+    }
+    return { button, stop };
+  });
 
-                <div class="editorial-grid">
-                    <article class="editorial-card">
-                        <span class="card-number">01</span>
-                        <h3>Films sportifs &amp; aventure</h3>
-                        <p>Courses d’endurance, expéditions et aventures humaines : des récits où l’émotion rencontre l’action.</p>
-                    </article>
-                    <article class="editorial-card">
-                        <span class="card-number">02</span>
-                        <h3>Événementiel</h3>
-                        <p>Films récapitulatifs, formats courts, teasers et contenus adaptés aux réseaux sociaux.</p>
-                    </article>
-                    <article class="editorial-card">
-                        <span class="card-number">03</span>
-                        <h3>Immobilier &amp; lieux</h3>
-                        <p>Des images soignées et immersives pour valoriser des espaces, des biens et leur environnement.</p>
-                    </article>
-                    <article class="editorial-card">
-                        <span class="card-number">04</span>
-                        <h3>Films d’entreprise</h3>
-                        <p>Présentation d’activité, portraits, savoir-faire et contenus de marque.</p>
-                    </article>
-                </div>
-            </section>
+  function selectedFromHash() {
+    const hash = decodeURIComponent(location.hash.slice(1)).toLowerCase();
+    return categories.includes(hash) ? hash : (hash === 'entreprise' ? 'corporate' : 'tous');
+  }
 
-            <section class="content-section">
-                <h2>UNE APPROCHE SUR MESURE</h2>
-                <p>De la préparation à la postproduction, chaque film est pensé en fonction de votre message, de votre public et des supports de diffusion.</p>
-                <div class="page-callout">
-                    <p>Vous souhaitez donner vie à un projet ?</p>
-                    <a class="page-button" href="contact.html">PARLONS DE VOTRE PROJET</a>
-                </div>
-            </section>
-        </div>
-    </main>
+  function render() {
+    // Les catégories sont exclusives : ÉVÉNEMENTIEL ne s'affiche jamais en SPORT.
+    const matching = cards.filter(card => currentCategory === 'tous' || card.dataset.category === currentCategory);
+    const groupedPages = getPages(matching);
+    const pages = groupedPages.length;
+    currentPage = Math.min(Math.max(currentPage, 1), pages);
+    const visible = new Set(groupedPages[currentPage - 1]);
+    cards.forEach(card => { card.hidden = !visible.has(card); });
+    // Référence commune : largeur de la plus grande rangée du filtre TOUS.
+    // Elle reste identique dans SPORT, ÉVÉNEMENTIEL, CORPORATE, IMMOBILIER et FPV,
+    // même si une catégorie ne contient qu'une seule miniature.
+    const availableWidth = grid.parentElement.clientWidth;
+    const gap = parseFloat(getComputedStyle(grid).columnGap) || 14;
+    const allPages = getPages(cards);
+    let referenceWidth = 0;
+    allPages.forEach(pageCards => {
+      let rowWidth = 0;
+      pageCards.forEach(card => {
+        const horizontal = !!card.querySelector('.portfolio-inline-player.is-horizontal');
+        const cardWidth = Math.min(availableWidth, horizontal ? 676 : 214);
+        if (rowWidth && rowWidth + gap + cardWidth > availableWidth + 0.5) {
+          referenceWidth = Math.max(referenceWidth, rowWidth);
+          rowWidth = 0;
+        }
+        rowWidth += (rowWidth ? gap : 0) + cardWidth;
+      });
+      referenceWidth = Math.max(referenceWidth, rowWidth);
+    });
+    const alignedWidth = Math.min(availableWidth, referenceWidth || availableWidth);
+    grid.style.width = alignedWidth + 'px';
+    grid.parentElement.style.setProperty('--portfolio-line-width', alignedWidth + 'px');
+    players.forEach(player => {
+      if (player.button.closest('.portfolio-card')?.hidden) player.stop();
+    });
+    tabs.forEach(tab => {
+      const active = tab.dataset.filter === currentCategory;
+      tab.classList.toggle('is-active', active);
+      tab.setAttribute('aria-pressed', String(active));
+    });
+    empty.hidden = matching.length !== 0;
+    pagination.hidden = pages <= 1;
+    count.textContent = currentPage + ' / ' + pages;
+    prev.disabled = currentPage <= 1;
+    next.disabled = currentPage >= pages;
+  }
 
-    <!-- PIED DE PAGE -->
-    <footer class="site-footer">
-        <div class="footer-container">
-            <div class="footer-column footer-brand">
-                <h3>DIGITAL ART PRODUCTION</h3>
-                <p>Production audiovisuelle en France et à l’international.</p>
-                <p class="footer-specialties">Filmmaking • Drone • FPV</p>
-            </div>
+  function filter(category, updateUrl) {
+    currentCategory = categories.includes(category) ? category : 'tous';
+    currentPage = 1;
+    render();
+    if (updateUrl) {
+      history.replaceState(null, '', currentCategory === 'tous' ? location.pathname + location.search : '#' + currentCategory);
+    }
+  }
 
-            <div class="footer-column">
-                <h4>NAVIGATION</h4>
-                <nav class="footer-links" aria-label="Navigation de pied de page">
-                    <a href="index.html">Home</a>
-                    <a href="projets.html">Projets</a>
-                    <a href="materiel.html">Matériel</a>
-                    <a href="apropos.html">À propos</a>
-                    <a href="contact.html">Contact</a>
-                </nav>
-            </div>
-
-            <div class="footer-column">
-                <h4>RESTONS CONNECTÉS</h4>
-                <p>Un projet vidéo ? Parlons-en.</p>
-                <a class="footer-contact" href="contact.html">Nous contacter</a>
-
-                <div class="footer-socials">
-                    <!-- Instagram -->
-                    <a href="https://www.instagram.com/victor_rochemenu/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram">
-                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                            <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9z"/>
-                            <path d="M12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/>
-                            <circle cx="17.5" cy="6.5" r="1.25"/>
-                        </svg>
-                    </a>
-                    <!-- LinkedIn -->
-                    <a href="https://www.linkedin.com/in/victor-roche-menu-60917814a/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
-                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                            <path d="M20.45 2H3.55C2.69 2 2 2.68 2 3.52v16.96C2 21.32 2.69 22 3.55 22h16.9c.86 0 1.55-.68 1.55-1.52V3.52C22 2.68 21.31 2 20.45 2z"/>
-                            <path d="M7.93 18.75H4.98V9.2h2.95v9.55zM6.45 7.9a1.71 1.71 0 1 1 0-3.42 1.71 1.71 0 0 1 0 3.42zm12.3 10.85H15.8V14.1c0-1.11-.02-2.54-1.55-2.54-1.55 0-1.79 1.21-1.79 2.46v4.73H9.51V9.2h2.83v1.3h.04c.39-.75 1.36-1.55 2.8-1.55 2.99 0 3.57 1.97 3.57 4.52v5.28z"/>
-                        </svg>
-                    </a>
-                    <!-- YouTube : lien actif -->
-                    <a href="https://www.youtube.com/@DigitalArt_Prod" target="_blank" rel="noopener noreferrer" aria-label="YouTube Digital Art Production" title="YouTube">
-                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                            <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.55 3.6 12 3.6 12 3.6s-7.55 0-9.4.5A3 3 0 0 0 .5 6.2 31.1 31.1 0 0 0 0 12a31.1 31.1 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.85.5 9.4.5 9.4.5s7.55 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.1 31.1 0 0 0 24 12a31.1 31.1 0 0 0-.5-5.8zM9.6 15.6V8.4l6.25 3.6-6.25 3.6z"/>
-                        </svg>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="footer-bottom">
-            <p>© 2026 Digital Art Production. Tous droits réservés.</p>
-            <div class="footer-legal">
-                <a href="mentions-legales.html">Mentions légales</a>
-                <a href="cgv.html">CGV</a>
-                <a href="confidentialite.html">Confidentialité</a>
-                <a href="cookies.html">Cookies</a>
-            </div>
-        </div>
-    </footer>
-    <script src="script.js"></script>
+  tabs.forEach(tab => tab.addEventListener('click', () => filter(tab.dataset.filter, true)));
+  prev.addEventListener('click', () => { if (currentPage > 1) { currentPage--; render(); } });
+  next.addEventListener('click', () => {
+    const matching = cards.filter(card => currentCategory === 'tous' || card.dataset.category === currentCategory);
+    if (currentPage < getPages(matching).length) { currentPage++; render(); }
+  });
+  // Recalcul des cinq rangées lors d'un changement de largeur.
+  let lastGridWidth = grid ? grid.parentElement.clientWidth : 0;
+  window.addEventListener('resize', () => {
+    const width = grid ? grid.parentElement.clientWidth : 0;
+    if (width !== lastGridWidth) { lastGridWidth = width; render(); }
+  });
+  window.addEventListener('hashchange', () => filter(selectedFromHash(), false));
+  // Les liens de la Home sélectionnent la catégorie mais ouvrent le HAUT de la page.
+  if (categories.includes(selectedFromHash())) {
+    window.scrollTo(0, 0);
+    window.addEventListener('load', () => window.scrollTo(0, 0), { once: true });
+  }
+  filter(selectedFromHash(), false);
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) players.forEach(player => player.stop());
+  });
+})();
+</script>
 </body>
 </html>
