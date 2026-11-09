@@ -712,6 +712,26 @@
         }
     </style>
 
+    <!-- Retouches de la page HOME : lisibilité mobile et CTA sur une seule ligne. -->
+    <style>
+        #home-contact-title {
+            white-space: nowrap !important;
+        }
+
+        @media (max-width: 650px) {
+            .home-intro .activity-description {
+                font-size: clamp(14px, 3.9vw, 15px) !important;
+                line-height: 1.6 !important;
+            }
+
+            .home-contact-cta #home-contact-title {
+                font-size: clamp(17px, 4.8vw, 24px) !important;
+                letter-spacing: 0.015em !important;
+                white-space: nowrap !important;
+            }
+        }
+    </style>
+
 </head>
 <body>
     <!-- =========================================
@@ -816,7 +836,6 @@
                         </video>
                     </div>
                 </div>
-                <figcaption>Canal Aventure - ULTRA BOLIVIA RACE 2026</figcaption>
             </figure>
         </div>
     </div>

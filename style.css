@@ -4584,3 +4584,45 @@ background 0.25s ease,
     background-size: cover;
   }
 }
+/* Digital Art Production — menu mobile opaque et pied de page.
+   À ajouter À LA FIN du fichier style.css existant.
+   Ne remplacez pas votre feuille de style complète. */
+
+/* Fond entièrement opaque pour la barre de navigation et son menu déroulant,
+   uniquement sur tablette / mobile. Les états ouvert / fermé sont conservés. */
+@media (max-width: 800px) {
+    .navbar,
+    .navbar .nav-links {
+        background: #17191b !important;
+        background-image: none !important;
+        -webkit-backdrop-filter: none !important;
+        backdrop-filter: none !important;
+    }
+}
+
+/* Les liens légaux précèdent désormais visuellement la dernière ligne
+   de copyright, sur toutes les pages utilisant le footer commun. */
+.site-footer .footer-bottom {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 15px !important;
+    text-align: center;
+}
+
+.site-footer .footer-bottom > .footer-legal {
+    order: 1;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 12px 24px;
+}
+
+.site-footer .footer-bottom > p {
+    order: 2;
+    width: 100%;
+    margin: 0;
+    text-align: center;
+}
