@@ -7,6 +7,73 @@
     <title>Digital Art Production | Filmmaking, Drone & FPV</title>
     <!-- FEUILLE DE STYLE -->
     <link rel="stylesheet" href="style.css?v=home-contact-aligne-2">
+    <!-- Vidéo de fond fixe ; logo et textes défilent avec la page. -->
+    <style>
+        /* Le hero défile normalement : le logo n'est plus fixe. */
+        #home.hero {
+            position: relative;
+            z-index: 1;
+            background: transparent !important;
+            background-image: none !important;
+        }
+
+        /* Le contenu passe devant la bannière : 90 % d'opacité,
+           soit 10 % de transparence, pour conserver la lisibilité. */
+        body > main {
+            position: relative;
+            z-index: 1;
+            background: rgba(22, 22, 22, 0.90) !important;
+        }
+
+        /* Retire uniquement les fonds opaques des grandes sections.
+           Les cartes, les textes et les éléments interactifs sont conservés. */
+        body > main > section.home-intro,
+        body > main > section.video-themes,
+        body > main > section.international,
+        body > main > section.home-contact-cta {
+            background-color: transparent !important;
+            background-image: none !important;
+        }
+
+        body > footer.site-footer {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Seule la vidéo reste fixe derrière le site. */
+        .hero-background-video {
+            position: fixed;
+            inset: 0;
+            display: block;
+            width: 100%;
+            height: 100vh;
+            height: 100dvh;
+            max-width: none;
+            object-fit: cover;
+            object-position: center center;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Le logo et le texte suivent le défilement normal du hero. */
+        #home.hero::before,
+        #home.hero::after {
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        #home .hero-logo,
+        #home > p {
+            position: relative;
+            z-index: 2;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .hero-background-video {
+                display: none;
+            }
+        }
+    </style>
     <!-- Bouton discret sur les quatre univers vidéo -->
     <style>
         /* Bouton sous le texte des univers vidéo : animation existante conservée */
@@ -309,7 +376,21 @@
     <!-- =========================================
          2. PAGE D'ACCUEIL — HERO
     \========================================= -->
+    <!-- La vidéo reste fixe ; le hero et son logo défilent. -->
+        <video
+            class="hero-background-video"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            aria-hidden="true"
+            tabindex="-1"
+        >
+            <source src="videos/accueil.mp4" type="video/mp4">
+        </video>
     <header id="home" class="hero">
+
         <h1 class="hero-logo">
             <img
                 src="images/logo.png"
