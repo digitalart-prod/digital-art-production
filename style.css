@@ -4545,3 +4545,42 @@ background 0.25s ease,
         transition: none;
     }
 }
+/* Digital Art Production — stabilisation des fonds sur mobile
+   À charger après les styles existants ou à coller en fin de style.css.
+   Ne modifie pas le rendu ordinateur. */
+
+@media (max-width: 900px) {
+  /* Limite l'étirement de la page lors d'un geste au-delà de son bord.
+     Le comportement précis dépend de la version du navigateur mobile. */
+  html {
+    overscroll-behavior-y: none;
+  }
+
+  /* HOME : 100dvh change de hauteur lorsque les barres du navigateur
+     apparaissent ou disparaissent. 100svh garde un cadrage stable. */
+  .hero-background-video {
+    top: 0 !important;
+    right: 0 !important;
+    bottom: auto !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100vh !important;
+    height: 100svh !important;
+    object-fit: cover;
+    object-position: center center;
+  }
+
+  /* Fonds fixes des pages PRESTATIONS, PROJETS et CONTACT. */
+  body.prestations-page::before,
+  body.projets-page::before,
+  body.contact-page::before {
+    top: 0 !important;
+    right: 0 !important;
+    bottom: auto !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100vh !important;
+    height: 100svh !important;
+    background-size: cover;
+  }
+}
