@@ -184,9 +184,11 @@ body.cgv-page .cgv-hero {
     font-size:14px;
     line-height:1.8
   }
+  /* Sommaire intégralement visible sur mobile, sans défilement interne. */
   .cgv-index {
-    max-height:145px;
-    overflow:auto
+    height:auto;
+    max-height:none;
+    overflow:visible;
   }
 }
 @media print {
