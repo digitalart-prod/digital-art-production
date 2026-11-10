@@ -4665,37 +4665,53 @@ background 0.25s ease,
 }
 
 /* =====================================================================
-   TROIS CARROUSELS — mobiles : piste bord à bord, sans bandes latérales.
-   Déborde de la largeur du texte seulement; le swipe reste natif.
-   Une carte occupe 88vw pour laisser entrevoir la suivante.
+   TROIS CARROUSELS — mobile, carte active TOUJOURS centrée.
+   Les voisines sont visibles à gauche/droite; aux extrémités un espace vide
+   maintient le premier et le dernier élément au centre.
+   La grille ordinateur ne change pas.
    ===================================================================== */
 @media (max-width: 650px) {
-    .video-themes .themes-grid,
+    body .video-themes .themes-grid,
     body.prestations-page .prestations-grid,
     body.prestations-page .prestations-plans {
+        --carousel-card-width: 82vw;
+        --carousel-side-space: 9vw;
+        --carousel-gap: 12px;
+        display: flex !important;
+        flex-wrap: nowrap !important;
         width: 100vw !important;
         max-width: none !important;
         margin-left: calc(50% - 50vw) !important;
         margin-right: calc(50% - 50vw) !important;
-        padding-left: 0 !important;
-        padding-right: 0 !important;
+        padding-left: var(--carousel-side-space) !important;
+        padding-right: var(--carousel-side-space) !important;
+        gap: var(--carousel-gap) !important;
+        scroll-snap-type: x mandatory !important;
         scroll-padding-inline: 0 !important;
-        box-sizing: border-box;
+        box-sizing: border-box !important;
+        overflow-x: auto !important;
+        overflow-y: hidden !important;
     }
 
-    /* Supprime l'espace vide artificiel après la dernière carte. */
-    .video-themes .themes-grid::after,
+    /* Ne pas ajouter de fausses cartes après la dernière. */
+    body .video-themes .themes-grid::after,
     body.prestations-page .prestations-grid::after,
     body.prestations-page .prestations-plans::after {
         content: none !important;
         display: none !important;
     }
 
-    /* La dernière carte peut s'aligner exactement au bord droit. */
-    .video-themes .themes-grid > .theme-card:last-child,
-    body.prestations-page .prestations-grid > .prestation-card:last-child,
-    body.prestations-page .prestations-plans > .prestations-plan:last-child {
-        scroll-snap-align: end !important;
+    body .video-themes .themes-grid > .theme-card,
+    body.prestations-page .prestations-grid > .prestation-card,
+    body.prestations-page .prestations-plans > .prestations-plan {
+        flex: 0 0 var(--carousel-card-width) !important;
+        width: var(--carousel-card-width) !important;
+        max-width: var(--carousel-card-width) !important;
+        min-width: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        scroll-snap-align: center !important;
+        scroll-snap-stop: always;
     }
 }
 

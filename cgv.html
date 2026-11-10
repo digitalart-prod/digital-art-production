@@ -184,11 +184,34 @@ body.cgv-page .cgv-hero {
     font-size:14px;
     line-height:1.8
   }
-  /* Sommaire intégralement visible sur mobile, sans défilement interne. */
+  /* Sommaire mobile : 19 articles sur 19 lignes, sans défilement interne.
+     Les intitulés trop longs sont tronqués visuellement, jamais coupés
+     sur une deuxième ligne. Le lien garde son texte complet. */
   .cgv-index {
-    height:auto;
-    max-height:none;
-    overflow:visible;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    gap: 0;
+    height: auto;
+    max-height: none;
+    overflow: visible;
+  }
+  .cgv-index .cgv-index-label {
+    flex: none;
+  }
+  .cgv-index a {
+    display: block;
+    flex: none;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    padding: 5px 0;
+    font-size: 11px;
+    line-height: 1.5;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
 @media print {
@@ -221,7 +244,74 @@ body.cgv-page .cgv-hero {
   }
 }
 </style>
-  </head>
+  <style id="mobile-centered-page-headers">
+
+/* Ajustement exclusif mobile : bandeaux de pages uniformes et centrés */
+@media (max-width:650px) {
+  body .page-main > header.page-hero {
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    height: 360px !important;
+    min-height: 360px !important;
+    max-height: 360px !important;
+    padding: 75px 6% 0 !important;
+  }
+  body .page-main > header.page-hero .page-eyebrow {
+    margin-top: 0 !important;
+    margin-bottom: 10px !important;
+  }
+  body .page-main > header.page-hero h1 {
+    font-size: clamp(29px,7.8vw,38px) !important;
+    line-height: 1.12 !important;
+    letter-spacing: .035em !important;
+    margin: 0 0 12px !important;
+  }
+  body .page-main > header.page-hero .page-lead {
+    font-size: 12px !important;
+    line-height: 1.55 !important;
+    max-width: 560px !important;
+    margin: 0 auto !important;
+  }
+  body.about-page .page-main > header.page-hero .about-hero-intro {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+  }
+  body.cgv-page header.cgv-hero {
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    height: 360px !important;
+    min-height: 360px !important;
+    max-height: 360px !important;
+    padding: 75px 6% 0 !important;
+  }
+  body.cgv-page header.cgv-hero h1 {
+    font-size: clamp(29px,7.8vw,38px) !important;
+    margin: 0 0 12px !important;
+    line-height: 1.12 !important;
+  }
+  body.cgv-page header.cgv-hero .cgv-subtitle {
+    font-size: 12px !important;
+    line-height: 1.55 !important;
+  }
+  .mobile-header-br { display: block !important; }
+}
+@media (min-width:651px) {
+  .mobile-header-br { display: none !important; }
+}
+</style>
+</head>
   <body class="cgv-page">
     <nav class="navbar" aria-label="Navigation principale">
         <!-- Logo couleur -->

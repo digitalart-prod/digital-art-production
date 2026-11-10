@@ -1240,10 +1240,10 @@ body.prestations-page::before {
     width: 42px;
     height: 42px;
     padding: 0;
-    border: 1px solid rgba(185,190,195,.65);
+    border: 1px solid rgba(212,183,121,.65);
     border-radius: 8px;
     background: #252525;
-    color: #c9cdd1;
+    color: #d4b779;
     cursor: pointer;
     transition: background .2s ease, border-color .2s ease;
   }
@@ -1329,10 +1329,10 @@ body.prestations-page::before {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid rgba(212,183,121,.65);
+    border: 1px solid rgba(185,190,195,.65);
     border-radius: 8px;
     background: #252525;
-    color: #d4b779;
+    color: #c9cdd1;
     cursor: pointer;
   }
   .prestations-services-pagination .service-arrow svg { width: 20px; height: 20px; }
@@ -1482,45 +1482,167 @@ body.prestations-page::before {
 }
 
 
-/* Nouvelle présentation des forfaits mensuels */
-.prestations-monthly .prestations-intro{max-width:960px;margin:0 auto 40px;text-align:center}
-.prestations-monthly .prestations-intro h2{font-weight:800}
-.prestations-monthly .prestations-intro>p:not(.prestations-monthly-base){max-width:790px;margin:0 auto 11px;color:#c5c7c8;line-height:1.8}
-.prestations-monthly .prestations-monthly-base{display:table;width:auto;margin:22px auto 0;padding:9px 16px;border:1px solid rgba(212,183,121,.48);border-radius:24px;background:rgba(212,183,121,.07);color:#f0dbaa;font-size:11px;font-weight:750;letter-spacing:.45px;line-height:1.5}
-.prestations-monthly .prestations-plan{min-height:650px}
-.prestations-monthly .prestations-plan-head{min-height:280px;display:flex;flex-direction:column;padding:27px 24px 23px}
-.prestations-monthly .prestations-plan h3{margin:16px 0 10px;font-weight:850}
-.prestations-monthly .plan-summary{line-height:1.6;min-height:42px}
-.prestations-monthly .plan-price-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:start;gap:8px;margin-top:12px;padding:17px 0 0 12px;border-top:1px solid rgba(255,255,255,.18)}
-.prestations-monthly .prestations-plan:nth-child(n+2) .plan-price-grid{border-top-color:rgba(212,183,121,.3)}
-.prestations-monthly .plan-price-primary,.prestations-monthly .plan-price-secondary{min-width:0;text-align:center}
-.prestations-monthly .plan-price-secondary{border-left:1px solid rgba(212,183,121,.32);padding-left:8px}
-.prestations-monthly .plan-price-label{display:block;min-height:16px;color:#c3c5c5;font-size:9px;line-height:1.45;letter-spacing:.45px;font-weight:650}
-.prestations-monthly .plan-price-amount{display:block;color:#fff;font-size:clamp(26px,2.55vw,35px);line-height:1.25;letter-spacing:-.8px;font-weight:800;white-space:nowrap;margin:4px 0 1px}
-.prestations-monthly .plan-price-secondary .plan-price-amount{color:var(--plan-accent);font-size:clamp(19px,1.9vw,24px);letter-spacing:-.4px;margin-top:7px}
-.prestations-monthly .plan-price-period{display:block;color:#c4c6c7;font-size:10px;line-height:1.5}
-.prestations-monthly .plan-price-single{display:flex;justify-content:center;padding-left:0}
-.prestations-monthly .plan-price-single .plan-price-primary{width:100%}
-.prestations-monthly .prestations-plan-body{padding:24px 24px 23px}
-.prestations-monthly .plan-included-title{display:block;margin:0 0 15px;font-size:10px;letter-spacing:1.5px;color:var(--plan-accent);font-weight:750}
-.prestations-monthly .prestations-plan ul{margin-bottom:24px}
-.prestations-monthly .prestations-plan li{border-bottom:1px solid rgba(255,255,255,.08);margin:0;padding:12px 0 12px 20px}
-.prestations-monthly .prestations-plan li:last-child{border-bottom:none}
-.prestations-monthly .prestations-plan li::before{top:12px}
-.prestations-monthly .prestations-link{margin-top:auto}
-.prestations-monthly .prestations-fineprint{max-width:790px;margin:25px auto 0;text-align:center}
-@media(max-width:650px){
-.prestations-monthly .prestations-plan{min-height:640px}
-.prestations-monthly .prestations-plan-head{padding:26px 22px 22px;min-height:277px}
-.prestations-monthly .prestations-plan h3{font-size:29px}
-.prestations-monthly .plan-summary{font-size:13px;min-height:44px}
-.prestations-monthly .plan-price-grid{padding-left:9px}
-.prestations-monthly .plan-price-amount{font-size:clamp(26px,8.2vw,36px)}
-.prestations-monthly .plan-price-secondary .plan-price-amount{font-size:clamp(19px,5.3vw,23px)}
-.prestations-monthly .prestations-plan-body{padding:24px 22px 23px}
-.prestations-monthly .prestations-intro{padding:0 3px}
-.prestations-monthly .prestations-fineprint{padding:0 6px}
+/* FORFAITS MENSUELS — présentation finalisée avec tarifs dans l'en-tête. */
+.prestations-monthly .prestations-intro {
+  max-width: 960px;
+  margin: 0 auto 40px;
+  text-align: center;
 }
+.prestations-monthly .prestations-intro h2 { font-weight: 800; }
+.prestations-monthly .prestations-intro > p:not(.prestations-monthly-base) {
+  max-width: 790px;
+  margin: 0 auto 11px;
+  color: #c5c7c8;
+  line-height: 1.8;
+}
+.prestations-monthly .prestations-monthly-base {
+  display: table;
+  width: auto;
+  margin: 22px auto 0;
+  padding: 9px 16px;
+  border: 1px solid rgba(212,183,121,.48);
+  border-radius: 24px;
+  background: rgba(212,183,121,.07);
+  color: #f0dbaa;
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: .45px;
+  line-height: 1.5;
+}
+.prestations-monthly .prestations-plan { min-height: 650px; }
+.prestations-monthly .prestations-plan-head {
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  padding: 27px 24px 23px;
+}
+.prestations-monthly .prestations-plan h3 {
+  margin: 16px 0 10px;
+  font-weight: 850;
+}
+.prestations-monthly .plan-summary {
+  line-height: 1.6;
+  min-height: 42px;
+}
+.prestations-monthly .plan-price-grid {
+  display: grid;
+  grid-template-columns: minmax(0,1fr) minmax(0,1fr);
+  align-items: start;
+  gap: 8px;
+  margin-top: 12px;
+  padding: 17px 0 0 12px;
+  border-top: 1px solid rgba(255,255,255,.18);
+}
+.prestations-monthly .prestations-plan:nth-child(n+2) .plan-price-grid {
+  border-top-color: rgba(212,183,121,.3);
+}
+.prestations-monthly .plan-price-primary,
+.prestations-monthly .plan-price-secondary { min-width: 0; text-align: center; }
+.prestations-monthly .plan-price-secondary {
+  border-left: 1px solid rgba(212,183,121,.32);
+  padding-left: 8px;
+}
+.prestations-monthly .plan-price-label {
+  display: block;
+  min-height: 16px;
+  color: #c3c5c5;
+  font-size: 9px;
+  line-height: 1.45;
+  letter-spacing: .45px;
+  font-weight: 650;
+}
+.prestations-monthly .plan-price-amount {
+  display: block;
+  color: #fff;
+  font-size: clamp(26px, 2.55vw, 35px);
+  line-height: 1.25;
+  letter-spacing: -.8px;
+  font-weight: 800;
+  white-space: nowrap;
+  margin: 4px 0 1px;
+}
+.prestations-monthly .plan-price-secondary .plan-price-amount {
+  color: var(--plan-accent);
+  font-size: clamp(19px, 1.9vw, 24px);
+  letter-spacing: -.4px;
+  margin-top: 7px;
+}
+.prestations-monthly .plan-price-period {
+  display: block;
+  color: #c4c6c7;
+  font-size: 10px;
+  line-height: 1.5;
+}
+.prestations-monthly .plan-price-single {
+  display: flex;
+  justify-content: center;
+  padding-left: 0;
+}
+.prestations-monthly .plan-price-single .plan-price-primary { width: 100%; }
+.prestations-monthly .prestations-plan-body { padding: 24px 24px 23px; }
+.prestations-monthly .plan-included-title {
+  display: block;
+  margin: 0 0 15px;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  color: var(--plan-accent);
+  font-weight: 750;
+}
+.prestations-monthly .prestations-plan ul { margin-bottom: 24px; }
+.prestations-monthly .prestations-plan li {
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  margin: 0;
+  padding: 12px 0 12px 20px;
+}
+.prestations-monthly .prestations-plan li:last-child { border-bottom: none; }
+.prestations-monthly .prestations-plan li::before { top: 12px; }
+.prestations-monthly .prestations-link { margin-top: auto; }
+.prestations-monthly .prestations-fineprint {
+  max-width: 790px;
+  margin: 25px auto 0;
+  text-align: center;
+}
+@media (max-width: 650px) {
+  /* Cartes actives centrées ; aperçu de chaque carte voisine. */
+  .prestations-monthly .prestations-plans,
+  .prestations-grid {
+    gap: 12px;
+    padding-inline: 9%;
+    scroll-padding-inline: 9%;
+    scroll-snap-type: x mandatory;
+  }
+  .prestations-monthly .prestations-plans::after,
+  .prestations-grid::after { display: none; }
+  .prestations-monthly .prestations-plans > .prestations-plan,
+  .prestations-grid > .prestation-card {
+    flex: 0 0 82%;
+    width: 82%;
+    max-width: 82%;
+    scroll-snap-align: center;
+  }
+  .prestations-monthly .prestations-plan { min-height: 640px; }
+  .prestations-monthly .prestations-plan-head {
+    padding: 26px 22px 22px;
+    min-height: 277px;
+  }
+  .prestations-monthly .prestations-plan h3 { font-size: 29px; }
+  .prestations-monthly .plan-summary { font-size: 13px; min-height: 44px; }
+  .prestations-monthly .plan-price-grid { padding-left: 9px; }
+  .prestations-monthly .plan-price-amount { font-size: clamp(26px, 8.2vw, 36px); }
+  .prestations-monthly .plan-price-secondary .plan-price-amount { font-size: clamp(19px, 5.3vw, 23px); }
+  .prestations-monthly .prestations-plan-body { padding: 24px 22px 23px; }
+  .prestations-monthly .prestations-intro { padding: 0 3px; }
+  .prestations-monthly .prestations-fineprint { padding: 0 6px; }
+}
+
+/* PRESTATIONS — mobile : décaler l’image de fond de 10 % vers la droite,
+   en conservant son alignement vertical en haut. */
+@media (max-width: 650px) {
+  body.prestations-page::before {
+    background-position: 90% top !important;
+  }
+}
+
 </style>
 
 <style>
@@ -1575,6 +1697,76 @@ body.prestations-page::before {
 
     </style>
 
+<style id="mobile-centered-page-headers">
+
+/* Ajustement exclusif mobile : bandeaux de pages uniformes et centrés */
+@media (max-width:650px) {
+  body .page-main > header.page-hero {
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    height: 360px !important;
+    min-height: 360px !important;
+    max-height: 360px !important;
+    padding: 75px 6% 0 !important;
+  }
+  body .page-main > header.page-hero .page-eyebrow {
+    margin-top: 0 !important;
+    margin-bottom: 10px !important;
+  }
+  body .page-main > header.page-hero h1 {
+    font-size: clamp(29px,7.8vw,38px) !important;
+    line-height: 1.12 !important;
+    letter-spacing: .035em !important;
+    margin: 0 0 12px !important;
+  }
+  body .page-main > header.page-hero .page-lead {
+    font-size: 12px !important;
+    line-height: 1.55 !important;
+    max-width: 560px !important;
+    margin: 0 auto !important;
+  }
+  body.about-page .page-main > header.page-hero .about-hero-intro {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+  }
+  body.cgv-page header.cgv-hero {
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    height: 360px !important;
+    min-height: 360px !important;
+    max-height: 360px !important;
+    padding: 75px 6% 0 !important;
+  }
+  body.cgv-page header.cgv-hero h1 {
+    font-size: clamp(29px,7.8vw,38px) !important;
+    margin: 0 0 12px !important;
+    line-height: 1.12 !important;
+  }
+  body.cgv-page header.cgv-hero .cgv-subtitle {
+    font-size: 12px !important;
+    line-height: 1.55 !important;
+  }
+  .prestations-lead-desktop { display: none !important; }
+  body.prestations-page .prestations-hero .page-lead { font-size: clamp(10.5px, 2.8vw, 12px) !important; max-width: 96vw !important; }
+  body.prestations-page .prestations-hero .page-lead .prestations-lead-sequel { white-space: nowrap; }
+  .mobile-header-br { display: block !important; }
+}
+@media (min-width:651px) {
+  .mobile-header-br { display: none !important; }
+}
+</style>
 </head>
 
 <body class="prestations-page">
@@ -1631,7 +1823,7 @@ body.prestations-page::before {
 
 <h1>PRESTATIONS</h1>
 
-<p class="page-lead">Des images qui racontent votre histoire. Une production ponctuelle ou un accompagnement sur la durée, selon vos objectifs.</p>
+<p class="page-lead"><span class="prestations-lead-desktop">Des images qui racontent votre histoire. </span>Une production ponctuelle ou un accompagnement<span class="mobile-header-br"></span><span class="prestations-lead-sequel"> sur la durée, selon vos objectifs.</span></p>
 
 </header>
 
@@ -1867,28 +2059,119 @@ body.prestations-page::before {
 </section>
 
 <section aria-labelledby="monthly-title" class="prestations-section prestations-monthly">
-<div class="prestations-intro"><h2 id="monthly-title">VOTRE COMMUNICATION, MOIS APRÈS MOIS.</h2>
+
+<div class="prestations-intro">
+<h2 id="monthly-title">VOTRE COMMUNICATION, MOIS APRÈS MOIS.</h2>
 <p>Nous avons conçu trois formules d'accompagnement personnalisables, adaptées à vos besoins et à vos objectifs de communication.</p>
 <p>Choisissez le nombre de vidéos que vous souhaitez publier chaque mois, ainsi que le niveau d'accompagnement qui vous correspond : de la simple création audiovisuelle à la gestion complète de vos publications sur les réseaux sociaux.</p>
-<p class="prestations-monthly-base">TARIFS DE DÉPART · 2 VIDÉOS PAR MOIS</p></div>
-<div class="prestations-plans"><article class="prestations-plan ">
-<div class="prestations-plan-head"><span class="plan-label">FORMULE 01</span><h3>Création</h3><p class="plan-summary">Vous avez l'idée, nous la réalisons.</p>
-<div class="plan-price-grid plan-price-single"><div class="plan-price-primary"><span class="plan-price-label">À PARTIR DE</span><strong class="plan-price-amount">420 €</strong><span class="plan-price-period">/ mois</span></div></div></div>
-<div class="prestations-plan-body"><span class="plan-included-title">CE QUI EST INCLUS</span><ul><li >Échanges et organisation du tournage</li><li >Tournage vidéo</li><li >Montage et finitions simples</li><li >Livraison des vidéos prêtes à publier</li></ul><a class="prestations-link" href="contact.html?type=pack-mensuel">CONSTRUIRE MON ACCOMPAGNEMENT</a></div></article>
+<p class="prestations-monthly-base">TARIFS DE DÉPART · 2 VIDÉOS PAR MOIS</p>
+</div>
+
+<div class="prestations-plans">
+
+<article class="prestations-plan">
+  <div class="prestations-plan-head">
+    <span class="plan-label">FORMULE 01</span>
+    <h3>Création</h3>
+    <p class="plan-summary">Vous avez l'idée, nous la réalisons.</p>
+    <div class="plan-price-grid plan-price-single">
+      <div class="plan-price-primary">
+        <span class="plan-price-label">À PARTIR DE</span>
+        <strong class="plan-price-amount">420 €</strong>
+        <span class="plan-price-period">/ mois</span>
+      </div>
+    </div>
+  </div>
+  <div class="prestations-plan-body">
+    <span class="plan-included-title">CE QUI EST INCLUS</span>
+    <ul>
+      <li>Échanges et organisation du tournage</li>
+      <li>Tournage vidéo</li>
+      <li>Montage et finitions simples</li>
+      <li>Livraison des vidéos prêtes à publier</li>
+    </ul>
+    <a class="prestations-link" href="contact.html?type=pack-mensuel">CONSTRUIRE MON ACCOMPAGNEMENT</a>
+  </div>
+</article>
+
 <article class="prestations-plan prestations-plan-featured">
-<div class="prestations-plan-head"><span class="plan-label">FORMULE 02</span><h3>Accompagnement</h3><p class="plan-summary">Nous créons vos vidéos et guidons votre communication.</p>
-<div class="plan-price-grid "><div class="plan-price-primary"><span class="plan-price-label">À PARTIR DE</span><strong class="plan-price-amount">590 €</strong><span class="plan-price-period">/ mois · mois 1 à 3</span></div><div class="plan-price-secondary"><span class="plan-price-label">DÈS LE 4ᵉ MOIS</span><strong class="plan-price-amount">530 €</strong><span class="plan-price-period">/ mois</span></div></div></div>
-<div class="prestations-plan-body"><span class="plan-included-title">CE QUI EST INCLUS</span><ul><li >Tout le contenu de Création</li><li class="plan-extra">Analyse initiale du secteur et de votre communication</li><li class="plan-extra">Conseils éditoriaux</li><li class="plan-extra">Création de miniatures</li></ul><a class="prestations-link" href="contact.html?type=pack-mensuel">CONSTRUIRE MON ACCOMPAGNEMENT</a></div></article>
-<article class="prestations-plan ">
-<div class="prestations-plan-head"><span class="plan-label">FORMULE 03</span><h3>Gestion</h3><p class="plan-summary">Nous créons vos contenus et gérons leur publication.</p>
-<div class="plan-price-grid "><div class="plan-price-primary"><span class="plan-price-label">À PARTIR DE</span><strong class="plan-price-amount">690 €</strong><span class="plan-price-period">/ mois · mois 1 à 3</span></div><div class="plan-price-secondary"><span class="plan-price-label">DÈS LE 4ᵉ MOIS</span><strong class="plan-price-amount">610 €</strong><span class="plan-price-period">/ mois</span></div></div></div>
-<div class="prestations-plan-body"><span class="plan-included-title">CE QUI EST INCLUS</span><ul><li >Tout le contenu d'Accompagnement</li><li class="plan-extra">Harmonisation du profil Instagram</li><li class="plan-extra">Rédaction des légendes Instagram</li><li class="plan-extra">Publication des contenus sur Instagram</li></ul><a class="prestations-link" href="contact.html?type=pack-mensuel">CONSTRUIRE MON ACCOMPAGNEMENT</a></div></article></div>
+  <div class="prestations-plan-head">
+    <span class="plan-label">FORMULE 02</span>
+    <h3>Accompagnement</h3>
+    <p class="plan-summary">Nous créons vos vidéos et guidons votre communication.</p>
+    <div class="plan-price-grid">
+      <div class="plan-price-primary">
+        <span class="plan-price-label">À PARTIR DE</span>
+        <strong class="plan-price-amount">590 €</strong>
+        <span class="plan-price-period">/ mois · mois 1 à 3</span>
+      </div>
+      <div class="plan-price-secondary">
+        <span class="plan-price-label">DÈS LE 4ᵉ MOIS</span>
+        <strong class="plan-price-amount">530 €</strong>
+        <span class="plan-price-period">/ mois</span>
+      </div>
+    </div>
+  </div>
+  <div class="prestations-plan-body">
+    <span class="plan-included-title">CE QUI EST INCLUS</span>
+    <ul>
+      <li>Tout le contenu de Création</li>
+      <li class="plan-extra">Analyse initiale du secteur et de votre communication</li>
+      <li class="plan-extra">Conseils éditoriaux</li>
+      <li class="plan-extra">Création de miniatures</li>
+    </ul>
+    <a class="prestations-link" href="contact.html?type=pack-mensuel">CONSTRUIRE MON ACCOMPAGNEMENT</a>
+  </div>
+</article>
+
+<article class="prestations-plan">
+  <div class="prestations-plan-head">
+    <span class="plan-label">FORMULE 03</span>
+    <h3>Gestion</h3>
+    <p class="plan-summary">Nous créons vos contenus et gérons leur publication.</p>
+    <div class="plan-price-grid">
+      <div class="plan-price-primary">
+        <span class="plan-price-label">À PARTIR DE</span>
+        <strong class="plan-price-amount">690 €</strong>
+        <span class="plan-price-period">/ mois · mois 1 à 3</span>
+      </div>
+      <div class="plan-price-secondary">
+        <span class="plan-price-label">DÈS LE 4ᵉ MOIS</span>
+        <strong class="plan-price-amount">610 €</strong>
+        <span class="plan-price-period">/ mois</span>
+      </div>
+    </div>
+  </div>
+  <div class="prestations-plan-body">
+    <span class="plan-included-title">CE QUI EST INCLUS</span>
+    <ul>
+      <li>Tout le contenu d'Accompagnement</li>
+      <li class="plan-extra">Harmonisation du profil Instagram</li>
+      <li class="plan-extra">Rédaction des légendes Instagram</li>
+      <li class="plan-extra">Publication des contenus sur Instagram</li>
+    </ul>
+    <a class="prestations-link" href="contact.html?type=pack-mensuel">CONSTRUIRE MON ACCOMPAGNEMENT</a>
+  </div>
+</article>
+
+</div>
+
 <div class="prestations-plans-pagination" role="group" aria-label="Navigation entre les forfaits">
-<button class="plan-arrow plan-arrow-prev" type="button" aria-label="Forfait précédent" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
-<button class="plan-dot" type="button" aria-label="Afficher Création" aria-current="true"></button><button class="plan-dot" type="button" aria-label="Afficher Accompagnement" aria-current="false"></button><button class="plan-dot" type="button" aria-label="Afficher Gestion" aria-current="false"></button>
-<span class="prestations-plans-counter" aria-live="polite">1 / 3</span>
-<button class="plan-arrow plan-arrow-next" type="button" aria-label="Forfait suivant"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button></div>
-<p class="prestations-fineprint">Tarifs de départ calculés sur une base de <strong>2 vidéos courtes de 20 à 30 secondes par mois</strong>. Nombre de vidéos personnalisable. Engagement minimum de 3 mois. Devis adapté au volume, à la complexité des vidéos et aux prestations demandées. TVA non applicable.</p></section>
+  <button class="plan-arrow plan-arrow-prev" type="button" aria-label="Forfait précédent" disabled>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+  </button>
+  <button class="plan-dot" type="button" aria-label="Afficher Création" aria-current="true"></button>
+  <button class="plan-dot" type="button" aria-label="Afficher Accompagnement" aria-current="false"></button>
+  <button class="plan-dot" type="button" aria-label="Afficher Gestion" aria-current="false"></button>
+  <span class="prestations-plans-counter" aria-live="polite">1 / 3</span>
+  <button class="plan-arrow plan-arrow-next" type="button" aria-label="Forfait suivant">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+  </button>
+</div>
+
+<p class="prestations-fineprint">Tarifs de départ calculés sur une base de <strong>2 vidéos courtes de 20 à 30 secondes par mois</strong>. Nombre de vidéos personnalisable. Engagement minimum de 3 mois. Devis adapté au volume, à la complexité des vidéos et aux prestations demandées. TVA non applicable.</p>
+
+</section>
 
 
 </div>

@@ -514,13 +514,44 @@
 
             .univers-pagination .univers-dots button[aria-current="true"] {
                 width: 25px;
-                background: #fff;
+                border-radius: 10px;
+                background: #bfc3c7;
+            }
+
+            /* Même navigation grise que le carrousel Missions ponctuelles. */
+            .univers-pagination .univers-arrow {
+                width: 42px;
+                height: 42px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                border: 1px solid rgba(185,190,195,.65);
+                border-radius: 8px;
+                background: #252525;
+                color: #c9cdd1;
+                cursor: pointer;
+                padding: 0;
+            }
+            .univers-pagination .univers-arrow svg {
+                width: 20px;
+                height: 20px;
+            }
+            .univers-pagination .univers-arrow:disabled {
+                opacity: .35;
+                cursor: default;
+            }
+            .univers-pagination button:focus-visible {
+                outline: 2px solid #fff;
+                outline-offset: 3px;
             }
 
             .univers-pagination .univers-counter {
                 min-width: 40px;
-                color: #ddd;
+                color: #c9cdd1;
                 font-size: 12px;
+                font-weight: 700;
+                letter-spacing: .8px;
+                margin-left: 4px;
                 text-align: center;
                 font-variant-numeric: tabular-nums;
             }
@@ -732,6 +763,139 @@
         }
     </style>
 
+
+    <!-- HOME — optimisation mobile de la section NOTRE ACTIVITÉ -->
+    <style>
+      @media (max-width: 650px) {
+        /* Photo : largeur augmentée de 20 % (34 % -> 40,8 %). */
+        .home-intro .activity-layout {
+          grid-template-columns: minmax(0, 1fr) minmax(0, 40.8%) !important;
+          column-gap: 12px !important;
+        }
+        /* La description utilise la hauteur disponible à gauche de la photo. */
+        .home-intro .activity-description {
+          font-size: clamp(19px, 5.5vw, 23px) !important;
+          line-height: 1.28 !important;
+          letter-spacing: 0 !important;
+          align-self: stretch !important;
+        }
+        /* Ligne de métiers masquée uniquement sur téléphone. */
+        .home-intro .activity-specialties {
+          display: none !important;
+        }
+      }
+    </style>
+
+    <!-- HOME — espacement mobile entre la carte du monde et le bloc contact -->
+    <style>
+      @media (max-width: 650px) {
+        /* Conserve le planisphère et le séparateur, mais supprime le vide cumulé. */
+        .international {
+          padding-bottom: 30px !important;
+        }
+        .international .international-note {
+          padding-bottom: 14px !important;
+        }
+        .home-contact-cta {
+          padding-top: 40px !important;
+        }
+      }
+    </style>
+    <!-- HOME — textes harmonisés et métiers alignés au bas de la photo sur mobile. -->
+    <style>
+      /* Sur ordinateur, conserver les trois intitulés d'origine. */
+      .home-intro .activity-specialties .specialty-mobile { display: none !important; }
+      /* Transparent sur ordinateur : disposition existante strictement préservée. */
+      .home-intro .activity-copy-stack .activity-specialties span + span::before {
+        content: " / ";
+        color: #777;
+      }
+      .home-intro .activity-copy-stack { display: contents; }
+      @media (max-width: 650px) {
+        /* Deux phrases de même taille, la deuxième à gauche de la photo. */
+        .home-intro .activity-copy-stack {
+          display: flex !important;
+          flex-direction: column;
+          grid-column: 1;
+          grid-row: 5;
+          min-width: 0;
+          height: 100%;
+          gap: 12px;
+          align-self: stretch;
+        }
+        .home-intro .activity-copy-stack .activity-description {
+          font-size: 16px !important;
+          line-height: 1.55 !important;
+          margin: 0 !important;
+          align-self: auto !important;
+        }
+        .home-intro .activity-copy-stack .activity-specialties {
+          display: flex !important;
+          flex-direction: column;
+          gap: 4px;
+          margin: auto 0 0 !important;
+          font-size: 10px !important;
+          letter-spacing: .9px;
+          line-height: 1.4;
+          font-weight: 700;
+          white-space: nowrap;
+        }
+        .home-intro .activity-copy-stack .activity-specialties span + span::before {
+          content: none;
+        }
+        .home-intro .activity-copy-stack .activity-specialties span {
+          display: block;
+          padding: 0 !important;
+          color: #bdbdbd;
+        }
+        .home-intro .activity-image {
+          align-self: stretch !important;
+          height: 100% !important;
+        }
+        .home-intro .activity-image .activity-iris {
+          height: 100% !important;
+          aspect-ratio: auto !important;
+          min-height: 100%;
+        }
+        /* La description reste à gauche de la photo. Les trois métiers
+           occupent une seule ligne pleine largeur, immédiatement sous
+           le bord inférieur de la photo, sans modifier l'ordinateur. */
+        .home-intro .activity-copy-stack {
+          display: contents !important;
+        }
+        .home-intro .activity-copy-stack .activity-description {
+          grid-column: 1;
+          grid-row: 5;
+        }
+        .home-intro .activity-copy-stack .activity-specialties {
+          grid-column: 1 / -1;
+          grid-row: 6;
+          display: flex !important;
+          flex-direction: row !important;
+          justify-content: space-between;
+          align-items: center;
+          gap: 7px;
+          width: 100%;
+          min-width: 0;
+          margin: -3px 0 0 !important;
+          font-size: clamp(8px, 2.45vw, 10px) !important;
+          letter-spacing: .45px !important;
+          line-height: 1.2 !important;
+          white-space: nowrap;
+        }
+        .home-intro .activity-copy-stack .activity-specialties span {
+          display: inline !important;
+          padding: 0 !important;
+          white-space: nowrap;
+        }
+        .home-intro .activity-copy-stack .activity-specialties .specialty-desktop {
+          display: none !important;
+        }
+        .home-intro .activity-copy-stack .activity-specialties .specialty-mobile {
+          display: inline !important;
+        }
+      }
+    </style>
 </head>
 <body>
     <!-- =========================================
@@ -824,8 +988,10 @@
                 </h2>
                 <div class="activity-divider" aria-hidden="true"></div>
                 <p class="activity-lead">Chaque projet mérite d'être raconté, quelle que soit son envergure. D'un Reel Instagram pour une entreprise locale à un film documentaire au bout du monde, nous donnons vie à vos idées.</p>
-                <p class="activity-description">Notre approche reste la même : des images authentiques, une réalisation soignée et une histoire qui vous ressemble.</p>
-                <p class="activity-specialties">RÉALISATION <span>/</span> PRODUCTION <span>/</span> POST-PRODUCTION</p>
+                <div class="activity-copy-stack">
+                    <p class="activity-description">Notre approche reste la même : des images authentiques, une réalisation soignée et une histoire qui vous ressemble.</p>
+                    <p class="activity-specialties"><span>RÉALISATION</span><span><span class="specialty-desktop">PRODUCTION</span><span class="specialty-mobile">PROD</span></span><span><span class="specialty-desktop">POST-PRODUCTION</span><span class="specialty-mobile">POST PROD</span></span></p>
+                </div>
             </div>
             <figure class="activity-image">
                 <div class="activity-iris" tabindex="0" aria-label="Aperçu vidéo de notre activité. Survolez ou appuyez pour lancer la vidéo.">
@@ -916,7 +1082,10 @@
     </div>
   </article>
 </div> <!-- /themes-grid -->
-                <div class="univers-pagination" aria-label="Navigation des univers vidéo">
+                <div class="univers-pagination" role="group" aria-label="Navigation des univers vidéo">
+                    <button class="univers-arrow univers-arrow-prev" type="button" aria-label="Univers précédent" disabled>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+                    </button>
                     <div class="univers-dots">
                         <button type="button" aria-label="Afficher Sports" aria-current="true"></button>
                         <button type="button" aria-label="Afficher Événementiel" aria-current="false"></button>
@@ -924,6 +1093,9 @@
                         <button type="button" aria-label="Afficher Corporate" aria-current="false"></button>
                     </div>
                     <span class="univers-counter" aria-live="polite">1 / 4</span>
+                    <button class="univers-arrow univers-arrow-next" type="button" aria-label="Univers suivant">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+                    </button>
                 </div>
             </div> <!-- /section-container -->
         </section> <!-- /video-themes -->
@@ -1154,6 +1326,20 @@
         media.addEventListener('click', () => {
             if (window.matchMedia('(hover: none)').matches) setActive(!active);
         });
+        // Mobile : dès que la page défile verticalement, revenir à la photo.
+        // Le toucher simple garde son rôle de lecture/pause via le clic ci-dessus.
+        let lastScrollY = window.scrollY;
+        window.addEventListener('scroll', () => {
+            const currentY = window.scrollY;
+            if (active && window.matchMedia('(hover: none)').matches &&
+                Math.abs(currentY - lastScrollY) >= 1) {
+                setActive(false);
+                // Stopper sans attendre le fondu, même si la page défile vite.
+                video.pause();
+                video.currentTime = 0;
+            }
+            lastScrollY = currentY;
+        }, { passive: true });
         media.addEventListener('focus', () => {
             if (media.matches(':focus-visible')) setActive(true);
         });
@@ -1281,7 +1467,10 @@
         const cards = Array.from(slider.querySelectorAll(':scope > .theme-card'));
         const buttons = Array.from(pagination.querySelectorAll('.univers-dots button'));
         const counter = pagination.querySelector('.univers-counter');
+        const previous = pagination.querySelector('.univers-arrow-prev');
+        const next = pagination.querySelector('.univers-arrow-next');
         if (cards.length !== buttons.length) return;
+        let current = 0;
 
         function updatePagination() {
             const center = slider.getBoundingClientRect().left +
@@ -1301,21 +1490,31 @@
             buttons.forEach((button, index) => {
                 button.setAttribute('aria-current', String(index === nearest));
             });
+            current = nearest;
             if (counter) counter.textContent = `${nearest + 1} / ${cards.length}`;
+            if (previous) previous.disabled = nearest === 0;
+            if (next) next.disabled = nearest === cards.length - 1;
         }
 
-        buttons.forEach((button, index) => {
-            button.addEventListener('click', () => {
-                const cardRect = cards[index].getBoundingClientRect();
-                const sliderRect = slider.getBoundingClientRect();
-                const delta = (cardRect.left + cardRect.width / 2) -
-                    (sliderRect.left + sliderRect.width / 2);
-                slider.scrollTo({
-                    left: slider.scrollLeft + delta,
-                    behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
-                });
+        function goTo(index) {
+            const target = Math.max(0, Math.min(cards.length - 1, index));
+            current = target;
+            const cardRect = cards[target].getBoundingClientRect();
+            const sliderRect = slider.getBoundingClientRect();
+            const delta = (cardRect.left + cardRect.width / 2) -
+                (sliderRect.left + sliderRect.width / 2);
+            slider.scrollTo({
+                left: slider.scrollLeft + delta,
+                behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
             });
-        });
+            buttons.forEach((button, i) => button.setAttribute('aria-current', String(i === target)));
+            if (counter) counter.textContent = `${target + 1} / ${cards.length}`;
+            if (previous) previous.disabled = target === 0;
+            if (next) next.disabled = target === cards.length - 1;
+        }
+        buttons.forEach((button, index) => button.addEventListener('click', () => goTo(index)));
+        if (previous) previous.addEventListener('click', () => goTo(current - 1));
+        if (next) next.addEventListener('click', () => goTo(current + 1));
 
         slider.addEventListener('scroll', updatePagination, { passive: true });
         window.addEventListener('resize', updatePagination, { passive: true });

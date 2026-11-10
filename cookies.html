@@ -110,52 +110,106 @@
       .cookies-content section + section { margin-top: 40px; }
     }
   </style>
- </head>
+ <style id="mobile-centered-page-headers">
+
+/* Ajustement exclusif mobile : bandeaux de pages uniformes et centrés */
+@media (max-width:650px) {
+  body .page-main > header.page-hero {
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    height: 360px !important;
+    min-height: 360px !important;
+    max-height: 360px !important;
+    padding: 75px 6% 0 !important;
+  }
+  body .page-main > header.page-hero .page-eyebrow {
+    margin-top: 0 !important;
+    margin-bottom: 10px !important;
+  }
+  body .page-main > header.page-hero h1 {
+    font-size: clamp(29px,7.8vw,38px) !important;
+    line-height: 1.12 !important;
+    letter-spacing: .035em !important;
+    margin: 0 0 12px !important;
+  }
+  body .page-main > header.page-hero .page-lead {
+    font-size: 12px !important;
+    line-height: 1.55 !important;
+    max-width: 560px !important;
+    margin: 0 auto !important;
+  }
+  body.about-page .page-main > header.page-hero .about-hero-intro {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+  }
+  body.cgv-page header.cgv-hero {
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    height: 360px !important;
+    min-height: 360px !important;
+    max-height: 360px !important;
+    padding: 75px 6% 0 !important;
+  }
+  body.cgv-page header.cgv-hero h1 {
+    font-size: clamp(29px,7.8vw,38px) !important;
+    margin: 0 0 12px !important;
+    line-height: 1.12 !important;
+  }
+  body.cgv-page header.cgv-hero .cgv-subtitle {
+    font-size: 12px !important;
+    line-height: 1.55 !important;
+  }
+  .mobile-header-br { display: block !important; }
+}
+@media (min-width:651px) {
+  .mobile-header-br { display: none !important; }
+}
+</style>
+</head>
  <body>
   <!-- Navigation principale -->
-  <nav class="navbar" aria-label="Navigation principale">
-        <!-- Logo couleur -->
-        <a
-            href="index.html"
-            class="nav-logo"
-            aria-label="Accueil Digital Art Production"
-        >
-            <img
-                src="images/logo-couleur.png"
-                alt="Digital Art Production"
-            >
-        </a>
-        <!-- Menu hamburger pour mobile -->
-        <button
-            class="menu-toggle"
-            type="button"
-            aria-label="Ouvrir le menu"
-            aria-expanded="false"
-            aria-controls="nav-links"
-        >
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-        <!-- Liens du menu -->
-        <div class="nav-links" id="nav-links">
-            <a href="index.html" aria-current="page">
-                HOME
-            </a>
-            <a href="projets.html">
-                PROJETS
-            </a>
-            <a href="prestations.html">
-                PRESTATIONS
-            </a>
-            <a href="apropos.html">
-                À PROPOS
-            </a>
-            <a href="contact.html">
-                CONTACT
-            </a>
-        </div>
-    </nav>
+  <nav aria-label="Navigation principale" class="navbar">
+   <a aria-label="Accueil Digital Art Production" class="nav-logo" href="index.html">
+    <img alt="Digital Art Production" src="images/logo-couleur.png"/>
+   </a>
+   <button aria-controls="nav-links" aria-expanded="false" aria-label="Ouvrir le menu" class="menu-toggle" type="button">
+    <span>
+    </span>
+    <span>
+    </span>
+    <span>
+    </span>
+   </button>
+   <div class="nav-links" id="nav-links">
+    <a href="index.html">
+     HOME
+    </a>
+    <a href="projets.html">
+     PROJETS
+    </a>
+    <a href="prestations.html">
+     PRESTATIONS
+    </a>
+    <a href="apropos.html">
+     &Agrave; PROPOS
+    </a>
+    <a href="contact.html">
+     CONTACT
+    </a>
+   </div>
+  </nav>
   <!-- Contenu principal -->
   <main class="page-main mentions-main cookies-main">
    <header class="page-hero mentions-hero cookies-hero">
@@ -232,144 +286,104 @@
   </main>
   <!-- Pied de page -->
   <footer class="site-footer">
-
-<div class="footer-container">
-
-<!-- 4.1 GAUCHE — ENTREPRISE -->
-
-<div class="footer-column footer-brand">
-
-<h3>DIGITAL ART PRODUCTION</h3>
-
-<p>Production audiovisuelle en France et à l'international.</p>
-
-<p class="footer-specialties">Filmmaking • Drone • FPV</p>
-
-</div>
-
-<!-- =================================
-                 4.2 CENTRE — NAVIGATION
-            \================================= -->
-
-<div class="footer-column">
-
-<h4>NAVIGATION</h4>
-
-<nav aria-label="Navigation de pied de page" class="footer-links">
-
-<a href="index.html">Home</a>
-
-<a href="projets.html">Projets</a>
-
-<a href="prestations.html">Prestations</a>
-
-<a href="apropos.html">À propos</a>
-
-<a href="contact.html">Contact</a>
-
-</nav>
-
-</div>
-
-<!-- =================================
-                 4.3 DROITE — RÉSEAUX SOCIAUX
-            \================================= -->
-
-<div class="footer-column footer-contact-column">
-
-<h4>RESTONS CONNECTÉS</h4>
-
-<div aria-label="Coordonnées" class="contact-details">
-
-<a href="mailto:contact@digitalart-production.fr">contact@digitalart-production.fr</a>
-
-<a href="tel:+33635462092">+33 6 35 46 20 92</a>
-
-</div>
-
-<a class="footer-contact" href="contact.html">
-                    Formulaire de contact
-                </a>
-
-<!-- LOGOS DES RÉSEAUX -->
-
-<div class="footer-socials">
-
-<!-- INSTAGRAM -->
-
-<a aria-label="Instagram" href="https://www.instagram.com/victor_rochemenu/" rel="noopener noreferrer" target="_blank" title="Instagram">
-
-<svg aria-hidden="true" fill="currentColor" viewbox="0 0 24 24">
-
-<path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9z"></path>
-
-<path d="M12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"></path>
-
-<circle cx="17.5" cy="6.5" r="1.25"></circle>
-
-</svg>
-
-</a>
-
-<!-- LINKEDIN -->
-
-<a aria-label="LinkedIn" href="https://www.linkedin.com/in/victor-roche-menu-60917814a/" rel="noopener noreferrer" target="_blank" title="LinkedIn">
-
-<svg aria-hidden="true" fill="currentColor" viewbox="0 0 24 24">
-
-<path d="M20.45 2H3.55C2.69 2 2 2.68 2 3.52v16.96C2 21.32 2.69 22 3.55 22h16.9c.86 0 1.55-.68 1.55-1.52V3.52C22 2.68 21.31 2 20.45 2zM7.93 18.75H4.98V9.2h2.95v9.55zM6.45 7.9a1.71 1.71 0 1 1 0-3.42 1.71 1.71 0 0 1 0 3.42zm12.3 10.85H15.8V14.1c0-1.11-.02-2.54-1.55-2.54-1.55 0-1.79 1.21-1.79 2.46v4.73H9.51V9.2h2.83v1.3h.04c.39-.75 1.36-1.55 2.8-1.55 2.99 0 3.57 1.97 3.57 4.52v5.28z"></path>
-
-</svg>
-
-</a>
-
-<!-- YOUTUBE -->
-
-<a aria-label="YouTube Digital Art Production" href="https://www.youtube.com/@DigitalArt_Prod" rel="noopener noreferrer" target="_blank" title="YouTube">
-
-<svg aria-hidden="true" fill="currentColor" viewbox="0 0 24 24">
-
-<path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.55 3.6 12 3.6 12 3.6s-7.55 0-9.4.5A3 3 0 0 0 .5 6.2 31.1 31.1 0 0 0 0 12a31.1 31.1 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.85.5 9.4.5 9.4.5s7.55 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.1 31.1 0 0 0 24 12a31.1 31.1 0 0 0-.5-5.8zM9.6 15.6V8.4l6.25 3.6-6.25 3.6z"></path>
-
-</svg>
-
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-<!-- =====================================
-             4.4 BAS DU FOOTER — LIENS LÉGAUX
-        \===================================== -->
-
-<div class="footer-bottom">
-
-<div class="footer-legal">
-
-<a href="mentions-legales.html">
-                    Mentions légales
-                </a>
-
-<a href="cgv.html">
-                    CGV
-                </a>
-
-<a href="confidentialite.html">
-                    Confidentialité
-                </a>
-
-<a aria-current="page" href="cookies.html">
-                    Cookies
-                </a>
-
-</div>
-        <p>© 2026 Digital Art Production. Tous droits réservés.</p>
+   <div class="footer-container">
+    <div class="footer-column footer-brand">
+     <h3>
+      DIGITAL ART PRODUCTION
+     </h3>
+     <p>
+      Production audiovisuelle en France et &agrave; l&rsquo;international.
+     </p>
+     <p class="footer-specialties">
+      Filmmaking &bull; Drone &bull; FPV
+     </p>
     </div>
-
-</footer>
+    <div class="footer-column">
+     <h4>
+      NAVIGATION
+     </h4>
+     <nav aria-label="Navigation de pied de page" class="footer-links">
+      <a href="index.html">
+       Home
+      </a>
+      <a href="projets.html">
+       Projets
+      </a>
+      <a href="prestations.html">
+       Prestations
+      </a>
+      <a href="apropos.html">
+       &Agrave; propos
+      </a>
+      <a href="contact.html">
+       Contact
+      </a>
+     </nav>
+    </div>
+    <div class="footer-column footer-contact-column">
+     <h4>
+      RESTONS CONNECT&Eacute;S
+     </h4>
+     <div class="contact-details">
+      <a href="mailto:contact@digitalart-production.fr">
+       contact@digitalart-production.fr
+      </a>
+      <a href="tel:+33635462092">
+       +33 6 35 46 20 92
+      </a>
+     </div>
+     <a class="footer-contact" href="contact.html">
+      Formulaire de contact
+     </a>
+     <div class="footer-socials">
+      <!-- Instagram -->
+      <a aria-label="Instagram" href="https://www.instagram.com/victor_rochemenu/" rel="noopener noreferrer" target="_blank" title="Instagram">
+       <svg aria-hidden="true" fill="currentColor" viewbox="0 0 24 24">
+        <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9z">
+        </path>
+        <path d="M12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z">
+        </path>
+        <circle cx="17.5" cy="6.5" r="1.25">
+        </circle>
+       </svg>
+      </a>
+      <!-- LinkedIn : tracé unique correct, même dimensions que les autres logos -->
+      <a aria-label="LinkedIn" href="https://www.linkedin.com/in/victor-roche-menu-60917814a/" rel="noopener noreferrer" target="_blank" title="LinkedIn">
+       <svg aria-hidden="true" fill="currentColor" viewbox="0 0 24 24">
+        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.35V9h3.414v1.561h.049c.476-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zm1.782 13.019H3.555V9H7.12v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z">
+        </path>
+       </svg>
+      </a>
+      <!-- YouTube -->
+      <a aria-label="YouTube Digital Art Production" href="https://www.youtube.com/@DigitalArt_Prod" rel="noopener noreferrer" target="_blank" title="YouTube">
+       <svg aria-hidden="true" fill="currentColor" viewbox="0 0 24 24">
+        <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.55 3.6 12 3.6 12 3.6s-7.55 0-9.4.5A3 3 0 0 0 .5 6.2 31.1 31.1 0 0 0 0 12a31.1 31.1 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.85.5 9.4.5 9.4.5s7.55 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.1 31.1 0 0 0 24 12a31.1 31.1 0 0 0-.5-5.8zM9.6 15.6V8.4l6.25 3.6-6.25 3.6z">
+        </path>
+       </svg>
+      </a>
+     </div>
+    </div>
+   </div>
+   <div class="footer-bottom">
+    <p>
+     &copy; 2026 Digital Art Production. Tous droits r&eacute;serv&eacute;s.
+    </p>
+    <div class="footer-legal">
+     <a href="mentions-legales.html">
+      Mentions l&eacute;gales
+     </a>
+     <a href="cgv.html">
+      CGV
+     </a>
+     <a href="confidentialite.html">
+      Confidentialit&eacute;
+     </a>
+     <a aria-current="page" href="cookies.html">
+      Cookies
+     </a>
+    </div>
+   </div>
+  </footer>
   <script src="script.js">
   </script>
  </body>
