@@ -1284,12 +1284,14 @@
         if (cards.length !== buttons.length) return;
 
         function updatePagination() {
-            const left = slider.getBoundingClientRect().left;
+            const center = slider.getBoundingClientRect().left +
+                slider.getBoundingClientRect().width / 2;
             let nearest = 0;
             let shortestDistance = Infinity;
 
             cards.forEach((card, index) => {
-                const distance = Math.abs(card.getBoundingClientRect().left - left);
+                const rect = card.getBoundingClientRect();
+                const distance = Math.abs(rect.left + rect.width / 2 - center);
                 if (distance < shortestDistance) {
                     shortestDistance = distance;
                     nearest = index;
@@ -1304,10 +1306,14 @@
 
         buttons.forEach((button, index) => {
             button.addEventListener('click', () => {
-                const targetLeft = slider.scrollLeft +
-                    cards[index].getBoundingClientRect().left -
-                    slider.getBoundingClientRect().left;
-                slider.scrollTo({ left: targetLeft, behavior: 'smooth' });
+                const cardRect = cards[index].getBoundingClientRect();
+                const sliderRect = slider.getBoundingClientRect();
+                const delta = (cardRect.left + cardRect.width / 2) -
+                    (sliderRect.left + sliderRect.width / 2);
+                slider.scrollTo({
+                    left: slider.scrollLeft + delta,
+                    behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+                });
             });
         });
 
