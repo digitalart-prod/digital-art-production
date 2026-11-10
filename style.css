@@ -4626,3 +4626,75 @@ background 0.25s ease,
     margin: 0;
     text-align: center;
 }
+
+
+/* =====================================================================
+   HARMONISATION 10/11/2026 — navigation et footer de HOME sur le site.
+   Les pages possèdent désormais toutes le même HTML de navigation/footer.
+   ===================================================================== */
+@media (max-width: 800px) {
+    .navbar,
+    .navbar .nav-links {
+        background-color: #17191b !important;
+        background-image: none !important;
+        -webkit-backdrop-filter: none !important;
+        backdrop-filter: none !important;
+    }
+}
+
+/* Même disposition responsive du footer HOME sur toutes les pages. */
+@media (max-width: 900px) {
+    body .site-footer .footer-contact-column {
+        text-align: left !important;
+        justify-self: start !important;
+    }
+    body .site-footer .footer-contact-column .contact-details {
+        align-items: flex-start !important;
+        text-align: left !important;
+    }
+    body .site-footer .footer-contact-column .contact-details a {
+        text-align: left !important;
+    }
+    body .site-footer .footer-contact-column .footer-socials {
+        justify-content: flex-start !important;
+    }
+}
+.site-footer .footer-contact-column .footer-socials svg {
+    width: 30px !important;
+    height: 30px !important;
+}
+
+/* =====================================================================
+   TROIS CARROUSELS — mobiles : piste bord à bord, sans bandes latérales.
+   Déborde de la largeur du texte seulement; le swipe reste natif.
+   Une carte occupe 88vw pour laisser entrevoir la suivante.
+   ===================================================================== */
+@media (max-width: 650px) {
+    .video-themes .themes-grid,
+    body.prestations-page .prestations-grid,
+    body.prestations-page .prestations-plans {
+        width: 100vw !important;
+        max-width: none !important;
+        margin-left: calc(50% - 50vw) !important;
+        margin-right: calc(50% - 50vw) !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        scroll-padding-inline: 0 !important;
+        box-sizing: border-box;
+    }
+
+    /* Supprime l'espace vide artificiel après la dernière carte. */
+    .video-themes .themes-grid::after,
+    body.prestations-page .prestations-grid::after,
+    body.prestations-page .prestations-plans::after {
+        content: none !important;
+        display: none !important;
+    }
+
+    /* La dernière carte peut s'aligner exactement au bord droit. */
+    .video-themes .themes-grid > .theme-card:last-child,
+    body.prestations-page .prestations-grid > .prestation-card:last-child,
+    body.prestations-page .prestations-plans > .prestations-plan:last-child {
+        scroll-snap-align: end !important;
+    }
+}
