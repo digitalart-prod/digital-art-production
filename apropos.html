@@ -64,9 +64,9 @@
             box-sizing: border-box;
             isolation: isolate;
             background-color: #17191b;
-            background-image: url("images/victor-marjo.jpg");
+            background-image: url("images/apropos.jpg");
             background-size: cover;
-            background-position: center 10%;
+            background-position: center top;
             background-repeat: no-repeat;
             /* La photo reste figée sur ordinateur. */
             background-attachment: fixed;
@@ -112,14 +112,14 @@
                 min-height: 54svh;
                 padding: 108px 7% 44px;
                 background-attachment: scroll;
-                background-position: center 10%;
+                background-position: center top;
             }
         }
         @media (max-width: 520px) {
             .about-page .page-hero {
                 min-height: 51svh;
                 padding: 104px 7% 38px;
-                background-position: center 10%;
+                background-position: center top;
             }
             .about-page .about-hero-intro h1 { font-size: clamp(37px, 9vw, 52px); letter-spacing: .035em; }
             .about-page .about-hero-intro .page-lead { font-size: 14px; line-height: 1.7; }
@@ -357,7 +357,7 @@
 
         /* FOND PARTAGÉ À PROPOS : même photo fixe sur toute la page. */
         body.about-page::before {
-            background: url("images/victor-marjo.jpg") center 10% / cover no-repeat;
+            background: url("images/apropos.jpg") center top / cover no-repeat;
         }
         .about-page .page-main {
             background: transparent;
@@ -536,6 +536,551 @@
   .mobile-header-br { display: none !important; }
 }
 </style>
+<style id="desktop-uniform-hero-2026">
+/* En-têtes harmonisés PC + tablette + mobile. HOME exclue. */
+body .page-main > header.page-hero,
+body.cgv-page .page-main > header.cgv-hero {
+  position: relative !important;
+  isolation: isolate !important;
+  box-sizing: border-box !important;
+  display: flex !important;
+  flex-flow: column nowrap !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  overflow: hidden !important;
+  height: 735px !important;
+  min-height: 735px !important;
+  max-height: 735px !important;
+  padding: 0 6% !important;
+  gap: 0 !important;
+}
+/* Voile noir uniforme de 20 % + vignettage discret sur les bords. */
+body .page-main > header.page-hero::before,
+body.cgv-page .page-main > header.cgv-hero::before {
+  content: "" !important;
+  display: block !important;
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 0 !important;
+  pointer-events: none !important;
+  background: radial-gradient(ellipse at center,
+              rgba(0,0,0,0) 42%, rgba(0,0,0,.11) 100%),
+              rgba(0,0,0,.20) !important;
+  opacity: 1 !important;
+}
+/* Empêcher un ancien voile de se superposer au nouveau. */
+body .page-main > header.page-hero::after,
+body.cgv-page .page-main > header.cgv-hero::after {
+  content: none !important;
+  display: none !important;
+}
+/* En-tête À PROPOS : conserver le groupe des textes centré. */
+body.about-page .page-main > header.page-hero .about-hero-intro {
+  display: flex !important;
+  flex-flow: column nowrap !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+body .page-main > header.page-hero > *,
+body.cgv-page .page-main > header.cgv-hero > * {
+  position: relative !important;
+  z-index: 1 !important;
+  flex: 0 0 auto !important;
+}
+body .page-main > header.page-hero h1,
+body .page-main > header.page-hero .page-eyebrow,
+body .page-main > header.page-hero .page-lead,
+body.cgv-page .page-main > header.cgv-hero h1,
+body.cgv-page .page-main > header.cgv-hero .cgv-overline,
+body.cgv-page .page-main > header.cgv-hero .cgv-subtitle,
+body.cgv-page .page-main > header.cgv-hero .cgv-version {
+  text-shadow: 0 2px 6px rgba(0,0,0,.32) !important;
+}
+@media (min-width: 651px) and (max-width: 900px) {
+  body .page-main > header.page-hero,
+  body.cgv-page .page-main > header.cgv-hero {
+    height: 420px !important;
+    min-height: 420px !important;
+    max-height: 420px !important;
+    padding: 0 6% !important;
+  }
+}
+@media (max-width: 650px) {
+  body .page-main > header.page-hero,
+  body.cgv-page .page-main > header.cgv-hero {
+    height: 360px !important;
+    min-height: 360px !important;
+    max-height: 360px !important;
+    padding: 0 6% !important;
+  }
+}
+</style>
+<style id="hero-match-projets-two-layouts-2026">
+/* Alignement des bandeaux sur PROJETS : 2 modes seulement (<=800 / >=801). */
+@media (min-width: 801px) {
+  body .page-main > header.page-hero {
+    height: 735px !important;
+    min-height: 735px !important;
+    max-height: 735px !important;
+    padding: 0 6% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+  body .page-main > header.page-hero .page-lead { margin: 0 auto !important; }
+}
+@media (max-width: 800px) {
+  body .page-main > header.page-hero {
+    position: relative !important;
+    height: 540px !important;
+    min-height: 540px !important;
+    max-height: 540px !important;
+    padding: 0 6% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+
+  body.about-page .page-main > header.page-hero .about-hero-intro { position: static !important; }
+
+  body .page-main > header.page-hero h1 {
+    position: absolute !important;
+    top: calc(50% + 38px) !important;
+    left: 0 !important;
+    width: 100% !important;
+    margin: 0 !important;
+    transform: translateY(-50%) !important;
+    text-align: center !important;
+    z-index: 2 !important;
+  }
+  body .page-main > header.page-hero .page-eyebrow {
+    position: absolute !important;
+    bottom: calc(50% - 38px + 34px) !important;
+    left: 0 !important;
+    width: 100% !important;
+    margin: 0 !important;
+    text-align: center !important;
+    z-index: 2 !important;
+  }
+  body .page-main > header.page-hero .page-lead {
+    position: absolute !important;
+    top: calc(50% + 38px + 34px) !important;
+    left: 50% !important;
+    width: min(290px, 84%) !important;
+    max-width: 290px !important;
+    margin: 0 !important;
+    transform: translateX(-50%) !important;
+    white-space: normal !important;
+    text-align: center !important;
+    z-index: 2 !important;
+  }
+
+}
+</style>
+<style id="about-mobile-editorial-layout-2026">
+/* Mise en page des biographies sur mobile uniquement. Aucun texte supprimé. */
+@media (max-width: 800px) {
+  .about-page .about-content {
+    width: min(630px, 90%);
+    padding: 38px 0 54px;
+  }
+  .about-page .about-founder,
+  .about-page .about-team {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 17px;
+    align-items: start;
+  }
+  .about-page .about-founder .about-photo,
+  .about-page .about-team .about-photo {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+  }
+  .about-page .about-team .about-photo { order: -1; }
+  .about-page .about-founder .about-photo-frame,
+  .about-page .about-team .about-photo-frame {
+    width: 100%;
+    height: clamp(190px, 49vw, 300px);
+    aspect-ratio: auto;
+    border-radius: 9px;
+    box-shadow: 0 9px 25px rgba(0,0,0,.22);
+  }
+  .about-page .about-photo-frame picture {
+    display: block;
+    height: 100%;
+    width: 100%;
+  }
+  .about-page .about-photo-frame picture img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 35%;
+  }
+  .about-page .about-photo figcaption {
+    margin-top: 7px;
+    font-size: 9px;
+    letter-spacing: 1.1px;
+  }
+  .about-page .about-mobile-photo-title {
+    padding: 45px 17px 15px;
+  }
+  .about-page .about-mobile-photo-title strong {
+    font-size: clamp(20px, 4.9vw, 27px);
+  }
+  .about-page .about-mobile-photo-title > span:last-child {
+    font-size: clamp(12px, 3vw, 15px);
+  }
+  .about-page .about-story {
+    padding: 0 3px;
+    max-width: 66ch;
+  }
+  .about-page .about-story p {
+    font-size: 14px;
+    line-height: 1.76;
+    color: #d0d0d0;
+    text-align: left;
+    overflow-wrap: break-word;
+  }
+  .about-page .about-story p + p { margin-top: 13px; }
+  .about-page .about-duo-banner {
+    margin: 35px 0 38px;
+    border-radius: 9px;
+  }
+  .about-page .about-team { margin-top: 0; }
+}
+@media (max-width: 420px) {
+  .about-page .about-founder .about-photo-frame,
+  .about-page .about-team .about-photo-frame { height: 205px; }
+  .about-page .about-story p { font-size: 13.5px; line-height: 1.72; }
+}
+</style>
+<style id="about-mobile-story-carousel-2026">
+/* Smartphone uniquement : les images mobiles conservent leur ratio natif et aucun texte n'est coupé. */
+.about-page .about-carousel-controls { display: none; }
+.about-page .about-reading-carousel { display: contents; }
+@media (max-width: 800px) {
+  .about-page .about-content { width: 100%; padding: 42px 0 55px; overflow: hidden; }
+  .about-page .about-founder, .about-page .about-team { display: flex; flex-direction: column; gap: 0; }
+  .about-page .about-founder .about-photo, .about-page .about-team .about-photo {
+    order: 0; width: min(560px, 88%); max-width: none; margin: 0 auto;
+  }
+  .about-page .about-founder .about-photo-frame, .about-page .about-team .about-photo-frame {
+    height: auto !important; aspect-ratio: auto !important; overflow: visible;
+    background: transparent; border: 0; box-shadow: none; transform: none;
+  }
+  .about-page .about-photo-frame picture, .about-page .about-photo-frame picture img {
+    display: block; width: 100%; height: auto !important; aspect-ratio: auto !important;
+  }
+  .about-page .about-photo-frame picture img { object-fit: contain; border-radius: 10px; transform: none !important; }
+  .about-page .about-mobile-photo-title {
+    position: static; padding: 16px 0 7px; background: none;
+    gap: 4px; color: #fff;
+  }
+  .about-page .about-mobile-photo-title strong { font-size: clamp(24px,6.2vw,32px); }
+  .about-page .about-mobile-photo-title > span:last-child { color: #b9bbbd; font-size: 14px; }
+  .about-page .about-photo figcaption { margin: 1px 0 0; text-align: left; }
+  .about-page .about-founder .about-story, .about-page .about-team .about-story {
+    order: 1; padding: 20px 0 0; width: 100%; max-width: none;
+  }
+  .about-page .about-reading-carousel {
+    display: flex; flex-direction: row; gap: 12px;
+    overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory;
+    scroll-padding-inline: 6%; padding: 3px 6% 12px;
+    scrollbar-width: none; -webkit-overflow-scrolling: touch; overscroll-behavior-inline: contain;
+  }
+  .about-page .about-reading-carousel::-webkit-scrollbar { display:none; }
+  .about-page .about-reading-carousel .about-slide {
+    box-sizing: border-box; flex: 0 0 88%; scroll-snap-align: center;
+    display: flex; align-items: center; padding: 25px 23px;
+    min-height: 250px; border: 1px solid rgba(255,255,255,.14);
+    border-radius: 12px; background: linear-gradient(145deg,#292c2e,#1b1d1f);
+    box-shadow: 0 8px 20px rgba(0,0,0,.11);
+  }
+  .about-page .about-reading-carousel .about-slide p {
+    margin: 0 !important; font-size: 14px; line-height: 1.78;
+    color: #dedede; text-align: left;
+  }
+  .about-page .about-carousel-controls {
+    display:flex; align-items:center; justify-content:space-between; gap: 8px;
+    width:88%; margin: 10px auto 0;
+  }
+  .about-page .about-carousel-hint { font: 700 9px/1.5 Arial,sans-serif; letter-spacing: 1.1px; color:#aeb1b3; }
+  .about-page .about-carousel-actions { display:flex; align-items:center; gap:12px; }
+  .about-page .about-carousel-actions button {
+    width: 37px; height: 37px; border: 1px solid #777; border-radius: 50%;
+    background: #292b2d; color: white; font-size: 19px; cursor:pointer;
+  }
+  .about-page .about-carousel-actions button:disabled { opacity:.30; cursor:default; }
+  .about-page .about-carousel-actions button:focus-visible { outline:2px solid white; outline-offset:3px; }
+  .about-page .about-carousel-count { min-width: 42px; text-align:center; font: 600 11px Arial,sans-serif; color:#d0d2d4; }
+  .about-page .about-duo-banner { width: 88%; margin: 42px auto; }
+  .about-page .about-team { margin: 0; }
+}
+@media (prefers-reduced-motion: reduce) { .about-page .about-reading-carousel { scroll-behavior:auto; } }
+</style>
+<style id="about-mobile-polish-2026">
+/* Mobile : titres AVANT portraits, sans toucher au rendu ordinateur. */
+@media (max-width: 800px) {
+  .about-page .about-founder .about-photo-frame,
+  .about-page .about-team .about-photo-frame {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: stretch;
+    gap: 15px;
+  }
+  .about-page .about-mobile-photo-title {
+    position: static;
+    display: flex;
+    align-items: flex-start;
+    padding: 0;
+    margin: 0;
+    background: none;
+    text-align: left;
+    pointer-events: auto;
+  }
+  .about-page .about-mobile-photo-title .about-mobile-photo-kicker {
+    color: #aeb0b2;
+    text-transform: uppercase;
+    font-size: 10px;
+    letter-spacing: 1.8px;
+    font-weight: 700;
+    margin-bottom: 5px;
+  }
+  .about-page .about-mobile-photo-title strong { color: #fff; line-height: 1.15; }
+  .about-page .about-mobile-photo-title > span:last-child { line-height: 1.4; }
+  .about-page .about-photo figcaption { margin-top: 9px; }
+
+  /* Encadré « Sur le terrain ensemble » : récit et photo séparés, sans texte sur l'image. */
+  .about-page .about-duo-banner {
+    display: flex;
+    flex-direction: column;
+    width: min(560px, 88%);
+    min-height: 0;
+    margin: 46px auto 48px;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,.13);
+    border-radius: 13px;
+    background: #222426;
+    box-shadow: 0 14px 34px rgba(0,0,0,.20);
+  }
+  .about-page .about-duo-banner::before,
+  .about-page .about-duo-banner::after { display: none; }
+  .about-page .about-duo-banner-content {
+    order: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    grid-area: auto;
+    min-height: 0;
+    padding: 26px 25px 25px;
+    background: transparent;
+    text-shadow: none;
+  }
+  .about-page .about-duo-banner .about-kicker {
+    margin: 0 0 12px;
+    color: #aeb0b2;
+    font-size: 10px;
+    letter-spacing: 1.7px;
+  }
+  .about-page .about-duo-banner .about-kicker::before { background: #888; }
+  .about-page .about-duo-banner h2 {
+    margin: 0 0 12px;
+    max-width: 100%;
+    font-size: clamp(25px, 6.1vw, 35px);
+    line-height: 1.18;
+    letter-spacing: -.5px;
+    color: #fff;
+    text-shadow: none;
+  }
+  .about-page .about-duo-banner p:not(.about-kicker) {
+    margin: 0;
+    max-width: 100%;
+    font-size: 14px;
+    line-height: 1.75;
+    color: #cfd0d2;
+    text-shadow: none;
+  }
+  .about-page .about-duo-mobile-image {
+    order: 1;
+    display: block;
+    grid-area: auto;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-top: 1px solid rgba(255,255,255,.08);
+  }
+}
+@media (max-width: 420px) {
+  .about-page .about-duo-banner-content { padding: 23px 20px 22px; }
+  .about-page .about-duo-banner p:not(.about-kicker) { font-size: 13.5px; line-height: 1.72; }
+}
+</style>
+<style id="about-mobile-portrait-as-first-slide-2026">
+/* Le portrait devient la première carte des carrousels sur mobile seulement. */
+.about-page .about-slide-portrait { display: none; }
+@media (max-width: 800px) {
+  .about-page .about-founder > .about-photo,
+  .about-page .about-team > .about-photo { display: none !important; }
+  .about-page .about-founder .about-story,
+  .about-page .about-team .about-story { order: 0; padding-top: 0; }
+  .about-page .about-reading-carousel .about-slide-portrait {
+    display: flex; flex-direction: column; justify-content: center;
+    align-items: center; gap: 13px; padding: 20px 17px 17px;
+    min-height: 0;
+  }
+  .about-page .about-slide-portrait-heading {
+    width: 100%; display: flex; flex-direction: column; align-items: flex-start;
+    gap: 5px; text-align: left;
+  }
+  .about-page .about-slide-portrait-heading > span {
+    font: 700 10px/1.5 Arial,sans-serif; letter-spacing: 1.6px; color: #aeb0b2;
+  }
+  .about-page .about-slide-portrait-heading strong {
+    font-size: clamp(21px, 5.7vw, 29px); line-height: 1.15; color: #fff;
+  }
+  .about-page .about-slide-portrait-heading small {
+    font-size: 13px; line-height: 1.5; color: #bec0c2;
+  }
+  .about-page .about-slide-portrait picture {
+    display: flex; justify-content: center; align-items: center;
+    width: 100%; height: auto;
+  }
+  .about-page .about-slide-portrait picture img {
+    display: block; width: auto; max-width: 100%; height: auto;
+    max-height: 295px; object-fit: contain; border-radius: 8px;
+  }
+  .about-page .about-slide-portrait-caption {
+    width: 100%; font-size: 9px; line-height: 1.5;
+    letter-spacing: 1.1px; color: #aeb0b2; text-align: left;
+  }
+  .about-page .about-founder .about-story > .about-kicker,
+  .about-page .about-team .about-story > .about-kicker,
+  .about-page .about-founder .about-story > .about-heading,
+  .about-page .about-team .about-story > .about-heading { display: none !important; }
+  .about-page .about-founder .about-story, .about-page .about-team .about-story { width: 100%; }
+}
+</style>
+<style id="about-mobile-titles-outside-carousel-2026">
+/* Titres visibles hors du carrousel ; premier panneau photo uniquement.
+   Les cartes de texte retrouvent le style d'origine. Aucun impact desktop. */
+@media (max-width: 800px) {
+  .about-page .about-founder .about-story > .about-kicker,
+  .about-page .about-team .about-story > .about-kicker {
+    display: flex !important;
+    width: 88%;
+    margin: 0 auto 13px;
+  }
+  .about-page .about-founder .about-story > .about-heading,
+  .about-page .about-team .about-story > .about-heading {
+    display: block !important;
+    width: 88%;
+    margin: 0 auto 24px;
+    font-size: clamp(26px, 6.7vw, 36px);
+    line-height: 1.18;
+  }
+  .about-page .about-reading-carousel .about-slide-portrait {
+    justify-content: center;
+    padding: 15px;
+    gap: 11px;
+  }
+  .about-page .about-slide-portrait picture img {
+    width: auto;
+    max-width: 100%;
+    max-height: 295px;
+    height: auto;
+    object-fit: contain;
+  }
+}
+</style>
+<style id="about-mobile-final-portrait-cards-2026">
+/* Mobile : titres de présentation hors du carrousel et portraits recadrés au format des cartes. */
+@media (max-width: 800px) {
+  .about-page .about-founder .about-story > .about-heading,
+  .about-page .about-team .about-story > .about-heading {
+    display: block !important;
+    width: 88%;
+    margin: 0 auto 22px;
+  }
+  .about-page .about-reading-carousel .about-slide.about-slide-portrait {
+    position: relative;
+    display: block;
+    flex: 0 0 88%;
+    height: 300px;
+    min-height: 300px;
+    padding: 0;
+    overflow: hidden;
+    isolation: isolate;
+    border-radius: 12px;
+    background: #222426;
+  }
+  .about-page .about-reading-carousel .about-slide-portrait picture {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  .about-page .about-reading-carousel .about-slide-portrait picture img {
+    display: block;
+    width: 100%;
+    max-width: none;
+    height: 100%;
+    max-height: none;
+    object-fit: cover;
+    object-position: center center;
+    border-radius: 0;
+  }
+  .about-page .about-reading-carousel .about-slide-portrait-caption {
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 42px 18px 16px;
+    background: linear-gradient(to bottom, transparent, rgba(0,0,0,.75));
+    color: #fff;
+    text-align: left;
+  }
+}
+</style>
+<style id="about-mobile-visible-intros-fix">
+/* Annule le masquage historique des titres, uniquement sur mobile. */
+@media (max-width: 800px) {
+  .about-page .about-founder .about-story > h2.about-heading,
+  .about-page .about-team .about-story > h2.about-heading {
+    display: block !important;
+    position: static !important;
+    width: 88% !important;
+    height: auto !important;
+    margin: 0 auto 22px !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    clip: auto !important;
+    clip-path: none !important;
+    white-space: normal !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    border: 0 !important;
+    text-align: left;
+  }
+}
+</style>
 </head>
 
 <body class="about-page">
@@ -609,7 +1154,10 @@
             <section class="about-founder" aria-labelledby="about-victor-title">
                 <figure class="about-photo">
                     <div class="about-photo-frame">
-                        <img src="images/photo-bio.jpg" alt="Victor Roche-Menu, fondateur de Digital Art Production" loading="lazy" width="800" height="1000">
+                        <picture>
+                            <source media="(max-width: 800px)" srcset="images/photo-bio-mobile.jpg">
+                            <img src="images/photo-bio.jpg" alt="Victor Roche-Menu, fondateur de Digital Art Production" loading="lazy" width="800" height="1000">
+                        </picture>
                         <div class="about-mobile-photo-title" aria-hidden="true">
                             <span class="about-mobile-photo-kicker">Le fondateur</span>
                             <strong>Salut, moi c'est Victor.</strong>
@@ -622,12 +1170,22 @@
                 <div class="about-story">
                     <p class="about-kicker">L'histoire derrière l'image</p>
                     <h2 class="about-heading" id="about-victor-title">Salut, moi c'est Victor.<span>Bienvenue dans mon univers.</span></h2>
-                    <p>Je suis vidéaste, réalisateur et pilote de drone, à l'origine de Digital Art Production. Depuis toujours, j'aime l'image, les voyages et les aventures qui nous emmènent hors de nos habitudes.</p>
-                    <p>J'ai créé Digital Art Production avec l'envie de faire de cette passion mon métier : aller à la rencontre de personnes et de projets qui ont quelque chose à raconter, et leur donner vie à travers des images qui transmettent une émotion.</p>
-                    <p>Passionné par le drone et la prise de vue aérienne, j'aime prendre de la hauteur pour découvrir les paysages sous un autre angle, jouer avec les perspectives et capturer des images que l'on ne pourrait pas obtenir depuis le sol. Du drone traditionnel au FPV, j'explore les différentes possibilités de ces technologies pour apporter une dimension cinématographique et immersive à mes réalisations.</p>
-                    <p>Au fil des tournages, mon travail m'a conduit aux quatre coins du monde. J'y ai découvert des univers très différents, souvent exigeants, qui m'ont appris à m'adapter, à observer et à raconter ce qui se passe vraiment sur le terrain.</p>
-                    <p>Aujourd'hui, qu'il s'agisse d'une aventure à l'autre bout du monde, d'un film pour une entreprise ou d'un événement près de chez nous, je garde la même approche : m'impliquer pleinement dans chaque projet et soigner autant l'histoire que les images.</p>
-                </div>
+                    <div class="about-reading-carousel" aria-label="Parcours de Victor">
+                        <div class="about-slide about-slide-portrait" aria-label="Portrait de Victor">
+                            <picture><img src="images/photo-bio.jpg" alt="Victor Roche-Menu, fondateur de Digital Art Production" loading="lazy"></picture>
+                            <div class="about-slide-portrait-caption">VICTOR ROCHE-MENU · FONDATEUR &amp; VIDÉASTE</div>
+                        </div>
+                        
+                        <div class="about-slide"><p>Je suis vidéaste, réalisateur et pilote de drone, à l'origine de Digital Art Production. Depuis toujours, j'aime l'image, les voyages et les aventures qui nous emmènent hors de nos habitudes.</p></div>
+                        <div class="about-slide"><p>J'ai créé Digital Art Production avec l'envie de faire de cette passion mon métier : aller à la rencontre de personnes et de projets qui ont quelque chose à raconter, et leur donner vie à travers des images qui transmettent une émotion.</p></div>
+                        <div class="about-slide"><p>Passionné par le drone et la prise de vue aérienne, j'aime prendre de la hauteur pour découvrir les paysages sous un autre angle, jouer avec les perspectives et capturer des images que l'on ne pourrait pas obtenir depuis le sol. Du drone traditionnel au FPV, j'explore les différentes possibilités de ces technologies pour apporter une dimension cinématographique et immersive à mes réalisations.</p></div>
+                        <div class="about-slide"><p>Au fil des tournages, mon travail m'a conduit aux quatre coins du monde. J'y ai découvert des univers très différents, souvent exigeants, qui m'ont appris à m'adapter, à observer et à raconter ce qui se passe vraiment sur le terrain.</p></div>
+                        <div class="about-slide"><p>Aujourd'hui, qu'il s'agisse d'une aventure à l'autre bout du monde, d'un film pour une entreprise ou d'un événement près de chez nous, je garde la même approche : m'impliquer pleinement dans chaque projet et soigner autant l'histoire que les images.</p></div>
+                    </div>
+                    <div class="about-carousel-controls" aria-label="Navigation du récit">
+                      <span class="about-carousel-hint">GLISSEZ POUR DÉCOUVRIR</span>
+                      <div class="about-carousel-actions"><button class="about-carousel-prev" type="button" aria-label="Texte précédent">←</button><span class="about-carousel-count" aria-live="polite">01 / 05</span><button class="about-carousel-next" type="button" aria-label="Texte suivant">→</button></div>
+                    </div></div>
             </section>
 
             <section class="about-duo-banner" aria-label="Victor et Marjo sur le terrain">
@@ -644,14 +1202,27 @@
                 <div class="about-story">
                     <p class="about-kicker">L'aventure grandit</p>
                     <h2 class="about-heading" id="about-marjo-title">Moi, c'est Marjo.<span>Deux regards, une même ambition.</span></h2>
-                    <p>Digital Art Production, c'est avant tout une aventure que Victor a construite au fil des années. Aujourd'hui, je suis heureuse de le rejoindre pour écrire ensemble la suite de cette histoire et apporter mon regard et mes compétences à nos projets.</p>
-                    <p>Mon rôle est d'intervenir à chaque étape de la production : de la préparation à l'organisation logistique, en passant par les tournages et le montage. Cette complémentarité nous permet de travailler plus efficacement, de gagner en réactivité et de réduire les délais de livraison, sans jamais compromettre la qualité de nos réalisations.</p>
-                    <p>Ce qui me plaît dans cette aventure, c'est de découvrir de nouveaux univers, de rencontrer des personnes et de contribuer à raconter leurs histoires. Ensemble, nous souhaitons offrir à chaque client un accompagnement humain et attentif, du premier échange jusqu'à la livraison du projet.</p>
-                </div>
+                    <div class="about-reading-carousel" aria-label="Parcours de Marjo">
+                        <div class="about-slide about-slide-portrait" aria-label="Portrait de Marjo">
+                            <picture><img src="images/marjo.jpg" alt="Marjo, membre de l'équipe Digital Art Production" loading="lazy"></picture>
+                            <div class="about-slide-portrait-caption">MARJO · PRODUCTION &amp; COORDINATION</div>
+                        </div>
+                        
+                        <div class="about-slide"><p>Digital Art Production, c'est avant tout une aventure que Victor a construite au fil des années. Aujourd'hui, je suis heureuse de le rejoindre pour écrire ensemble la suite de cette histoire et apporter mon regard et mes compétences à nos projets.</p></div>
+                        <div class="about-slide"><p>Mon rôle est d'intervenir à chaque étape de la production : de la préparation à l'organisation logistique, en passant par les tournages et le montage. Cette complémentarité nous permet de travailler plus efficacement, de gagner en réactivité et de réduire les délais de livraison, sans jamais compromettre la qualité de nos réalisations.</p></div>
+                        <div class="about-slide"><p>Ce qui me plaît dans cette aventure, c'est de découvrir de nouveaux univers, de rencontrer des personnes et de contribuer à raconter leurs histoires. Ensemble, nous souhaitons offrir à chaque client un accompagnement humain et attentif, du premier échange jusqu'à la livraison du projet.</p></div>
+                    </div>
+                    <div class="about-carousel-controls" aria-label="Navigation du récit">
+                      <span class="about-carousel-hint">GLISSEZ POUR DÉCOUVRIR</span>
+                      <div class="about-carousel-actions"><button class="about-carousel-prev" type="button" aria-label="Texte précédent">←</button><span class="about-carousel-count" aria-live="polite">01 / 03</span><button class="about-carousel-next" type="button" aria-label="Texte suivant">→</button></div>
+                    </div></div>
 
                 <figure class="about-photo">
                     <div class="about-photo-frame">
-                        <img src="images/marjo.jpg" alt="Marjo, membre de l'équipe Digital Art Production" loading="lazy" width="800" height="900">
+                        <picture>
+                            <source media="(max-width: 800px)" srcset="images/marjo-mobile.jpg">
+                            <img src="images/marjo.jpg" alt="Marjo, membre de l'équipe Digital Art Production" loading="lazy" width="800" height="900">
+                        </picture>
                         <div class="about-mobile-photo-title" aria-hidden="true">
                             <span class="about-mobile-photo-kicker">L'aventure grandit</span>
                             <strong>Moi, c'est Marjo.</strong>
@@ -749,6 +1320,46 @@
     <!-- =========================================
          4. JAVASCRIPT
     ========================================= -->
+
+<script id="about-mobile-story-carousel-script">
+(() => {
+  document.querySelectorAll('.about-page .about-story').forEach(story => {
+    const track = story.querySelector('.about-reading-carousel');
+    const controls = story.querySelector('.about-carousel-controls');
+    if (!track || !controls) return;
+    const slides = [...track.querySelectorAll('.about-slide')];
+    const prev = controls.querySelector('.about-carousel-prev');
+    const next = controls.querySelector('.about-carousel-next');
+    const count = controls.querySelector('.about-carousel-count');
+    const current = () => {
+      const center = track.scrollLeft + track.clientWidth / 2;
+      let best = 0, dist = Infinity;
+      slides.forEach((slide, index) => {
+        const difference = Math.abs(slide.offsetLeft - track.offsetLeft + slide.offsetWidth / 2 - center);
+        if (difference < dist) { dist = difference; best = index; }
+      });
+      return best;
+    };
+    const update = () => {
+      const index = current();
+      count.textContent = String(index + 1).padStart(2,'0') + ' / ' + String(slides.length).padStart(2,'0');
+      prev.disabled = index === 0;
+      next.disabled = index === slides.length - 1;
+    };
+    const go = step => {
+      const index = Math.max(0, Math.min(slides.length-1, current() + step));
+      const slide = slides[index];
+      const left = slide.offsetLeft - track.offsetLeft - (track.clientWidth - slide.clientWidth)/2;
+      track.scrollTo({left, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth'});
+    };
+    prev.addEventListener('click', () => go(-1));
+    next.addEventListener('click', () => go(1));
+    track.addEventListener('scroll', update, {passive:true});
+    window.addEventListener('resize', update);
+    update();
+  });
+})();
+</script>
 
     <script src="script.js"></script>
 

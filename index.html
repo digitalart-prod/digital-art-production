@@ -55,6 +55,21 @@
             pointer-events: none;
         }
 
+        /* Vignettage léger appliqué uniquement à la vidéo de fond, PC et mobile. */
+        .hero-video-vignette {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100vh;
+            height: 100dvh;
+            z-index: 0;
+            pointer-events: none;
+            background: radial-gradient(ellipse at center,
+                transparent 50%,
+                rgba(0, 0, 0, .06) 74%,
+                rgba(0, 0, 0, .18) 100%);
+        }
+
         /* Le logo et le texte suivent le défilement normal du hero. */
         #home.hero::before,
         #home.hero::after {
@@ -68,8 +83,53 @@
             z-index: 2;
         }
 
-        @media (prefers-reduced-motion: reduce) {
+        /* PC et mobile : aucun voile sombre uniforme ; ombres localisées sur le logo. */
+        #home.hero::before,
+        #home.hero::after {
+            background: transparent !important;
+            box-shadow: none !important;
+            opacity: 0 !important;
+        }
+
+        #home .hero-logo img {
+            /* Ombre douce directement derrière les formes du logo, sans voile sur la vidéo. */
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, .52))
+                    drop-shadow(0 4px 8px rgba(0, 0, 0, .28));
+        }
+
+        #home > p {
+            /* Ombre concentrée derrière les lettres, avec une diffusion légère. */
+            text-shadow: 0 2px 4px rgba(0, 0, 0, .58),
+                         0 3px 9px rgba(0, 0, 0, .30);
+        }
+
+        /* Supprime le vignettage sur la photo et la vidéo NOTRE ACTIVITÉ. */
+        .home-intro .activity-image .activity-iris::after {
+            content: none !important;
+        }
+
+        @media (max-width: 650px) {
+            /* Hauteur stable : évite le recadrage lorsque les barres du navigateur mobile bougent. */
             .hero-background-video {
+                height: 100vh;
+                height: 100lvh;
+                min-height: 100lvh;
+                inset: 0 0 auto;
+                transform: none !important;
+                animation: none !important;
+                transition: none !important;
+            }
+            .hero-video-vignette {
+                height: 100vh;
+                height: 100lvh;
+                inset: 0 0 auto;
+            }
+
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .hero-background-video,
+            .hero-video-vignette {
                 display: none;
             }
         }
@@ -896,6 +956,221 @@
         }
       }
     </style>
+    <!-- HOME — recadrage léger de NOTRE ACTIVITÉ, mobile uniquement -->
+    <style>
+      @media (max-width: 650px) {
+        /* Image un peu moins haute, coupée en haut et en bas sans déformation. */
+        .home-intro .activity-layout .activity-image {
+          align-self: start !important;
+          height: auto !important;
+          min-height: 0 !important;
+        }
+        .home-intro .activity-layout .activity-image .activity-iris {
+          width: 100% !important;
+          height: auto !important;
+          min-height: 0 !important;
+          aspect-ratio: 1.12 / 1 !important;
+        }
+        .home-intro .activity-layout .activity-image .activity-iris > img,
+        .home-intro .activity-layout .activity-image .activity-iris .activity-iris-reveal,
+        .home-intro .activity-layout .activity-image .activity-iris .activity-iris-reveal > video {
+          width: 100% !important;
+          height: 100% !important;
+          object-fit: cover !important;
+          object-position: center center !important;
+        }
+        /* Le texte exploite la colonne gauche sans forcer la hauteur de l'image. */
+        .home-intro .activity-copy-stack .activity-description {
+          font-size: clamp(13px, 3.65vw, 15px) !important;
+          line-height: 1.42 !important;
+          letter-spacing: -0.012em !important;
+          max-width: none !important;
+          width: 100% !important;
+          text-wrap: pretty;
+        }
+        /* Retrait de la dernière ligne de métiers sur mobile uniquement. */
+        .home-intro .activity-copy-stack .activity-specialties {
+          display: none !important;
+        }
+      }
+    </style>
+    <!-- NOTRE ACTIVITÉ — mise en page sans photo/vidéo -->
+    <style>
+      .home-intro .activity-layout {
+        display: block !important;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+      .home-intro .activity-content {
+        display: block !important;
+        width: 100%;
+        max-width: none;
+      }
+      .home-intro .activity-copy-stack { display: block !important; }
+      @media (max-width: 650px) {
+        .home-intro .activity-layout {
+          display: block !important;
+          max-width: none;
+        }
+        .home-intro .activity-content {
+          display: flex !important;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 0;
+        }
+        .home-intro .activity-copy-stack { display: block !important; width: 100%; }
+        .home-intro .activity-description,
+        .home-intro .activity-copy-stack .activity-description {
+          width: 100% !important;
+          max-width: none !important;
+          font-size: 16px !important;
+          line-height: 1.6 !important;
+        }
+        .home-intro .activity-lead { margin-bottom: 16px !important; }
+        .home-intro .activity-specialties { display: none !important; }
+      }
+    </style>
+    <!-- HOME — titre sans bandeau ni traits, deux phrases sur une ligne chacune -->
+    <style>
+      .home-intro .activity-eyebrow,
+      .home-intro .activity-divider,
+      .home-intro .activity-rule { display: none !important; }
+      .home-intro .activity-layout,
+      .home-intro .activity-content { max-width: none !important; width: 100%; }
+      .home-intro .activity-title {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        width: 100% !important;
+        max-width: none !important;
+        margin: 0 0 28px !important;
+        font-size: clamp(27px, 3.5vw, 48px) !important;
+        line-height: 1.18 !important;
+        letter-spacing: -0.035em !important;
+        white-space: nowrap !important;
+      }
+      .home-intro .activity-title .activity-title-main,
+      .home-intro .activity-title .activity-title-sub {
+        display: block !important;
+        width: 100% !important;
+        max-width: none !important;
+        white-space: nowrap !important;
+      }
+      @media (max-width: 650px) {
+        .home-intro .activity-title {
+          font-size: clamp(16px, 4.85vw, 24px) !important;
+          letter-spacing: -0.045em !important;
+          line-height: 1.2 !important;
+          margin-bottom: 24px !important;
+        }
+      }
+    </style>
+    <!-- Dimensionnement précis du titre principal, sans retour à la ligne. -->
+    <style>
+      .home-intro .activity-title .activity-title-main {
+        font-size: var(--activity-main-font-size, clamp(22px, 5.6vw, 82px)) !important;
+        line-height: 1.08 !important;
+        letter-spacing: -0.045em !important;
+      }
+    </style>
+    <!-- HOME : photo statique uniquement sur ordinateur, sans lecture vidéo -->
+    <style>
+      @media (min-width: 651px) {
+        .home-intro .activity-layout {
+          display: grid !important;
+          grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr) !important;
+          align-items: center !important;
+          gap: clamp(24px, 3.5vw, 55px) !important;
+          max-width: 1200px !important;
+          width: 100% !important;
+          margin: 0 auto !important;
+        }
+        .home-intro .activity-content {
+          display: block !important;
+          min-width: 0 !important;
+          max-width: none !important;
+        }
+        .home-intro .activity-image-desktop {
+          display: block !important;
+          width: 100% !important;
+          max-width: 400px !important;
+          justify-self: end !important;
+          margin: 0 !important;
+          overflow: hidden !important;
+          border-radius: 15px !important;
+          box-shadow: 0 12px 30px rgba(0,0,0,.25), 0 25px 60px rgba(0,0,0,.18) !important;
+        }
+        .home-intro .activity-image-desktop > img {
+          display: block !important;
+          width: 100% !important;
+          height: auto !important;
+          aspect-ratio: 4 / 3 !important;
+          object-fit: cover !important;
+          object-position: center !important;
+          transform: none !important;
+          transition: none !important;
+        }
+      }
+      @media (max-width: 650px) {
+        .home-intro .activity-image-desktop { display: none !important; }
+      }
+    </style>
+    <!-- HOME — mise en page PC : titre pleine largeur, photo alignée avec POST-PRODUCTION -->
+    <style>
+      @media (min-width: 651px) {
+        .home-intro .activity-layout {
+          display: grid !important;
+          grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr) !important;
+          grid-template-rows: auto auto auto !important;
+          column-gap: clamp(35px, 5vw, 85px) !important;
+          row-gap: 0 !important;
+          align-items: start !important;
+          max-width: 1400px !important;
+          margin-inline: auto !important;
+        }
+        .home-intro .activity-content { display: contents !important; }
+        .home-intro .activity-title {
+          grid-column: 1 / -1 !important;
+          grid-row: 1 !important;
+          width: 100% !important;
+          margin: 0 0 clamp(25px, 4vw, 58px) !important;
+          align-self: start !important;
+        }
+        .home-intro .activity-title .activity-title-main {
+          /* La fonction d'ajustement existante calcule la taille maximale sur une ligne. */
+          max-width: 100% !important;
+          font-weight: 700 !important;
+        }
+        .home-intro .activity-title .activity-title-sub {
+          font-size: clamp(29px, 3.5vw, 52px) !important;
+          line-height: 1.2 !important;
+        }
+        .home-intro .activity-lead {
+          grid-column: 1 !important;
+          grid-row: 2 !important;
+          margin-top: 0 !important;
+          align-self: end !important;
+        }
+        .home-intro .activity-copy-stack {
+          grid-column: 1 !important;
+          grid-row: 3 !important;
+          display: block !important;
+          align-self: end !important;
+        }
+        .home-intro .activity-copy-stack .activity-specialties {
+          margin-bottom: 0 !important;
+        }
+        .home-intro .activity-image-desktop {
+          grid-column: 2 !important;
+          grid-row: 2 / 4 !important;
+          align-self: end !important;
+          justify-self: end !important;
+          width: 100% !important;
+          max-width: 400px !important;
+          margin: 0 !important;
+        }
+      }
+    </style>
 </head>
 <body>
     <!-- =========================================
@@ -960,6 +1235,7 @@
         >
             <source src="videos/accueil.mp4" type="video/mp4">
         </video>
+    <div class="hero-video-vignette" aria-hidden="true"></div>
     <header id="home" class="hero">
 
         <h1 class="hero-logo">
@@ -981,27 +1257,18 @@
     <div class="section-container">
         <div class="activity-layout">
             <div class="activity-content">
-                <p class="activity-eyebrow"><span class="activity-rule" aria-hidden="true"></span>  NOTRE ACTIVITÉ</p>
                 <h2 class="activity-title" id="activity-title">
                     <span class="activity-title-main">Chaque terrain a son histoire.</span>
                     <span class="activity-title-sub">Tout commence avec un regard.</span>
                 </h2>
-                <div class="activity-divider" aria-hidden="true"></div>
                 <p class="activity-lead">Chaque projet mérite d'être raconté, quelle que soit son envergure. D'un Reel Instagram pour une entreprise locale à un film documentaire au bout du monde, nous donnons vie à vos idées.</p>
                 <div class="activity-copy-stack">
                     <p class="activity-description">Notre approche reste la même : des images authentiques, une réalisation soignée et une histoire qui vous ressemble.</p>
                     <p class="activity-specialties"><span>RÉALISATION</span><span><span class="specialty-desktop">PRODUCTION</span><span class="specialty-mobile">PROD</span></span><span><span class="specialty-desktop">POST-PRODUCTION</span><span class="specialty-mobile">POST PROD</span></span></p>
                 </div>
             </div>
-            <figure class="activity-image">
-                <div class="activity-iris" tabindex="0" aria-label="Aperçu vidéo de notre activité. Survolez ou appuyez pour lancer la vidéo.">
-                    <img src="images/notre-activite-carree.jpg" alt="Tournage en environnement extrême" loading="lazy">
-                    <div class="activity-iris-reveal" aria-hidden="true">
-                        <video muted loop playsinline preload="none" poster="images/notre-activite-carree.jpg">
-                            <source src="videos/notre-activite.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                </div>
+            <figure class="activity-image activity-image-desktop">
+                <img src="images/notre-activite-carree.jpg" alt="Tournage en environnement extrême" loading="lazy">
             </figure>
         </div>
     </div>
@@ -1293,69 +1560,7 @@
          5. JAVASCRIPT
     \========================================= -->
     <script src="script.js"></script>
-    <!-- Cinematic Fade : vidéo au survol et au focus, appui sur mobile -->
-    <script>
-    (() => {
-        const media = document.querySelector('.activity-iris');
-        if (!media) return;
-        const video = media.querySelector('video');
-        let active = false;
-        let resetTimer;
-        function setActive(value) {
-            active = value;
-            media.classList.toggle('is-playing', value);
-            window.clearTimeout(resetTimer);
-            if (value) {
-                video.play().catch(() => {});
-            } else {
-                // Garder la vidéo visible pendant le fondu de sortie.
-                resetTimer = window.setTimeout(() => {
-                    if (!active) {
-                        video.pause();
-                        video.currentTime = 0;
-                    }
-                }, 300);
-            }
-        }
-        media.addEventListener('pointerenter', e => {
-            if (e.pointerType === 'mouse' || e.pointerType === 'pen') setActive(true);
-        });
-        media.addEventListener('pointerleave', e => {
-            if (e.pointerType === 'mouse' || e.pointerType === 'pen') setActive(false);
-        });
-        media.addEventListener('click', () => {
-            if (window.matchMedia('(hover: none)').matches) setActive(!active);
-        });
-        // Mobile : dès que la page défile verticalement, revenir à la photo.
-        // Le toucher simple garde son rôle de lecture/pause via le clic ci-dessus.
-        let lastScrollY = window.scrollY;
-        window.addEventListener('scroll', () => {
-            const currentY = window.scrollY;
-            if (active && window.matchMedia('(hover: none)').matches &&
-                Math.abs(currentY - lastScrollY) >= 1) {
-                setActive(false);
-                // Stopper sans attendre le fondu, même si la page défile vite.
-                video.pause();
-                video.currentTime = 0;
-            }
-            lastScrollY = currentY;
-        }, { passive: true });
-        media.addEventListener('focus', () => {
-            if (media.matches(':focus-visible')) setActive(true);
-        });
-        media.addEventListener('blur', () => setActive(false));
-        media.addEventListener('keydown', e => {
-            if (e.key === 'Escape') setActive(false);
-        });
-        document.addEventListener('visibilitychange', () => {
-            if (document.hidden) {
-                setActive(false);
-                video.pause();
-            }
-        });
-    })();
-    </script>
-    <!-- Interaction des repères du planisphère -->
+<!-- Interaction des repères du planisphère -->
     <script>
     (() => {
         const map = document.querySelector('.map-wrapper');
@@ -1550,6 +1755,34 @@
         mobile.addEventListener('change', () => {
             cards.forEach(closeCard);
         });
+    })();
+    </script>
+    <!-- Le titre principal occupe presque toute la largeur utile, même après rotation ou chargement de police. -->
+    <script>
+    (() => {
+      const title = document.querySelector('.home-intro .activity-title .activity-title-main');
+      if (!title) return;
+      const parent = title.parentElement;
+      let raf = 0;
+      function fitTitle() {
+        cancelAnimationFrame(raf);
+        raf = requestAnimationFrame(() => {
+          const available = parent.clientWidth;
+          if (!available) return;
+          title.style.setProperty('--activity-main-font-size', '100px');
+          const measured = title.scrollWidth;
+          if (!measured) return;
+          let size = Math.max(12, Math.floor(100 * available / measured * (window.innerWidth >= 651 ? 0.94 : 0.985) * 10) / 10);
+          title.style.setProperty('--activity-main-font-size', size + 'px');
+          while (title.scrollWidth > available && size > 12) {
+            size -= 0.5;
+            title.style.setProperty('--activity-main-font-size', size + 'px');
+          }
+        });
+      }
+      window.addEventListener('resize', fitTitle, {passive:true});
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitTitle);
+      fitTitle();
     })();
     </script>
 </body>
