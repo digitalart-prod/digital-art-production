@@ -374,7 +374,43 @@ body.projets-page::before {
     padding: 5px 6px;
     font-size: 9px;
   }
+  /* Dernière verticale impaire : remplir la seconde colonne sans masquer de film. */
+  .projets-page .portfolio-more-card {
+    grid-column: span 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-width: 0;
+    aspect-ratio: 9 / 16;
+    padding: 16px 12px;
+    border: 1px solid rgba(255,255,255,.22);
+    border-radius: 10px;
+    background: linear-gradient(150deg, #35383b, #1c1e20);
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 0 8px 22px rgba(0,0,0,.16);
+  }
+  .projets-page .portfolio-more-card strong {
+    display: block;
+    font: 700 clamp(12px, 3.4vw, 18px)/1.35 Arial, sans-serif;
+    letter-spacing: .08em;
+  }
+  .projets-page .portfolio-more-card span {
+    display: block;
+    margin-top: 13px;
+    color: #c9c9c9;
+    font-size: clamp(10px, 2.9vw, 13px);
+    line-height: 1.5;
+  }
+  .projets-page .portfolio-more-card:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
 }
+/* Masquée hors mobile, sans changer la grille ordinateur. */
+.projets-page .portfolio-more-card { display: none; }
+@media (max-width: 650px) { .projets-page .portfolio-more-card:not([hidden]) { display: flex; } }
+.projets-page .portfolio-more-card[hidden] { display: none !important; }
 </style>
 </head>
 <body class="projets-page">
@@ -462,7 +498,7 @@ body.projets-page::before {
 <article class="portfolio-card" data-category="sport">
 <button aria-label="Activer le son de THE TRACK Mongolia" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
 <img class="portfolio-custom-poster" src="images/miniatures/sport02.jpg" alt="" loading="lazy" decoding="async" />
-<video aria-label="Vidéo THE TRACK Mongolia" class="portfolio-preview-video" loop="" muted="" playsinline="" preload="metadata"><source src="videos/sport/sport02.mp4" type="video/mp4"/></video>
+<video aria-label="Vidéo THE TRACK Mongolia" class="portfolio-preview-video" loop="" muted="" playsinline="" preload="none"><source src="videos/sport/sport02.mp4" type="video/mp4"/></video>
 <span class="portfolio-format portfolio-time" aria-label="Durée de la vidéo">--:--</span></button>
 <div class="portfolio-card-copy">
 <h3>THE TRACK Mongolia</h3>
@@ -471,7 +507,7 @@ body.projets-page::before {
 </article><article class="portfolio-card" data-category="sport">
 <button aria-label="Activer le son de Riders Shooting" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
 <img class="portfolio-custom-poster" src="images/miniatures/sport03.jpg" alt="" loading="lazy" decoding="async" />
-<video aria-label="Vidéo Riders Shooting" class="portfolio-preview-video" loop="" muted="" playsinline="" preload="metadata"><source src="videos/sport/sport03.mp4" type="video/mp4"/></video>
+<video aria-label="Vidéo Riders Shooting" class="portfolio-preview-video" loop="" muted="" playsinline="" preload="none"><source src="videos/sport/sport03.mp4" type="video/mp4"/></video>
 <span class="portfolio-format portfolio-time" aria-label="Durée de la vidéo">--:--</span></button>
 <div class="portfolio-card-copy">
 <h3>Riders Shooting</h3>
@@ -480,7 +516,7 @@ body.projets-page::before {
 </article><article class="portfolio-card" data-category="sport">
 <button aria-label="Activer le son de Rallye des Roches Brunes" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
 <img class="portfolio-custom-poster" src="images/miniatures/sport13.jpg" alt="" loading="lazy" decoding="async" />
-<video aria-label="Vidéo Rallye des Roches Brunes" class="portfolio-preview-video" loop muted playsinline preload="metadata"><source src="videos/sport/sport13.mp4" type="video/mp4"></video>
+<video aria-label="Vidéo Rallye des Roches Brunes" class="portfolio-preview-video" loop muted playsinline preload="none"><source src="videos/sport/sport13.mp4" type="video/mp4"></video>
 <span class="portfolio-format portfolio-time" aria-label="Durée de la vidéo">--:--</span></button>
 <div class="portfolio-card-copy">
 <h3>Rallye des Roches Brunes</h3>
@@ -490,7 +526,7 @@ body.projets-page::before {
 <article class="portfolio-card" data-category="sport">
 <button aria-label="Activer le son de Dry Tooling" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
 <img class="portfolio-custom-poster" src="images/miniatures/sport05.jpg" alt="" loading="lazy" decoding="async" />
-<video aria-label="Vidéo Dry Tooling" class="portfolio-preview-video" loop="" muted="" playsinline="" preload="metadata"><source src="videos/sport/sport05.mp4" type="video/mp4"/></video>
+<video aria-label="Vidéo Dry Tooling" class="portfolio-preview-video" loop="" muted="" playsinline="" preload="none"><source src="videos/sport/sport05.mp4" type="video/mp4"/></video>
 <span class="portfolio-format portfolio-time" aria-label="Durée de la vidéo">--:--</span></button>
 <div class="portfolio-card-copy">
 <h3>Dry Tooling</h3>
@@ -500,7 +536,7 @@ body.projets-page::before {
 <article class="portfolio-card" data-category="sport">
 <button aria-label="Activer le son de Ultra Bolivia Race" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
 <img class="portfolio-custom-poster" src="images/miniatures/sport07.jpg" alt="" loading="lazy" decoding="async" />
-<video aria-label="Vidéo Ultra Bolivia Race" class="portfolio-preview-video" loop muted playsinline preload="metadata"><source src="videos/sport/sport07.mp4" type="video/mp4"></video>
+<video aria-label="Vidéo Ultra Bolivia Race" class="portfolio-preview-video" loop muted playsinline preload="none"><source src="videos/sport/sport07.mp4" type="video/mp4"></video>
 <span class="portfolio-format portfolio-time" aria-label="Durée de la vidéo">--:--</span></button>
 <div class="portfolio-card-copy">
 <h3>Ultra Bolivia Race</h3>
@@ -510,7 +546,7 @@ body.projets-page::before {
 <article class="portfolio-card" data-category="sport">
 <button aria-label="Activer le son de Teaser Race Across AMERICA" class="portfolio-preview is-horizontal portfolio-inline-player" data-format="horizontal" type="button">
 <img class="portfolio-custom-poster" src="images/miniatures/sport06.jpg" alt="" loading="lazy" decoding="async" />
-<video aria-label="Vidéo Teaser Race Across AMERICA" class="portfolio-preview-video" loop="" muted="" playsinline="" preload="metadata"><source src="videos/sport/sport06.mp4" type="video/mp4"/></video>
+<video aria-label="Vidéo Teaser Race Across AMERICA" class="portfolio-preview-video" loop="" muted="" playsinline="" preload="none"><source src="videos/sport/sport06.mp4" type="video/mp4"/></video>
 <span class="portfolio-format portfolio-time" aria-label="Durée de la vidéo">--:--</span></button>
 <div class="portfolio-card-copy">
 <h3>Teaser Race Across AMERICA</h3>
@@ -520,7 +556,7 @@ body.projets-page::before {
 <article class="portfolio-card" data-category="sport">
 <button aria-label="Activer le son de THE TRACK Australia" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
 <img class="portfolio-custom-poster" src="images/miniatures/sport01.jpg" alt="" loading="lazy" decoding="async" />
-<video aria-label="Vidéo THE TRACK Australia" class="portfolio-preview-video" loop="" muted="" playsinline="" preload="metadata"><source src="videos/sport/sport01.mp4" type="video/mp4"/></video>
+<video aria-label="Vidéo THE TRACK Australia" class="portfolio-preview-video" loop="" muted="" playsinline="" preload="none"><source src="videos/sport/sport01.mp4" type="video/mp4"/></video>
 <span class="portfolio-format portfolio-time" aria-label="Durée de la vidéo">--:--</span></button>
 <div class="portfolio-card-copy">
 <h3>THE TRACK Australia</h3>
@@ -529,7 +565,7 @@ body.projets-page::before {
 </article><article class="portfolio-card" data-category="sport">
 <button aria-label="Activer le son de Ultra Bolivia Race" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
 <img class="portfolio-custom-poster" src="images/miniatures/sport08.jpg" alt="" loading="lazy" decoding="async" />
-<video aria-label="Vidéo Ultra Bolivia Race" class="portfolio-preview-video" loop muted playsinline preload="metadata"><source src="videos/sport/sport08.mp4" type="video/mp4"></video>
+<video aria-label="Vidéo Ultra Bolivia Race" class="portfolio-preview-video" loop muted playsinline preload="none"><source src="videos/sport/sport08.mp4" type="video/mp4"></video>
 <span class="portfolio-format portfolio-time" aria-label="Durée de la vidéo">--:--</span></button>
 <div class="portfolio-card-copy">
 <h3>Ultra Bolivia Race</h3>
@@ -539,7 +575,7 @@ body.projets-page::before {
 <article class="portfolio-card" data-category="sport">
 <button aria-label="Activer le son de Ultra Bolivia RACE" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
 <img class="portfolio-custom-poster" src="images/miniatures/sport12.jpg" alt="" loading="lazy" decoding="async" />
-<video aria-label="Vidéo Ultra Bolivia RACE" class="portfolio-preview-video" loop muted playsinline preload="metadata"><source src="videos/sport/sport12.mp4" type="video/mp4"></video>
+<video aria-label="Vidéo Ultra Bolivia RACE" class="portfolio-preview-video" loop muted playsinline preload="none"><source src="videos/sport/sport12.mp4" type="video/mp4"></video>
 <span class="portfolio-format portfolio-time" aria-label="Durée de la vidéo">--:--</span></button>
 <div class="portfolio-card-copy">
 <h3>Ultra Bolivia RACE</h3>
@@ -549,7 +585,7 @@ body.projets-page::before {
 <article class="portfolio-card" data-category="sport">
 <button aria-label="Activer le son de THE TRACK Mongolia" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
 <img class="portfolio-custom-poster" src="images/miniatures/sport09.jpg" alt="" loading="lazy" decoding="async" />
-<video aria-label="Vidéo THE TRACK Mongolia" class="portfolio-preview-video" loop muted playsinline preload="metadata"><source src="videos/sport/sport09.mp4" type="video/mp4"></video>
+<video aria-label="Vidéo THE TRACK Mongolia" class="portfolio-preview-video" loop muted playsinline preload="none"><source src="videos/sport/sport09.mp4" type="video/mp4"></video>
 <span class="portfolio-format portfolio-time" aria-label="Durée de la vidéo">--:--</span></button>
 <div class="portfolio-card-copy">
 <h3>THE TRACK Mongolia</h3>
@@ -559,7 +595,7 @@ body.projets-page::before {
 <article class="portfolio-card" data-category="sport">
 <button aria-label="Activer le son de Alpine X Porsche" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
 <img class="portfolio-custom-poster" src="images/miniatures/sport04.jpg" alt="" loading="lazy" decoding="async" />
-<video aria-label="Vidéo Alpine X Porsche" class="portfolio-preview-video" loop="" muted="" playsinline="" preload="metadata"><source src="videos/sport/sport04.mp4" type="video/mp4"/></video>
+<video aria-label="Vidéo Alpine X Porsche" class="portfolio-preview-video" loop="" muted="" playsinline="" preload="none"><source src="videos/sport/sport04.mp4" type="video/mp4"/></video>
 <span class="portfolio-format portfolio-time" aria-label="Durée de la vidéo">--:--</span></button>
 <div class="portfolio-card-copy">
 <h3>Alpine X Porsche</h3>
@@ -568,7 +604,7 @@ body.projets-page::before {
 </article><article class="portfolio-card" data-category="sport">
 <button aria-label="Activer le son de Rallye Noix de Grenoble" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
 <img class="portfolio-custom-poster" src="images/miniatures/sport10.jpg" alt="" loading="lazy" decoding="async" />
-<video aria-label="Vidéo Rallye Noix de Grenoble" class="portfolio-preview-video" loop muted playsinline preload="metadata"><source src="videos/sport/sport10.mp4" type="video/mp4"></video>
+<video aria-label="Vidéo Rallye Noix de Grenoble" class="portfolio-preview-video" loop muted playsinline preload="none"><source src="videos/sport/sport10.mp4" type="video/mp4"></video>
 <span class="portfolio-format portfolio-time" aria-label="Durée de la vidéo">--:--</span></button>
 <div class="portfolio-card-copy">
 <h3>Rallye Noix de Grenoble</h3>
@@ -578,7 +614,7 @@ body.projets-page::before {
 <article class="portfolio-card" data-category="sport">
 <button aria-label="Activer le son de Rallye des Beauges" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
 <img class="portfolio-custom-poster" src="images/miniatures/sport11.jpg" alt="" loading="lazy" decoding="async" />
-<video aria-label="Vidéo Rallye des Beauges" class="portfolio-preview-video" loop muted playsinline preload="metadata"><source src="videos/sport/sport11.mp4" type="video/mp4"></video>
+<video aria-label="Vidéo Rallye des Beauges" class="portfolio-preview-video" loop muted playsinline preload="none"><source src="videos/sport/sport11.mp4" type="video/mp4"></video>
 <span class="portfolio-format portfolio-time" aria-label="Durée de la vidéo">--:--</span></button>
 <div class="portfolio-card-copy">
 <h3>Rallye des Beauges</h3>
@@ -588,123 +624,123 @@ body.projets-page::before {
 <article class="portfolio-card" data-category="evenementiel">
 <button aria-label="Activer le son de Open Days By C2C" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
 <img class="portfolio-custom-poster" src="images/miniatures/evenementiel01.jpg" alt="" loading="lazy" decoding="async" />
-<video aria-label="Vidéo Open Days By C2C" class="portfolio-preview-video" loop="" muted="" playsinline="" preload="metadata"><source src="videos/evenementiel/evenementiel01.mp4" type="video/mp4"/></video>
+<video aria-label="Vidéo Open Days By C2C" class="portfolio-preview-video" loop="" muted="" playsinline="" preload="none"><source src="videos/evenementiel/evenementiel01.mp4" type="video/mp4"/></video>
 <span class="portfolio-format portfolio-time" aria-label="Durée de la vidéo">--:--</span>
 </button>
 <div class="portfolio-card-copy"><h3>Open Days By C2C</h3><p>Creek 2 Coast · 2025</p></div>
 </article>
 <article class="portfolio-card" data-category="evenementiel"><button aria-label="Activer le son de Bretelles &amp; Bons Vivants" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
 <img class="portfolio-custom-poster" src="images/miniatures/evenementiel02.jpg" alt="" loading="lazy" decoding="async" />
-<video aria-label="Vidéo Bretelles &amp; Bons Vivants au format vertical" class="portfolio-preview-video" loop="" muted="" playsinline="" preload="metadata"><source src="videos/evenementiel/evenementiel02.mp4" type="video/mp4"/></video><span class="portfolio-format portfolio-time" aria-label="Durée de la vidéo">--:--</span></button><div class="portfolio-card-copy"><h3>Bretelles &amp; Bons Vivants</h3><p>D Generation Bringue · 2024</p></div></article>
+<video aria-label="Vidéo Bretelles &amp; Bons Vivants au format vertical" class="portfolio-preview-video" loop="" muted="" playsinline="" preload="none"><source src="videos/evenementiel/evenementiel02.mp4" type="video/mp4"/></video><span class="portfolio-format portfolio-time" aria-label="Durée de la vidéo">--:--</span></button><div class="portfolio-card-copy"><h3>Bretelles &amp; Bons Vivants</h3><p>D Generation Bringue · 2024</p></div></article>
 <article class="portfolio-card" data-category="evenementiel">
 <button aria-label="Activer le son de 51 Ans EMC TP" class="portfolio-preview is-horizontal portfolio-inline-player" data-format="horizontal" type="button">
 <img class="portfolio-custom-poster" src="images/miniatures/evenementiel04.jpg" alt="" loading="lazy" decoding="async" />
-<video aria-label="Vidéo 51 Ans EMC TP au format horizontal" class="portfolio-preview-video" loop muted playsinline preload="metadata"><source src="videos/evenementiel/evenementiel04.mp4" type="video/mp4"></video>
+<video aria-label="Vidéo 51 Ans EMC TP au format horizontal" class="portfolio-preview-video" loop muted playsinline preload="none"><source src="videos/evenementiel/evenementiel04.mp4" type="video/mp4"></video>
 <span class="portfolio-format portfolio-time" aria-label="Durée de la vidéo">--:--</span></button>
 <div class="portfolio-card-copy"><h3>51 Ans EMC TP</h3><p>EMC TP · 2026</p></div>
 </article>
 <article class="portfolio-card" data-category="evenementiel">
 <button aria-label="Activer le son de Teaser Film Mariage" class="portfolio-preview is-horizontal portfolio-inline-player" data-format="horizontal" type="button">
 <img class="portfolio-custom-poster" src="images/miniatures/evenementiel03.jpg" alt="" loading="lazy" decoding="async" />
-<video aria-label="Vidéo Teaser Film Mariage au format horizontal" class="portfolio-preview-video" loop muted playsinline preload="metadata"><source src="videos/evenementiel/evenementiel03.mp4" type="video/mp4"></video>
+<video aria-label="Vidéo Teaser Film Mariage au format horizontal" class="portfolio-preview-video" loop muted playsinline preload="none"><source src="videos/evenementiel/evenementiel03.mp4" type="video/mp4"></video>
 <span class="portfolio-format portfolio-time" aria-label="Durée de la vidéo">--:--</span></button>
 <div class="portfolio-card-copy"><h3>Teaser Film Mariage</h3><p>Laure &amp; Tanguy · 2026</p></div>
 </article>
 <article class="portfolio-card" data-category="evenementiel">
 <button aria-label="Activer le son de Mika SHOW" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
 <img class="portfolio-custom-poster" src="images/miniatures/evenementiel06.jpg" alt="" loading="lazy" decoding="async" />
-<video aria-label="Vidéo Mika SHOW au format vertical" class="portfolio-preview-video" loop muted playsinline preload="metadata"><source src="videos/evenementiel/evenementiel06.mp4" type="video/mp4"></video>
+<video aria-label="Vidéo Mika SHOW au format vertical" class="portfolio-preview-video" loop muted playsinline preload="none"><source src="videos/evenementiel/evenementiel06.mp4" type="video/mp4"></video>
 <span class="portfolio-format portfolio-time" aria-label="Durée de la vidéo">--:--</span></button>
 <div class="portfolio-card-copy"><h3>Mika SHOW</h3><p>Les Cornettes · 2024</p></div>
 </article>
 <article class="portfolio-card" data-category="evenementiel">
 <button aria-label="Activer le son de Mika SHOW" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
 <img class="portfolio-custom-poster" src="images/miniatures/evenementiel05.jpg" alt="" loading="lazy" decoding="async" />
-<video aria-label="Vidéo Mika SHOW au format vertical" class="portfolio-preview-video" loop muted playsinline preload="metadata"><source src="videos/evenementiel/evenementiel05.mp4" type="video/mp4"></video>
+<video aria-label="Vidéo Mika SHOW au format vertical" class="portfolio-preview-video" loop muted playsinline preload="none"><source src="videos/evenementiel/evenementiel05.mp4" type="video/mp4"></video>
 <span class="portfolio-format portfolio-time" aria-label="Durée de la vidéo">--:--</span></button>
 <div class="portfolio-card-copy"><h3>Mika SHOW</h3><p>Les Cornettes · 2025</p></div>
 </article>
 <article class="portfolio-card" data-category="evenementiel">
 <button aria-label="Activer le son de Mika Show Backstage" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
 <img class="portfolio-custom-poster" src="images/miniatures/evenementiel07.jpg" alt="" loading="lazy" decoding="async" />
-<video aria-label="Vidéo Mika Show Backstage au format vertical" class="portfolio-preview-video" loop muted playsinline preload="metadata"><source src="videos/evenementiel/evenementiel07.mp4" type="video/mp4"></video>
+<video aria-label="Vidéo Mika Show Backstage au format vertical" class="portfolio-preview-video" loop muted playsinline preload="none"><source src="videos/evenementiel/evenementiel07.mp4" type="video/mp4"></video>
 <span class="portfolio-format portfolio-time" aria-label="Durée de la vidéo">--:--</span></button>
 <div class="portfolio-card-copy"><h3>Mika Show Backstage</h3><p>Les Cornettes · 2024</p></div>
 </article>
 <article class="portfolio-card" data-category="corporate">
 <button aria-label="Activer le son de Velomania Villeneuve" class="portfolio-preview is-horizontal portfolio-inline-player" data-format="horizontal" type="button">
 <img class="portfolio-custom-poster" src="images/miniatures/corporate01.jpg" alt="" loading="lazy" decoding="async" />
-<video aria-label="Vidéo Velomania Villeneuve au format horizontal" class="portfolio-preview-video" loop="" muted="" playsinline="" preload="metadata"><source src="videos/corporate/corporate01.mp4" type="video/mp4"/></video>
+<video aria-label="Vidéo Velomania Villeneuve au format horizontal" class="portfolio-preview-video" loop="" muted="" playsinline="" preload="none"><source src="videos/corporate/corporate01.mp4" type="video/mp4"/></video>
 <span class="portfolio-format portfolio-time" aria-label="Durée de la vidéo">--:--</span></button>
 <div class="portfolio-card-copy"><h3>Velomania Villeneuve</h3><p>Velomania · 2024</p></div>
 </article>
 <article class="portfolio-card" data-category="corporate">
 <button aria-label="Activer le son de Prépa Velo neuf" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
 <img class="portfolio-custom-poster" src="images/miniatures/corporate02.jpg" alt="" loading="lazy" decoding="async" />
-<video aria-label="Vidéo Prépa Velo neuf au format vertical" class="portfolio-preview-video" loop="" muted="" playsinline="" preload="metadata"><source src="videos/corporate/corporate02.mp4" type="video/mp4"/></video>
+<video aria-label="Vidéo Prépa Velo neuf au format vertical" class="portfolio-preview-video" loop="" muted="" playsinline="" preload="none"><source src="videos/corporate/corporate02.mp4" type="video/mp4"/></video>
 <span class="portfolio-format portfolio-time" aria-label="Durée de la vidéo">--:--</span></button>
 <div class="portfolio-card-copy"><h3>Prépa Velo neuf</h3><p>Velomania · 2024</p></div>
 </article>
 <article class="portfolio-card" data-category="corporate">
 <button aria-label="Activer le son de Pisciculture de Villette" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
 <img class="portfolio-custom-poster" src="images/miniatures/corporate09.jpg" alt="" loading="lazy" decoding="async" />
-<video aria-label="Vidéo Pisciculture de Villette au format vertical" class="portfolio-preview-video" loop muted playsinline preload="metadata"><source src="videos/corporate/corporate09.mp4" type="video/mp4"></video>
+<video aria-label="Vidéo Pisciculture de Villette au format vertical" class="portfolio-preview-video" loop muted playsinline preload="none"><source src="videos/corporate/corporate09.mp4" type="video/mp4"></video>
 <span class="portfolio-format portfolio-time" aria-label="Durée de la vidéo">--:--</span></button>
 <div class="portfolio-card-copy"><h3>Pisciculture de Villette</h3><p>La Toque Au Village · 2025</p></div>
 </article>
 <article class="portfolio-card" data-category="corporate">
 <button aria-label="Activer le son de 4X4 &amp; hot springs" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
 <img class="portfolio-custom-poster" src="images/miniatures/corporate03.jpg" alt="" loading="lazy" decoding="async" />
-<video aria-label="Vidéo 4X4 &amp; hot springs au format vertical" class="portfolio-preview-video" loop="" muted="" playsinline="" preload="metadata"><source src="videos/corporate/corporate03.mp4" type="video/mp4"/></video>
+<video aria-label="Vidéo 4X4 &amp; hot springs au format vertical" class="portfolio-preview-video" loop="" muted="" playsinline="" preload="none"><source src="videos/corporate/corporate03.mp4" type="video/mp4"/></video>
 <span class="portfolio-format portfolio-time" aria-label="Durée de la vidéo">--:--</span></button>
 <div class="portfolio-card-copy"><h3>4X4 &amp; hot springs</h3><p>Farout Wilderness · 2026</p></div>
 </article>
 <article class="portfolio-card" data-category="corporate">
 <button aria-label="Activer le son de Teaser TCR" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
 <img class="portfolio-custom-poster" src="images/miniatures/corporate08.jpg" alt="" loading="lazy" decoding="async" />
-<video aria-label="Vidéo Teaser TCR au format vertical" class="portfolio-preview-video" loop muted playsinline preload="metadata"><source src="videos/corporate/corporate08.mp4" type="video/mp4"></video>
+<video aria-label="Vidéo Teaser TCR au format vertical" class="portfolio-preview-video" loop muted playsinline preload="none"><source src="videos/corporate/corporate08.mp4" type="video/mp4"></video>
 <span class="portfolio-format portfolio-time" aria-label="Durée de la vidéo">--:--</span></button>
 <div class="portfolio-card-copy"><h3>Teaser TCR</h3><p>Wood Apls · 2026</p></div>
 </article>
 <article class="portfolio-card" data-category="corporate">
 <button aria-label="Activer le son de Teaser Lancement Mika Show" class="portfolio-preview is-horizontal portfolio-inline-player" data-format="horizontal" type="button">
 <img class="portfolio-custom-poster" src="images/miniatures/corporate06.jpg" alt="" loading="lazy" decoding="async" />
-<video aria-label="Vidéo Teaser Lancement Mika Show au format horizontal" class="portfolio-preview-video" loop muted playsinline preload="metadata"><source src="videos/corporate/corporate06.mp4" type="video/mp4"></video>
+<video aria-label="Vidéo Teaser Lancement Mika Show au format horizontal" class="portfolio-preview-video" loop muted playsinline preload="none"><source src="videos/corporate/corporate06.mp4" type="video/mp4"></video>
 <span class="portfolio-format portfolio-time" aria-label="Durée de la vidéo">--:--</span></button>
 <div class="portfolio-card-copy"><h3>Teaser Lancement Mika Show</h3><p>Les Cornettes · 2025</p></div>
 </article>
 <article class="portfolio-card" data-category="corporate">
 <button aria-label="Activer le son de Drone &amp; Wild Life" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
 <img class="portfolio-custom-poster" src="images/miniatures/corporate12.jpg" alt="" loading="lazy" decoding="async" />
-<video aria-label="Vidéo Drone &amp; Wild Life au format vertical" class="portfolio-preview-video" loop muted playsinline preload="metadata"><source src="videos/corporate/corporate12.mp4" type="video/mp4"></video>
+<video aria-label="Vidéo Drone &amp; Wild Life au format vertical" class="portfolio-preview-video" loop muted playsinline preload="none"><source src="videos/corporate/corporate12.mp4" type="video/mp4"></video>
 <span class="portfolio-format portfolio-time" aria-label="Durée de la vidéo">--:--</span></button>
 <div class="portfolio-card-copy"><h3>Drone &amp; Wild Life</h3><p>Farout Wilderness · 2026</p></div>
 </article>
 <article class="portfolio-card" data-category="corporate">
 <button aria-label="Activer le son de Tacoma Camping" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
 <img class="portfolio-custom-poster" src="images/miniatures/corporate04.jpg" alt="" loading="lazy" decoding="async" />
-<video aria-label="Vidéo Tacoma Camping au format vertical" class="portfolio-preview-video" loop muted playsinline preload="metadata"><source src="videos/corporate/corporate04.mp4" type="video/mp4"></video>
+<video aria-label="Vidéo Tacoma Camping au format vertical" class="portfolio-preview-video" loop muted playsinline preload="none"><source src="videos/corporate/corporate04.mp4" type="video/mp4"></video>
 <span class="portfolio-format portfolio-time" aria-label="Durée de la vidéo">--:--</span></button>
 <div class="portfolio-card-copy"><h3>Tacoma Camping</h3><p>Farout Wilderness · 2026</p></div>
 </article>
 <article class="portfolio-card" data-category="corporate">
 <button aria-label="Activer le son de Tacoma Campfire" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
 <img class="portfolio-custom-poster" src="images/miniatures/corporate11.jpg" alt="" loading="lazy" decoding="async" />
-<video aria-label="Vidéo Tacoma Campfire au format vertical" class="portfolio-preview-video" loop muted playsinline preload="metadata"><source src="videos/corporate/corporate11.mp4" type="video/mp4"></video>
+<video aria-label="Vidéo Tacoma Campfire au format vertical" class="portfolio-preview-video" loop muted playsinline preload="none"><source src="videos/corporate/corporate11.mp4" type="video/mp4"></video>
 <span class="portfolio-format portfolio-time" aria-label="Durée de la vidéo">--:--</span></button>
 <div class="portfolio-card-copy"><h3>Tacoma Campfire</h3><p>Farout Wilderness · 2026</p></div>
 </article>
 <article class="portfolio-card" data-category="corporate">
 <button aria-label="Activer le son de Waterfall Hike" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
 <img class="portfolio-custom-poster" src="images/miniatures/corporate05.jpg" alt="" loading="lazy" decoding="async" />
-<video aria-label="Vidéo Waterfall Hike au format vertical" class="portfolio-preview-video" loop muted playsinline preload="metadata"><source src="videos/corporate/corporate05.mp4" type="video/mp4"></video>
+<video aria-label="Vidéo Waterfall Hike au format vertical" class="portfolio-preview-video" loop muted playsinline preload="none"><source src="videos/corporate/corporate05.mp4" type="video/mp4"></video>
 <span class="portfolio-format portfolio-time" aria-label="Durée de la vidéo">--:--</span></button>
 <div class="portfolio-card-copy"><h3>Waterfall Hike</h3><p>Farout Wilderness · 2026</p></div>
 </article>
 <article class="portfolio-card" data-category="corporate">
 <button aria-label="Activer le son de Semelles Sur Mesure" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
 <img class="portfolio-custom-poster" src="images/miniatures/corporate07.jpg" alt="" loading="lazy" decoding="async" />
-<video aria-label="Vidéo Semelles Sur Mesure au format vertical" class="portfolio-preview-video" loop muted playsinline preload="metadata"><source src="videos/corporate/corporate07.mp4" type="video/mp4"></video>
+<video aria-label="Vidéo Semelles Sur Mesure au format vertical" class="portfolio-preview-video" loop muted playsinline preload="none"><source src="videos/corporate/corporate07.mp4" type="video/mp4"></video>
 <span class="portfolio-format portfolio-time" aria-label="Durée de la vidéo">--:--</span></button>
 <div class="portfolio-card-copy"><h3>Semelles Sur Mesure</h3><p>Alex Bootfiting · 2024</p></div>
 </article>
@@ -715,56 +751,56 @@ body.projets-page::before {
 <article class="portfolio-card" data-category="immobilier">
 <button aria-label="Activer le son de Presentation Colocation Tassigny" class="portfolio-preview is-horizontal portfolio-inline-player" data-format="horizontal" type="button">
 <img class="portfolio-custom-poster" src="images/miniatures/immobilier01.jpg" alt="" loading="lazy" decoding="async" />
-<video aria-label="Vidéo Presentation Colocation Tassigny au format horizontal" class="portfolio-preview-video" loop muted playsinline preload="metadata"><source src="videos/immobilier/immobilier01.mp4" type="video/mp4"></video>
+<video aria-label="Vidéo Presentation Colocation Tassigny au format horizontal" class="portfolio-preview-video" loop muted playsinline preload="none"><source src="videos/immobilier/immobilier01.mp4" type="video/mp4"></video>
 <span class="portfolio-format portfolio-time" aria-label="Durée de la vidéo">--:--</span></button>
 <div class="portfolio-card-copy"><h3>Presentation Colocation Tassigny</h3><p>Chris Hemery · 2024</p></div>
 </article>
 <article class="portfolio-card" data-category="immobilier">
 <button aria-label="Activer le son de Location Lodge" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
 <img class="portfolio-custom-poster" src="images/miniatures/immobilier02.jpg" alt="" loading="lazy" decoding="async" />
-<video aria-label="Vidéo Location Lodge au format vertical" class="portfolio-preview-video" loop muted playsinline preload="metadata"><source src="videos/immobilier/immobilier02.mp4" type="video/mp4"></video>
+<video aria-label="Vidéo Location Lodge au format vertical" class="portfolio-preview-video" loop muted playsinline preload="none"><source src="videos/immobilier/immobilier02.mp4" type="video/mp4"></video>
 <span class="portfolio-format portfolio-time" aria-label="Durée de la vidéo">--:--</span></button>
 <div class="portfolio-card-copy"><h3>Location Lodge</h3><p>Maiala Parle Lodge · 2026</p></div>
 </article>
 <article class="portfolio-card" data-category="fpv">
 <button aria-label="Activer le son de Fuerteventura" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
 <img class="portfolio-custom-poster" src="images/miniatures/fpv01.jpg" alt="" loading="lazy" decoding="async" />
-<video aria-label="Vidéo Fuerteventura au format vertical" class="portfolio-preview-video" loop muted playsinline preload="metadata"><source src="videos/fpv/fpv01.mp4" type="video/mp4"></video>
+<video aria-label="Vidéo Fuerteventura au format vertical" class="portfolio-preview-video" loop muted playsinline preload="none"><source src="videos/fpv/fpv01.mp4" type="video/mp4"></video>
 <span class="portfolio-format portfolio-time" aria-label="Durée de la vidéo">--:--</span></button>
 <div class="portfolio-card-copy"><h3>Fuerteventura</h3><p>Espagne · 2025</p></div>
 </article>
 <article class="portfolio-card" data-category="fpv">
 <button aria-label="Activer le son de Fuerteventura" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
 <img class="portfolio-custom-poster" src="images/miniatures/fpv05.jpg" alt="" loading="lazy" decoding="async" />
-<video aria-label="Vidéo Fuerteventura au format vertical" class="portfolio-preview-video" loop muted playsinline preload="metadata"><source src="videos/fpv/fpv05.mp4" type="video/mp4"></video>
+<video aria-label="Vidéo Fuerteventura au format vertical" class="portfolio-preview-video" loop muted playsinline preload="none"><source src="videos/fpv/fpv05.mp4" type="video/mp4"></video>
 <span class="portfolio-format portfolio-time" aria-label="Durée de la vidéo">--:--</span></button>
 <div class="portfolio-card-copy"><h3>Fuerteventura</h3><p>Espagne · 2025</p></div>
 </article>
 <article class="portfolio-card" data-category="fpv">
 <button aria-label="Activer le son de Tenerife" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
 <img class="portfolio-custom-poster" src="images/miniatures/fpv02.jpg" alt="" loading="lazy" decoding="async" />
-<video aria-label="Vidéo Tenerife au format vertical" class="portfolio-preview-video" loop muted playsinline preload="metadata"><source src="videos/fpv/fpv02.mp4" type="video/mp4"></video>
+<video aria-label="Vidéo Tenerife au format vertical" class="portfolio-preview-video" loop muted playsinline preload="none"><source src="videos/fpv/fpv02.mp4" type="video/mp4"></video>
 <span class="portfolio-format portfolio-time" aria-label="Durée de la vidéo">--:--</span></button>
 <div class="portfolio-card-copy"><h3>Tenerife</h3><p>Espagne · 2025</p></div>
 </article>
 <article class="portfolio-card" data-category="fpv">
 <button aria-label="Activer le son de Suivi SpeedFlying" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
 <img class="portfolio-custom-poster" src="images/miniatures/fpv03.jpg" alt="" loading="lazy" decoding="async" />
-<video aria-label="Vidéo Suivi SpeedFlying au format vertical" class="portfolio-preview-video" loop muted playsinline preload="metadata"><source src="videos/fpv/fpv03.mp4" type="video/mp4"></video>
+<video aria-label="Vidéo Suivi SpeedFlying au format vertical" class="portfolio-preview-video" loop muted playsinline preload="none"><source src="videos/fpv/fpv03.mp4" type="video/mp4"></video>
 <span class="portfolio-format portfolio-time" aria-label="Durée de la vidéo">--:--</span></button>
 <div class="portfolio-card-copy"><h3>Suivi SpeedFlying</h3><p>Mont Veyrier · 2025</p></div>
 </article>
 <article class="portfolio-card" data-category="fpv">
 <button aria-label="Activer le son de Camping &amp; River" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
 <img class="portfolio-custom-poster" src="images/miniatures/fpv04.jpg" alt="" loading="lazy" decoding="async" />
-<video aria-label="Vidéo Camping &amp; River au format vertical" class="portfolio-preview-video" loop muted playsinline preload="metadata"><source src="videos/fpv/fpv04.mp4" type="video/mp4"></video>
+<video aria-label="Vidéo Camping &amp; River au format vertical" class="portfolio-preview-video" loop muted playsinline preload="none"><source src="videos/fpv/fpv04.mp4" type="video/mp4"></video>
 <span class="portfolio-format portfolio-time" aria-label="Durée de la vidéo">--:--</span></button>
 <div class="portfolio-card-copy"><h3>Camping &amp; River</h3><p>Australia · 2026</p></div>
 </article>
 <article class="portfolio-card" data-category="fpv">
 <button aria-label="Activer le son de 4X4 Sur Fraser Island" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
 <img class="portfolio-custom-poster" src="images/miniatures/fpv07.jpg" alt="" loading="lazy" decoding="async" />
-<video aria-label="Vidéo 4X4 Sur Fraser Island au format vertical" class="portfolio-preview-video" loop muted playsinline preload="metadata"><source src="videos/fpv/fpv07.mp4" type="video/mp4"></video>
+<video aria-label="Vidéo 4X4 Sur Fraser Island au format vertical" class="portfolio-preview-video" loop muted playsinline preload="none"><source src="videos/fpv/fpv07.mp4" type="video/mp4"></video>
 <span class="portfolio-format portfolio-time" aria-label="Durée de la vidéo">--:--</span></button>
 <div class="portfolio-card-copy"><h3>4X4 Sur Fraser Island</h3><p>Australia · 2025</p></div>
 </article>
@@ -957,30 +993,38 @@ body.projets-page::before {
   const count = document.getElementById('portfolio-page-count');
   const grid = document.querySelector('.portfolio-grid');
   // Quatre rangées maximum par page, pour TOUS et chaque catégorie.
-  // La pagination tient compte des largeurs réelles des cartes 9:16 et 16:9.
+  // Sur mobile, les verticales sont toujours placées en paires lorsque possible ;
+  // les horizontales prennent une ligne complète. Le seul cas impossible est
+  // un total impair de verticales : une carte de navigation remplit l'autre moitié.
+  const isMobileGrid = () => window.matchMedia('(max-width: 650px)').matches;
+  const isHorizontal = card => !!card.querySelector('.portfolio-inline-player.is-horizontal');
+  function mobileRows(matching) {
+    const remaining = [...matching];
+    const rows = [];
+    while (remaining.length) {
+      const first = remaining.shift();
+      if (isHorizontal(first)) {
+        rows.push([first]);
+        continue;
+      }
+      // Associer la verticale suivante, même si une horizontale les sépare.
+      const nextVertical = remaining.findIndex(card => !isHorizontal(card));
+      if (nextVertical === -1) {
+        rows.push([first]);
+      } else {
+        rows.push([first, remaining.splice(nextVertical, 1)[0]]);
+      }
+    }
+    return rows;
+  }
   function getPages(matching) {
     if (!grid || !matching.length) return [[]];
-    // Sur mobile : deux emplacements par rangée. Une vidéo horizontale
-    // occupe les deux ; la pagination reste limitée à quatre rangées.
-    if (window.matchMedia('(max-width: 650px)').matches) {
+    if (isMobileGrid()) {
+      const rows = mobileRows(matching);
       const pages = [];
-      let page = [];
-      let rows = 0;
-      let halfFilled = false;
-      for (const card of matching) {
-        const horizontal = !!card.querySelector('.portfolio-inline-player.is-horizontal');
-        const startsNewRow = horizontal || !halfFilled;
-        if (startsNewRow && rows >= 4) {
-          pages.push(page);
-          page = [];
-          rows = 0;
-          halfFilled = false;
-        }
-        if (startsNewRow) rows++;
-        page.push(card);
-        halfFilled = horizontal ? false : !halfFilled;
+      for (let index = 0; index < rows.length; index += 4) {
+        pages.push(rows.slice(index, index + 4).flat());
       }
-      if (page.length) pages.push(page);
       return pages;
     }
     const availableWidth = grid.parentElement.clientWidth;
@@ -1024,22 +1068,19 @@ body.projets-page::before {
     return hours ? `${hours}:${String(minutes).padStart(2, '0')}:${secs}` : `${minutes}:${secs}`;
   }
 
+  // On ne télécharge pas les 39 fichiers MP4 au chargement de la page.
+  // Sur téléphone, seules les métadonnées des cartes visibles sont demandées.
   const players = [...document.querySelectorAll('.portfolio-inline-player')].map(button => {
     const video = button.querySelector('video');
     const source = video?.querySelector('source');
     const label = button.closest('.portfolio-card')?.querySelector('h3')?.textContent?.trim() || 'Vidéo';
     let soundEnabled = false;
+    let playRequested = false;
+    let playSequence = 0;
     const customPoster = button.querySelector('.portfolio-custom-poster');
     if (customPoster) {
       customPoster.addEventListener('error', () => customPoster.classList.add('is-missing'));
-      if (customPoster.complete && customPoster.naturalWidth === 0) {
-        customPoster.classList.add('is-missing');
-      }
-    }
-    if (video) {
-      video.addEventListener('playing', () => button.classList.add('is-playing'));
-      video.addEventListener('pause', () => button.classList.remove('is-playing'));
-      video.addEventListener('ended', () => button.classList.remove('is-playing'));
+      if (customPoster.complete && customPoster.naturalWidth === 0) customPoster.classList.add('is-missing');
     }
     const timeLabel = button.querySelector('.portfolio-time');
     function refreshTime() {
@@ -1049,29 +1090,24 @@ body.projets-page::before {
         timeLabel.setAttribute('aria-label', 'Durée indisponible');
         return;
       }
-      // Au repos : durée totale. Lecture en cours : compte à rebours.
       const inProgress = !video.paused && !video.ended;
       const seconds = inProgress ? Math.max(0, video.duration - video.currentTime) : video.duration;
       timeLabel.textContent = formatVideoTime(seconds);
       timeLabel.setAttribute('aria-label', inProgress ? 'Temps restant' : 'Durée de la vidéo');
     }
-    if (video) {
-      ['loadedmetadata', 'durationchange', 'timeupdate', 'play', 'pause', 'ended', 'seeked'].forEach(eventName => {
-        video.addEventListener(eventName, refreshTime);
-      });
-      // Les métadonnées peuvent déjà être disponibles à l'initialisation.
-      refreshTime();
-    }
-
     function setSound(enabled) {
       if (!video) return;
       soundEnabled = enabled;
       video.muted = !enabled;
       button.classList.toggle('is-sound-on', enabled);
-      button.setAttribute('aria-label', (enabled ? 'Couper' : 'Activer') + ' le son de ' + label);
+      button.setAttribute('aria-label', isMobileGrid()
+        ? ((enabled ? 'Arrêter' : 'Lire') + ' la vidéo ' + label + (enabled ? '' : ' avec le son'))
+        : ((enabled ? 'Couper' : 'Activer') + ' le son de ' + label));
     }
     function stop() {
       if (!video) return;
+      ++playSequence; // invalide toute lecture encore en chargement
+      playRequested = false;
       video.pause();
       button.classList.remove('is-playing');
       setSound(false);
@@ -1079,33 +1115,101 @@ body.projets-page::before {
       refreshTime();
     }
     if (video) {
+      video.setAttribute('playsinline', '');
+      video.setAttribute('webkit-playsinline', '');
+      video.addEventListener('playing', () => {
+        if (!video.paused && (!isMobileGrid() || playRequested)) {
+          button.classList.add('is-playing');
+        }
+        refreshTime();
+      });
+      video.addEventListener('pause', () => {
+        // Ignorer un ancien événement pause reçu après un nouveau clic sur play.
+        if (!video.paused) return;
+        button.classList.remove('is-playing');
+        if (isMobileGrid() && !playRequested) setSound(false);
+        refreshTime();
+      });
+      video.addEventListener('ended', stop);
+      ['loadedmetadata', 'durationchange', 'timeupdate', 'play', 'seeked'].forEach(eventName => {
+        video.addEventListener(eventName, refreshTime);
+      });
       video.addEventListener('error', () => {
+        stop();
         if (button.querySelector('.portfolio-error')) return;
         const error = document.createElement('span');
         error.className = 'portfolio-error';
-        error.textContent = 'Vidéo introuvable ou illisible : ' + (source?.getAttribute('src') || label);
+        error.textContent = 'Vidéo indisponible : ' + (source?.getAttribute('src') || label);
         button.append(error);
       });
+      refreshTime();
+
+      // Ordinateur : aperçu muet au survol, comme avant.
       button.addEventListener('pointerenter', event => {
-        if (event.pointerType === 'mouse' || event.pointerType === 'pen') {
-          if (!soundEnabled) {
-            video.muted = true;
-            video.play().catch(() => {});
-          }
+        if (isMobileGrid() || (event.pointerType !== 'mouse' && event.pointerType !== 'pen')) return;
+        if (!soundEnabled) {
+          video.muted = true;
+          const promise = video.play();
+          if (promise && typeof promise.catch === 'function') promise.catch(() => {});
         }
       });
       button.addEventListener('pointerleave', event => {
-        if (event.pointerType === 'mouse' || event.pointerType === 'pen') stop();
+        if (!isMobileGrid() && (event.pointerType === 'mouse' || event.pointerType === 'pen')) stop();
       });
       button.addEventListener('click', () => {
-        players.forEach(player => { if (player.button !== button) player.stop(); });
+        if (isMobileGrid()) {
+          // Un appui sur la vidéo déjà lancée (ou encore en chargement) l'arrête.
+          if (playRequested || !video.paused) {
+            stop();
+            return;
+          }
+          // L'appel play() reste directement dans le geste utilisateur :
+          // nécessaire pour démarrer avec le son dans Safari / iOS.
+          players.forEach(other => { if (other.button !== button) other.stop(); });
+          button.querySelector('.portfolio-error')?.remove();
+          playRequested = true;
+          const sequence = ++playSequence;
+          setSound(true);
+          try {
+            const promise = video.play();
+            if (promise && typeof promise.catch === 'function') {
+              promise.catch(() => {
+                if (sequence !== playSequence) return; // clic d'arrêt entre-temps
+                stop();
+                const error = document.createElement('span');
+                error.className = 'portfolio-error';
+                error.textContent = 'Lecture impossible. Vérifiez la connexion ou le format vidéo.';
+                button.append(error);
+              });
+            }
+          } catch (_) {
+            if (sequence === playSequence) stop();
+          }
+          return;
+        }
+        // Ordinateur : clic = bascule du son, comportement existant conservé.
+        players.forEach(other => { if (other.button !== button) other.stop(); });
         setSound(!soundEnabled);
-        video.play().catch(() => {});
+        const promise = video.play();
+        if (promise && typeof promise.catch === 'function') promise.catch(() => {});
       });
     }
-    return { button, stop };
+    return { button, video, stop };
   });
 
+  // Si une catégorie contient un nombre impair de vidéos verticales, il est
+  // mathématiquement impossible de les montrer toutes uniquement par paires.
+  // Une véritable carte de navigation comble la colonne, sans fausse vidéo.
+  const moreCard = document.createElement('a');
+  moreCard.className = 'portfolio-more-card';
+  moreCard.href = '#tous';
+  moreCard.hidden = true;
+  moreCard.innerHTML = '<strong>EN VOIR PLUS</strong><span>Découvrir toutes nos réalisations</span>';
+  moreCard.addEventListener('click', event => {
+    event.preventDefault();
+    filter('tous', true);
+    scrollToPortfolioHeading();
+  });
   // Ajuste automatiquement les deux lignes de texte à la largeur des cartes.
   // Mesure uniquement les cartes visibles, après le rendu des filtres/paginations.
   function fitPortfolioTitles() {
@@ -1132,16 +1236,35 @@ body.projets-page::before {
   }
 
   function render() {
-    // Les catégories sont exclusives : ÉVÉNEMENTIEL ne s'affiche jamais en SPORT.
+    // Les catégories sont exclusives : on ne mélange jamais les films de deux filtres.
     const matching = currentCategory === 'tous' ? curatedCards : cards.filter(card => card.dataset.category === currentCategory);
-    // Le DOM suit l'ordre du filtre actif : ordre éditorial dans TOUS,
-    // ordre individuel validé dès qu'une catégorie est sélectionnée.
-    grid.append(...(currentCategory === 'tous' ? curatedCards : cards));
+    const mobile = isMobileGrid();
+    const rows = mobile ? mobileRows(matching) : [];
+    const orderedMatching = mobile ? rows.flat() : matching;
+    // Sur mobile, on ne modifie que l'ordre visuel de la catégorie active.
+    grid.append(...orderedMatching, ...cards.filter(card => !orderedMatching.includes(card)));
     const groupedPages = getPages(matching);
     const pages = groupedPages.length;
     currentPage = Math.min(Math.max(currentPage, 1), pages);
     const visible = new Set(groupedPages[currentPage - 1]);
     cards.forEach(card => { card.hidden = !visible.has(card); });
+    // Le seul orphelin possible est la dernière verticale d'une catégorie impaire.
+    // Placer sa carte de navigation immédiatement après elle (dans la colonne droite).
+    moreCard.hidden = true;
+    if (mobile) {
+      const orphan = rows.find(row => row.length === 1 && !isHorizontal(row[0]));
+      if (orphan && visible.has(orphan[0])) {
+        orphan[0].after(moreCard);
+        moreCard.hidden = false;
+      }
+    }
+    // Un MP4 non visible ne doit pas charger des métadonnées inutilement.
+    players.forEach(player => {
+      if (!player.video) return;
+      const isVisible = !player.button.closest('.portfolio-card')?.hidden;
+      player.video.preload = (!mobile || isVisible) ? 'metadata' : 'none';
+      if (!isVisible) player.stop();
+    });
     // Sur mobile, conserver la pleine largeur pour la grille à deux colonnes.
     // Sur ordinateur, conserver l'alignement éditorial déjà en place.
     if (window.matchMedia('(max-width: 650px)').matches) {
@@ -1226,9 +1349,15 @@ body.projets-page::before {
   });
   // Recalcul des cinq rangées lors d'un changement de largeur.
   let lastGridWidth = grid ? grid.parentElement.clientWidth : 0;
+  let lastMobileLayout = isMobileGrid();
   window.addEventListener('resize', () => {
     const width = grid ? grid.parentElement.clientWidth : 0;
-    if (width !== lastGridWidth) { lastGridWidth = width; render(); }
+    const mobile = isMobileGrid();
+    if (width !== lastGridWidth || mobile !== lastMobileLayout) {
+      lastGridWidth = width;
+      lastMobileLayout = mobile;
+      render();
+    }
   });
   window.addEventListener('hashchange', () => filter(selectedFromHash(), false));
   // Les liens de la Home sélectionnent la catégorie mais ouvrent le HAUT de la page.
