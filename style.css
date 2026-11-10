@@ -4747,3 +4747,65 @@ background 0.25s ease,
         scroll-snap-stop: always;
     }
 }
+
+
+/* =====================================================================
+   EN-TÊTES DE PAGE — typographie mobile plus compacte (10 novembre 2026)
+   Limité aux bandeaux supérieurs : les titres de sections restent intacts.
+   ===================================================================== */
+@media (max-width: 650px) {
+    /* Titres principaux des pages Projets, Prestations, Contact et pages légales */
+    body .page-main > .page-hero h1,
+    body .prestations-main .prestations-hero h1,
+    body .projets-page .page-hero h1,
+    body.contact-page .page-hero h1,
+    body .mentions-main .mentions-hero h1,
+    body .confidentialite-main .confidentialite-hero h1 {
+        font-size: clamp(29px, 7.8vw, 38px) !important;
+        line-height: 1.13 !important;
+        letter-spacing: .035em !important;
+        margin-bottom: 12px !important;
+    }
+
+    /* Descriptions des bandeaux des pages (réduction plus marquée) */
+    body .page-main > .page-hero .page-lead,
+    body .prestations-main .prestations-hero .page-lead,
+    body .projets-page .page-hero .page-lead,
+    body.contact-page .page-hero .page-lead,
+    body .mentions-main .mentions-hero .page-lead,
+    body .confidentialite-main .confidentialite-hero .page-lead {
+        font-size: 12px !important;
+        line-height: 1.55 !important;
+        letter-spacing: 0 !important;
+        max-width: 560px !important;
+    }
+
+    /* À propos : en-tête imbriqué dédié */
+    body.about-page .about-hero-intro h1 {
+        font-size: clamp(30px, 8vw, 38px) !important;
+        line-height: 1.13 !important;
+        margin-bottom: 12px !important;
+    }
+    body.about-page .about-hero-intro .page-lead {
+        font-size: 12px !important;
+        line-height: 1.55 !important;
+        max-width: 560px !important;
+    }
+
+    /* CGV : bandeau personnalisé, sans classe page-hero */
+    body.cgv-page .cgv-hero h1 {
+        font-size: clamp(29px, 7.8vw, 38px) !important;
+        line-height: 1.13 !important;
+        margin-bottom: 12px !important;
+    }
+    body.cgv-page .cgv-hero .cgv-subtitle {
+        font-size: 12px !important;
+        line-height: 1.55 !important;
+    }
+
+    /* Accueil : logo conservé à sa taille, phrase d'accroche plus discrète */
+    body #home.hero p {
+        font-size: clamp(12px, 3.2vw, 14px) !important;
+        line-height: 1.55 !important;
+    }
+}
