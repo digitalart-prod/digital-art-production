@@ -4698,3 +4698,52 @@ background 0.25s ease,
         scroll-snap-align: end !important;
     }
 }
+
+
+/* =====================================================================
+   TROIS CARROUSELS — mobile, carte active TOUJOURS centrée.
+   Les voisines sont visibles à gauche/droite; aux extrémités un espace vide
+   maintient le premier et le dernier élément au centre.
+   La grille ordinateur ne change pas.
+   ===================================================================== */
+@media (max-width: 650px) {
+    body .video-themes .themes-grid,
+    body.prestations-page .prestations-grid,
+    body.prestations-page .prestations-plans {
+        --carousel-card-width: 82vw;
+        --carousel-side-space: 9vw;
+        --carousel-gap: 12px;
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        width: 100vw !important;
+        max-width: none !important;
+        margin-left: calc(50% - 50vw) !important;
+        margin-right: calc(50% - 50vw) !important;
+        padding-left: var(--carousel-side-space) !important;
+        padding-right: var(--carousel-side-space) !important;
+        gap: var(--carousel-gap) !important;
+        scroll-snap-type: x mandatory !important;
+        scroll-padding-inline: 0 !important;
+        box-sizing: border-box !important;
+        overflow-x: auto !important;
+        overflow-y: hidden !important;
+    }
+    body .video-themes .themes-grid::after,
+    body.prestations-page .prestations-grid::after,
+    body.prestations-page .prestations-plans::after {
+        content: none !important;
+        display: none !important;
+    }
+    body .video-themes .themes-grid > .theme-card,
+    body.prestations-page .prestations-grid > .prestation-card,
+    body.prestations-page .prestations-plans > .prestations-plan {
+        flex: 0 0 var(--carousel-card-width) !important;
+        width: var(--carousel-card-width) !important;
+        max-width: var(--carousel-card-width) !important;
+        min-width: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        scroll-snap-align: center !important;
+        scroll-snap-stop: always;
+    }
+}
