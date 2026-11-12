@@ -1228,6 +1228,7 @@ body .page-main > header.page-hero .page-lead {
     let playRequested = false;
     let playSequence = 0;
     let metadataRequested = false;
+    let hoverSequence = 0;
     const customPoster = button.querySelector('.portfolio-custom-poster');
     if (customPoster) {
       customPoster.addEventListener('error', () => customPoster.classList.add('is-missing'));
@@ -1257,11 +1258,14 @@ body .page-main > header.page-hero .page-lead {
       button.append(notice);
     }
     function requestMetadata() {
-      if (!video || metadataRequested || video.readyState >= 1) return;
+      if (!video || video.readyState >= 1 || metadataRequested) return;
       metadataRequested = true;
       video.preload = 'metadata';
-      // Safari ne lance pas toujours le téléchargement si seul preload change.
-      video.load();
+      // Lancer le chargement une seule fois, avant toute demande de lecture.
+      // Appeler load() pendant un play() déclenche AbortError dans Safari.
+      if (video.networkState === HTMLMediaElement.NETWORK_EMPTY && video.paused) {
+        video.load();
+      }
     }
     function setSound(enabled) {
       if (!video) return;
@@ -1276,7 +1280,8 @@ body .page-main > header.page-hero .page-lead {
       if (!video) return;
       ++playSequence; // invalide toute lecture encore en chargement
       playRequested = false;
-      video.pause();
+      // Éviter une interruption inutile pendant que Safari charge les métadonnées.
+      if (!video.paused) video.pause();
       button.classList.remove('is-playing');
       setSound(false);
       try { video.currentTime = 0; } catch (_) {}
@@ -1285,7 +1290,9 @@ body .page-main > header.page-hero .page-lead {
     if (video) {
       video.setAttribute('playsinline', '');
       video.setAttribute('webkit-playsinline', '');
-      video.addEventListener('loadedmetadata', () => { metadataRequested = true; });
+      video.addEventListener('loadedmetadata', () => { metadataRequested = true; refreshTime(); });
+      // Safari peut demander à nouveau les métadonnées après un changement de page.
+      video.addEventListener('emptied', () => { metadataRequested = false; });
       video.addEventListener('playing', () => {
         if (!video.paused && (!isMobileGrid() || playRequested)) {
           button.classList.add('is-playing');
@@ -1318,7 +1325,7 @@ body .page-main > header.page-hero .page-lead {
         if (isMobileGrid() || (event.pointerType !== 'mouse' && event.pointerType !== 'pen')) return;
         if (!soundEnabled) {
           video.muted = true;
-          requestMetadata();
+          // Ne jamais relancer load() au survol : il annulerait play() dans Safari.
           const promise = video.play();
           // Une lecture automatique au survol peut être bloquée par Safari :
           // le clic manuel reste possible sans afficher d'alerte au survol.
@@ -1326,7 +1333,11 @@ body .page-main > header.page-hero .page-lead {
         }
       });
       button.addEventListener('pointerleave', event => {
-        if (!isMobileGrid() && (event.pointerType === 'mouse' || event.pointerType === 'pen')) stop();
+        if (!isMobileGrid() && (event.pointerType === 'mouse' || event.pointerType === 'pen')) {
+          // Une sortie rapide avant le démarrage ne doit pas annuler la requête
+          // réseau destinée à récupérer la durée du MP4.
+          if (!video.paused || video.currentTime > 0) stop();
+        }
       });
       button.addEventListener('click', () => {
         if (isMobileGrid()) {
@@ -1366,7 +1377,13 @@ body .page-main > header.page-hero .page-lead {
         try {
           const promise = video.play();
           if (promise && typeof promise.catch === 'function') {
-            promise.catch(error => { setSound(false); showPlaybackError(error); });
+            promise.catch(error => {
+              setSound(false);
+              // AbortError = lecture interrompue par pause/load ; ce n'est
+              // pas une preuve d'incompatibilité du fichier vidéo.
+              if (error?.name === 'AbortError') return;
+              showPlaybackError(error);
+            });
           }
         } catch (error) {
           setSound(false);
