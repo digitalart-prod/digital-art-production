@@ -2,6 +2,7 @@
 
 <html lang="fr">
 <head>
+  <link rel="icon" type="image/png" href="/images/favicon.png">
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta content="Découvrez nos réalisations vidéo : sport, événementiel, corporate, immobilier et FPV." name="description"/>
@@ -1226,6 +1227,7 @@ body .page-main > header.page-hero .page-lead {
     let soundEnabled = false;
     let playRequested = false;
     let playSequence = 0;
+    let metadataRequested = false;
     const customPoster = button.querySelector('.portfolio-custom-poster');
     if (customPoster) {
       customPoster.addEventListener('error', () => customPoster.classList.add('is-missing'));
@@ -1243,6 +1245,23 @@ body .page-main > header.page-hero .page-lead {
       const seconds = inProgress ? Math.max(0, video.duration - video.currentTime) : video.duration;
       timeLabel.textContent = formatVideoTime(seconds);
       timeLabel.setAttribute('aria-label', inProgress ? 'Temps restant' : 'Durée de la vidéo');
+    }
+    function showPlaybackError(error) {
+      button.querySelector('.portfolio-error')?.remove();
+      const notice = document.createElement('span');
+      notice.className = 'portfolio-error';
+      const reason = error?.name === 'NotAllowedError' ? 'Lecture bloquée par Safari' :
+        error?.name === 'NotSupportedError' ? 'Format vidéo non pris en charge' :
+        'Impossible de lire la vidéo';
+      notice.textContent = reason + (error?.name ? ' (' + error.name + ')' : '');
+      button.append(notice);
+    }
+    function requestMetadata() {
+      if (!video || metadataRequested || video.readyState >= 1) return;
+      metadataRequested = true;
+      video.preload = 'metadata';
+      // Safari ne lance pas toujours le téléchargement si seul preload change.
+      video.load();
     }
     function setSound(enabled) {
       if (!video) return;
@@ -1266,6 +1285,7 @@ body .page-main > header.page-hero .page-lead {
     if (video) {
       video.setAttribute('playsinline', '');
       video.setAttribute('webkit-playsinline', '');
+      video.addEventListener('loadedmetadata', () => { metadataRequested = true; });
       video.addEventListener('playing', () => {
         if (!video.paused && (!isMobileGrid() || playRequested)) {
           button.classList.add('is-playing');
@@ -1298,7 +1318,10 @@ body .page-main > header.page-hero .page-lead {
         if (isMobileGrid() || (event.pointerType !== 'mouse' && event.pointerType !== 'pen')) return;
         if (!soundEnabled) {
           video.muted = true;
+          requestMetadata();
           const promise = video.play();
+          // Une lecture automatique au survol peut être bloquée par Safari :
+          // le clic manuel reste possible sans afficher d'alerte au survol.
           if (promise && typeof promise.catch === 'function') promise.catch(() => {});
         }
       });
@@ -1338,12 +1361,20 @@ body .page-main > header.page-hero .page-lead {
         }
         // Ordinateur : clic = bascule du son, comportement existant conservé.
         players.forEach(other => { if (other.button !== button) other.stop(); });
+        button.querySelector('.portfolio-error')?.remove();
         setSound(!soundEnabled);
-        const promise = video.play();
-        if (promise && typeof promise.catch === 'function') promise.catch(() => {});
+        try {
+          const promise = video.play();
+          if (promise && typeof promise.catch === 'function') {
+            promise.catch(error => { setSound(false); showPlaybackError(error); });
+          }
+        } catch (error) {
+          setSound(false);
+          showPlaybackError(error);
+        }
       });
     }
-    return { button, video, stop };
+    return { button, video, stop, requestMetadata };
   });
 
   // Si une catégorie contient un nombre impair de vidéos verticales, il est
@@ -1411,8 +1442,12 @@ body .page-main > header.page-hero .page-lead {
     players.forEach(player => {
       if (!player.video) return;
       const isVisible = !player.button.closest('.portfolio-card')?.hidden;
-      player.video.preload = (!mobile || isVisible) ? 'metadata' : 'none';
-      if (!isVisible) player.stop();
+      if (isVisible) {
+        player.requestMetadata();
+      } else {
+        player.video.preload = 'none';
+        player.stop();
+      }
     });
     // Sur mobile, conserver la pleine largeur pour la grille à deux colonnes.
     // Sur ordinateur, conserver l'alignement éditorial déjà en place.

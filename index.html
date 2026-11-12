@@ -56,6 +56,20 @@
             pointer-events: none;
         }
 
+        /* Image de secours conservée tant que le navigateur ne lit pas réellement la vidéo. */
+        .hero-video-fallback {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100vh;
+            height: 100dvh;
+            background: #151719 url('images/accueil.jpg') center center / cover no-repeat;
+            z-index: 0;
+            pointer-events: none;
+        }
+        .hero-background-video { opacity: 0; }
+        .hero-background-video.is-playing { opacity: 1; }
+
         /* Vignettage léger appliqué uniquement à la vidéo de fond, PC et mobile. */
         .hero-video-vignette {
             position: fixed;
@@ -119,6 +133,10 @@
                 transform: none !important;
                 animation: none !important;
                 transition: none !important;
+            }
+            .hero-video-fallback {
+                height: 100vh;
+                height: 100lvh;
             }
             .hero-video-vignette {
                 height: 100vh;
@@ -1224,6 +1242,7 @@
          2. PAGE D'ACCUEIL — HERO
     \========================================= -->
     <!-- La vidéo reste fixe ; le hero et son logo défilent. -->
+    <div class="hero-video-fallback" aria-hidden="true"></div>
         <video
             class="hero-background-video"
             autoplay
@@ -1252,6 +1271,19 @@
         video.muted = true;
         video.defaultMuted = true;
         video.playsInline = true;
+        video.setAttribute('webkit-playsinline', '');
+        const markPlaying = () => {
+            if (!video.paused && video.readyState >= 2) video.classList.add('is-playing');
+        };
+        const markUnavailable = () => video.classList.remove('is-playing');
+        video.addEventListener('playing', markPlaying);
+        video.addEventListener('timeupdate', markPlaying);
+        video.addEventListener('pause', markUnavailable);
+        video.addEventListener('waiting', markUnavailable);
+        video.addEventListener('stalled', markUnavailable);
+        video.addEventListener('error', markUnavailable);
+        video.addEventListener('emptied', markUnavailable);
+        if (reducedMotion.matches) markUnavailable();
 
         function canResume() {
             return mobile.matches && !reducedMotion.matches && !document.hidden &&
@@ -1308,6 +1340,12 @@
         document.addEventListener('touchstart', onInteraction, { passive: true });
         document.addEventListener('keydown', onInteraction);
         scheduleResume();
+        // Sur ordinateur également, tenter une lecture muette au chargement.
+        // Si Safari la refuse, l'image de secours reste visible.
+        if (!mobile.matches && !reducedMotion.matches) {
+            const attempt = video.play();
+            if (attempt && typeof attempt.catch === 'function') attempt.catch(markUnavailable);
+        }
     })();
     </script>
 
