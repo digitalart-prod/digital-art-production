@@ -1192,7 +1192,7 @@ body.cgv-page .page-main > header.cgv-hero .cgv-version {
 
   /* Victor : uniquement les cartes contenant du texte sans photo. */
   .about-page .about-founder .about-reading-carousel > .about-slide:not(.about-slide-portrait):not(.about-victor-side-card) p {
-    font-size: 19px;
+    font-size: 18px;
     line-height: 1.6;
   }
 
@@ -1245,7 +1245,7 @@ body.cgv-page .page-main > header.cgv-hero .cgv-version {
     align-items: center;
   }
   .about-page .about-team .about-reading-carousel > .about-slide:not(.about-slide-portrait):not(.about-marjo-side-card) p {
-    font-size: 19px !important;
+    font-size: 18px !important;
     line-height: 1.6 !important;
   }
 }
@@ -1360,7 +1360,17 @@ body.cgv-page .page-main > header.cgv-hero .cgv-version {
   /* Trois cartes avec photo : Victor 3 et 5, Marjo 3. */
   .about-page .about-founder .about-reading-carousel > .about-slide.about-victor-side-card .about-victor-side-copy p,
   .about-page .about-team .about-reading-carousel > .about-slide.about-marjo-side-card .about-marjo-side-copy p {
-    font-size: 13px !important;
+    font-size: 14px !important;
+  }
+}
+</style>
+<style id="about-contact-title-single-line-mobile">
+/* Garder le titre du bloc contact sur une ligne, uniquement sur mobile. */
+@media (max-width: 800px) {
+  .about-page .home-contact-cta #about-contact-title {
+    white-space: nowrap;
+    font-size: clamp(17px, 5.4vw, 31px);
+    letter-spacing: -0.035em;
   }
 }
 </style>
