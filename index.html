@@ -1237,6 +1237,80 @@
             <source src="videos/accueil.mp4" type="video/mp4">
         </video>
     <div class="hero-video-vignette" aria-hidden="true"></div>
+    <!-- Mobile : relance la vidéo d'accueil après une pause involontaire. -->
+    <script>
+    (() => {
+        const video = document.querySelector('.hero-background-video');
+        if (!video) return;
+
+        const mobile = window.matchMedia('(max-width: 650px)');
+        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+        let retryTimer = null;
+        let playPending = false;
+        let autoplayBlocked = false;
+
+        video.muted = true;
+        video.defaultMuted = true;
+        video.playsInline = true;
+
+        function canResume() {
+            return mobile.matches && !reducedMotion.matches && !document.hidden &&
+                   video.isConnected && !autoplayBlocked;
+        }
+
+        function resumeVideo() {
+            if (!canResume() || playPending || (!video.paused && !video.ended)) return;
+            if (video.ended) video.currentTime = 0;
+            playPending = true;
+            const promise = video.play();
+            if (promise && typeof promise.then === 'function') {
+                promise.catch(error => {
+                    // En cas de blocage explicite, attendre une interaction réelle.
+                    if (error && error.name === 'NotAllowedError') autoplayBlocked = true;
+                }).finally(() => { playPending = false; });
+            } else {
+                playPending = false;
+            }
+        }
+
+        function scheduleResume() {
+            if (retryTimer !== null) return;
+            retryTimer = window.setTimeout(() => {
+                retryTimer = null;
+                resumeVideo();
+            }, 300);
+        }
+
+        // Les navigateurs mobiles suspendent parfois les vidéos silencieuses.
+        ['pause', 'ended', 'stalled', 'waiting', 'suspend', 'canplay'].forEach(event => {
+            video.addEventListener(event, scheduleResume);
+        });
+        document.addEventListener('visibilitychange', () => {
+            if (!document.hidden) scheduleResume();
+        });
+        window.addEventListener('pageshow', scheduleResume);
+        window.addEventListener('focus', scheduleResume);
+        mobile.addEventListener('change', scheduleResume);
+        reducedMotion.addEventListener('change', scheduleResume);
+
+        // Contrôle léger : utile si une pause survient sans événement exploitable.
+        window.setInterval(() => {
+            if (canResume() && (video.paused || video.ended)) resumeVideo();
+        }, 4000);
+
+        // Un blocage d'autoplay ne peut être levé qu'après un geste utilisateur.
+        function onInteraction() {
+            if (!autoplayBlocked) return;
+            autoplayBlocked = false;
+            resumeVideo();
+        }
+        document.addEventListener('pointerdown', onInteraction, { passive: true });
+        document.addEventListener('touchstart', onInteraction, { passive: true });
+        document.addEventListener('keydown', onInteraction);
+        scheduleResume();
+    })();
+    </script>
+
     <header id="home" class="hero">
 
         <h1 class="hero-logo">
