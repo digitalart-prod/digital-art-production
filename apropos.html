@@ -1340,6 +1340,30 @@ body.cgv-page .page-main > header.cgv-hero .cgv-version {
   }
 }
 </style>
+<style id="about-mobile-carousel-sizing-2026">
+/* Mobile uniquement : cartes légèrement élargies et raccourcies. */
+@media (max-width: 800px) {
+  .about-page .about-reading-carousel {
+    padding-left: 4%;
+    padding-right: 4%;
+    scroll-padding-inline: 4%;
+  }
+  .about-page .about-reading-carousel > .about-slide,
+  .about-page .about-reading-carousel > .about-slide.about-slide-portrait {
+    flex: 0 0 92%;
+    width: 92%;
+    height: 425px;
+    min-height: 425px;
+    max-height: 425px;
+  }
+  .about-page .about-carousel-controls { width: 92%; }
+  /* Trois cartes avec photo : Victor 3 et 5, Marjo 3. */
+  .about-page .about-founder .about-reading-carousel > .about-slide.about-victor-side-card .about-victor-side-copy p,
+  .about-page .about-team .about-reading-carousel > .about-slide.about-marjo-side-card .about-marjo-side-copy p {
+    font-size: 13px !important;
+  }
+}
+</style>
 </head>
 
 <body class="about-page">
