@@ -3,7 +3,6 @@
 <html lang="fr">
 
 <head>
-  <link rel="icon" type="image/png" href="/images/favicon.png">
     <!-- INFORMATIONS GÉNÉRALES -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -1313,6 +1312,31 @@ body.cgv-page .page-main > header.cgv-hero .cgv-version {
   }
   .about-page .about-content::before {
     background: rgba(26, 26, 26, 0.90) !important;
+  }
+}
+</style>
+<style id="about-mobile-stable-background-and-side-text-2026">
+/* Mobile : hauteur fixe de référence évitant les recadrages au défilement
+   lors de l'apparition/disparition des barres du navigateur. */
+@media (max-width: 800px) {
+  body.about-page::before {
+    top: 0 !important;
+    right: 0 !important;
+    bottom: auto !important;
+    left: 0 !important;
+    height: 100vh !important;
+    height: 100lvh !important;
+    min-height: 100lvh !important;
+    background-size: cover !important;
+    background-position: calc(100% + 25vw) top !important;
+  }
+  /* Cartes Victor 3 et 5 : 17,5 px / 2. */
+  .about-page .about-founder .about-reading-carousel > .about-slide.about-victor-side-card .about-victor-side-copy p {
+    font-size: 12px !important;
+  }
+  /* Carte Marjo 3 : 17,5 px / 2. */
+  .about-page .about-team .about-reading-carousel > .about-slide.about-marjo-side-card .about-marjo-side-copy p {
+    font-size: 12px !important;
   }
 }
 </style>
