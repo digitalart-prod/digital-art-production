@@ -64,7 +64,7 @@
             box-sizing: border-box;
             isolation: isolate;
             background-color: #17191b;
-            background-image: url("images/apropos.jpg");
+            background-image: url("images/chevaux.jpg");
             background-size: cover;
             background-position: center top;
             background-repeat: no-repeat;
@@ -357,7 +357,7 @@
 
         /* FOND PARTAGÉ À PROPOS : même photo fixe sur toute la page. */
         body.about-page::before {
-            background: url("images/apropos.jpg") center top / cover no-repeat;
+            background: url("images/chevaux.jpg") center top / cover no-repeat;
         }
         .about-page .page-main {
             background: transparent;
@@ -1081,6 +1081,240 @@ body.cgv-page .page-main > header.cgv-hero .cgv-version {
   }
 }
 </style>
+<style id="about-mobile-uniform-carousel-cards-2026">
+/* Cartes de même taille dans les deux carrousels, portraits compris.
+   Le format PC reste inchangé. */
+@media (max-width: 800px) {
+  .about-page .about-reading-carousel {
+    align-items: stretch;
+  }
+  .about-page .about-reading-carousel > .about-slide,
+  .about-page .about-reading-carousel > .about-slide.about-slide-portrait {
+    box-sizing: border-box;
+    flex: 0 0 88%;
+    width: 88%;
+    height: 450px;
+    min-height: 450px;
+    max-height: 450px;
+    border-radius: 12px;
+  }
+  /* Les textes longs restent intégralement lisibles, par défilement vertical de la carte. */
+  .about-page .about-reading-carousel > .about-slide:not(.about-slide-portrait) {
+    overflow-x: hidden;
+    overflow-y: auto;
+    align-items: center;
+    scrollbar-width: thin;
+    -webkit-overflow-scrolling: touch;
+  }
+  .about-page .about-reading-carousel > .about-slide.about-slide-portrait {
+    padding: 0;
+    overflow: hidden;
+  }
+  .about-page .about-reading-carousel > .about-slide-portrait picture,
+  .about-page .about-reading-carousel > .about-slide-portrait picture img {
+    width: 100%;
+    height: 100%;
+  }
+  .about-page .about-reading-carousel > .about-slide-portrait picture img {
+    object-fit: cover;
+    object-position: center;
+  }
+}
+</style>
+<style id="about-victor-slides-3-5-2026">
+/* Images réservées aux cartes mobiles : aucun changement de mise en page sur PC. */
+.about-page .about-victor-side-photo { display: none; }
+@media (max-width: 800px) {
+  /* Cartes 3 et 5 : image latérale dans la carte de 450px, sans déformation. */
+  .about-page .about-reading-carousel > .about-slide.about-victor-side-card {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  .about-page .about-reading-carousel > .about-slide.about-victor-side-card .about-victor-side-photo {
+    display: block;
+    width: 43%;
+    height: 100%;
+    flex: 0 0 43%;
+    object-fit: cover;
+    object-position: center;
+  }
+  .about-page .about-reading-carousel > .about-slide.about-victor-side-card .about-victor-side-copy {
+    flex: 1 1 0;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    padding: 17px 13px;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  .about-page .about-reading-carousel > .about-slide.about-victor-side-card .about-victor-side-copy p {
+    font-size: 12.5px;
+    line-height: 1.65;
+  }
+  .about-page .about-reading-carousel > .about-slide.about-victor-photo-right {
+    flex-direction: row;
+  }
+  .about-page .about-reading-carousel > .about-slide.about-victor-photo-right .about-victor-side-photo {
+    order: 2;
+  }
+  .about-page .about-reading-carousel > .about-slide.about-victor-photo-right .about-victor-side-copy {
+    order: 1;
+  }
+}
+</style>
+<style id="about-mobile-carousel-typography-2026">
+/* Typographie plus lisible : seulement sur mobile, sur les deux carrousels. */
+@media (max-width: 800px) {
+  /* Cartes de texte sans photo : présence renforcée sans changer le format. */
+  .about-page .about-reading-carousel > .about-slide:not(.about-slide-portrait):not(.about-victor-side-card) p {
+    font-size: 16.5px;
+    line-height: 1.75;
+  }
+  /* Cartes 3 et 5 de Victor : texte un peu plus grand à côté de la photo. */
+  .about-page .about-reading-carousel > .about-slide.about-victor-side-card .about-victor-side-copy p {
+    font-size: 17.5px;
+    line-height: 1.65;
+  }
+}
+</style>
+<style id="about-mobile-final-carousel-adjustments-2026">
+/* Ajustements uniquement pour la version mobile ; bureau intact. */
+.about-page .about-marjo-side-photo { display: none; }
+@media (max-width: 800px) {
+  /* Chevaux : cadrage haut droit de la bannière et du fond fixe. */
+  body.about-page::before { background-position: right top !important; }
+  .about-page .page-main > header.page-hero { background-position: right top !important; }
+
+  /* Victor : uniquement les cartes contenant du texte sans photo. */
+  .about-page .about-founder .about-reading-carousel > .about-slide:not(.about-slide-portrait):not(.about-victor-side-card) p {
+    font-size: 19px;
+    line-height: 1.6;
+  }
+
+  /* Marjo, carte 4 : texte à gauche, photo à droite, mêmes dimensions que les autres cartes. */
+  .about-page .about-team .about-reading-carousel > .about-slide.about-marjo-side-card {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: flex-start;
+    padding: 0;
+    gap: 0;
+    overflow: hidden;
+  }
+  .about-page .about-team .about-marjo-side-copy {
+    flex: 1 1 0;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    padding: 16px 12px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+  .about-page .about-team .about-marjo-side-copy p {
+    font-size: 17.5px !important;
+    line-height: 1.6 !important;
+  }
+  .about-page .about-team .about-marjo-side-photo {
+    display: block;
+    flex: 0 0 40%;
+    width: 40%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+</style>
+<style id="about-mobile-crop-and-centered-reading-2026">
+/* Retouches mobile uniquement : fond, police et centrage des cartes sans image. */
+@media (max-width: 800px) {
+  /* Déplacement de 15% de largeur/hauteur d'écran depuis l'ancrage haut droit. */
+  body.about-page::before,
+  .about-page .page-main > header.page-hero {
+    background-position: calc(100% + 25vw) calc(0px - 20vh) !important;
+  }
+  /* Les cartes sans photo sont centrées dans la hauteur utile du carrousel. */
+  .about-page .about-founder .about-reading-carousel > .about-slide:not(.about-slide-portrait):not(.about-victor-side-card),
+  .about-page .about-team .about-reading-carousel > .about-slide:not(.about-slide-portrait):not(.about-marjo-side-card) {
+    justify-content: center;
+    align-items: center;
+  }
+  .about-page .about-team .about-reading-carousel > .about-slide:not(.about-slide-portrait):not(.about-marjo-side-card) p {
+    font-size: 19px !important;
+    line-height: 1.6 !important;
+  }
+}
+</style>
+<style id="about-duo-mobile-zoom-135">
+/* Sur le terrain ensemble : zoom photo 35 % sur mobile seulement. */
+.about-page .about-duo-image-frame { display: contents; }
+@media (max-width: 800px) {
+  .about-page .about-duo-image-frame {
+    display: block;
+    order: 1;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    border-top: 1px solid rgba(255,255,255,.08);
+  }
+  .about-page .about-duo-image-frame .about-duo-mobile-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    transform: scale(1.35);
+    transform-origin: center center;
+    border-top: 0;
+  }
+}
+</style>
+<style id="about-mobile-carousel-text-center-2026">
+/* Alignement horizontal de tous les textes dans les carrousels, sans effet sur PC. */
+@media (max-width: 800px) {
+  .about-page .about-reading-carousel .about-slide p,
+  .about-page .about-reading-carousel .about-victor-side-copy p,
+  .about-page .about-reading-carousel .about-marjo-side-copy p {
+    text-align: center !important;
+  }
+  .about-page .about-reading-carousel .about-victor-side-copy,
+  .about-page .about-reading-carousel .about-marjo-side-copy {
+    justify-content: center;
+  }
+}
+</style>
+<style id="about-mobile-selected-slide-alignment-2026">
+/* Alignement du texte des cartes avec image ; autres cartes inchangées. */
+@media (max-width: 800px) {
+  /* Victor, carte 3 : image à gauche, texte aligné à gauche. */
+  .about-page .about-founder .about-victor-side-card:not(.about-victor-photo-right) .about-victor-side-copy p {
+    text-align: left !important;
+  }
+  /* Victor, carte 5 : image à droite, texte aligné à droite. */
+  .about-page .about-founder .about-victor-photo-right .about-victor-side-copy p {
+    text-align: right !important;
+  }
+  /* Marjo, carte 3 : image à droite, texte aligné à droite. */
+  .about-page .about-team .about-marjo-side-card .about-marjo-side-copy p {
+    text-align: right !important;
+  }
+}
+</style>
+<style id="about-mobile-background-transparency-2026">
+/* Sur mobile : photo chevaux ancrée en haut, fond gris laissant apparaître 10 % de l'image. */
+@media (max-width: 800px) {
+  body.about-page::before,
+  .about-page .page-main > header.page-hero {
+    background-position: calc(100% + 25vw) top !important;
+  }
+  .about-page .about-content::before {
+    background: rgba(26, 26, 26, 0.90) !important;
+  }
+}
+</style>
 </head>
 
 <body class="about-page">
@@ -1177,19 +1411,25 @@ body.cgv-page .page-main > header.cgv-hero .cgv-version {
                         </div>
                         
                         <div class="about-slide"><p>Je suis vidéaste, réalisateur et pilote de drone, à l'origine de Digital Art Production. Depuis toujours, j'aime l'image, les voyages et les aventures qui nous emmènent hors de nos habitudes.</p></div>
-                        <div class="about-slide"><p>J'ai créé Digital Art Production avec l'envie de faire de cette passion mon métier : aller à la rencontre de personnes et de projets qui ont quelque chose à raconter, et leur donner vie à travers des images qui transmettent une émotion.</p></div>
-                        <div class="about-slide"><p>Passionné par le drone et la prise de vue aérienne, j'aime prendre de la hauteur pour découvrir les paysages sous un autre angle, jouer avec les perspectives et capturer des images que l'on ne pourrait pas obtenir depuis le sol. Du drone traditionnel au FPV, j'explore les différentes possibilités de ces technologies pour apporter une dimension cinématographique et immersive à mes réalisations.</p></div>
-                        <div class="about-slide"><p>Au fil des tournages, mon travail m'a conduit aux quatre coins du monde. J'y ai découvert des univers très différents, souvent exigeants, qui m'ont appris à m'adapter, à observer et à raconter ce qui se passe vraiment sur le terrain.</p></div>
+                        <div class="about-slide about-victor-side-card" aria-label="Créer Digital Art Production">
+                            <img class="about-victor-side-photo" src="images/victor2.jpg" alt="Victor en tournage" loading="lazy">
+                            <div class="about-victor-side-copy"><p>J'ai créé Digital Art Production avec l'envie de faire de cette passion mon métier : aller à la rencontre de personnes et de projets qui ont quelque chose à raconter, et leur donner vie à travers des images qui transmettent une émotion.</p></div>
+                        </div>
+                        <div class="about-slide"><p>Passionné de prise de vue aérienne, j'utilise le drone et le FPV pour explorer de nouvelles perspectives et créer des images cinématographiques, immersives et impossibles à obtenir depuis le sol.</p></div>
+                        <div class="about-slide about-victor-side-card about-victor-photo-right" aria-label="Tournages autour du monde">
+                            <img class="about-victor-side-photo" src="images/victor3.jpg" alt="Victor sur le terrain, photographie complémentaire" loading="lazy">
+                            <div class="about-victor-side-copy"><p>Au fil des tournages, mon travail m'a conduit aux quatre coins du monde. J'y ai découvert des univers très différents, souvent exigeants, qui m'ont appris à m'adapter, à observer et à raconter ce qui se passe vraiment sur le terrain.</p></div>
+                        </div>
                         <div class="about-slide"><p>Aujourd'hui, qu'il s'agisse d'une aventure à l'autre bout du monde, d'un film pour une entreprise ou d'un événement près de chez nous, je garde la même approche : m'impliquer pleinement dans chaque projet et soigner autant l'histoire que les images.</p></div>
                     </div>
                     <div class="about-carousel-controls" aria-label="Navigation du récit">
                       <span class="about-carousel-hint">GLISSEZ POUR DÉCOUVRIR</span>
-                      <div class="about-carousel-actions"><button class="about-carousel-prev" type="button" aria-label="Texte précédent">←</button><span class="about-carousel-count" aria-live="polite">01 / 05</span><button class="about-carousel-next" type="button" aria-label="Texte suivant">→</button></div>
+                      <div class="about-carousel-actions"><button class="about-carousel-prev" type="button" aria-label="Texte précédent">←</button><span class="about-carousel-count" aria-live="polite">01 / 06</span><button class="about-carousel-next" type="button" aria-label="Texte suivant">→</button></div>
                     </div></div>
             </section>
 
             <section class="about-duo-banner" aria-label="Victor et Marjo sur le terrain">
-                <img class="about-duo-mobile-image" src="images/victor-marjo.jpg" alt="Victor et Marjo ensemble" loading="lazy">
+                <div class="about-duo-image-frame"><img class="about-duo-mobile-image" src="images/victor-marjo.jpg" alt="Victor et Marjo ensemble" loading="lazy"></div>
                 <div class="about-duo-banner-content">
                     <p class="about-kicker">Sur le terrain ensemble</p>
                     <h2>Une même énergie, une vision partagée.</h2>
@@ -1209,7 +1449,10 @@ body.cgv-page .page-main > header.cgv-hero .cgv-version {
                         </div>
                         
                         <div class="about-slide"><p>Digital Art Production, c'est avant tout une aventure que Victor a construite au fil des années. Aujourd'hui, je suis heureuse de le rejoindre pour écrire ensemble la suite de cette histoire et apporter mon regard et mes compétences à nos projets.</p></div>
-                        <div class="about-slide"><p>Mon rôle est d'intervenir à chaque étape de la production : de la préparation à l'organisation logistique, en passant par les tournages et le montage. Cette complémentarité nous permet de travailler plus efficacement, de gagner en réactivité et de réduire les délais de livraison, sans jamais compromettre la qualité de nos réalisations.</p></div>
+                        <div class="about-slide about-marjo-side-card" aria-label="Le rôle de Marjo">
+                            <div class="about-marjo-side-copy"><p>De la préparation à l'organisation logistique, en passant par les tournages et le montage, notre complémentarité nous permet de travailler plus efficacement, de gagner en réactivité et de réduire les délais de livraison, sans jamais compromettre la qualité de nos réalisations.</p></div>
+                            <img class="about-marjo-side-photo" src="images/marjo2.jpg" alt="Marjo sur le terrain" loading="lazy">
+                        </div>
                         <div class="about-slide"><p>Ce qui me plaît dans cette aventure, c'est de découvrir de nouveaux univers, de rencontrer des personnes et de contribuer à raconter leurs histoires. Ensemble, nous souhaitons offrir à chaque client un accompagnement humain et attentif, du premier échange jusqu'à la livraison du projet.</p></div>
                     </div>
                     <div class="about-carousel-controls" aria-label="Navigation du récit">

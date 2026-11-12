@@ -26,7 +26,7 @@
 
 body.prestations-page::before {
 
-    background: url("images/chevaux.jpg") center 55% / cover no-repeat;
+    background: url("images/salar.jpg") center 55% / cover no-repeat;
 
 }
 
@@ -1482,7 +1482,7 @@ body.prestations-page::before {
 }
 
 
-/* FORFAITS MENSUELS — présentation finalisée avec tarifs dans l'en-tête. */
+/* FORFAITS MENSUELS — tarifs discrets au-dessus du bouton. */
 .prestations-monthly .prestations-intro {
   max-width: 960px;
   margin: 0 auto 40px;
@@ -1511,7 +1511,7 @@ body.prestations-page::before {
 }
 .prestations-monthly .prestations-plan { min-height: 650px; }
 .prestations-monthly .prestations-plan-head {
-  min-height: 280px;
+  min-height: 175px;
   display: flex;
   flex-direction: column;
   padding: 27px 24px 23px;
@@ -1529,50 +1529,53 @@ body.prestations-page::before {
   grid-template-columns: minmax(0,1fr) minmax(0,1fr);
   align-items: start;
   gap: 8px;
-  margin-top: 12px;
-  padding: 17px 0 0 12px;
-  border-top: 1px solid rgba(255,255,255,.18);
+  margin-top: auto;
+  padding: 16px 0 0;
+  border-top: 1px solid rgba(255,255,255,.12);
 }
 .prestations-monthly .prestations-plan:nth-child(n+2) .plan-price-grid {
-  border-top-color: rgba(212,183,121,.3);
+  border-top-color: rgba(212,183,121,.16);
 }
 .prestations-monthly .plan-price-primary,
 .prestations-monthly .plan-price-secondary { min-width: 0; text-align: center; }
 .prestations-monthly .plan-price-secondary {
-  border-left: 1px solid rgba(212,183,121,.32);
+  border-left: 1px solid rgba(212,183,121,.18);
   padding-left: 8px;
 }
 .prestations-monthly .plan-price-label {
   display: block;
   min-height: 16px;
-  color: #c3c5c5;
+  color: #aeb0b1;
   font-size: 9px;
   line-height: 1.45;
   letter-spacing: .45px;
-  font-weight: 650;
+  font-weight: 400;
 }
 .prestations-monthly .plan-price-amount {
-  display: block;
-  color: #fff;
-  font-size: clamp(26px, 2.55vw, 35px);
-  line-height: 1.25;
-  letter-spacing: -.8px;
-  font-weight: 800;
+  display: inline-block;
+  color: #d3d4d4;
+  font-size: 21px;
+  line-height: 1.35;
+  letter-spacing: 0;
+  font-weight: 400;
   white-space: nowrap;
   margin: 4px 0 1px;
 }
 .prestations-monthly .plan-price-secondary .plan-price-amount {
-  color: var(--plan-accent);
-  font-size: clamp(19px, 1.9vw, 24px);
-  letter-spacing: -.4px;
+  color: #c0b49b;
+  font-size: 19px;
+  letter-spacing: 0;
   margin-top: 7px;
 }
 .prestations-monthly .plan-price-period {
-  display: block;
-  color: #c4c6c7;
+  display: inline-block;
+  color: #aeb0b1;
   font-size: 10px;
   line-height: 1.5;
+  margin-left: 3px;
 }
+.prestations-monthly .plan-price-line { white-space: nowrap; }
+.prestations-monthly .plan-price-months { display: block; font-size: 10px; color: #aeb0b1; line-height: 1.4; }
 .prestations-monthly .plan-price-single {
   display: flex;
   justify-content: center;
@@ -1588,7 +1591,7 @@ body.prestations-page::before {
   color: var(--plan-accent);
   font-weight: 750;
 }
-.prestations-monthly .prestations-plan ul { margin-bottom: 24px; }
+.prestations-monthly .prestations-plan ul { margin-bottom: 18px; }
 .prestations-monthly .prestations-plan li {
   border-bottom: 1px solid rgba(255,255,255,.08);
   margin: 0;
@@ -1596,7 +1599,7 @@ body.prestations-page::before {
 }
 .prestations-monthly .prestations-plan li:last-child { border-bottom: none; }
 .prestations-monthly .prestations-plan li::before { top: 12px; }
-.prestations-monthly .prestations-link { margin-top: auto; }
+.prestations-monthly .prestations-link { margin-top: 17px; }
 .prestations-monthly .prestations-fineprint {
   max-width: 790px;
   margin: 25px auto 0;
@@ -1623,26 +1626,43 @@ body.prestations-page::before {
   .prestations-monthly .prestations-plan { min-height: 640px; }
   .prestations-monthly .prestations-plan-head {
     padding: 26px 22px 22px;
-    min-height: 277px;
+    min-height: 170px;
   }
   .prestations-monthly .prestations-plan h3 { font-size: 29px; }
   .prestations-monthly .plan-summary { font-size: 13px; min-height: 44px; }
-  .prestations-monthly .plan-price-grid { padding-left: 9px; }
-  .prestations-monthly .plan-price-amount { font-size: clamp(26px, 8.2vw, 36px); }
-  .prestations-monthly .plan-price-secondary .plan-price-amount { font-size: clamp(19px, 5.3vw, 23px); }
+  .prestations-monthly .plan-price-grid { padding-left: 0; }
+  .prestations-monthly .plan-price-amount { font-size: 20px; }
+  .prestations-monthly .plan-price-secondary .plan-price-amount { font-size: 18px; }
   .prestations-monthly .prestations-plan-body { padding: 24px 22px 23px; }
   .prestations-monthly .prestations-intro { padding: 0 3px; }
   .prestations-monthly .prestations-fineprint { padding: 0 6px; }
 }
 
-/* PRESTATIONS — mobile : décaler l’image de fond de 10 % vers la droite,
-   en conservant son alignement vertical en haut. */
-@media (max-width: 650px) {
+
+/* Explication discrète de la baisse tarifaire après les trois premiers mois. */
+.prestations-monthly .plan-price-explanation {
+  margin: 10px 0 0;
+  color: #aeb0b1;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.45;
+  text-align: center;
+}
+
+/* PRESTATIONS — mobile : cadrage de salar.jpg déplacé de 25 points vers la gauche (100% à 75%). */
+@media (max-width: 800px) {
   body.prestations-page::before {
-    background-position: 90% top !important;
+    background-position: 75% top !important;
   }
 }
 
+/* Titres et sous-titres des trois packs mensuels : lisibilite accrue. */
+.prestations-monthly .prestations-plan h3 { font-size: clamp(30px, 2.7vw, 36px); }
+.prestations-monthly .plan-summary { font-size: 15px; }
+@media (max-width: 650px) {
+  .prestations-monthly .prestations-plan h3 { font-size: 32px; }
+  .prestations-monthly .plan-summary { font-size: 15px; }
+}
 </style>
 
 <style>
@@ -2231,13 +2251,6 @@ body .page-main > header.page-hero .page-lead {
     <span class="plan-label">FORMULE 01</span>
     <h3>Création</h3>
     <p class="plan-summary">Vous avez l'idée, nous la réalisons.</p>
-    <div class="plan-price-grid plan-price-single">
-      <div class="plan-price-primary">
-        <span class="plan-price-label">À PARTIR DE</span>
-        <strong class="plan-price-amount">420 €</strong>
-        <span class="plan-price-period">/ mois</span>
-      </div>
-    </div>
   </div>
   <div class="prestations-plan-body">
     <span class="plan-included-title">CE QUI EST INCLUS</span>
@@ -2247,6 +2260,14 @@ body .page-main > header.page-hero .page-lead {
       <li>Montage et finitions simples</li>
       <li>Livraison des vidéos prêtes à publier</li>
     </ul>
+
+    <div class="plan-price-grid plan-price-single">
+      <div class="plan-price-primary">
+        <span class="plan-price-label">À PARTIR DE</span>
+        <div class="plan-price-line"><span class="plan-price-amount">420 €</span>
+        <span class="plan-price-period">/ mois</span></div>
+      </div>
+    </div>
     <a class="prestations-link" href="contact.html?type=pack-mensuel">CONSTRUIRE MON ACCOMPAGNEMENT</a>
   </div>
 </article>
@@ -2256,18 +2277,6 @@ body .page-main > header.page-hero .page-lead {
     <span class="plan-label">FORMULE 02</span>
     <h3>Accompagnement</h3>
     <p class="plan-summary">Nous créons vos vidéos et guidons votre communication.</p>
-    <div class="plan-price-grid">
-      <div class="plan-price-primary">
-        <span class="plan-price-label">À PARTIR DE</span>
-        <strong class="plan-price-amount">590 €</strong>
-        <span class="plan-price-period">/ mois · mois 1 à 3</span>
-      </div>
-      <div class="plan-price-secondary">
-        <span class="plan-price-label">DÈS LE 4ᵉ MOIS</span>
-        <strong class="plan-price-amount">530 €</strong>
-        <span class="plan-price-period">/ mois</span>
-      </div>
-    </div>
   </div>
   <div class="prestations-plan-body">
     <span class="plan-included-title">CE QUI EST INCLUS</span>
@@ -2277,6 +2286,20 @@ body .page-main > header.page-hero .page-lead {
       <li class="plan-extra">Conseils éditoriaux</li>
       <li class="plan-extra">Création de miniatures</li>
     </ul>
+
+    <div class="plan-price-grid">
+      <div class="plan-price-primary">
+        <span class="plan-price-label">À PARTIR DE</span>
+        <div class="plan-price-line"><span class="plan-price-amount">590 €</span>
+        <span class="plan-price-period">/ mois</span></div>
+      </div>
+      <div class="plan-price-secondary">
+        <span class="plan-price-label">DÈS LE 4ᵉ MOIS</span>
+        <div class="plan-price-line"><span class="plan-price-amount">530 €</span>
+        <span class="plan-price-period">/ mois</span></div>
+      </div>
+    </div>
+    <p class="plan-price-explanation">Le tarif baisse dès le 4ᵉ mois, car l’analyse du secteur est répartie sur les trois premiers mois.</p>
     <a class="prestations-link" href="contact.html?type=pack-mensuel">CONSTRUIRE MON ACCOMPAGNEMENT</a>
   </div>
 </article>
@@ -2286,18 +2309,6 @@ body .page-main > header.page-hero .page-lead {
     <span class="plan-label">FORMULE 03</span>
     <h3>Gestion</h3>
     <p class="plan-summary">Nous créons vos contenus et gérons leur publication.</p>
-    <div class="plan-price-grid">
-      <div class="plan-price-primary">
-        <span class="plan-price-label">À PARTIR DE</span>
-        <strong class="plan-price-amount">690 €</strong>
-        <span class="plan-price-period">/ mois · mois 1 à 3</span>
-      </div>
-      <div class="plan-price-secondary">
-        <span class="plan-price-label">DÈS LE 4ᵉ MOIS</span>
-        <strong class="plan-price-amount">610 €</strong>
-        <span class="plan-price-period">/ mois</span>
-      </div>
-    </div>
   </div>
   <div class="prestations-plan-body">
     <span class="plan-included-title">CE QUI EST INCLUS</span>
@@ -2307,6 +2318,20 @@ body .page-main > header.page-hero .page-lead {
       <li class="plan-extra">Rédaction des légendes Instagram</li>
       <li class="plan-extra">Publication des contenus sur Instagram</li>
     </ul>
+
+    <div class="plan-price-grid">
+      <div class="plan-price-primary">
+        <span class="plan-price-label">À PARTIR DE</span>
+        <div class="plan-price-line"><span class="plan-price-amount">690 €</span>
+        <span class="plan-price-period">/ mois</span></div>
+      </div>
+      <div class="plan-price-secondary">
+        <span class="plan-price-label">DÈS LE 4ᵉ MOIS</span>
+        <div class="plan-price-line"><span class="plan-price-amount">610 €</span>
+        <span class="plan-price-period">/ mois</span></div>
+      </div>
+    </div>
+    <p class="plan-price-explanation">Le tarif baisse dès le 4ᵉ mois, car l’analyse du secteur est répartie sur les trois premiers mois.</p>
     <a class="prestations-link" href="contact.html?type=pack-mensuel">CONSTRUIRE MON ACCOMPAGNEMENT</a>
   </div>
 </article>
@@ -2326,7 +2351,7 @@ body .page-main > header.page-hero .page-lead {
   </button>
 </div>
 
-<p class="prestations-fineprint">Tarifs de départ calculés sur une base de <strong>2 vidéos courtes de 20 à 30 secondes par mois</strong>. Nombre de vidéos personnalisable. Engagement minimum de 3 mois. Devis adapté au volume, à la complexité des vidéos et aux prestations demandées. TVA non applicable.</p>
+<p class="prestations-fineprint">Tarifs de départ calculés sur une base de <strong>2 vidéos courtes par mois</strong>. Nombre de vidéos personnalisable. Engagement minimum de 3 mois. Devis adapté au volume, à la complexité des vidéos et aux prestations demandées. TVA non applicable.</p>
 
 </section>
 

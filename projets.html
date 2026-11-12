@@ -866,6 +866,13 @@ body .page-main > header.page-hero .page-lead {
 <div class="portfolio-card-copy"><h3>Tacoma Camping</h3><p>Farout Wilderness · 2026</p></div>
 </article>
 <article class="portfolio-card" data-category="corporate">
+<button aria-label="Activer le son de Fishing Branding" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
+<img class="portfolio-custom-poster" src="images/miniatures/corporate.jpg" alt="" loading="lazy" decoding="async" />
+<video aria-label="Vidéo Fishing Branding au format vertical" class="portfolio-preview-video" loop muted playsinline preload="none"><source src="videos/corporate/corporate13.mp4" type="video/mp4"></video>
+<span class="portfolio-format portfolio-time" aria-label="Durée de la vidéo">--:--</span></button>
+<div class="portfolio-card-copy"><h3>Fishing Branding</h3><p>undertow saltwater · 2025</p></div>
+</article>
+<article class="portfolio-card" data-category="corporate">
 <button aria-label="Activer le son de Tacoma Campfire" class="portfolio-preview is-vertical portfolio-inline-player" data-format="vertical" type="button">
 <img class="portfolio-custom-poster" src="images/miniatures/corporate11.jpg" alt="" loading="lazy" decoding="async" />
 <video aria-label="Vidéo Tacoma Campfire au format vertical" class="portfolio-preview-video" loop muted playsinline preload="none"><source src="videos/corporate/corporate11.mp4" type="video/mp4"></video>
@@ -1104,7 +1111,7 @@ body .page-main > header.page-hero .page-lead {
   const categories = ['sport', 'evenementiel', 'corporate', 'immobilier', 'fpv'];
   // Ordre de la sélection TOUS, défini indépendamment des catégories.
   // Rangées de 5 verticales ou de 2 verticales et 1 horizontale en grand écran.
-  // La dernière page est incomplète (39 vidéos au total).
+  // La dernière page est incomplète (40 vidéos au total).
   const tousOrder = [
     // Page 1 : sélection principale, 4 rangées (inchangée).
     'sport02', 'evenementiel01', 'sport06',
@@ -1115,7 +1122,7 @@ body .page-main > header.page-hero .page-lead {
     // EMC TP (horizontal) remplace les deux verticales FPV07 et SPORT12.
     'evenementiel03', 'sport01', 'fpv03',
     'sport08', 'fpv04', 'evenementiel04',
-    'corporate12', 'evenementiel06', 'corporate08', 'corporate04', 'sport04',
+    'corporate12', 'evenementiel06', 'corporate08', 'corporate04', 'corporate13', 'sport04',
     'corporate11', 'sport09', 'immobilier01',
     // Dernière page : FPV07, SPORT12, Mika Show Backstage et Teaser Lancement Mika Show.
     'fpv07', 'sport12', 'evenementiel07',
